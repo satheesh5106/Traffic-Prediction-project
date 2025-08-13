@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -63,8 +63,8 @@ export default function AuthPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [localError, setLocalError] = useState<string | null>(null);
+  
+
   const { signIn, signUp, signInWithGoogle, error: authError, user, loading: authLoading } = useAuth();
   const { toasts, showSuccess: showToastSuccess, showError, removeToast } = useToast();
   const router = useRouter();
@@ -80,9 +80,7 @@ export default function AuthPage() {
   });
 
   // Clear error function
-  const clearError = () => {
-    setLocalError(null);
-  };
+
 
   // Redirect already authenticated users
   useEffect(() => {
@@ -93,31 +91,22 @@ export default function AuthPage() {
 
   // Handle success state
   useEffect(() => {
-    if (user && !authLoading) {
-      setShowSuccess(true);
-      showToastSuccess('Authentication Successful!', 'Welcome to TrafficAI');
-      setTimeout(() => {
-        router.push('/dashboard');
-        clearError();
-      }, 1500);
+    if (user && !authLoading && typeof window !== 'undefined' && window.location.pathname !== '/dashboard') {
+      router.push('/dashboard');
     }
-  }, [user, authLoading, router, showToastSuccess]);
+  }, [user, authLoading, router]);
 
-  // Handle error state
-  useEffect(() => {
-    if (authError) {
-      showError('Authentication Failed', authError.message);
-      setLocalError(authError.message);
-    }
-  }, [authError, showError]);
+
 
   const onSubmit = async (data: any) => {
     setIsLoading(true);
     try {
       if (isSignUp) {
         await signUp(data.email, data.password);
+        showToastSuccess('Registration Successful!', 'Welcome to TrafficAI');
       } else {
         await signIn(data.email, data.password);
+        showToastSuccess('Authentication Successful!', 'Welcome to TrafficAI');
       }
       reset();
     } catch (error) {
@@ -132,6 +121,7 @@ export default function AuthPage() {
     setIsLoading(true);
     try {
       await signInWithGoogle();
+      showToastSuccess('Authentication Successful!', 'Welcome to TrafficAI');
     } catch (error) {
       console.error('Google sign in error:', error);
     } finally {
@@ -233,29 +223,7 @@ export default function AuthPage() {
         ))}
       </div>
 
-      {/* Success Overlay */}
-      <AnimatePresence>
-        {showSuccess && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center"
-          >
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              exit={{ scale: 0, rotate: 180 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-              className="bg-white rounded-3xl p-8 shadow-2xl text-center"
-            >
-              <SuccessAnimation className="w-24 h-24 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Welcome!</h3>
-              <p className="text-gray-600">Redirecting to dashboard...</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
 
       {/* Main Content */}
       <motion.div
@@ -303,25 +271,7 @@ export default function AuthPage() {
             </div>
 
             {/* Error Display */}
-            <AnimatePresence>
-              {localError && (
-                <motion.div 
-                  initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3"
-                >
-                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-                  <p className="text-red-700 text-sm flex-1">{localError}</p>
-                  <button
-                    onClick={clearError}
-                    className="text-red-500 hover:text-red-700 transition-colors"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
 
             {/* Google Sign-In Button */}
             <motion.button
@@ -353,7 +303,7 @@ export default function AuthPage() {
             </motion.div>
 
             {/* Email/Password Form */}
-            <AnimatePresence mode="wait">
+      
               <motion.form
                 key={isSignUp ? 'signup' : 'signin'}
                 initial={{ opacity: 0, x: isSignUp ? 20 : -20 }}
@@ -501,7 +451,7 @@ export default function AuthPage() {
                   )}
                 </motion.button>
               </motion.form>
-            </AnimatePresence>
+      
 
             {/* Switch Mode */}
             <motion.div variants={itemVariants} className="text-center mt-6">
@@ -509,7 +459,6 @@ export default function AuthPage() {
                 onClick={() => {
                   setIsSignUp(!isSignUp);
                   reset();
-                  clearError();
                 }}
                 className="text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200 font-medium"
               >

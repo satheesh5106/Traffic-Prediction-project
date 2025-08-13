@@ -1,4 +1,6 @@
 'use client';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 // import { CityMap } from '@/components/3d/CityMap';
 import { Shield, Zap, TrendingUp } from 'lucide-react';
 
@@ -25,6 +27,12 @@ export const Hero = () => {
             Harness the power of AI to predict traffic patterns, identify potential hazards, 
             and optimize urban mobility before problems occur.
           </p>
+
+          <Link href="/auth">
+            <Button className="mt-8 px-8 py-4 text-lg font-semibold rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-300">
+              Get started
+            </Button>
+          </Link>
 
 
 
