@@ -1,0 +1,35 @@
+GOOGLE OAUTH REDIRECT URI SETUP GUIDE
+
+This guide provides detailed steps to resolve the "Authorisation Error: Error 400: redirect_uri_mismatch" that occurs during Google Sign-in. This error indicates that the redirect URI used by your application does not match the authorized redirect URIs configured in your Google Cloud Console project.
+
+================================================================================
+STEP 1: LOCATE AUTHORIZED REDIRECT URIS IN FIREBASE CONSOLE
+================================================================================
+
+1.  **Navigate to Firebase Console**: Go to your Firebase project in the Firebase Console.
+2.  **Authentication Section**: In the left-hand menu, click on "Authentication".
+3.  **Sign-in Method Tab**: Go to the "Sign-in method" tab.
+4.  **Google Provider**: Under the "Sign-in providers" list, find and click on "Google".
+5.  **Web SDK configuration**: Look for the "Web SDK configuration" section. You might need to expand it.
+6.  **Authorized redirect URIs**: Within this section, you will find the "Authorized redirect URIs". These typically look like `https://<your-project-id>.firebaseapp.com/__/auth/handler`, `https://<your-custom-domain>/__/auth/handler`, or local development URIs like `http://localhost:3000/__/auth/handler` and `http://localhost:3001/__/auth/handler`. Copy all these URIs.
+
+================================================================================
+STEP 2: ADD REDIRECT URIS TO GOOGLE CLOUD CONSOLE
+================================================================================
+
+1. **Go to Google Cloud Console:** Open your web browser and navigate to the Google Cloud Console.
+2. **Navigate to Credentials:** In the left-hand menu, go to "APIs & Services" > "Credentials".
+3. **Identify and Edit OAuth 2.0 Client ID:**
+    *   In the Firebase Console, under the Google provider's "Web SDK configuration", note down the "Web client ID".
+    *   In the Google Cloud Console, under the "OAuth 2.0 Client IDs" section, find the client ID that matches the "Web client ID" you noted from Firebase. It might have a name like "Web client (auto created by Google Service)".
+    *   Click on the pencil icon (Edit) next to this matching OAuth 2.0 Client ID.
+4. **Add Redirect URIs:** In the "Authorized redirect URIs" field, paste the URIs you copied from the Firebase Console (from step 6 in the previous section), including any local development URIs like `http://localhost:3000/__/auth/handler`, `http://localhost:3001/__/auth/handler`, and specifically `https://trafficai-auth.firebaseapp.com/__/auth/handler` if you are encountering the redirect_uri_mismatch error. Ensure each URI is on a new line.
+5. **Save Changes:** Click the "Save" button to apply the changes.
+
+After completing these steps, the `redirect_uri_mismatch` error should be resolved. You may need to restart your development server for the changes to take effect locally.
+
+================================================================================
+STEP 3: TEST GOOGLE SIGN-IN
+================================================================================
+
+After completing the above steps, the `redirect_uri_mismatch` error should be resolved. You can now try signing in with Google again in your application. If the issue persists, double-check that all URIs were copied and pasted exactly, and that you are working within the correct Firebase and Google Cloud projects.

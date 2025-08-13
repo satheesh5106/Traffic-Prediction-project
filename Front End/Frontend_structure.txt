@@ -1,0 +1,38 @@
+Frontend Structure:
+
+- Front End/ (UI related code)
+  - Pre-requirements/app/
+    - auth/
+    - dashboard/
+    - globals.css
+    - layout.tsx
+    - page.tsx
+  - lib/components/
+    - 3d/
+    - ClientAuthProvider.tsx
+    - animations/
+    - auth/
+    - dashboard/
+    - layout/
+    - sections/
+    - ui/
+  - public/
+    - authentication/
+      - auth_middleware.js
+      - login_component.js
+      - password_reset.js
+      - registration_form.html
+      - validation_scripts.js
+    - dashboard/
+      - dashboard_navigation.js
+      - dashboard_styles.css
+      - data_visualization_components.js
+      - main_dashboard_layout.html
+      - user_profile_section.js
+    - landing-page/
+      - index.html
+      - landing_page_animations.js
+      - landing_page_script.js
+      - landing_page_styles.css
+      - welcome_content.txt
+    - ui-ux/

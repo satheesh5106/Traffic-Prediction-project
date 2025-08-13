@@ -1,0 +1,20 @@
+Backend/
+├── src/
+│   ├── config/
+│   │   ├── firebase.ts          # (Existing firebase config from /lib)
+│   │   └── database.ts         # New database configuration
+│   ├── controllers/
+│   │   ├── authController.ts    # For authentication endpoints
+│   │   └── apiController.ts    # For general API endpoints
+│   ├── routes/
+│   │   ├── authRoutes.ts       # Authentication routes
+│   │   └── apiRoutes.ts        # Main API routes
+│   ├── middleware/
+│   │   ├── authMiddleware.ts   # (Can leverage existing useAuth.ts)
+│   │   └── errorHandler.ts     # Error handling middleware
+│   ├── utils/
+│   │   └── utils.ts            # (Existing utils from /lib)
+│   └── server.ts               # Main server setup
+├── .env                        # Environment variables
+├── package.json                # Backend dependencies
+└── README.md                   # Backend documentation

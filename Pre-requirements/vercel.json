@@ -1,0 +1,26 @@
+{
+  "name": "trafficai-dashboard",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "nextConfigPath": "next.config.dashboard.js"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "status": 301,
+      "headers": {
+        "Location": "/dashboard"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

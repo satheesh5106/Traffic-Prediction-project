@@ -1,0 +1,23 @@
+Authentication/
+├── components/           # UI components related to authentication
+│   ├── LoginForm.tsx
+│   ├── RegistrationForm.tsx
+│   └── PasswordResetForm.tsx
+├── hooks/                # Custom React hooks for authentication
+│   └── useAuth.ts        # (Existing useAuth.ts from /hooks)
+├── pages/                # Pages or routes specifically for authentication flows
+│   ├── LoginPage.tsx
+│   ├── RegisterPage.tsx
+│   └── ResetPasswordPage.tsx
+├── services/             # Logic for interacting with authentication APIs (e.g., Firebase Auth)
+│   └── authService.ts
+├── utils/                # Utility functions specific to authentication
+│   └── authUtils.ts
+├── assets/               # Static assets like images, CSS for auth pages
+│   ├── auth_styles.css   # (Can leverage public/authentication styles)
+│   └── auth_images/
+├── middleware/           # Backend or frontend middleware for authentication checks
+│   └── authMiddleware.ts # (Similar to public/authentication/auth_middleware.js)
+├── types/                # TypeScript types/interfaces for authentication data
+│   └── auth.d.ts
+└── README.md             # Documentation for the authentication module
