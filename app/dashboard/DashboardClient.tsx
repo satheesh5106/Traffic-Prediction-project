@@ -21,11 +21,11 @@ import {
 } from 'lucide-react';
 
 // Import feature components
-import TrafficPrediction from '../../lib/components/dashboard/TrafficPrediction';
-import RouteOptimization from '../../lib/components/dashboard/RouteOptimization';
-import RealTimeMonitoring from '../../lib/components/dashboard/RealTimeMonitoring';
-import Analytics from '../../lib/components/dashboard/Analytics';
-import SettingsComponent from '../../lib/components/dashboard/Settings';
+import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
+import RouteOptimization from '@/components/dashboard/RouteOptimization';
+import RealTimeMonitoring from '@/components/dashboard/RealTimeMonitoring';
+import Analytics from '@/components/dashboard/Analytics';
+import SettingsComponent from '@/components/dashboard/Settings';
 
 const DashboardClient = () => {
   const { user, loading, logout } = useAuth();

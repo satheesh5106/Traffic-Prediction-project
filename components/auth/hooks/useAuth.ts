@@ -1,6 +1,5 @@
 'use client';
-import * as React from 'react';
-import { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, googleProvider } from '@/lib/firebase';
 import { signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, User, signInWithRedirect, getRedirectResult } from 'firebase/auth';
 
@@ -53,86 +52,84 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       .catch((error) => {
         setAuthError(error);
       });
-
+    
     return () => unsubscribe();
   }, []);
-
-  const signIn = async (email: string, password: string) => {
-    try {
-      setLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      setAuthError(error as Error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const signUp = async (email: string, password: string) => {
-    try {
-      setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      setAuthError(error as Error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const signInWithGoogle = async () => {
-    try {
-      setLoading(true);
-      if (typeof window !== 'undefined' && googleProvider) {
-        // Use redirect for mobile devices
-        if (window.innerWidth <= 768) {
-          await signInWithRedirect(auth, googleProvider);
-        } else {
-          await signInWithPopup(auth, googleProvider);
-        }
-      } else if (!googleProvider) {
-        throw new Error('Google authentication provider is not available');
-      }
-    } catch (error) {
-      setAuthError(error as Error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const logout = async () => {
-    try {
-      setLoading(true);
-      await signOut(auth);
-    } catch (error) {
-      setAuthError(error as Error);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
+  
+  // Use the auth error state
+  const combinedError = authError;
 
   const clearError = () => {
     setAuthError(undefined);
   };
 
-  return React.createElement(
-    AuthContext.Provider,
-    {
-      value: {
-        user,
-        loading,
-        error: authError,
+  const signIn = async (email: string, password: string) => {
+    if (!isClient || !auth) {
+      throw new Error('Authentication not available');
+    }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      clearError();
+    } catch (err) {
+      setAuthError(err as Error);
+      throw err;
+    }
+  };
+
+  const signUp = async (email: string, password: string) => {
+    if (!isClient || !auth) {
+      throw new Error('Authentication not available');
+    }
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      clearError();
+    } catch (err) {
+      setAuthError(err as Error);
+      throw err;
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    if (!isClient || !auth || !googleProvider) {
+      throw new Error('Authentication not available');
+    }
+    try {
+      await signInWithRedirect(auth, googleProvider);
+      clearError();
+    } catch (err) {
+      setAuthError(err as Error);
+      throw err;
+    }
+  };
+
+  const logout = async () => {
+    if (!isClient || !auth) {
+      throw new Error('Authentication not available');
+    }
+    try {
+      await signOut(auth);
+      clearError();
+    } catch (err) {
+      setAuthError(err as Error);
+      throw err;
+    }
+  };
+
+  return (
+    <AuthContext.Provider 
+      value={{
+        user: isClient ? user : null, 
+        loading: isClient ? loading : true,
+        error: combinedError,
         signIn,
         signUp,
         signInWithGoogle,
         logout,
         clearError
-      }
-    },
-    children
+      }}
+    >
+      {isClient ? children : null}
+    </AuthContext.Provider>
   );
 };
 
