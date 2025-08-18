@@ -1,61 +1,49 @@
-import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import * as admin from 'firebase-admin';
+import { getAuth } from 'firebase-admin/auth';
+import { getFirestore } from 'firebase-admin/firestore';
+import dotenv from 'dotenv';
 
+// Load environment variables
+dotenv.config();
+
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || 'dummy-key-for-build',
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'dummy-domain.firebaseapp.com',
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'dummy-project',
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'dummy-bucket.appspot.com',
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || '123456789',
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || '1:123456789:web:dummy'
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  apiKey: process.env.FIREBASE_API_KEY
 };
 
-let app: FirebaseApp | undefined;
-let auth: any = null;
-let db: any = null;
-let googleProvider: GoogleAuthProvider | null = null;
+// Initialize Firebase Admin if not already initialized
+let app: admin.app.App;
+let db: admin.firestore.Firestore;
+let auth: admin.auth.Auth;
 
-// Only initialize Firebase on the client side
-if (typeof window !== 'undefined') {
-  try {
-    if (!getApps().length) {
-      app = initializeApp(firebaseConfig);
+try {
+  if (!admin.apps.length) {
+    // Initialize with service account if available
+    if (process.env.FIREBASE_PRIVATE_KEY) {
+      app = admin.initializeApp({
+        credential: admin.credential.cert({
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+          privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        }),
+      });
     } else {
-      app = getApps()[0];
+      // Initialize with application default credentials or config
+      app = admin.initializeApp(firebaseConfig);
     }
-    auth = getAuth(app);
-    db = getFirestore(app);
-    
-    googleProvider = new GoogleAuthProvider();
-    googleProvider.addScope('profile');
-    googleProvider.addScope('email');
-    googleProvider.setCustomParameters({
-      prompt: 'select_account'
-    });
-  } catch (error) {
-    console.warn('Firebase initialization error:', error);
+  } else {
+    app = admin.app();
   }
+  
+  // Get Auth and Firestore instances
+  auth = getAuth(app);
+  db = getFirestore(app);
+  
+  console.log('Firebase Admin initialized successfully');
+} catch (error) {
+  console.error('Firebase Admin initialization error:', error);
 }
 
-// Safe fallbacks for SSR
-if (!auth) {
-  auth = {
-    signInWithEmailAndPassword: () => Promise.reject(new Error('Firebase not configured')),
-    createUserWithEmailAndPassword: () => Promise.reject(new Error('Firebase not configured')),
-    signInWithPopup: () => Promise.reject(new Error('Firebase not configured')),
-    signOut: () => Promise.resolve(),
-    onAuthStateChanged: () => () => {},
-    currentUser: null
-  };
-}
-
-if (!db) {
-  db = {};
-}
-
-if (!googleProvider) {
-  googleProvider = {} as GoogleAuthProvider;
-}
-
-export { app, auth, db, googleProvider };
+export { app, auth, db };

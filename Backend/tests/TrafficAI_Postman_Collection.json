@@ -1,0 +1,373 @@
+{
+  "info": {
+    "_postman_id": "b5e8d5a0-1b5a-4b5e-9b5e-8d5a01b5a4b5",
+    "name": "TrafficAI API",
+    "description": "Collection for testing the TrafficAI backend API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"securepassword\",\n  \"name\": \"Test User\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            },
+            "description": "Register a new user in the system"
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"securepassword\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Login and get authentication token"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "profile"]
+            },
+            "description": "Get the current user's profile information"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Test User\",\n  \"preferences\": {\n    \"defaultVehicle\": \"car\",\n    \"defaultRoutePriority\": \"fastest\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/profile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "profile"]
+            },
+            "description": "Update the current user's profile information"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for user authentication and profile management"
+    },
+    {
+      "name": "Traffic Prediction",
+      "item": [
+        {
+          "name": "Get Traffic Prediction",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946,\n  \"radius\": 2000,\n  \"timeframe\": 30\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/traffic-prediction",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "traffic-prediction"]
+            },
+            "description": "Get traffic prediction for a specific location and timeframe"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Traffic Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/traffic-stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "traffic-stats"]
+            },
+            "description": "Get user and global traffic prediction statistics"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Historical Traffic Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/traffic-history?latitude=12.9716&longitude=77.5946&startDate=2023-06-10T00:00:00Z&endDate=2023-06-16T23:59:59Z",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "traffic-history"],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "12.9716"
+                },
+                {
+                  "key": "longitude",
+                  "value": "77.5946"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2023-06-10T00:00:00Z"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2023-06-16T23:59:59Z"
+                }
+              ]
+            },
+            "description": "Get historical traffic data for a specific location and time period"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Traffic Alerts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/traffic-alerts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "traffic-alerts"]
+            },
+            "description": "Get traffic incidents, weather alerts, and IMD nowcast warnings"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for traffic prediction and related data"
+    },
+    {
+      "name": "Route Optimization",
+      "item": [
+        {
+          "name": "Optimize Route",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": {\n    \"latitude\": 12.9716,\n    \"longitude\": 77.5946\n  },\n  \"destination\": {\n    \"latitude\": 13.0827,\n    \"longitude\": 77.5877\n  },\n  \"priority\": \"fastest\",\n  \"vehicleType\": \"car\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/optimize-route",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "optimize-route"]
+            },
+            "description": "Get an optimized route between two points"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Route Options",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": {\n    \"latitude\": 12.9716,\n    \"longitude\": 77.5946\n  },\n  \"destination\": {\n    \"latitude\": 13.0827,\n    \"longitude\": 77.5877\n  },\n  \"vehicleType\": \"car\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/route-options",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "route-options"]
+            },
+            "description": "Get different route options (fastest, shortest, eco, scenic)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Route Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/route-stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "route-stats"]
+            },
+            "description": "Get user and global route optimization statistics"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Active Routes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{authToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/active-routes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "active-routes"]
+            },
+            "description": "Get the user's active routes"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for route optimization and related data"
+    },
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Get Server Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "Check if the server is running properly"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints for checking server health"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Auto-extract auth token from login response",
+          "if (pm.info.requestName === \"Login User\" && pm.response.code === 200) {",
+          "    const responseJson = pm.response.json();",
+          "    if (responseJson.success && responseJson.data && responseJson.data.token) {",
+          "        pm.environment.set(\"authToken\", responseJson.data.token);",
+          "        console.log(\"Auth token saved to environment\");",
+          "    }",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

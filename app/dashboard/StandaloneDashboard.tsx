@@ -10,7 +10,6 @@ import {
   BarChart3,
   Activity,
   Route,
-  Monitor,
   Settings,
   MapPin,
   TrendingUp,
@@ -19,7 +18,7 @@ import {
 
 import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
 import RouteOptimization from '@/components/dashboard/RouteOptimization';
-import RealTimeMonitoring from '@/components/dashboard/RealTimeMonitoring';
+
 import Analytics from '@/components/dashboard/Analytics';
 import SettingsComponent from '@/components/dashboard/Settings';
 
@@ -32,7 +31,6 @@ const StandaloneDashboard = () => {
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
     { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Route, label: 'Route Optimization', id: 'routes' },
-    { icon: Monitor, label: 'Real-time Monitoring', id: 'monitoring' },
     { icon: TrendingUp, label: 'Analytics', id: 'analytics' },
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];
@@ -41,7 +39,6 @@ const StandaloneDashboard = () => {
     switch (activeFeature) {
       case 'prediction': return 'Traffic Prediction';
       case 'routes': return 'Route Optimization';
-      case 'monitoring': return 'Real-time Monitoring';
       case 'analytics': return 'Analytics & Reports';
       case 'settings': return 'Settings';
       default: return 'Dashboard Overview';
@@ -54,8 +51,6 @@ const StandaloneDashboard = () => {
         return <TrafficPrediction />;
       case 'routes':
         return <RouteOptimization />;
-      case 'monitoring':
-        return <RealTimeMonitoring />;
       case 'analytics':
         return <Analytics />;
       case 'settings':

@@ -12,18 +12,19 @@ import {
   BarChart3,
   Activity,
   Route,
-  Monitor,
   Settings,
   LogOut,
   MapPin,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  Clock,
+  RefreshCw,
+  MoreHorizontal
 } from 'lucide-react';
 
 // Import feature components
 import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
 import RouteOptimization from '@/components/dashboard/RouteOptimization';
-import RealTimeMonitoring from '@/components/dashboard/RealTimeMonitoring';
 import Analytics from '@/components/dashboard/Analytics';
 import SettingsComponent from '@/components/dashboard/Settings';
 
@@ -43,7 +44,7 @@ const DashboardClient = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      router.push('/');
+      router.push('/auth');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -68,7 +69,6 @@ const DashboardClient = () => {
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
     { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Route, label: 'Route Optimization', id: 'routes' },
-    { icon: Monitor, label: 'Real-time Monitoring', id: 'monitoring' },
     { icon: TrendingUp, label: 'Analytics', id: 'analytics' },
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];
@@ -77,7 +77,6 @@ const DashboardClient = () => {
     switch (activeFeature) {
       case 'prediction': return 'Traffic Prediction';
       case 'routes': return 'Route Optimization';
-      case 'monitoring': return 'Real-time Monitoring';
       case 'analytics': return 'Analytics & Reports';
       case 'settings': return 'Settings';
       default: return 'Dashboard Overview';
@@ -90,69 +89,172 @@ const DashboardClient = () => {
         return <TrafficPrediction />;
       case 'routes':
         return <RouteOptimization />;
-      case 'monitoring':
-        return <RealTimeMonitoring />;
       case 'analytics':
         return <Analytics />;
       case 'settings':
         return <SettingsComponent />;
       default:
         return (
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600">
-                    <TrendingUp className="h-6 w-6 text-white" />
+            <div className="space-y-6">
+              {/* Summary Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600">
+                      <TrendingUp className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-full">Updated</div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
+                  <div className="text-gray-600 text-sm">Traffic Predictions</div>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="flex items-center text-xs text-gray-500">
+                      <Clock className="h-3 w-3 mr-1" /> Last updated: Today
+                    </div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
-                <div className="text-gray-600 text-sm">Traffic Predictions</div>
+                
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-green-500 to-green-600">
+                      <Route className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">Active</div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
+                  <div className="text-gray-600 text-sm">Active Routes</div>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="flex items-center text-xs text-gray-500">
+                      <Clock className="h-3 w-3 mr-1" /> Last updated: Today
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-red-500 to-red-600">
+                      <AlertCircle className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-xs font-medium text-red-600 bg-red-100 px-2 py-1 rounded-full">Attention</div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
+                  <div className="text-gray-600 text-sm">System Alerts</div>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <div className="flex items-center text-xs text-gray-500">
+                      <Clock className="h-3 w-3 mr-1" /> Last updated: Today
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-green-500 to-green-600">
-                    <Route className="h-6 w-6 text-white" />
+              {/* Data Visualization Sections */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold">Recent Traffic Patterns</h3>
+                    <div className="flex space-x-2">
+                      <button className="p-1 rounded hover:bg-gray-100">
+                        <RefreshCw className="h-4 w-4 text-gray-500" />
+                      </button>
+                      <button className="p-1 rounded hover:bg-gray-100">
+                        <MoreHorizontal className="h-4 w-4 text-gray-500" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="h-64 flex items-center justify-center border border-dashed border-gray-300 rounded-lg bg-gray-50">
+                    <div className="text-center">
+                      <BarChart3 className="h-10 w-10 text-gray-400 mx-auto mb-2" />
+                      <p className="text-gray-500">Traffic visualization will appear here</p>
+                      <button className="mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium">View Details</button>
+                    </div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
-                <div className="text-gray-600 text-sm">Active Routes</div>
+                
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold">Route Efficiency</h3>
+                    <div className="flex space-x-2">
+                      <button className="p-1 rounded hover:bg-gray-100">
+                        <RefreshCw className="h-4 w-4 text-gray-500" />
+                      </button>
+                      <button className="p-1 rounded hover:bg-gray-100">
+                        <MoreHorizontal className="h-4 w-4 text-gray-500" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="h-64 flex items-center justify-center border border-dashed border-gray-300 rounded-lg bg-gray-50">
+                    <div className="text-center">
+                      <MapPin className="h-10 w-10 text-gray-400 mx-auto mb-2" />
+                      <p className="text-gray-500">Route efficiency data will appear here</p>
+                      <button className="mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium">View Details</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600">
-                    <Monitor className="h-6 w-6 text-white" />
+              {/* Interactive Map Section */}
+              <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold text-gray-900">Interactive Traffic Map</h2>
+                  <div className="flex space-x-2">
+                    <button className="p-1 rounded hover:bg-gray-100">
+                      <RefreshCw className="h-4 w-4 text-gray-500" />
+                    </button>
+                    <button className="p-1 rounded hover:bg-gray-100">
+                      <MoreHorizontal className="h-4 w-4 text-gray-500" />
+                    </button>
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
-                <div className="text-gray-600 text-sm">Live Monitoring</div>
+                <div className="h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-500 font-medium">3D Interactive Map</p>
+                    <p className="text-gray-400 text-sm">Real-time traffic visualization</p>
+                    <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      Explore Map
+                    </button>
+                  </div>
+                </div>
               </div>
               
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-red-500 to-red-600">
-                    <AlertCircle className="h-6 w-6 text-white" />
+              {/* Recent Activity Section */}
+              <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-semibold">Recent Activity</h3>
+                  <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">View All</button>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start p-3 rounded-lg hover:bg-gray-50">
+                    <div className="p-2 rounded-full bg-blue-100 mr-3">
+                      <Activity className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">Traffic prediction updated</p>
+                      <p className="text-xs text-gray-500">30 minutes ago</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start p-3 rounded-lg hover:bg-gray-50">
+                    <div className="p-2 rounded-full bg-green-100 mr-3">
+                      <Route className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">New route optimized</p>
+                      <p className="text-xs text-gray-500">2 hours ago</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start p-3 rounded-lg hover:bg-gray-50">
+                    <div className="p-2 rounded-full bg-amber-100 mr-3">
+                      <Settings className="h-5 w-5 text-amber-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">System settings updated</p>
+                      <p className="text-xs text-gray-500">1 day ago</p>
+                    </div>
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
-                <div className="text-gray-600 text-sm">System Alerts</div>
               </div>
             </div>
-            
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Interactive Traffic Map</h2>
-              <div className="h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium">3D Interactive Map</p>
-                  <p className="text-gray-400 text-sm">Real-time traffic visualization</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
+          );
     }
   };
 
@@ -196,6 +298,10 @@ const DashboardClient = () => {
                   <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
                     <User className="h-4 w-4 text-gray-600" />
                   </div>
+                  <div className="hidden md:flex flex-col items-start mr-2">
+                    <span className="text-sm font-medium text-gray-900">{user.displayName || 'User'}</span>
+                    <span className="text-xs text-gray-500">{user.email}</span>
+                  </div>
                   <ChevronDown className="h-4 w-4 text-gray-600" />
                 </button>
                 
@@ -205,8 +311,12 @@ const DashboardClient = () => {
                       initial={{ opacity: 0, scale: 0.95, y: -10 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
+                      className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
                     >
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-medium text-gray-900">{user.displayName || 'User'}</p>
+                        <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                      </div>
                       <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2">
                         <User className="h-4 w-4" />
                         <span>Profile</span>

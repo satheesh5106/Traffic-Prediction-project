@@ -12,20 +12,18 @@ import {
   BarChart3,
   Activity,
   Route,
-  Monitor,
   Settings,
-  LogOut,
   MapPin,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  LogOut
 } from 'lucide-react';
 
 // Import feature components
-import TrafficPrediction from '../../lib/components/dashboard/TrafficPrediction';
-import RouteOptimization from '../../lib/components/dashboard/RouteOptimization';
-import RealTimeMonitoring from '../../lib/components/dashboard/RealTimeMonitoring';
-import Analytics from '../../lib/components/dashboard/Analytics';
-import SettingsComponent from '../../lib/components/dashboard/Settings';
+import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
+import RouteOptimization from '@/components/dashboard/RouteOptimization';
+import Analytics from '@/components/dashboard/Analytics';
+import SettingsComponent from '@/components/dashboard/Settings';
 
 const DashboardClient = () => {
   const { user, loading, logout } = useAuth();
@@ -43,7 +41,7 @@ const DashboardClient = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      router.push('/');
+      router.push('/auth');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -68,7 +66,6 @@ const DashboardClient = () => {
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
     { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Route, label: 'Route Optimization', id: 'routes' },
-    { icon: Monitor, label: 'Real-time Monitoring', id: 'monitoring' },
     { icon: TrendingUp, label: 'Analytics', id: 'analytics' },
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];
@@ -77,7 +74,6 @@ const DashboardClient = () => {
     switch (activeFeature) {
       case 'prediction': return 'Traffic Prediction';
       case 'routes': return 'Route Optimization';
-      case 'monitoring': return 'Real-time Monitoring';
       case 'analytics': return 'Analytics & Reports';
       case 'settings': return 'Settings';
       default: return 'Dashboard Overview';
@@ -90,8 +86,6 @@ const DashboardClient = () => {
         return <TrafficPrediction />;
       case 'routes':
         return <RouteOptimization />;
-      case 'monitoring':
-        return <RealTimeMonitoring />;
       case 'analytics':
         return <Analytics />;
       case 'settings':
@@ -122,9 +116,9 @@ const DashboardClient = () => {
               
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600">
-                    <Monitor className="h-6 w-6 text-white" />
-                  </div>
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600">
+                      <Activity className="h-6 w-6 text-white" />
+                    </div>
                 </div>
                 <div className="text-2xl font-bold text-gray-900 mb-1">--</div>
                 <div className="text-gray-600 text-sm">Live Monitoring</div>

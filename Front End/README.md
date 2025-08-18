@@ -24,7 +24,7 @@ Contents:
 
     *   auth/: Specific UI components related to authentication, like modal dialogs for login or registration.
 
-    *   dashboard/: Components specifically designed for the dashboard, including analytics, real-time monitoring, route optimization, settings, and traffic prediction modules.
+    *   dashboard/: Components specifically designed for the dashboard, including analytics, route optimization, settings, and traffic prediction modules.
 
     *   layout/: Components that contribute to the overall layout of the application, such as headers and navigation bars.
 
