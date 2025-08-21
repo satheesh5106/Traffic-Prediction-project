@@ -1,4 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
+import winston from 'winston';
+export declare const logger: winston.Logger;
 export declare class ApiError extends Error {
     statusCode: number;
     isOperational: boolean;

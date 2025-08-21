@@ -17,10 +17,8 @@ import {
 } from 'lucide-react';
 
 // Import feature components
-import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
-import RouteOptimization from '@/components/dashboard/RouteOptimization';
-import Analytics from '@/components/dashboard/Analytics';
-import SettingsComponent from '@/components/dashboard/Settings';
+// Note: Dashboard components have been converted to HTML/CSS/JS files
+// They are now available as standalone HTML files in the components/dashboard directory
 
 const StandaloneDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -48,13 +46,61 @@ const StandaloneDashboard = () => {
   const renderFeatureContent = () => {
     switch (activeFeature) {
       case 'prediction':
-        return <TrafficPrediction />;
+        return (
+          <div className="p-8 text-center">
+            <h2 className="text-2xl font-bold mb-4">Traffic Prediction Dashboard</h2>
+            <p className="text-gray-600 mb-4">This feature has been converted to a standalone HTML dashboard.</p>
+            <a 
+              href="/dashboard/TrafficPrediction.html" 
+              target="_blank" 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Open Traffic Prediction Dashboard
+            </a>
+          </div>
+        );
       case 'routes':
-        return <RouteOptimization />;
+        return (
+          <div className="p-8 text-center">
+            <h2 className="text-2xl font-bold mb-4">Route Optimization Dashboard</h2>
+            <p className="text-gray-600 mb-4">This feature has been converted to a standalone HTML dashboard.</p>
+            <a 
+              href="/dashboard/RouteOptimization.html" 
+              target="_blank" 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Open Route Optimization Dashboard
+            </a>
+          </div>
+        );
       case 'analytics':
-        return <Analytics />;
+        return (
+          <div className="p-8 text-center">
+            <h2 className="text-2xl font-bold mb-4">Analytics Dashboard</h2>
+            <p className="text-gray-600 mb-4">This feature has been converted to a standalone HTML dashboard.</p>
+            <a 
+              href="/dashboard/Analytics.html" 
+              target="_blank" 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Open Analytics Dashboard
+            </a>
+          </div>
+        );
       case 'settings':
-        return <SettingsComponent />;
+        return (
+          <div className="p-8 text-center">
+            <h2 className="text-2xl font-bold mb-4">Settings Dashboard</h2>
+            <p className="text-gray-600 mb-4">This feature has been converted to a standalone HTML dashboard.</p>
+            <a 
+              href="/dashboard/Settings.html" 
+              target="_blank" 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Open Settings Dashboard
+            </a>
+          </div>
+        );
       default:
         return (
           <div className="space-y-6">

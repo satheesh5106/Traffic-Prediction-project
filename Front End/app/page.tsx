@@ -1,11 +1,11 @@
-import { Header } from '@/lib/components/layout/Header';
-import { Hero } from '@/lib/components/sections/Hero';
-import { Features } from '@/lib/components/sections/Features';
-import { HowItWorks } from '@/lib/components/sections/HowItWorks';
-import { Metrics } from '@/lib/components/sections/Metrics';
-import { Testimonials } from '@/lib/components/sections/Testimonials';
-import { Team } from '@/lib/components/sections/Team';
-import { Footer } from '@/lib/components/sections/Footer';
+import { Header } from '../components/layout/Header';
+import { Hero } from '../components/sections/Hero';
+import { Features } from '../components/sections/Features';
+import { HowItWorks } from '../components/sections/HowItWorks';
+import { Metrics } from '../components/sections/Metrics';
+import { Testimonials } from '../components/sections/Testimonials';
+import { Team } from '../components/sections/Team';
+import { Footer } from '../components/sections/Footer';
 
 export const dynamic = 'force-dynamic';
 

@@ -5,6 +5,7 @@ const database_1 = require("../config/database");
 const errorHandler_1 = require("../middleware/errorHandler");
 const logger_1 = require("../utils/logger");
 const trafficPredictionService_1 = require("../services/trafficPredictionService");
+const enhancedTrafficPredictionService_1 = require("../services/enhancedTrafficPredictionService");
 const weatherService_1 = require("../services/weatherService");
 const trafficAPIService_1 = require("../services/trafficAPIService");
 // Initialize services
@@ -17,27 +18,40 @@ const trafficAPIService = new trafficAPIService_1.TrafficAPIService();
  * @access Private
  */
 const getTrafficPrediction = async (req, res) => {
-    const { latitude, longitude, radius, timeframe } = req.body;
-    if (!latitude || !longitude) {
-        throw new errorHandler_1.ApiError(400, 'Latitude and longitude are required');
+    // Extract parameters from either body (POST) or params (GET)
+    const latitude = req.body.latitude || parseFloat(req.params.lat);
+    const longitude = req.body.longitude || parseFloat(req.params.lng);
+    const radius = req.body.radius || parseInt(req.params.radius) || 2000;
+    const timeframe = req.body.timeframe || 30;
+    if (!latitude || !longitude || isNaN(latitude) || isNaN(longitude)) {
+        throw new errorHandler_1.ApiError(400, 'Valid latitude and longitude are required');
     }
     try {
         // Get current traffic data from API
         const liveTrafficData = await trafficAPIService.getLiveTraffic(latitude, longitude, radius || 2000);
         // Get weather data for the location
         const weatherData = await weatherService.getWeatherData(latitude, longitude);
-        // Fuse data and make prediction using GNN model
-        const prediction = await trafficPredictionService.predictTraffic(latitude, longitude, liveTrafficData, weatherData, timeframe || 30 // Default 30 minutes ahead
-        );
+        // Use enhanced service with advanced DSA algorithms
+        const enhancedPrediction = await enhancedTrafficPredictionService_1.enhancedTrafficPredictionService.getTrafficPrediction(latitude, longitude, radius || 2000);
+        // Convert to compatible format
+        const prediction = {
+            flowData: {
+                congestionLevel: enhancedPrediction.predictions.current.level,
+                speedFactor: enhancedPrediction.predictions.current.speed / 60, // Convert to factor
+                density: enhancedPrediction.predictions.current.level
+            },
+            confidence: enhancedPrediction.confidence,
+            eta: enhancedPrediction.predictions.next30min.travelTimeIndex * 30 // Convert to minutes
+        };
         // Save prediction to database
         const predictionRecord = {
             userId: req.user.uid,
             location: { latitude, longitude },
-            prediction: prediction.flowData,
-            confidence: prediction.confidence,
+            prediction: enhancedPrediction.predictions,
+            confidence: enhancedPrediction.confidence,
             eta: prediction.eta,
             createdAt: new Date(),
-            expiresAt: new Date(Date.now() + timeframe * 60 * 1000),
+            expiresAt: new Date(Date.now() + (timeframe || 30) * 60 * 1000),
         };
         await database_1.dbHelpers.create('predictions', predictionRecord);
         // Update stats
@@ -52,11 +66,15 @@ const getTrafficPrediction = async (req, res) => {
                 weather: weatherData,
                 lastUpdated: new Date(),
             },
+            performance: {
+                algorithm: 'enhanced_dsa',
+                accuracy: prediction.confidence
+            }
         });
     }
     catch (error) {
-        logger_1.logger.error('Traffic prediction error:', error);
-        // Try fallback prediction if GNN model fails
+        logger_1.logger.error('Enhanced traffic prediction error:', error);
+        // Try fallback prediction if enhanced model fails
         try {
             const fallbackPrediction = await trafficPredictionService.getFallbackPrediction(latitude, longitude);
             res.status(200).json({
@@ -88,27 +106,35 @@ const getTrafficStats = async (req, res) => {
         const userStats = await database_1.dbHelpers.getById('stats', req.user.uid);
         // Get global stats
         const globalStats = await database_1.dbHelpers.getById('stats', 'global');
+        // Get enhanced traffic statistics with DSA performance metrics
+        const enhancedStats = enhancedTrafficPredictionService_1.enhancedTrafficPredictionService.getTrafficStats();
         res.status(200).json({
             success: true,
             data: {
                 userStats: userStats || {
                     activePredictions: 0,
                     totalPredictions: 0,
-                    accuracyRate: 0,
-                    averageResponseTime: 0,
+                    accuracyRate: 0
                 },
                 globalStats: globalStats || {
                     activePredictions: 0,
                     totalPredictions: 0,
-                    accuracyRate: 0,
-                    averageResponseTime: 0,
+                    accuracyRate: 0
+                },
+                algorithms: {
+                    spatialIndexing: 'KD-Tree',
+                    caching: 'LRU + Hash Tables',
+                    prediction: 'ML + Time Series'
+                },
+                performance: {
+                    accuracy: enhancedStats.accuracy * 100
                 },
                 lastUpdated: new Date(),
             },
         });
     }
     catch (error) {
-        logger_1.logger.error('Get traffic stats error:', error);
+        logger_1.logger.error('Enhanced traffic stats error:', error);
         throw new errorHandler_1.ApiError(500, 'Failed to retrieve traffic statistics');
     }
 };
@@ -119,16 +145,19 @@ exports.getTrafficStats = getTrafficStats;
  * @access Private
  */
 const getHistoricalTraffic = async (req, res) => {
-    const { latitude, longitude, startDate, endDate } = req.query;
-    if (!latitude || !longitude) {
-        throw new errorHandler_1.ApiError(400, 'Latitude and longitude are required');
+    // Extract parameters from either query (original) or params (new city routes)
+    const latitude = parseFloat(req.query.latitude || req.params.lat);
+    const longitude = parseFloat(req.query.longitude || req.params.lng);
+    const { startDate, endDate } = req.query;
+    if (!latitude || !longitude || isNaN(latitude) || isNaN(longitude)) {
+        throw new errorHandler_1.ApiError(400, 'Valid latitude and longitude are required');
     }
     try {
         // Convert string dates to Date objects
         const start = startDate ? new Date(startDate) : new Date(Date.now() - 7 * 24 * 60 * 60 * 1000); // Default to 1 week ago
         const end = endDate ? new Date(endDate) : new Date();
         // Get historical data from service
-        const historicalData = await trafficPredictionService.getHistoricalTraffic(parseFloat(latitude), parseFloat(longitude), start, end);
+        const historicalData = await trafficPredictionService.getHistoricalTraffic(latitude, longitude, start, end);
         res.status(200).json({
             success: true,
             data: {
@@ -225,14 +254,12 @@ async function updatePredictionStats(userId) {
         // Calculate accuracy rate (simplified for now)
         const accuracyRate = 0.95; // Placeholder - would be calculated based on actual vs predicted
         // Calculate average response time (simplified for now)
-        const averageResponseTime = 0.8; // Placeholder - would be calculated from actual response times
         // Update user stats
         const updatedUserStats = {
             userId,
             activePredictions: activePredictions.length,
             totalPredictions: totalPredictions.length,
             accuracyRate,
-            averageResponseTime,
             lastUpdated: new Date(),
         };
         await database_1.dbHelpers.update('stats', userId, updatedUserStats);
@@ -253,7 +280,6 @@ async function updatePredictionStats(userId) {
                 activePredictions: 1,
                 totalPredictions: 1,
                 accuracyRate: 0.95,
-                averageResponseTime: 0.8,
                 lastUpdated: new Date(),
             });
         }

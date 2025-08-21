@@ -1,21 +1,201 @@
-# example netlify.toml
+# Netlify Configuration for TrafficAI
+# Production-ready deployment with optimized settings
+
 [build]
+  # Build configuration
+  publish = "out"
   command = "npm run build"
-  functions = "netlify/functions"
-  publish = ".next"
+  functions = "backend/netlify/functions"
+  
+  # Environment variables for build
+  environment = { NODE_VERSION = "18" }
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html"
-  #  status = 200
+[build.processing]
+  # Skip processing for better performance
+  skip_processing = false
 
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
+[build.processing.css]
+  bundle = true
+  minify = true
 
-  ## more info on configuring this file: https://ntl.fyi/file-based-build-config
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Function configuration
+[functions]
+  # Global function settings
+  directory = "backend/netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["express"]
+  
+  # Individual function configurations
+  [functions."traffic-prediction"]
+    timeout = 30
+    memory = 1024
+    included_files = ["backend/netlify/functions/traffic-prediction.js"]
+    
+  [functions."route-optimization"]
+    timeout = 30
+    memory = 1024
+    included_files = ["backend/netlify/functions/route-optimization.js"]
+    
+  [functions."auth"]
+    timeout = 30
+    memory = 1024
+    included_files = ["backend/netlify/functions/auth.js"]
+    
+  [functions."analytics"]
+    timeout = 25
+    memory = 512
+    
+  [functions."dashboard-data"]
+    timeout = 20
+    memory = 512
+    
+  [functions."vis-data"]
+    timeout = 25
+    memory = 768
+    
+  [functions."user-profile"]
+    timeout = 15
+    memory = 256
+    
+  [functions."user_profile_section"]
+    timeout = 15
+    memory = 256
+    
+  [functions."settings"]
+    timeout = 10
+    memory = 256
+    
+  [functions."auth-middleware"]
+    timeout = 10
+    memory = 256
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # CORS headers for API
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+    Access-Control-Max-Age = "86400"
+    
+    # Performance headers
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    # API-specific headers
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    # API route headers
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Redirects and rewrites
+[[redirects]]
+  from = "/api/traffic-prediction/*"
+  to = "/.netlify/functions/traffic-prediction"
+  status = 200
+  
+[[redirects]]
+  from = "/api/route-optimization/*"
+  to = "/.netlify/functions/route-optimization"
+  status = 200
+  
+[[redirects]]
+  from = "/api/analytics/*"
+  to = "/.netlify/functions/analytics"
+  status = 200
+  
+[[redirects]]
+  from = "/api/dashboard-data/*"
+  to = "/.netlify/functions/dashboard-data"
+  status = 200
+  
+[[redirects]]
+  from = "/api/vis-data/*"
+  to = "/.netlify/functions/vis-data"
+  status = 200
+  
+[[redirects]]
+  from = "/api/user-profile/*"
+  to = "/.netlify/functions/user-profile"
+  status = 200
+  
+[[redirects]]
+  from = "/api/user-profile-section/*"
+  to = "/.netlify/functions/user_profile_section"
+  status = 200
+  
+[[redirects]]
+  from = "/api/settings/*"
+  to = "/.netlify/functions/settings"
+  status = 200
+  
+[[redirects]]
+  from = "/api/auth/*"
+  to = "/.netlify/functions/auth-middleware"
+  status = 200
+
+# SPA fallback for Next.js
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment-specific configurations
+[context.production]
+  command = "npm run build"
+  
+  [context.production.environment]
+    NODE_ENV = "production"
+    NEXT_TELEMETRY_DISABLED = "1"
+
+[context.deploy-preview]
+  command = "npm run build"
+  
+  [context.deploy-preview.environment]
+    NODE_ENV = "development"
+    NEXT_TELEMETRY_DISABLED = "1"
+
+[context.branch-deploy]
+  command = "npm run build"
+  
+  [context.branch-deploy.environment]
+    NODE_ENV = "development"
+    NEXT_TELEMETRY_DISABLED = "1"
+
+# Dev server configuration
+[dev]
+  command = "npm run dev"
+  port = 3000
+  publish = "out"
+  autoLaunch = false
+  
+  # Environment variables for development
+  [dev.env]
+    NODE_ENV = "development"
+    NETLIFY_DEV = "true"

@@ -1,0 +1,157 @@
+{
+  "summary": {
+    "total": 34,
+    "passed": 0,
+    "failed": 34,
+    "successRate": "0.00"
+  },
+  "performance": {
+    "averageResponseTime": "7.65",
+    "slowestEndpoint": {
+      "testName": "GET /auth-middleware",
+      "duration": 129.82150000000001,
+      "memoryUsed": 9199456,
+      "timestamp": "2025-08-19T13:05:15.957Z"
+    },
+    "totalMemoryUsed": 50403360
+  },
+  "errors": [
+    {
+      "testName": "Valid token authentication",
+      "error": ""
+    },
+    {
+      "testName": "Invalid token rejection",
+      "error": ""
+    },
+    {
+      "testName": "Missing auth header rejection",
+      "error": ""
+    },
+    {
+      "testName": "Auth middleware health check",
+      "error": ""
+    },
+    {
+      "testName": "Live traffic data retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Traffic prediction generation",
+      "error": ""
+    },
+    {
+      "testName": "Historical traffic data retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Route optimization",
+      "error": ""
+    },
+    {
+      "testName": "Supported cities retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Vehicle types retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Current metrics retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Traffic analytics retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Chart data generation",
+      "error": ""
+    },
+    {
+      "testName": "Dashboard overview retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Real-time stats retrieval",
+      "error": ""
+    },
+    {
+      "testName": "GeoJSON data generation",
+      "error": ""
+    },
+    {
+      "testName": "Heatmap data generation",
+      "error": ""
+    },
+    {
+      "testName": "User profile retrieval",
+      "error": ""
+    },
+    {
+      "testName": "User preferences update",
+      "error": ""
+    },
+    {
+      "testName": "User settings retrieval",
+      "error": ""
+    },
+    {
+      "testName": "Settings update",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: <script>alert(\"xss\")...",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: javascript:alert(1)...",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: SELECT * FROM users...",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: ../../etc/passwd...",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: ${jndi:ldap://evil.c...",
+      "error": ""
+    },
+    {
+      "testName": "Malicious input rejection: data:text/html,<scri...",
+      "error": ""
+    },
+    {
+      "testName": "Rate limiting enforcement",
+      "error": ""
+    },
+    {
+      "testName": "Performance: /traffic-prediction?action=live&lat=19.0760&lng=72.8777",
+      "error": ""
+    },
+    {
+      "testName": "Performance: /route-optimization?action=cities",
+      "error": ""
+    },
+    {
+      "testName": "Performance: /analytics?action=metrics",
+      "error": ""
+    },
+    {
+      "testName": "Performance: /dashboard-data?action=overview",
+      "error": ""
+    },
+    {
+      "testName": "Performance: /vis-data?action=geojson&type=traffic&bounds=19.0,72.8,19.1,72.9",
+      "error": ""
+    },
+    {
+      "testName": "Concurrent request handling",
+      "error": ""
+    }
+  ],
+  "timestamp": "2025-08-19T13:05:16.143Z"
+}

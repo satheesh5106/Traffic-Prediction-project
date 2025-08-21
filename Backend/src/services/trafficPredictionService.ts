@@ -15,7 +15,6 @@ export interface TrafficPrediction {
   };
   confidence: number;
   eta: number;
-  responseTime: number;
 }
 
 export class TrafficPredictionService {
@@ -136,8 +135,7 @@ export class TrafficPredictionService {
           density: 'moderate'
         },
         confidence: (predictionObj as any).confidence || 0.7,
-        eta: (predictionObj as any).eta || 15,
-        responseTime
+        eta: (predictionObj as any).eta || 15
       };
       return result;
     } catch (error) {
@@ -389,8 +387,7 @@ export class TrafficPredictionService {
           density
         },
         confidence,
-        eta: etaMinutes,
-        responseTime: 0 // Will be updated with actual response time
+        eta: etaMinutes
       };
     } catch (error) {
       logger.error('Error processing prediction results:', error);
@@ -403,8 +400,7 @@ export class TrafficPredictionService {
           density: 'moderate'
         },
         confidence: 0.7,
-        eta: 15,
-        responseTime: 0
+        eta: 15
       };
     }
   }

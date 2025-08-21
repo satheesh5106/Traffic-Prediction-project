@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RouteOptimizationService = void 0;
 const path = __importStar(require("path"));
 const child_process_1 = require("child_process");
-const turf = __importStar(require("turf"));
+const turf = __importStar(require("@turf/turf"));
 const axios_1 = __importDefault(require("axios"));
 const logger_1 = require("../utils/logger");
 class RouteOptimizationService {

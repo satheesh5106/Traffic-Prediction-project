@@ -1,7 +1,20 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.asyncHandler = exports.errorHandler = exports.ApiError = void 0;
-const logger_1 = require("../utils/logger");
+exports.asyncHandler = exports.errorHandler = exports.ApiError = exports.logger = void 0;
+const winston_1 = __importDefault(require("winston"));
+// Create logger instance
+exports.logger = winston_1.default.createLogger({
+    level: 'info',
+    format: winston_1.default.format.combine(winston_1.default.format.timestamp(), winston_1.default.format.json()),
+    transports: [
+        new winston_1.default.transports.Console(),
+        new winston_1.default.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston_1.default.transports.File({ filename: 'combined.log' })
+    ]
+});
 // Custom error class for API errors
 class ApiError extends Error {
     constructor(statusCode, message, isOperational = true) {
@@ -32,10 +45,10 @@ const errorHandler = (err, req, res, _next) => {
     }
     // Log error
     if (isOperational) {
-        logger_1.logger.warn(`${statusCode} - ${message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+        exports.logger.warn(`${statusCode} - ${message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
     }
     else {
-        logger_1.logger.error(`${err.name}: ${err.message}`, { stack: err.stack });
+        exports.logger.error(`${err.name}: ${err.message}`, { stack: err.stack });
     }
     // Send response
     res.status(statusCode).json({

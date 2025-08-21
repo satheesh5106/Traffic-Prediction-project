@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { spawn } from 'child_process';
-import * as turf from 'turf';
+import * as turf from '@turf/turf';
 import axios from 'axios';
 import { logger } from '../utils/logger';
 

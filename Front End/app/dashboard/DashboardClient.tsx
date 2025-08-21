@@ -18,12 +18,14 @@ import {
   AlertCircle,
   LogOut
 } from 'lucide-react';
+import dynamic from 'next/dynamic';
 
-// Import feature components
-import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
-import RouteOptimization from '@/components/dashboard/RouteOptimization';
-import Analytics from '@/components/dashboard/Analytics';
-import SettingsComponent from '@/components/dashboard/Settings';
+// Dynamically import dashboard components
+const AnalyticsDashboard = dynamic(() => import('@/components/dashboard/AnalyticsDashboard'), { ssr: false });
+const SettingsDashboard = dynamic(() => import('@/components/dashboard/SettingsDashboard'), { ssr: false });
+
+// Note: Dashboard components have been converted to HTML/CSS/JS files
+// They are now available as standalone HTML files in the components/dashboard directory
 
 const DashboardClient = () => {
   const { user, loading, logout } = useAuth();
@@ -83,13 +85,37 @@ const DashboardClient = () => {
   const renderFeatureContent = () => {
     switch (activeFeature) {
       case 'prediction':
-        return <TrafficPrediction />;
+        return (
+          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+            <h2 className="text-2xl font-bold mb-4">Traffic Prediction Dashboard</h2>
+            <p className="text-gray-600 mb-6">This feature has been converted to standalone HTML files.</p>
+            <a 
+              href="/components/dashboard/TrafficPrediction.html" 
+              target="_blank"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Open Traffic Prediction Dashboard
+            </a>
+          </div>
+        );
       case 'routes':
-        return <RouteOptimization />;
+        return (
+          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+            <h2 className="text-2xl font-bold mb-4">Route Optimization Dashboard</h2>
+            <p className="text-gray-600 mb-6">This feature has been converted to standalone HTML files.</p>
+            <a 
+              href="/components/dashboard/RouteOptimization.html" 
+              target="_blank"
+              className="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+            >
+              Open Route Optimization Dashboard
+            </a>
+          </div>
+        );
       case 'analytics':
-        return <Analytics />;
+        return <AnalyticsDashboard />;
       case 'settings':
-        return <SettingsComponent />;
+        return <SettingsDashboard />;
       default:
         return (
           <div className="space-y-6">

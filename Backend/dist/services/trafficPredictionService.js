@@ -140,8 +140,7 @@ class TrafficPredictionService {
                     density: 'moderate'
                 },
                 confidence: predictionObj.confidence || 0.7,
-                eta: predictionObj.eta || 15,
-                responseTime
+                eta: predictionObj.eta || 15
             };
             return result;
         }
@@ -379,8 +378,7 @@ class TrafficPredictionService {
                     density
                 },
                 confidence,
-                eta: etaMinutes,
-                responseTime: 0 // Will be updated with actual response time
+                eta: etaMinutes
             };
         }
         catch (error) {
@@ -393,8 +391,7 @@ class TrafficPredictionService {
                     density: 'moderate'
                 },
                 confidence: 0.7,
-                eta: 15,
-                responseTime: 0
+                eta: 15
             };
         }
     }

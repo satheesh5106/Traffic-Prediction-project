@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import {
   Menu,
   Bell,
@@ -13,14 +14,16 @@ import {
   Settings,
   MapPin,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  Shield
 } from 'lucide-react';
 
-import TrafficPrediction from '@/components/dashboard/TrafficPrediction';
-import RouteOptimization from '@/components/dashboard/RouteOptimization';
-
-import Analytics from '@/components/dashboard/Analytics';
-import SettingsComponent from '@/components/dashboard/Settings';
+// Dynamically import dashboard components
+const TrafficPredictionDashboard = dynamic(() => import('@/components/dashboard/TrafficPredictionDashboard'), { ssr: false });
+const RouteOptimizationDashboard = dynamic(() => import('@/components/dashboard/RouteOptimizationDashboard'), { ssr: false });
+const IncidentPredictionDashboard = dynamic(() => import('@/components/dashboard/IncidentPredictionDashboard'), { ssr: false });
+const AnalyticsDashboard = dynamic(() => import('@/components/dashboard/AnalyticsDashboard'), { ssr: false });
+const SettingsDashboard = dynamic(() => import('@/components/dashboard/SettingsDashboard'), { ssr: false });
 
 const StandaloneDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -31,7 +34,8 @@ const StandaloneDashboard = () => {
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
     { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Route, label: 'Route Optimization', id: 'routes' },
-    { icon: TrendingUp, label: 'Analytics', id: 'analytics' },
+    { icon: Shield, label: 'Incident Prediction', id: 'incidents' },
+    { icon: TrendingUp, label: 'System Analytics', id: 'analytics' },
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];
 
@@ -48,13 +52,15 @@ const StandaloneDashboard = () => {
   const renderFeatureContent = () => {
     switch (activeFeature) {
       case 'prediction':
-        return <TrafficPrediction />;
+        return <TrafficPredictionDashboard />;
       case 'routes':
-        return <RouteOptimization />;
+        return <RouteOptimizationDashboard />;
+      case 'incidents':
+        return <IncidentPredictionDashboard />;
       case 'analytics':
-        return <Analytics />;
+        return <AnalyticsDashboard />;
       case 'settings':
-        return <SettingsComponent />;
+        return <SettingsDashboard />;
       case 'overview':
       default:
         return (

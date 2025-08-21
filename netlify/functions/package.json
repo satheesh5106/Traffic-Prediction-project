@@ -1,0 +1,35 @@
+{
+  "name": "trafficai-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for TrafficAI - Traffic Prediction and Route Optimization",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.8.1",
+    "@turf/turf": "^7.1.0",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "firebase-admin": "^13.4.0",
+    "node-cache": "^5.1.2",
+    "onesignal-node": "^3.4.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "jest": "^29.7.0"
+  },
+  "keywords": [
+    "traffic",
+    "prediction",
+    "routing",
+    "optimization",
+    "netlify",
+    "functions"
+  ],
+  "author": "TrafficAI Team",
+  "license": "MIT"
+}

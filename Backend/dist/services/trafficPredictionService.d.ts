@@ -6,7 +6,6 @@ export interface TrafficPrediction {
     };
     confidence: number;
     eta: number;
-    responseTime: number;
 }
 export declare class TrafficPredictionService {
     private model;
