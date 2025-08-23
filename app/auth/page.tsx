@@ -11,8 +11,6 @@ import { useAuth } from '@/hooks/useAuth';
 import { Chrome } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-export const dynamic = 'force-dynamic';
-
 export default function AuthPage() {
   const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signin');
   const router = useRouter();

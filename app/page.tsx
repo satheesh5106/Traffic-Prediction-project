@@ -7,8 +7,6 @@ import { Testimonials } from '@/components/sections/Testimonials';
 import { Team } from '@/components/sections/Team';
 import { Footer } from '@/components/sections/Footer';
 
-export const dynamic = 'force-dynamic';
-
 export default function Home() {
   return (
     <main className="relative">
