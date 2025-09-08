@@ -37,3 +37,18 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# ML Models and large files
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+ml_env/
+
+# Backend logs
+Backend/logs/
+
+# Node modules in subdirectories
+Backend/node_modules/
+server/node_modules/
