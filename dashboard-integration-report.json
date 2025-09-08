@@ -1,0 +1,66 @@
+{
+  "timestamp": "2025-09-04T11:27:16.599Z",
+  "summary": {
+    "total": 8,
+    "passed": 1,
+    "failed": 7,
+    "successRate": 13
+  },
+  "components": {
+    "dashboardOverview": "FAILED",
+    "weatherDashboard": "FAILED",
+    "routeOptimization": "FAILED",
+    "trafficPrediction": "FAILED",
+    "incidentPrediction": "FAILED",
+    "analyticsDashboard": "FAILED",
+    "settingsDashboard": "FAILED"
+  },
+  "details": [
+    {
+      "name": "Server Connectivity",
+      "status": "PASSED",
+      "duration": 186,
+      "result": {
+        "backend": "Online",
+        "frontend": "Online",
+        "backendPort": 3000,
+        "frontendPort": 3001
+      }
+    },
+    {
+      "name": "Dashboard Overview API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    },
+    {
+      "name": "Weather Dashboard API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    },
+    {
+      "name": "Route Optimization API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 400"
+    },
+    {
+      "name": "Traffic Prediction API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    },
+    {
+      "name": "Incident Prediction API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    },
+    {
+      "name": "Analytics Dashboard API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    },
+    {
+      "name": "Settings Dashboard API Integration",
+      "status": "FAILED",
+      "error": "Request failed with status code 403"
+    }
+  ]
+}

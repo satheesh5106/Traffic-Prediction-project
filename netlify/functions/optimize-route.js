@@ -248,25 +248,7 @@ function mockORSRequest(profile, start, end, vehicle = 'driving-car') {
 }
 
 // Calculate fuel consumption based on vehicle type and route
-function calculateFuelConsumption(distance, vehicle, profile) {
-  const fuelRates = {
-    'driving-car': 8, // km/l
-    'driving-hgv': 4, // km/l (heavy goods vehicle)
-    'cycling-regular': 0, // no fuel
-    'foot-walking': 0 // no fuel
-  };
-  
-  const rate = fuelRates[vehicle] || fuelRates['driving-car'];
-  if (rate === 0) return 0;
-  
-  let consumption = (distance / 1000) / rate; // liters
-  
-  // Adjust based on profile
-  if (profile === 'eco') consumption *= 0.7;
-  else if (profile === 'fastest') consumption *= 1.2;
-  
-  return Math.round(consumption * 100) / 100;
-}
+// Function removed - duplicate definition exists at line 724
 
 // Get traffic-aware time estimation
 async function getTrafficAwareTime(baseTime, coordinates) {

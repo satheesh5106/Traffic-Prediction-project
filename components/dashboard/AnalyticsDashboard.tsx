@@ -57,49 +57,50 @@ const AnalyticsDashboard = () => {
   });
   const [error, setError] = useState<string | null>(null);
 
-  // Mock chart data
-  const mockTrafficData = [
-    { name: 'Mon', value: 65 },
-    { name: 'Tue', value: 59 },
-    { name: 'Wed', value: 80 },
-    { name: 'Thu', value: 81 },
-    { name: 'Fri', value: 56 },
-    { name: 'Sat', value: 55 },
-    { name: 'Sun', value: 40 }
-  ];
 
-  const mockAccuracyData = [
-    { name: 'Week 1', value: 98.5 },
-    { name: 'Week 2', value: 99.1 },
-    { name: 'Week 3', value: 99.2 },
-    { name: 'Week 4', value: 99.4 }
-  ];
-
-  const mockUsageData = [
-    { name: 'Traffic Prediction', value: 45, color: 'rgba(59, 130, 246, 0.8)' },
-    { name: 'Route Optimization', value: 30, color: 'rgba(16, 185, 129, 0.8)' },
-    { name: 'Analytics', value: 15, color: 'rgba(245, 158, 11, 0.8)' },
-    { name: 'Settings', value: 10, color: 'rgba(239, 68, 68, 0.8)' }
-  ];
 
   const fetchAnalyticsData = useCallback(async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
     try {
       setIsLoading(true);
       setError(null);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // TODO: Replace with actual API call
+      // const response = await axios.get('/api/analytics', {
+      //   signal: controller.signal,
+      //   params: { timeRange: selectedTimeRange }
+      // });
       
+      // For now, set empty data arrays
       setChartData({
-        traffic: mockTrafficData,
-        accuracy: mockAccuracyData,
-        usage: mockUsageData
+        traffic: [],
+        accuracy: [],
+        usage: []
       });
       
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error fetching analytics data:', err);
-      setError('Failed to load analytics data');
+      
+      // Enhanced error handling with specific error types
+      if (err.name === 'AbortError' || err.message === 'Request timeout') {
+        setError('Request timed out. Please check your connection and try again.');
+      } else if (err.response?.status === 401) {
+        setError('Authentication required. Please log in again.');
+      } else if (err.response?.status === 403) {
+        setError('Access denied. You do not have permission to view analytics data.');
+      } else if (err.response?.status === 429) {
+        setError('Too many requests. Please wait a moment and try again.');
+      } else if (err.response?.status >= 500) {
+        setError('Server error. Our team has been notified. Please try again later.');
+      } else if (err.code === 'NETWORK_ERROR' || !navigator.onLine) {
+        setError('Network error. Please check your internet connection.');
+      } else {
+        setError(err.response?.data?.message || err.message || 'Failed to load analytics data. Please try again.');
+      }
     } finally {
+      clearTimeout(timeoutId);
       setIsLoading(false);
     }
   }, [selectedTimeRange]);

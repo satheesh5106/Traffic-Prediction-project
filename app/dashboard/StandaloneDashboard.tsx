@@ -15,10 +15,13 @@ import {
   MapPin,
   TrendingUp,
   AlertCircle,
-  Shield
+  Shield,
+  Cloud
 } from 'lucide-react';
 
 // Dynamically import dashboard components
+const DashboardOverview = dynamic(() => import('@/components/dashboard/DashboardOverview'), { ssr: false });
+const WeatherDashboard = dynamic(() => import('@/components/dashboard/WeatherDashboard'), { ssr: false });
 const TrafficPredictionDashboard = dynamic(() => import('@/components/dashboard/TrafficPredictionDashboard'), { ssr: false });
 const RouteOptimizationDashboard = dynamic(() => import('@/components/dashboard/RouteOptimizationDashboard'), { ssr: false });
 const IncidentPredictionDashboard = dynamic(() => import('@/components/dashboard/IncidentPredictionDashboard'), { ssr: false });
@@ -32,8 +35,9 @@ const StandaloneDashboard = () => {
 
   const sidebarItems = [
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
-    { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
+    { icon: Cloud, label: 'Weather and IMD ⚠️', id: 'weather' },
     { icon: Route, label: 'Route Optimization', id: 'routes' },
+    { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Shield, label: 'Incident Prediction', id: 'incidents' },
     { icon: TrendingUp, label: 'System Analytics', id: 'analytics' },
     { icon: Settings, label: 'Settings', id: 'settings' }
@@ -41,8 +45,10 @@ const StandaloneDashboard = () => {
 
   const getPageTitle = () => {
     switch (activeFeature) {
+      case 'weather': return 'Weather and IMD';
       case 'prediction': return 'Traffic Prediction';
       case 'routes': return 'Route Optimization';
+      case 'incidents': return 'Incident Prediction';
       case 'analytics': return 'Analytics & Reports';
       case 'settings': return 'Settings';
       default: return 'Dashboard Overview';
@@ -51,6 +57,8 @@ const StandaloneDashboard = () => {
 
   const renderFeatureContent = () => {
     switch (activeFeature) {
+      case 'weather':
+        return <WeatherDashboard />;
       case 'prediction':
         return <TrafficPredictionDashboard />;
       case 'routes':
@@ -63,14 +71,7 @@ const StandaloneDashboard = () => {
         return <SettingsDashboard />;
       case 'overview':
       default:
-        return (
-          <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-gray-800">Dashboard Overview</h1>
-              <p className="text-gray-600">Welcome to your TrafficAI Dashboard.</p>
-            </div>
-          </div>
-        );
+        return <DashboardOverview />;
     }
   };
 

@@ -1,0 +1,50 @@
+{"level":"info","message":"Route optimization request: mumbai to undefined","timestamp":"2025-09-04T11:50:46.969Z"}
+{"level":"info","message":"Route optimization request: mumbai to undefined","timestamp":"2025-09-04T11:59:11.273Z"}
+{"level":"info","message":"Route optimization request: mumbai to delhi","timestamp":"2025-09-04T12:00:54.187Z"}
+{"estimatedCost":1153.2412912502036,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-04T12:00:54.191Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-04T12:00:54.460Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-04T12:00:54.460Z"}
+{"level":"info","message":"Route optimization request: mumbai to delhi","timestamp":"2025-09-04T12:02:58.603Z"}
+{"estimatedCost":1153.2412912502036,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-04T12:02:58.606Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-04T12:03:02.371Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-04T12:03:02.372Z"}
+{"level":"info","message":"Route optimization request: mumbai to delhi","timestamp":"2025-09-04T12:15:05.104Z"}
+{"estimatedCost":1153.2412912502036,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-04T12:15:05.105Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-04T12:15:05.348Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-04T12:15:05.349Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:31:32.862Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:31:32.863Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:31:33.563Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T11:31:33.563Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:32:12.754Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:32:12.755Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:32:13.412Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T11:32:13.412Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:32:48.860Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:32:48.861Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:32:49.487Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T11:32:49.487Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:33:34.302Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:33:34.305Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:33:34.956Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T11:33:34.956Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:36:02.521Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:36:02.524Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:36:03.166Z"}
+{"level":"error","message":"Route optimization error: endCoords is not defined","stack":"ReferenceError: endCoords is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:646:58\n    at Array.map (<anonymous>)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/routes.js:645:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T11:36:03.166Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:36:58.426Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:36:58.427Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:36:59.140Z"}
+{"destination":"Pune","level":"info","message":"Route optimization completed","routeCount":5,"source":"Mock Data","start":"Mumbai","timestamp":"2025-09-05T11:36:59.142Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:42:49.307Z"}
+{"estimatedCost":120.15230196919705,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:42:49.309Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:42:50.152Z"}
+{"destination":"Pune","level":"info","message":"Route optimization completed","routeCount":5,"source":"Mock Data","start":"Mumbai","timestamp":"2025-09-05T11:42:50.153Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:43:35.424Z"}
+{"level":"info","message":"Returning cached route data from hash map","timestamp":"2025-09-05T11:43:35.424Z"}
+{"level":"info","message":"Route optimization request: Delhi to Chennai","timestamp":"2025-09-05T11:43:58.387Z"}
+{"estimatedCost":1767.651411147008,"level":"info","message":"A* algorithm simulation completed","nodesExplored":101,"pathLength":2,"timestamp":"2025-09-05T11:43:58.391Z"}
+{"level":"error","message":"TomTom API failed:","timestamp":"2025-09-05T11:43:59.037Z"}
+{"destination":"Chennai","level":"info","message":"Route optimization completed","routeCount":5,"source":"Mock Data","start":"Delhi","timestamp":"2025-09-05T11:43:59.038Z"}
+{"level":"info","message":"Route optimization request: Mumbai to Pune","timestamp":"2025-09-05T11:45:46.435Z"}
+{"level":"info","message":"Returning cached route data from hash map","timestamp":"2025-09-05T11:45:46.435Z"}

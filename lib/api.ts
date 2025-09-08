@@ -2,7 +2,7 @@
 
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
   ? 'https://trafficai.netlify.app/.netlify/functions'
-  : 'http://localhost:8888/.netlify/functions';
+  : 'http://localhost:3005/api';
 
 // Types for API responses
 export interface TrafficPrediction {

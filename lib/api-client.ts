@@ -4,7 +4,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 // Base API URL - uses environment variable in production, localhost in development
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8888/.netlify/functions';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
 // Default request timeout
 const DEFAULT_TIMEOUT = 30000; // 30 seconds
@@ -21,11 +21,19 @@ const apiClient = axios.create({
 // Request interceptor for adding auth token
 apiClient.interceptors.request.use(
   async (config) => {
-    // Get token from localStorage if available
-    const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
-    
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    // Get Firebase ID token if user is authenticated
+    if (typeof window !== 'undefined') {
+      try {
+        const { auth } = await import('@/lib/firebase');
+        const user = auth?.currentUser;
+        
+        if (user) {
+          const token = await user.getIdToken();
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+      } catch (error) {
+        console.warn('Failed to get Firebase ID token:', error);
+      }
     }
     
     return config;
@@ -43,10 +51,25 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       
-      // Clear token and redirect to login
+      // Try to refresh Firebase token and retry
       if (typeof window !== 'undefined') {
-        localStorage.removeItem('authToken');
-        window.location.href = '/auth';
+        try {
+          const { auth } = await import('@/lib/firebase');
+          const user = auth?.currentUser;
+          
+          if (user) {
+            // Force refresh the token
+            const token = await user.getIdToken(true);
+            originalRequest.headers.Authorization = `Bearer ${token}`;
+            return apiClient(originalRequest);
+          } else {
+            // No user, redirect to auth
+            window.location.href = '/auth';
+          }
+        } catch (refreshError) {
+          console.error('Token refresh failed:', refreshError);
+          window.location.href = '/auth';
+        }
       }
       
       return Promise.reject(error);
@@ -263,6 +286,9 @@ export const authApi = {
     return !!localStorage.getItem('authToken');
   }
 };
+
+// Export the configured axios instance
+export { apiClient };
 
 export default {
   trafficApi,

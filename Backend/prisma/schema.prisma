@@ -1,0 +1,140 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Weather {
+  id            String          @id @default(cuid())
+  location      String
+  temperature   Float
+  humidity      Int
+  forecast      Json
+  alerts        Json
+  updatedAt     DateTime        @default(now()) @updatedAt @map("updated_at")
+  createdAt     DateTime        @default(now()) @map("created_at")
+  
+  // Relationship with TrafficImpact
+  trafficImpacts TrafficImpact[]
+  
+  @@index([updatedAt])
+  @@map("weather")
+}
+
+model TrafficImpact {
+  id          String   @id @default(cuid())
+  weatherId   String   @map("weather_id")
+  impactLevel String   @map("impact_level")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  
+  // Foreign key relationship
+  weather     Weather  @relation(fields: [weatherId], references: [id], onDelete: Cascade)
+  
+  @@map("traffic_impact")
+}
+
+model Route {
+  id            String   @id @default(cuid())
+  startLocation String   @map("start_location")
+  endLocation   String   @map("end_location")
+  priority      String   // fastest, shortest, eco-friendly, scenic
+  vehicleType   String   @map("vehicle_type") // car, motorcycle, bus, truck
+  routeData     Json     @map("route_data") // paths, metrics, polyline data
+  timeSaved     Float?   @map("time_saved") // in minutes
+  fuelSaved     Float?   @map("fuel_saved") // in liters
+  trafficImpact String?  @map("traffic_impact") // traffic condition impact
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at")
+  createdAt     DateTime @default(now()) @map("created_at")
+  
+  @@index([updatedAt])
+  @@index([startLocation])
+  @@map("routes")
+}
+
+model TrafficIncident {
+  id              String   @id @default(cuid())
+  location        String
+  severity        String   // high, medium, low, critical
+  description     String
+  eta             String?  // estimated time to clear
+  predictedVolume Float?   @map("predicted_volume") // ML prediction
+  coordinates     Json?    // [lat, lng] for mapping
+  lat             Float?   // latitude for spatial indexing
+  lon             Float?   // longitude for spatial indexing
+  incidentType    String?  @map("incident_type") // congestion, accident, roadwork, event
+  confidence      String?  // ML confidence percentage
+  city            String?  // Mumbai, Delhi, etc.
+  bbox            String?  // bounding box for spatial queries
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at")
+  createdAt       DateTime @default(now()) @map("created_at")
+  
+  @@index([updatedAt])
+  @@index([city])
+  @@index([severity])
+  @@index([lat, lon]) // Spatial indexing for geographic queries
+  @@map("traffic_incidents")
+}
+
+model IncidentPrediction {
+  id                String   @id @default(cuid())
+  location          String
+  lat               Float
+  lon               Float
+  conditions        Json     // weather, traffic conditions
+  basicInfo         Json     @map("basic_info") // time, day, etc.
+  predictedSeverity String   @map("predicted_severity") // low, medium, high, critical
+  probability       Float    // prediction confidence 0-1
+  updatedAt         DateTime @default(now()) @updatedAt @map("updated_at")
+  createdAt         DateTime @default(now()) @map("created_at")
+  
+  @@index([updatedAt])
+  @@index([lat, lon])
+  @@index([predictedSeverity])
+  @@map("incident_predictions")
+}
+
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  password          String
+  name              String?
+  avatar            String?
+  theme             String   @default("light") // light, dark
+  language          String   @default("en") // en, hi, etc.
+  notifications     String   @default("{\"email\": true, \"push\": true, \"sms\": false}")
+  apiKeys           String   @default("{}")
+  preferences       String   @default("{\"units\": \"metric\", \"autoRefresh\": true}")
+  lastLogin         DateTime?
+  isActive          Boolean  @default(true)
+  role              String   @default("user") // user, admin
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @default(now()) @updatedAt @map("updated_at")
+  
+  @@index([email])
+  @@index([isActive])
+  @@map("users")
+}
+
+model SystemMetrics {
+  id                String   @id @default(cuid())
+  totalTrafficFlow  Int      @default(0) @map("total_traffic_flow")
+  activeIncidents   Int      @default(0) @map("active_incidents")
+  routesOptimized   Int      @default(0) @map("routes_optimized")
+  systemUptime      Float    @default(0) @map("system_uptime") // in hours
+  totalPredictions  Int      @default(0) @map("total_predictions")
+  accuracyRate      Float    @default(0) @map("accuracy_rate") // percentage
+  apiCalls          Int      @default(0) @map("api_calls")
+  errorRate         Float    @default(0) @map("error_rate") // percentage
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @default(now()) @updatedAt @map("updated_at")
+  
+  @@index([updatedAt])
+  @@map("system_metrics")
+}

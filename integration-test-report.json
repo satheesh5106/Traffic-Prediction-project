@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-09-04T11:13:04.654Z",
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "successRate": 0
+  },
+  "details": [
+    {
+      "name": "Backend Health Check",
+      "status": "FAILED",
+      "error": "Request failed with status code 429"
+    }
+  ]
+}
