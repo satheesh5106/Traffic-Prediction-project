@@ -202,7 +202,7 @@ app.post('/api/geocode', async (req, res) => {
 // Import routes
 const trafficRoutes = require('./routes/traffic');
 const routeRoutes = require('./routes/routes');
-const analyticsRoutes = require('./routes/analytics');
+
 const weatherRoutes = require('./routes/weather');
 const optimizationRoutes = require('./routes/optimization');
 const dashboardRoutes = require('./routes/dashboard');
@@ -213,7 +213,7 @@ const settingsRoutes = require('./routes/settings');
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/traffic', trafficRoutes);
 app.use('/api/routes', routeRoutes);
-app.use('/api/analytics', analyticsRoutes);
+
 app.use('/api/weather', weatherRoutes);
 app.use('/api/optimization', optimizationRoutes);
 app.use('/api/incident', incidentRoutes);

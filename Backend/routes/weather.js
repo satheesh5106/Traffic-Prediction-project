@@ -43,128 +43,97 @@ const imdUrls = [
   'https://mausam.imd.gov.in' // IMD main page
 ];
 
-// Function to scrape IMD data using Puppeteer for JavaScript-rendered content
-async function scrapeIMDWithPuppeteer() {
-  let browser;
+// Function to get real-time IMD data from india_weather_rest API
+async function getRealTimeIMDData() {
   try {
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-    });
+    logger.info('Fetching real-time IMD data from india_weather_rest API');
     
-    const page = await browser.newPage();
-    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-    
-    const alerts = [];
-    
-    // Scrape subdivision-wise warnings page
+    // First try the local india_weather_rest API
     try {
-      await page.goto('https://mausam.imd.gov.in/responsive/subDivisionWiseWarningGIS.php', {
-        waitUntil: 'networkidle2',
-        timeout: 30000
+      const response = await axios.get('http://localhost:5003/alerts', {
+        timeout: 10000,
+        headers: {
+          'User-Agent': 'TrafficAI/1.0'
+        }
       });
       
-      // Wait for dynamic content to load
-      await page.waitForSelector('body', { timeout: 10000 });
-      await new Promise(resolve => setTimeout(resolve, 5000));
-      
-      // Extract warning data from the page
-      const pageAlerts = await page.evaluate(() => {
+      if (response.data && response.data.alerts) {
+        logger.info(`Successfully fetched ${response.data.alerts.length} real-time alerts from india_weather_rest API`);
+        
+        // Transform the data to match our expected format
+        const transformedAlerts = response.data.alerts.map((alert, index) => ({
+          text: `${alert.type} - ${alert.region}: ${alert.description}`,
+          severity: alert.severity,
+          region: alert.region,
+          type: alert.type.toLowerCase().replace(/\s+/g, '_'),
+          validUntil: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+          source: 'india_weather_rest_api',
+          timestamp: alert.timestamp,
+          id: alert.id
+        }));
+        
+        return transformedAlerts;
+      }
+    } catch (apiError) {
+      logger.warn(`india_weather_rest API not available: ${apiError.message}`);
+    }
+    
+    // Fallback to Weather API if provided
+    const WEATHER_API_KEY = 'sk-live-vmPZRdi4VNLzpK4DOj3zvLrB5dYrz9tMXuVgf2pW';
+    if (WEATHER_API_KEY) {
+      try {
+        logger.info('Falling back to Weather API for real-time data');
+        
+        // Major Indian cities for weather alerts
+        const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune', 'Ahmedabad'];
         const alerts = [];
         
-        // Look for warning elements in various formats
-        const selectors = [
-          '.popupMessage',
-          '[class*="warning"]',
-          '[class*="alert"]',
-          'div:contains("warning")',
-          'div:contains("alert")',
-          'div:contains("cyclone")',
-          'div:contains("rain")',
-          'div:contains("storm")'
-        ];
-        
-        // Generate realistic weather alerts based on current conditions
-        const currentDate = new Date();
-        const regions = ['Northern India', 'Western Ghats', 'Coastal Karnataka', 'Eastern Rajasthan', 'Gangetic Plains', 'Northeast India', 'Central India', 'Southern Peninsula'];
-        const weatherTypes = ['Heavy Rainfall', 'Thunderstorm', 'Heat Wave', 'Cold Wave', 'Fog', 'Dust Storm', 'Cyclonic Storm', 'Flash Flood'];
-        
-        // Create realistic weather alerts
-        const generateRealisticAlerts = () => {
-          const alertsData = [
-            {
-              type: 'Heavy Rainfall',
-              region: 'Western Ghats',
-              severity: 'Orange',
-              description: 'Heavy to very heavy rainfall (64-204mm) expected over Western Ghats during next 24 hours. Isolated extremely heavy falls likely.',
-              validUntil: new Date(Date.now() + 24 * 60 * 60 * 1000)
-            },
-            {
-              type: 'Thunderstorm',
-              region: 'Gangetic Plains',
-              severity: 'Yellow', 
-              description: 'Thunderstorm with lightning and gusty winds (30-40 kmph) likely over Gangetic Plains. Hail possible at isolated places.',
-              validUntil: new Date(Date.now() + 12 * 60 * 60 * 1000)
-            },
-            {
-              type: 'Heat Wave',
-              region: 'Central India',
-              severity: 'Red',
-              description: 'Severe heat wave conditions prevailing. Maximum temperatures 4-6°C above normal. Heat wave likely to continue for next 2-3 days.',
-              validUntil: new Date(Date.now() + 72 * 60 * 60 * 1000)
-            },
-            {
-              type: 'Fog',
-              region: 'Northern Plains',
-              severity: 'Yellow',
-              description: 'Dense fog conditions likely during morning hours. Visibility may drop to 50-200 meters affecting transportation.',
-              validUntil: new Date(Date.now() + 8 * 60 * 60 * 1000)
-            },
-            {
-              type: 'Cyclonic Storm',
-              region: 'Bay of Bengal',
-              severity: 'Red',
-              description: 'Cyclonic storm over Bay of Bengal. Wind speed 80-90 kmph gusting to 100 kmph. Heavy rainfall expected along east coast.',
-              validUntil: new Date(Date.now() + 48 * 60 * 60 * 1000)
+        for (const city of cities.slice(0, 3)) { // Limit to 3 cities to avoid rate limits
+          try {
+            const weatherResponse = await axios.get(`https://api.weatherapi.com/v1/alerts.json`, {
+              params: {
+                key: WEATHER_API_KEY,
+                q: city,
+                aqi: 'no'
+              },
+              timeout: 5000
+            });
+            
+            if (weatherResponse.data && weatherResponse.data.alerts && weatherResponse.data.alerts.alert) {
+              const cityAlerts = weatherResponse.data.alerts.alert.map((alert, index) => ({
+                text: `${alert.event} - ${city}: ${alert.desc}`,
+                severity: alert.severity || 'Medium',
+                region: city,
+                type: alert.event.toLowerCase().replace(/\s+/g, '_'),
+                validUntil: alert.expires || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+                source: 'weather_api',
+                timestamp: new Date().toISOString(),
+                id: `weather_api_${city}_${index}`
+              }));
+              
+              alerts.push(...cityAlerts);
             }
-          ];
-          
-          // Select 3-5 random alerts
-          const selectedAlerts = alertsData.sort(() => 0.5 - Math.random()).slice(0, Math.floor(Math.random() * 3) + 3);
-          
-          return selectedAlerts.map(alert => ({
-            text: `${alert.type} Warning - ${alert.region}: ${alert.description}`,
-            severity: alert.severity,
-            region: alert.region,
-            type: alert.type,
-            validUntil: alert.validUntil.toISOString(),
-            source: 'subdivision_warnings',
-            timestamp: new Date().toISOString()
-          }));
-        };
+          } catch (cityError) {
+            logger.warn(`Error fetching weather data for ${city}: ${cityError.message}`);
+          }
+        }
         
-        const realisticAlerts = generateRealisticAlerts();
-        alerts.push(...realisticAlerts);
-        
-        return alerts;
-      });
-      
-      alerts.push(...pageAlerts);
-      logger.info(`Found ${pageAlerts.length} alerts from subdivision warnings page`);
-      
-    } catch (error) {
-      logger.warn(`Error scraping subdivision warnings: ${error.message}`);
+        if (alerts.length > 0) {
+          logger.info(`Successfully fetched ${alerts.length} alerts from Weather API`);
+          return alerts;
+        }
+      } catch (weatherApiError) {
+        logger.warn(`Weather API fallback failed: ${weatherApiError.message}`);
+      }
     }
     
-    return alerts;
+    // If both APIs fail, return empty array (no mock data)
+    logger.warn('All real-time data sources failed, returning empty alerts');
+    return [];
     
   } catch (error) {
-    logger.error(`Error in Puppeteer scraping: ${error.message}`);
+    logger.error(`Error fetching real-time IMD data: ${error.message}`);
     return [];
-  } finally {
-    if (browser) {
-      await browser.close();
-    }
   }
 }
 
@@ -322,7 +291,7 @@ router.get('/current', authenticateToken, async (req, res) => {
     
     // Real-time data - no caching
     
-    // Store in database for analytics
+
     try {
       await prisma.weatherData.create({
         data: {
@@ -366,11 +335,11 @@ router.get('/imd', authenticateToken, async (req, res) => {
     
     // Real-time IMD data - no caching
 
-    // Use Puppeteer to scrape JavaScript-rendered content
-    logger.info('Starting IMD scraping with Puppeteer for dynamic content');
-    const puppeteerAlerts = await scrapeIMDWithPuppeteer();
+    // Get real-time IMD data from APIs
+    logger.info('Fetching real-time IMD weather alerts');
+    const realTimeAlerts = await getRealTimeIMDData();
     
-    logger.info(`Puppeteer scraping completed - Found ${puppeteerAlerts.length} alerts`);
+    logger.info(`Real-time data fetch completed - Found ${realTimeAlerts.length} alerts`);
     
     const alerts = [];
     const currentConditions = [];
@@ -391,8 +360,8 @@ router.get('/imd', authenticateToken, async (req, res) => {
       };
     };
 
-    // Process Puppeteer scraped alerts
-    puppeteerAlerts.forEach((alert, index) => {
+    // Process real-time alerts
+    realTimeAlerts.forEach((alert, index) => {
       const alertText = alert.text;
       const locationInfo = extractLocationInfo(alertText);
       
@@ -454,15 +423,16 @@ router.get('/imd', authenticateToken, async (req, res) => {
 
     const imdData = {
       success: true,
-      alerts: uniqueAlerts.slice(0, 20), // Limit to 20 unique alerts
+      alerts: uniqueAlerts, // Show all unique alerts without limit
       current_conditions: [],
       forecast: [],
       last_updated: new Date().toISOString(),
       source: 'IMD',
       website_url: IMD_BASE_URL,
       data_sources: {
-        puppeteer_scraping: true,
-        subdivision_warnings: true
+        india_weather_rest_api: true,
+        weather_api_fallback: true,
+        real_time_data: true
       },
       coverage: {
         total_alerts: uniqueAlerts.length,
@@ -473,9 +443,9 @@ router.get('/imd', authenticateToken, async (req, res) => {
 
     // Real-time data - no caching
     
-    logger.info('IMD weather data scraped successfully with Puppeteer', { 
+    logger.info('IMD weather data fetched successfully from real-time sources', { 
       alerts: uniqueAlerts.length, 
-      puppeteer_enabled: true,
+      real_time_enabled: true,
       sources: Object.keys(imdData.data_sources).filter(k => imdData.data_sources[k]).length
     });
     
@@ -501,7 +471,7 @@ router.get('/imd', authenticateToken, async (req, res) => {
   }
 });
 
-// Route: Get weather history for analytics
+
 router.get('/history', authenticateToken, async (req, res) => {
   try {
     const { lat, lon, days = 7 } = req.query;

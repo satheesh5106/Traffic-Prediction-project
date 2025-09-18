@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { LoginForm } from './LoginForm';
 import { RegistrationForm } from './RegistrationForm';
 import { PasswordResetForm } from './PasswordResetForm';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
+import { auth } from '@/lib/firebase';
 import { Chrome } from 'lucide-react';
 
 interface AuthModalProps {
@@ -18,16 +19,20 @@ interface AuthModalProps {
 
 export function AuthModal({ isOpen, onClose, initialMode = 'signin' }: AuthModalProps) {
   const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>(initialMode);
-  const { signInWithGoogle, loading } = useAuth();
+  const { signInWithGoogle, loading } = useEnhancedAuth();
 
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle();
+      const result = await signInWithGoogle();
       onClose();
-    } catch (error) {
-      // Error is handled by the useAuth hook
+    } catch (error: any) {
+      console.error('Google sign-in failed:', error);
+      // Show user-friendly error message
+      alert(`Google sign-in failed: ${error.message}`);
     }
   };
+
+
 
   const handleSuccess = () => {
     onClose();
@@ -69,7 +74,7 @@ export function AuthModal({ isOpen, onClose, initialMode = 'signin' }: AuthModal
               disabled={loading}
             >
               <Chrome className="mr-2 h-4 w-4" />
-              Google
+              {loading ? 'Signing in...' : 'Google'}
             </Button>
             
             <div className="text-center mt-4">
@@ -102,7 +107,7 @@ export function AuthModal({ isOpen, onClose, initialMode = 'signin' }: AuthModal
               disabled={loading}
             >
               <Chrome className="mr-2 h-4 w-4" />
-              Google
+              {loading ? 'Signing in...' : 'Google'}
             </Button>
           </TabsContent>
 

@@ -206,85 +206,28 @@ export const authApi = {
    * @param {Object} userData - User registration data
    * @returns {Promise<Object>} Registration result
    */
-  register: async (userData: {
-    email: string,
-    password: string,
-    name: string
-  }) => {
-    const response = await apiClient.post('/auth/api/auth/register', userData);
-    return response.data;
-  },
-  
-  /**
-   * Login a user
-   * @param {Object} credentials - User credentials
-   * @returns {Promise<Object>} Login result with token
-   */
-  login: async (credentials: {
-    email: string,
-    password: string
-  }) => {
-    const response = await apiClient.post('/auth/api/auth/login', credentials);
-    
-    // Store token in localStorage
-    if (response.data.token && typeof window !== 'undefined') {
-      localStorage.setItem('authToken', response.data.token);
-    }
-    
-    return response.data;
-  },
+
   
   /**
    * Logout the current user
    * @returns {Promise<void>}
    */
   logout: async () => {
-    // Call logout endpoint
-    await apiClient.post('/auth/api/auth/logout');
-    
-    // Remove token from localStorage
     if (typeof window !== 'undefined') {
-      localStorage.removeItem('authToken');
+      const { auth } = await import('@/lib/firebase');
+      await auth.signOut();
     }
-  },
-  
-  /**
-   * Get the current user's profile
-   * @returns {Promise<Object>} User profile
-   */
-  getProfile: async () => {
-    const response = await apiClient.get('/auth/api/auth/profile');
-    return response.data;
-  },
-  
-  /**
-   * Update the current user's profile
-   * @param {Object} profileData - Profile data to update
-   * @returns {Promise<Object>} Updated profile
-   */
-  updateProfile: async (profileData: any) => {
-    const response = await apiClient.put('/auth/api/auth/profile', profileData);
-    return response.data;
-  },
-  
-  /**
-   * Request a password reset
-   * @param {string} email - User email
-   * @returns {Promise<Object>} Reset request result
-   */
-  requestPasswordReset: async (email: string) => {
-    const response = await apiClient.post('/auth/api/auth/password-reset', { email });
-    return response.data;
   },
   
   /**
    * Check if user is authenticated
    * @returns {boolean} Authentication status
    */
-  isAuthenticated: () => {
+  isAuthenticated: async () => {
     if (typeof window === 'undefined') return false;
-    return !!localStorage.getItem('authToken');
-  }
+    const { auth } = await import('@/lib/firebase');
+    return !!auth.currentUser;
+  },
 };
 
 // Export the configured axios instance

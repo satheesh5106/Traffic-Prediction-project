@@ -25,7 +25,7 @@ const WeatherDashboard = dynamic(() => import('@/components/dashboard/WeatherDas
 const TrafficPredictionDashboard = dynamic(() => import('@/components/dashboard/TrafficPredictionDashboard'), { ssr: false });
 const RouteOptimizationDashboard = dynamic(() => import('@/components/dashboard/RouteOptimizationDashboard'), { ssr: false });
 const IncidentPredictionDashboard = dynamic(() => import('@/components/dashboard/IncidentPredictionDashboard'), { ssr: false });
-const AnalyticsDashboard = dynamic(() => import('@/components/dashboard/AnalyticsDashboard'), { ssr: false });
+
 const SettingsDashboard = dynamic(() => import('@/components/dashboard/SettingsDashboard'), { ssr: false });
 
 const StandaloneDashboard = () => {
@@ -39,7 +39,7 @@ const StandaloneDashboard = () => {
     { icon: Route, label: 'Route Optimization', id: 'routes' },
     { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
     { icon: Shield, label: 'Incident Prediction', id: 'incidents' },
-    { icon: TrendingUp, label: 'System Analytics', id: 'analytics' },
+
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];
 
@@ -49,7 +49,7 @@ const StandaloneDashboard = () => {
       case 'prediction': return 'Traffic Prediction';
       case 'routes': return 'Route Optimization';
       case 'incidents': return 'Incident Prediction';
-      case 'analytics': return 'Analytics & Reports';
+
       case 'settings': return 'Settings';
       default: return 'Dashboard Overview';
     }
@@ -65,9 +65,8 @@ const StandaloneDashboard = () => {
         return <RouteOptimizationDashboard />;
       case 'incidents':
         return <IncidentPredictionDashboard />;
-      case 'analytics':
-        return <AnalyticsDashboard />;
-      case 'settings':
+
+              case 'settings':
         return <SettingsDashboard />;
       case 'overview':
       default:

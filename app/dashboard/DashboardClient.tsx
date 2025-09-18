@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -26,11 +26,11 @@ import dynamic from 'next/dynamic';
 // Dynamically import dashboard components
 const TrafficPredictionDashboard = dynamic(() => import('@/components/dashboard/TrafficPredictionDashboard'), { ssr: false });
 const RouteOptimizationDashboard = dynamic(() => import('@/components/dashboard/RouteOptimizationDashboard'), { ssr: false });
-const AnalyticsDashboard = dynamic(() => import('@/components/dashboard/AnalyticsDashboard'), { ssr: false });
+
 const SettingsDashboard = dynamic(() => import('@/components/dashboard/SettingsDashboard'), { ssr: false });
 
 const DashboardClient = () => {
-  const { user, loading, logout } = useAuth();
+  const { user, loading, signOut } = useEnhancedAuth();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
@@ -44,7 +44,7 @@ const DashboardClient = () => {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await signOut();
       router.push('/auth');
     } catch (error) {
       console.error('Logout error:', error);
@@ -115,8 +115,7 @@ const DashboardClient = () => {
           </div>
         );
       case 'analytics':
-        return <AnalyticsDashboard />;
-      case 'settings':
+              case 'settings':
         return <SettingsDashboard />;
       default:
         return (

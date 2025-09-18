@@ -7,14 +7,14 @@ import { Button } from '@/components/ui/button';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { RegistrationForm } from '@/components/auth/RegistrationForm';
 import { PasswordResetForm } from '@/components/auth/PasswordResetForm';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
 import { Chrome } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function AuthPage() {
   const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signin');
   const router = useRouter();
-  const { signInWithGoogle, loading, user } = useAuth();
+  const { signInWithGoogle, loading, user } = useEnhancedAuth();
   const { toast } = useToast();
 
   // If user is already logged in, redirect to dashboard

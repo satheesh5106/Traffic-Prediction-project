@@ -466,175 +466,175 @@ const IncidentPredictionDashboard = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Prediction Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
-                Incident Prediction Form
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {/* Location Input with Autocomplete */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+          {/* Left Column - Prediction Form */}
+          <div className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5" />
+                  Incident Prediction Form
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Location Input with Autocomplete */}
                 <div className="relative">
-                  <Input
-                    type="text"
-                    placeholder="Enter any location worldwide (e.g., New York, Tokyo, Mumbai)"
-                    value={formData.location}
-                    onChange={(e) => handleInputChange('location', e.target.value)}
-                    onFocus={() => formData.location.length > 2 && setShowSuggestions(true)}
-                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                    className="w-full pr-8"
-                  />
-                  {searchingLocation && (
-                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                      <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      placeholder="Enter any location worldwide (e.g., New York, Tokyo, Mumbai)"
+                      value={formData.location}
+                      onChange={(e) => handleInputChange('location', e.target.value)}
+                      onFocus={() => formData.location.length > 2 && setShowSuggestions(true)}
+                      onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                      className="w-full pr-8"
+                    />
+                    {searchingLocation && (
+                      <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                        <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Location Suggestions Dropdown */}
+                  {showSuggestions && locationSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                      {locationSuggestions.map((location, index) => {
+                        const displayName = location.address?.freeformAddress || 
+                                          `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
+                                          location.poi?.name || 'Unknown Location';
+                        const subText = location.address?.country || location.address?.countrySubdivision || '';
+                        
+                        return (
+                          <div
+                            key={index}
+                            className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                            onClick={() => selectLocation(location)}
+                          >
+                            <div className="font-medium text-gray-900">{displayName}</div>
+                            {subText && (
+                              <div className="text-sm text-gray-500">{subText}</div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
                 
-                {/* Location Suggestions Dropdown */}
-                {showSuggestions && locationSuggestions.length > 0 && (
-                  <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
-                    {locationSuggestions.map((location, index) => {
-                      const displayName = location.address?.freeformAddress || 
-                                        `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
-                                        location.poi?.name || 'Unknown Location';
-                      const subText = location.address?.country || location.address?.countrySubdivision || '';
-                      
-                      return (
-                        <div
-                          key={index}
-                          className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                          onClick={() => selectLocation(location)}
-                        >
-                          <div className="font-medium text-gray-900">{displayName}</div>
-                          {subText && (
-                            <div className="text-sm text-gray-500">{subText}</div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-              
 
-              
-              {/* Conditions */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Weather</label>
-                  <Select value={formData.weather} onValueChange={(value) => handleInputChange('weather', value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select weather" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="clear">Clear</SelectItem>
-                      <SelectItem value="rain">Rain</SelectItem>
-                      <SelectItem value="fog">Fog</SelectItem>
-                      <SelectItem value="cloudy">Cloudy</SelectItem>
-                      <SelectItem value="storm">Storm</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Traffic</label>
-                  <Select value={formData.traffic} onValueChange={(value) => handleInputChange('traffic', value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select traffic" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="moderate">Moderate</SelectItem>
-                      <SelectItem value="heavy">Heavy</SelectItem>
-                      <SelectItem value="severe">Severe</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              
-              {/* Basic Info */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
-                  <Input
-                    type="time"
-                    value={formData.time}
-                    onChange={(e) => handleInputChange('time', e.target.value)}
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Day</label>
-                  <Select value={formData.day} onValueChange={(value) => handleInputChange('day', value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select day" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="monday">Monday</SelectItem>
-                      <SelectItem value="tuesday">Tuesday</SelectItem>
-                      <SelectItem value="wednesday">Wednesday</SelectItem>
-                      <SelectItem value="thursday">Thursday</SelectItem>
-                      <SelectItem value="friday">Friday</SelectItem>
-                      <SelectItem value="saturday">Saturday</SelectItem>
-                      <SelectItem value="sunday">Sunday</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              
-              {/* Submit Button */}
-              <div className="space-y-2">
-                <div className="flex gap-2">
-                  <Button
-                    onClick={submitPrediction}
-                    disabled={isLoading || !formData.location}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
-                  >
-                    {isLoading ? (
-                      <>
-                        <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                        Predicting...
-                      </>
-                    ) : (
-                      <>
-                        <Target className="mr-2 h-4 w-4" />
-                        Predict Incident
-                      </>
-                    )}
-                  </Button>
-                  
-                  <Button
-                    onClick={togglePolling}
-                    variant={pollingActive ? "destructive" : "outline"}
-                    className="px-4"
-                    title={pollingActive ? "Stop 5s polling" : "Start 5s polling"}
-                  >
-                    {pollingActive ? (
-                      <RefreshCw className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Zap className="h-4 w-4" />
-                    )}
-                  </Button>
+                
+                {/* Conditions */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Weather</label>
+                    <Select value={formData.weather} onValueChange={(value) => handleInputChange('weather', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select weather" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="clear">Clear</SelectItem>
+                        <SelectItem value="rain">Rain</SelectItem>
+                        <SelectItem value="fog">Fog</SelectItem>
+                        <SelectItem value="cloudy">Cloudy</SelectItem>
+                        <SelectItem value="storm">Storm</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Traffic</label>
+                    <Select value={formData.traffic} onValueChange={(value) => handleInputChange('traffic', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select traffic" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="light">Light</SelectItem>
+                        <SelectItem value="moderate">Moderate</SelectItem>
+                        <SelectItem value="heavy">Heavy</SelectItem>
+                        <SelectItem value="severe">Severe</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
                 
-
-              </div>
-              
-              {/* Error Display */}
-              {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-                  <p className="text-sm text-red-600">{error}</p>
+                {/* Basic Info */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
+                    <Input
+                      type="time"
+                      value={formData.time}
+                      onChange={(e) => handleInputChange('time', e.target.value)}
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Day</label>
+                    <Select value={formData.day} onValueChange={(value) => handleInputChange('day', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select day" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="monday">Monday</SelectItem>
+                        <SelectItem value="tuesday">Tuesday</SelectItem>
+                        <SelectItem value="wednesday">Wednesday</SelectItem>
+                        <SelectItem value="thursday">Thursday</SelectItem>
+                        <SelectItem value="friday">Friday</SelectItem>
+                        <SelectItem value="saturday">Saturday</SelectItem>
+                        <SelectItem value="sunday">Sunday</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-              )}
-            </CardContent>
-          </Card>
-          
-          {/* Current Location Button */}
-          <div className="mt-4">
+                
+                {/* Submit Button */}
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <Button
+                      onClick={submitPrediction}
+                      disabled={isLoading || !formData.location}
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      {isLoading ? (
+                        <>
+                          <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                          Predicting...
+                        </>
+                      ) : (
+                        <>
+                          <Target className="mr-2 h-4 w-4" />
+                          Predict Incident
+                        </>
+                      )}
+                    </Button>
+                    
+                    <Button
+                      onClick={togglePolling}
+                      variant={pollingActive ? "destructive" : "outline"}
+                      className="px-4"
+                      title={pollingActive ? "Stop 5s polling" : "Start 5s polling"}
+                    >
+                      {pollingActive ? (
+                        <RefreshCw className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Zap className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </div>
+                  
+
+                </div>
+                
+                {/* Error Display */}
+                {error && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                    <p className="text-sm text-red-600">{error}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            
+            {/* Current Location Button - Below the form */}
             <Button
               onClick={getCurrentLocation}
               disabled={gettingLocation}
@@ -654,7 +654,7 @@ const IncidentPredictionDashboard = () => {
             </Button>
           </div>
           
-          {/* Prediction Results */}
+          {/* Right Column - Prediction Results */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">

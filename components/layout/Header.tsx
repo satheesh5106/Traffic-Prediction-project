@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { AuthModal } from '@/components/auth/AuthModal';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
 import { Menu, X, Zap, User, LogOut } from 'lucide-react';
 
 const navigation = [
@@ -18,7 +18,7 @@ export const Header = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
   const [isClient, setIsClient] = useState(false);
-  const { user, logout } = useAuth();
+  const { user, signOut } = useEnhancedAuth();
 
   useEffect(() => {
     setIsClient(true);
@@ -30,7 +30,7 @@ export const Header = () => {
   };
 
   const handleLogout = async () => {
-    await logout();
+    await signOut();
   };
 
   return (

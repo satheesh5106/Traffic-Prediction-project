@@ -142,12 +142,7 @@ verify_features() {
         exit 1
     fi
     
-    if [ -f "$COMPONENTS_DIR/AnalyticsDashboard.tsx" ]; then
-        print_success "✅ Task 6: Analytics Dashboard component exists"
-    else
-        print_error "❌ Task 6: Analytics Dashboard component missing"
-        exit 1
-    fi
+
     
     if [ -f "$COMPONENTS_DIR/SettingsDashboard.tsx" ]; then
         print_success "✅ Task 7: Settings Dashboard component exists"

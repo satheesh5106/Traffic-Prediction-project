@@ -333,7 +333,7 @@ router.get('/quick-actions', authenticateToken, (req, res) => {
       traffic_analysis: '/dashboard/traffic-prediction',
       route_planning: '/dashboard/route-optimization',
       incident_reports: '/dashboard/incident-prediction',
-      analytics: '/dashboard/analytics',
+      
       settings: '/dashboard/settings'
     };
 

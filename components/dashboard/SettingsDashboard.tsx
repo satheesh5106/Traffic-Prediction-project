@@ -71,8 +71,8 @@ const SettingsDashboard = () => {
   const [hasChanges, setHasChanges] = useState<boolean>(false);
   const [settings, setSettings] = useState<UserSettings>({
     profile: {
-      name: 'John Doe',
-      email: 'john.doe@trafficai.com',
+      name: 'Sandeep',
+      email: '9922005109@klu.ac.in',
       role: 'Administrator',
       avatar: ''
     },
@@ -86,7 +86,7 @@ const SettingsDashboard = () => {
     preferences: {
       theme: 'light',
       language: 'en',
-      timezone: 'UTC',
+      timezone: 'IST',
       dateFormat: 'MM/DD/YYYY',
       mapStyle: 'streets',
       defaultView: 'traffic'
@@ -98,8 +98,8 @@ const SettingsDashboard = () => {
       loginNotifications: true
     },
     api: {
-      apiKey: 'sk-1234567890abcdef',
-      rateLimit: '1000',
+      apiKey: ' up - comming feature',
+      rateLimit: '-',
       allowedOrigins: ['localhost:3000', 'trafficai.com']
     }
   });
@@ -366,6 +366,7 @@ const SettingsDashboard = () => {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="IST">IST</SelectItem>
                       <SelectItem value="UTC">UTC</SelectItem>
                       <SelectItem value="EST">Eastern Time</SelectItem>
                       <SelectItem value="PST">Pacific Time</SelectItem>

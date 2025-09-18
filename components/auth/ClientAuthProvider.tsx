@@ -1,7 +1,7 @@
 'use client';
 
-import { AuthProvider } from '@/hooks/useAuth';
+import { EnhancedAuthProvider } from '@/contexts/EnhancedAuthContext';
 
 export default function ClientAuthProvider({ children }: { children: React.ReactNode }) {
-  return <AuthProvider>{children}</AuthProvider>;
+  return <EnhancedAuthProvider>{children}</EnhancedAuthProvider>;
 }

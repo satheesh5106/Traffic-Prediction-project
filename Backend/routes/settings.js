@@ -59,7 +59,7 @@ const DEFAULT_SETTINGS = {
         traffic: true,
         routes: true,
         weather: true,
-        analytics: true,
+    
         incidents: true
       }
     },

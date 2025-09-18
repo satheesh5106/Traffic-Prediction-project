@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
 import { Mail, Lock, User, Loader2, Eye, EyeOff } from 'lucide-react';
 
 const registerSchema = z.object({
@@ -28,7 +28,8 @@ interface RegistrationFormProps {
 export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { signUp, loading, error, clearError } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const { signUp } = useEnhancedAuth();
   
   const {
     register,
@@ -41,13 +42,16 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
 
   const onSubmit = async (data: RegisterFormValues) => {
     try {
+      setLoading(true);
       await signUp(data.email, data.password);
       reset();
       if (onSuccess) {
         onSuccess();
       }
     } catch (err) {
-      // Error is handled by the useAuth hook
+      console.error('Registration error:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -131,9 +135,9 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
         )}
       </div>
 
-      {error && (
+      {errors && (
         <div className="bg-red-50 p-3 rounded-md">
-          <p className="text-sm text-red-500">{error.message}</p>
+          <p className="text-sm text-red-500">{Object.values(errors).map(error => error.message).join(', ')}</p>
         </div>
       )}
 

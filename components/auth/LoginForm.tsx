@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useAuth } from '@/hooks/useAuth';
+import { useEnhancedAuth } from '@/contexts/EnhancedAuthContext';
 import { Mail, Lock, Loader2, Eye, EyeOff } from 'lucide-react';
 
 const loginSchema = z.object({
@@ -23,7 +23,8 @@ interface LoginFormProps {
 
 export function LoginForm({ onSuccess }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn, loading, error, clearError } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const { signInWithEmailAndPassword } = useEnhancedAuth();
   
   const {
     register,
@@ -36,13 +37,16 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
 
   const onSubmit = async (data: LoginFormValues) => {
     try {
-      await signIn(data.email, data.password);
+      setLoading(true);
+      await signInWithEmailAndPassword(data.email, data.password);
       reset();
       if (onSuccess) {
         onSuccess();
       }
     } catch (err) {
-      // Error is handled by the useAuth hook
+      console.error('Login error:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -96,11 +100,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
         )}
       </div>
 
-      {error && (
-        <div className="bg-red-50 p-3 rounded-md">
-          <p className="text-sm text-red-500">{error.message}</p>
-        </div>
-      )}
+
 
       <Button
         type="submit"

@@ -402,7 +402,7 @@ router.post('/optimize', async (req, res) => {
       timestamp: Date.now()
     });
     
-    // Store in database for analytics
+
     try {
       await prisma.routeOptimization.create({
         data: {
@@ -613,7 +613,7 @@ router.post('/navigate', async (req, res) => {
   }
 });
 
-// Route: Get route history for analytics
+
 router.get('/history', async (req, res) => {
   try {
     const { limit = 50, vehicleType, priority } = req.query;

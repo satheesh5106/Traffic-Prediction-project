@@ -242,7 +242,7 @@ router.get('/live', authenticateToken, async (req, res) => {
     
     // Removed cache - using real-time data only
     
-    // Store in database for analytics
+
     try {
       await prisma.trafficIncident.createMany({
         data: incidents.map(incident => ({
@@ -464,7 +464,7 @@ router.get('/live/:city', authenticateToken, async (req, res) => {
     
     // Removed cache - using real-time data only
     
-    // Store in database for analytics
+
     try {
       await prisma.trafficIncident.createMany({
         data: incidents.map(incident => ({
@@ -1103,7 +1103,7 @@ router.get('/incidents/location', authenticateToken, async (req, res) => {
       timestamp: Date.now()
     });
     
-    // Store in database for analytics
+
     try {
       await prisma.trafficIncident.createMany({
         data: incidents.map(incident => ({
@@ -1513,31 +1513,13 @@ router.get('/historical/:city', authenticateToken, async (req, res) => {
       predictedVolume: incident.predictedVolume || Math.floor(Math.random() * 50) + 30
     }));
     
-    // Calculate analytics
-    const analytics = {
-      totalRecords: formattedData.length,
-      severityBreakdown: {
-        low: formattedData.filter(i => i.level === 'low').length,
-        medium: formattedData.filter(i => i.level === 'medium').length,
-        high: formattedData.filter(i => i.level === 'high').length,
-        critical: formattedData.filter(i => i.level === 'critical').length
-      },
-      averageCongestionLevel: formattedData.length > 0 ? 
-        formattedData.reduce((sum, i) => {
-          const levelValues = { low: 1, medium: 2, high: 3, critical: 4 };
-          return sum + (levelValues[i.level] || 2);
-        }, 0) / formattedData.length : 0,
-      timeRange: {
-        start: formattedData.length > 0 ? formattedData[formattedData.length - 1].timestamp : null,
-        end: formattedData.length > 0 ? formattedData[0].timestamp : null
-      }
-    };
+
     
     const result = {
       success: true,
       city: city.toLowerCase(),
       historical: formattedData,
-      analytics,
+
       timestamp: new Date().toISOString()
     };
     
@@ -1554,7 +1536,7 @@ router.get('/historical/:city', authenticateToken, async (req, res) => {
   }
 });
 
-// Route: Get enhanced historical data with analytics
+
 router.get('/historical/enhanced', authenticateToken, async (req, res) => {
   try {
     const { city, startDate, year, limit = 50 } = req.query;
@@ -1650,35 +1632,13 @@ router.get('/historical/enhanced', authenticateToken, async (req, res) => {
       };
     });
     
-    // Calculate enhanced analytics
-    const analytics = {
-      totalRecords: formattedData.length,
-      severityBreakdown: {
-        low: formattedData.filter(i => i.level === 'low').length,
-        medium: formattedData.filter(i => i.level === 'medium').length,
-        high: formattedData.filter(i => i.level === 'high').length,
-        critical: formattedData.filter(i => i.level === 'critical').length
-      },
-      averageCongestionLevel: formattedData.length > 0 ? 
-        formattedData.reduce((sum, i) => {
-          const levelValues = { low: 1, medium: 2, high: 3, critical: 4 };
-          return sum + (levelValues[i.level] || 2);
-        }, 0) / formattedData.length : 0,
-      timeRange: {
-        start: formattedData.length > 0 ? formattedData[formattedData.length - 1].timestamp : null,
-        end: formattedData.length > 0 ? formattedData[0].timestamp : null
-      },
-      averageSpeed: formattedData.length > 0 ?
-        formattedData.reduce((sum, i) => sum + (i.averageSpeed || 0), 0) / formattedData.length : 0,
-      averageVolume: formattedData.length > 0 ?
-        formattedData.reduce((sum, i) => sum + (i.predictedVolume || 0), 0) / formattedData.length : 0
-    };
+
     
     const result = {
       success: true,
       city: selectedCity,
       data: formattedData,
-      analytics,
+
       timestamp: new Date().toISOString()
     };
     

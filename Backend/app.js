@@ -226,36 +226,16 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Authentication middleware is now centralized in ./middleware/auth.js
 
-// Generate JWT token endpoint (for testing)
-app.post('/api/auth/token', (req, res) => {
-  const { username, password } = req.body;
-  
-  // Simple authentication (in production, use proper user validation)
-  if (username === 'admin' && password === 'traffic2025') {
-    const token = jwt.sign(
-      { username, role: 'admin' },
-      process.env.JWT_SECRET,
-      { expiresIn: '24h' }
-    );
-    
-    logger.info(`JWT token generated for user: ${username}`);
-    res.json({ token, expiresIn: '24h' });
-  } else {
-    logger.warn(`Failed login attempt for username: ${username}`);
-    res.status(401).json({ error: 'Invalid credentials' });
-  }
-});
-
 // Import and mount routes
 const trafficRoutes = require('./routes/traffic');
-const analyticsRoutes = require('./routes/analytics');
+
 const optimizationRoutes = require('./routes/optimization');
 const routesRoutes = require('./routes/routes');
 const weatherRoutes = require('./routes/weather');
 
 // Mount routes with JWT authentication
 app.use('/api/traffic', authenticateToken, trafficRoutes);
-app.use('/api/analytics', authenticateToken, analyticsRoutes);
+
 app.use('/api/optimization', authenticateToken, optimizationRoutes);
 app.use('/api/routes', authenticateToken, routesRoutes);
 app.use('/api/weather', authenticateToken, weatherRoutes);

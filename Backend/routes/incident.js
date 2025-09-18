@@ -484,23 +484,11 @@ router.get('/history', authenticateToken, async (req, res) => {
       }
     });
     
-    const analytics = {
-      total: predictions.length,
-      severityDistribution: {
-        low: predictions.filter(p => p.predictedSeverity === 'low').length,
-        medium: predictions.filter(p => p.predictedSeverity === 'medium').length,
-        high: predictions.filter(p => p.predictedSeverity === 'high').length,
-        critical: predictions.filter(p => p.predictedSeverity === 'critical').length
-      },
-      averageConfidence: predictions.length > 0 
-        ? (predictions.reduce((sum, p) => sum + p.probability, 0) / predictions.length).toFixed(2)
-        : 0,
-      locations: [...new Set(predictions.map(p => p.location))].slice(0, 10)
-    };
+
     
     res.json({
       predictions,
-      analytics,
+
       metadata: {
         timestamp: new Date().toISOString(),
         filters: { location, severity, limit },

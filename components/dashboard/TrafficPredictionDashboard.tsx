@@ -1060,15 +1060,15 @@ const TrafficPredictionDashboard = () => {
   // State variables
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [metrics, setMetrics] = useState({
-    lastUpdated: 'Just now',
+    lastUpdated: 'few sec ago',
     systemStatus: 'Active',
-    activePredictions: '2,847',
-    activeCities: '15',
-    accuracyRate: '99.7%',
-    criticalAlerts: '2',
-    mlAccuracy: '99.8%',
-    apiLatency: '180ms',
-    realTimeUpdates: '847'
+    activePredictions: ' - ',
+    activeCities: ' - ',
+    accuracyRate: '90.7%',
+    criticalAlerts: ' - ',
+    mlAccuracy: '88.8%',
+    apiLatency: '250ms',
+    realTimeUpdates: ' - '
   });
   
   // ✅ Real-time Metrics: Add state for /metrics endpoint data
