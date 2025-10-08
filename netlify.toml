@@ -5,10 +5,10 @@
   # Build configuration
   publish = "out"
   command = "npm run build"
-  functions = "backend/netlify/functions"
+  functions = "netlify/functions"
   
-  # Environment variables for build
-  environment = { NODE_VERSION = "18" }
+  # Environment variables for build - Updated to Node 20 for better compatibility
+  environment = { NODE_VERSION = "20", PYTHON_VERSION = "3.11" }
 
 [build.processing]
   # Skip processing for better performance
@@ -28,7 +28,7 @@
 # Function configuration
 [functions]
   # Global function settings
-  directory = "backend/netlify/functions"
+  directory = "netlify/functions"
   node_bundler = "esbuild"
   external_node_modules = ["express"]
   
@@ -36,17 +36,17 @@
   [functions."traffic-prediction"]
     timeout = 30
     memory = 1024
-    included_files = ["backend/netlify/functions/traffic-prediction.js"]
+    included_files = ["netlify/functions/traffic-prediction.js"]
     
   [functions."route-optimization"]
     timeout = 30
     memory = 1024
-    included_files = ["backend/netlify/functions/route-optimization.js"]
+    included_files = ["netlify/functions/route-optimization.js"]
     
   [functions."auth"]
     timeout = 30
     memory = 1024
-    included_files = ["backend/netlify/functions/auth.js"]
+    included_files = ["netlify/functions/auth.js"]
     
   [functions."analytics"]
     timeout = 25
