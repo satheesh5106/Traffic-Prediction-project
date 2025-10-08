@@ -31,36 +31,68 @@ const routeCache = new Map();
 
 // Removed cityCoordinates mock data - using only TomTom API
 
-// Geocoding function to convert city names to coordinates using only TomTom API
+// Enhanced geocoding function with OpenStreetMap fallback for better village support
 async function geocodeLocation(location) {
   // If already coordinates, return as is
   if (typeof location === 'object' && location.lat && location.lon) {
     return location;
   }
   
-  // If string, try to geocode using TomTom API only
+  // If string, try to geocode using TomTom API first, then OpenStreetMap as fallback
   if (typeof location === 'string') {
+    // Try TomTom API first
     if (TOMTOM_API_KEY && TOMTOM_API_KEY.length > 10) {
       try {
         const geocodeUrl = `${TOMTOM_SEARCH_BASE}/${encodeURIComponent(location)}.json`;
         const response = await axios.get(geocodeUrl, {
-          params: { key: TOMTOM_API_KEY, limit: 1 },
+          params: { key: TOMTOM_API_KEY, limit: 1, countrySet: 'IN' },
           timeout: 5000
         });
         
         if (response.data && response.data.results && response.data.results.length > 0) {
           const result = response.data.results[0];
+          logger.info(`TomTom geocoding successful for ${location}`);
           return {
             lat: result.position.lat,
             lon: result.position.lon
           };
         }
       } catch (error) {
-        logger.warn(`Geocoding failed for ${location}: ${error.message}`);
+        logger.warn(`TomTom geocoding failed for ${location}: ${error.message}`);
       }
     }
     
-    // Return null if geocoding fails
+    // Fallback to OpenStreetMap Nominatim API for better village coverage
+    try {
+      const osmUrl = 'https://nominatim.openstreetmap.org/search';
+      const response = await axios.get(osmUrl, {
+        params: {
+          q: `${location}, India`,
+          format: 'json',
+          limit: 1,
+          countrycodes: 'in',
+          addressdetails: 1
+        },
+        timeout: 5000,
+        headers: {
+          'User-Agent': 'TrafficAI-RouteOptimizer/1.0'
+        }
+      });
+      
+      if (response.data && response.data.length > 0) {
+        const result = response.data[0];
+        logger.info(`OpenStreetMap geocoding successful for ${location}`);
+        return {
+          lat: parseFloat(result.lat),
+          lon: parseFloat(result.lon)
+        };
+      }
+    } catch (error) {
+      logger.warn(`OpenStreetMap geocoding failed for ${location}: ${error.message}`);
+    }
+    
+    // Return null if all geocoding attempts fail
+    logger.error(`All geocoding attempts failed for location: ${location}`);
     return null;
   }
   

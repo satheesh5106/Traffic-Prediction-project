@@ -2,7 +2,7 @@
 
 const { v4: uuidv4 } = require('uuid');
 
-// Indian cities and major routes for realistic mock data
+// Indian cities, towns, and villages for realistic mock data with universal coverage
 const INDIAN_LOCATIONS = {
   delhi: {
     name: 'Delhi',
@@ -28,12 +28,36 @@ const INDIAN_LOCATIONS = {
       'Hebbal Flyover', 'Silk Board Junction', 'NH-7', 'NICE Road'
     ]
   },
-  chennai: {
-    name: 'Chennai',
-    center: [13.0827, 80.2707],
+  madurai: {
+    name: 'Madurai',
+    center: [9.9252, 78.1198],
     routes: [
-      'OMR (Old Mahabalipuram Road)', 'GST Road', 'Anna Salai', 'ECR (East Coast Road)',
-      'Poonamallee High Road', 'NH-5', 'Inner Ring Road', 'Rajiv Gandhi Salai'
+      'Madurai-Rameswaram Road', 'Madurai-Dindigul Road', 'Bypass Road', 'Anna Nagar Main Road',
+      'Kamaraj Salai', 'Alagarkoil Road', 'Tirunelveli Road', 'NH-38'
+    ]
+  },
+  krishnankoil: {
+    name: 'Krishnankoil',
+    center: [9.4833, 77.7667],
+    routes: [
+      'Krishnankoil-Srivilliputhur Road', 'Krishnankoil-Virudhunagar Road', 'Main Bazaar Street',
+      'Temple Street', 'Bypass Road', 'SH-33', 'Rajapalayam Road'
+    ]
+  },
+  tirunelveli: {
+    name: 'Tirunelveli',
+    center: [8.7139, 77.7567],
+    routes: [
+      'Tirunelveli-Tuticorin Road', 'Tirunelveli-Kanyakumari Road', 'Junction Main Road',
+      'Palayamkottai Road', 'NH-44', 'SH-40', 'Bypass Road'
+    ]
+  },
+  coimbatore: {
+    name: 'Coimbatore',
+    center: [11.0168, 76.9558],
+    routes: [
+      'Avinashi Road', 'Trichy Road', 'Mettupalayam Road', 'Pollachi Road',
+      'Cross Cut Road', 'NH-544', 'Sathy Road', 'Palakkad Road'
     ]
   },
   hyderabad: {

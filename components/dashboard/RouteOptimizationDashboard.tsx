@@ -56,6 +56,16 @@ interface ApiRoute {
   instructions: any[];
 }
 
+interface LocationSuggestion {
+  id: string;
+  displayName: string;
+  subText: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+}
+
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -72,6 +82,9 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import dynamic from 'next/dynamic';
 import axios from 'axios';
+
+// TomTom API Key for location search
+const TOMTOM_API_KEY = 'UpQ977QmbzyJFExFzww4aJ8jJVvmjwrU';
 
 // Removed useAuth import - authentication no longer required
 
@@ -1324,6 +1337,20 @@ const RouteOptimizationDashboard = () => {
   const [vehicleType, setVehicleType] = useState<string>('car');
   const [useRealRouting, setUseRealRouting] = useState<boolean>(true);
   
+  // Location search state for start location
+  const [startSuggestions, setStartSuggestions] = useState<LocationSuggestion[]>([]);
+  const [startSuggestionsVisible, setStartSuggestionsVisible] = useState(false);
+  const [startSearching, setStartSearching] = useState(false);
+  
+  // Location search state for end location
+  const [endSuggestions, setEndSuggestions] = useState<LocationSuggestion[]>([]);
+  const [endSuggestionsVisible, setEndSuggestionsVisible] = useState(false);
+  const [endSearching, setEndSearching] = useState(false);
+  
+  // Current location state
+  const [gettingCurrentLocation, setGettingCurrentLocation] = useState(false);
+  const [currentLocationTarget, setCurrentLocationTarget] = useState<'start' | 'end' | null>(null);
+  
   // Geocoded location coordinates for markers
   const [startCoordinates, setStartCoordinates] = useState<{ lat: number; lng: number; name: string } | null>(null);
   const [endCoordinates, setEndCoordinates] = useState<{ lat: number; lng: number; name: string } | null>(null);
@@ -1553,6 +1580,250 @@ const RouteOptimizationDashboard = () => {
     }
   };
 
+  // Location search functions
+  const searchStartLocation = async (query: string) => {
+    if (!query.trim()) {
+      setStartSuggestions([]);
+      setStartSuggestionsVisible(false);
+      return;
+    }
+
+    setStartSearching(true);
+    try {
+      // Check for hardcoded locations first
+      const hardcodedLocations = [
+        {
+          id: 'krishnankoil-hardcoded',
+          displayName: 'Krishnankoil',
+          subText: 'Tamil Nadu, India',
+          coordinates: { lat: 9.5734, lng: 77.6894 }
+        },
+        {
+          id: 'madurai-hardcoded',
+          displayName: 'Madurai',
+          subText: 'Tamil Nadu, India',
+          coordinates: { lat: 9.9252, lng: 78.1198 }
+        }
+      ];
+
+      const queryLower = query.toLowerCase();
+      const matchedHardcoded = hardcodedLocations.filter(loc => 
+        loc.displayName.toLowerCase().includes(queryLower)
+      );
+
+      if (matchedHardcoded.length > 0) {
+        setStartSuggestions(matchedHardcoded);
+        setStartSuggestionsVisible(true);
+        setStartSearching(false);
+        return;
+      }
+
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&typeahead=true&limit=5&countrySet=IN`
+      );
+      const data = await response.json();
+      
+      if (data.results) {
+        // Filter and prioritize results - prefer administrative areas over POIs
+        const filteredResults = data.results
+          .filter((result: any) => {
+            // Exclude business establishments and POIs, prefer administrative areas
+            const isAdministrative = result.type === 'Geography' || 
+                                    result.entityType === 'Municipality' ||
+                                    result.entityType === 'MunicipalitySubdivision' ||
+                                    !result.poi;
+            return isAdministrative;
+          })
+          .sort((a: any, b: any) => {
+            // Prioritize exact matches and shorter names
+            const aName = a.address?.municipality || a.address?.freeformAddress || '';
+            const bName = b.address?.municipality || b.address?.freeformAddress || '';
+            const queryLower = query.toLowerCase();
+            
+            if (aName.toLowerCase().includes(queryLower) && !bName.toLowerCase().includes(queryLower)) return -1;
+            if (!aName.toLowerCase().includes(queryLower) && bName.toLowerCase().includes(queryLower)) return 1;
+            return aName.length - bName.length;
+          });
+
+        const suggestions = filteredResults.slice(0, 5).map((result: any) => ({
+          id: result.id,
+          displayName: result.address?.municipality || result.address?.localName || result.address?.freeformAddress?.split(',')[0] || query,
+          subText: result.address?.countrySubdivision ? `${result.address.countrySubdivision}, India` : result.address?.freeformAddress || '',
+          coordinates: {
+            lat: result.position.lat,
+            lng: result.position.lon
+          }
+        }));
+        setStartSuggestions(suggestions);
+        setStartSuggestionsVisible(true);
+      }
+    } catch (error) {
+      console.error('Error searching start location:', error);
+    } finally {
+      setStartSearching(false);
+    }
+  };
+
+  const searchEndLocation = async (query: string) => {
+    if (!query.trim()) {
+      setEndSuggestions([]);
+      setEndSuggestionsVisible(false);
+      return;
+    }
+
+    setEndSearching(true);
+    try {
+      // Check for hardcoded locations first
+      const hardcodedLocations = [
+        {
+          id: 'krishnankoil-hardcoded',
+          displayName: 'Krishnankoil',
+          subText: 'Tamil Nadu, India',
+          coordinates: { lat: 9.5734, lng: 77.6894 }
+        },
+        {
+          id: 'madurai-hardcoded',
+          displayName: 'Madurai',
+          subText: 'Tamil Nadu, India',
+          coordinates: { lat: 9.9252, lng: 78.1198 }
+        }
+      ];
+
+      const queryLower = query.toLowerCase();
+      const matchedHardcoded = hardcodedLocations.filter(loc => 
+        loc.displayName.toLowerCase().includes(queryLower)
+      );
+
+      if (matchedHardcoded.length > 0) {
+        setEndSuggestions(matchedHardcoded);
+        setEndSuggestionsVisible(true);
+        setEndSearching(false);
+        return;
+      }
+
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&typeahead=true&limit=5&countrySet=IN`
+      );
+      const data = await response.json();
+      
+      if (data.results) {
+        // Filter and prioritize results - prefer administrative areas over POIs
+        const filteredResults = data.results
+          .filter((result: any) => {
+            // Exclude business establishments and POIs, prefer administrative areas
+            const isAdministrative = result.type === 'Geography' || 
+                                    result.entityType === 'Municipality' ||
+                                    result.entityType === 'MunicipalitySubdivision' ||
+                                    !result.poi;
+            return isAdministrative;
+          })
+          .sort((a: any, b: any) => {
+            // Prioritize exact matches and shorter names
+            const aName = a.address?.municipality || a.address?.freeformAddress || '';
+            const bName = b.address?.municipality || b.address?.freeformAddress || '';
+            const queryLower = query.toLowerCase();
+            
+            if (aName.toLowerCase().includes(queryLower) && !bName.toLowerCase().includes(queryLower)) return -1;
+            if (!aName.toLowerCase().includes(queryLower) && bName.toLowerCase().includes(queryLower)) return 1;
+            return aName.length - bName.length;
+          });
+
+        const suggestions = filteredResults.slice(0, 5).map((result: any) => ({
+          id: result.id,
+          displayName: result.address?.municipality || result.address?.localName || result.address?.freeformAddress?.split(',')[0] || query,
+          subText: result.address?.countrySubdivision ? `${result.address.countrySubdivision}, India` : result.address?.freeformAddress || '',
+          coordinates: {
+            lat: result.position.lat,
+            lng: result.position.lon
+          }
+        }));
+        setEndSuggestions(suggestions);
+        setEndSuggestionsVisible(true);
+      }
+    } catch (error) {
+      console.error('Error searching end location:', error);
+    } finally {
+      setEndSearching(false);
+    }
+  };
+
+  const selectStartSuggestion = (suggestion: any) => {
+    setStartLocation(suggestion.displayName);
+    setStartCoordinates({
+      lat: suggestion.coordinates.lat,
+      lng: suggestion.coordinates.lng,
+      name: suggestion.displayName
+    });
+    setStartSuggestions([]);
+    setStartSuggestionsVisible(false);
+  };
+
+  const selectEndSuggestion = (suggestion: any) => {
+    setEndLocation(suggestion.displayName);
+    setEndCoordinates({
+      lat: suggestion.coordinates.lat,
+      lng: suggestion.coordinates.lng,
+      name: suggestion.displayName
+    });
+    setEndSuggestions([]);
+    setEndSuggestionsVisible(false);
+  };
+
+  // Current location functions
+  const getCurrentLocation = (target: 'start' | 'end') => {
+    setGettingCurrentLocation(true);
+    setCurrentLocationTarget(target);
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          
+          try {
+            // Use TomTom reverse geocoding
+            const response = await fetch(
+              `https://api.tomtom.com/search/2/reverseGeocode/${latitude},${longitude}.json?key=${TOMTOM_API_KEY}`
+            );
+            const data = await response.json();
+            
+            let locationName = 'Current Location';
+            if (data.addresses && data.addresses.length > 0) {
+              const address = data.addresses[0].address;
+              locationName = address.freeformAddress || `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+            }
+            
+            if (target === 'start') {
+              setStartLocation(locationName);
+            } else {
+              setEndLocation(locationName);
+            }
+          } catch (error) {
+            console.error('Error reverse geocoding:', error);
+            // Fallback to coordinates
+            const coordString = `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+            if (target === 'start') {
+              setStartLocation(coordString);
+            } else {
+              setEndLocation(coordString);
+            }
+          } finally {
+            setGettingCurrentLocation(false);
+            setCurrentLocationTarget(null);
+          }
+        },
+        (error) => {
+          console.error('Error getting current location:', error);
+          setGettingCurrentLocation(false);
+          setCurrentLocationTarget(null);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      setGettingCurrentLocation(false);
+      setCurrentLocationTarget(null);
+    }
+  };
+
   const fetchOptimizedRoutes = async (startLoc: string, endLoc: string, priority: string, vehicleType: string) => {
     try {
       setIsLoading(true);
@@ -1565,12 +1836,31 @@ const RouteOptimizationDashboard = () => {
       setOptimizationProgress('Connecting to optimization service...');
       setProgressPercentage(25);
       
-      const response = await axios.post(`${API_BASE_URL}/optimize`, {
+      const requestBody: any = {
         start: startLoc,
         destination: endLoc,
         priority: priority.toLowerCase(),
         vehicle_type: vehicleType.toLowerCase()
-      });
+      };
+      
+      // Include coordinates if available from hardcoded locations
+      if (startCoordinates) {
+        requestBody.startCoords = {
+          lat: startCoordinates.lat,
+          lng: startCoordinates.lng
+        };
+      }
+      
+      if (endCoordinates) {
+        requestBody.destinationCoords = {
+          lat: endCoordinates.lat,
+          lng: endCoordinates.lng
+        };
+      }
+      
+      console.log('🎯 Sending route request with coordinates:', requestBody);
+      
+      const response = await axios.post(`${API_BASE_URL}/optimize`, requestBody);
       
       setOptimizationProgress('Processing route data...');
       setProgressPercentage(75);
@@ -1864,21 +2154,64 @@ const RouteOptimizationDashboard = () => {
                     Start Location
                   </Label>
                   <div className="relative">
-                    <Input 
-                      id="start-location" 
-                      placeholder="e.g., Delhi, London, New York" 
-                      value={startLocation}
-                      onChange={(e) => setStartLocation(e.target.value)}
-                      list="start-locations"
-                      required
-                    />
-                    <datalist id="start-locations">
-                      <option value="Delhi" />
-                      <option value="London" />
-                      <option value="New York" />
-                      <option value="Tokyo" />
-                      <option value="Paris" />
-                    </datalist>
+                    <div className="flex gap-2">
+                      <div className="flex-1 relative">
+                        <Input 
+                          id="start-location" 
+                          placeholder="Search for villages, towns, cities..." 
+                          value={startLocation}
+                          onChange={(e) => {
+                            setStartLocation(e.target.value);
+                            searchStartLocation(e.target.value);
+                          }}
+                          onFocus={() => {
+                            if (startSuggestions.length > 0) {
+                              setStartSuggestionsVisible(true);
+                            }
+                          }}
+                          onBlur={() => {
+                            // Delay hiding to allow click on suggestions
+                            setTimeout(() => setStartSuggestionsVisible(false), 200);
+                          }}
+                          required
+                        />
+                        {startSearching && (
+                          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
+                          </div>
+                        )}
+                        {startSuggestionsVisible && startSuggestions.length > 0 && (
+                          <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto">
+                            {startSuggestions.map((suggestion, index) => (
+                              <div
+                                key={suggestion.id || index}
+                                className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                                onClick={() => selectStartSuggestion(suggestion)}
+                              >
+                                <div className="font-medium text-sm">{suggestion.displayName}</div>
+                                {suggestion.subText && (
+                                  <div className="text-xs text-gray-500 mt-1">{suggestion.subText}</div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => getCurrentLocation('start')}
+                        disabled={gettingCurrentLocation}
+                        className="px-3"
+                      >
+                        {gettingCurrentLocation && currentLocationTarget === 'start' ? (
+                          <RefreshCw className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Navigation className="h-4 w-4" />
+                        )}
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 
@@ -1888,21 +2221,64 @@ const RouteOptimizationDashboard = () => {
                     Destination
                   </Label>
                   <div className="relative">
-                    <Input 
-                      id="end-location" 
-                      placeholder="e.g., Chennai, Paris, Tokyo" 
-                      value={endLocation}
-                      onChange={(e) => setEndLocation(e.target.value)}
-                      list="end-locations"
-                      required
-                    />
-                    <datalist id="end-locations">
-                      <option value="Chennai" />
-                      <option value="Paris" />
-                      <option value="Tokyo" />
-                      <option value="Singapore" />
-                      <option value="Dubai" />
-                    </datalist>
+                    <div className="flex gap-2">
+                      <div className="flex-1 relative">
+                        <Input 
+                          id="end-location" 
+                          placeholder="Search for villages, towns, cities..." 
+                          value={endLocation}
+                          onChange={(e) => {
+                            setEndLocation(e.target.value);
+                            searchEndLocation(e.target.value);
+                          }}
+                          onFocus={() => {
+                            if (endSuggestions.length > 0) {
+                              setEndSuggestionsVisible(true);
+                            }
+                          }}
+                          onBlur={() => {
+                            // Delay hiding to allow click on suggestions
+                            setTimeout(() => setEndSuggestionsVisible(false), 200);
+                          }}
+                          required
+                        />
+                        {endSearching && (
+                          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
+                          </div>
+                        )}
+                        {endSuggestionsVisible && endSuggestions.length > 0 && (
+                          <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto">
+                            {endSuggestions.map((suggestion, index) => (
+                              <div
+                                key={suggestion.id || index}
+                                className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                                onClick={() => selectEndSuggestion(suggestion)}
+                              >
+                                <div className="font-medium text-sm">{suggestion.displayName}</div>
+                                {suggestion.subText && (
+                                  <div className="text-xs text-gray-500 mt-1">{suggestion.subText}</div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => getCurrentLocation('end')}
+                        disabled={gettingCurrentLocation}
+                        className="px-3"
+                      >
+                        {gettingCurrentLocation && currentLocationTarget === 'end' ? (
+                          <RefreshCw className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <MapPin className="h-4 w-4" />
+                        )}
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
