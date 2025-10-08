@@ -339,7 +339,7 @@ if __name__ == '__main__':
       'Eastern Express Highway': 30,
       'Bandra-Worli Sea Link': 5.6,
       'Mumbai-Pune Expressway': 94,
-      'Outer Ring Road': 62,
+      'Outer Ring Road Bangalore': 62,
       'Hosur Road': 40,
       'Bellary Road': 25,
       'Electronic City Flyover': 15,
