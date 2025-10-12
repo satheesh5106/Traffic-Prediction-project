@@ -92,9 +92,8 @@ const apiClient = {
 
 // TypeScript interfaces
 interface FormData {
-  location: string;
-  weather: string;
-  traffic: string;
+  fromLocation: string;
+  toLocation: string;
   time: string;
   day: string;
 }
@@ -114,9 +113,8 @@ interface IncidentPrediction {
 const IncidentPredictionDashboard = () => {
   // Form state
   const [formData, setFormData] = useState<FormData>({
-    location: '',
-    weather: 'clear',
-    traffic: 'moderate',
+    fromLocation: '',
+    toLocation: '',
     time: new Date().toTimeString().slice(0, 5),
     day: new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
   });
@@ -128,10 +126,15 @@ const IncidentPredictionDashboard = () => {
   const [pollingActive, setPollingActive] = useState(false);
   const [gettingLocation, setGettingLocation] = useState(false);
   
-  // Location search state
-  const [locationSuggestions, setLocationSuggestions] = useState<any[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [searchingLocation, setSearchingLocation] = useState(false);
+  // Location search state for From location
+  const [fromLocationSuggestions, setFromLocationSuggestions] = useState<any[]>([]);
+  const [showFromSuggestions, setShowFromSuggestions] = useState(false);
+  const [searchingFromLocation, setSearchingFromLocation] = useState(false);
+  
+  // Location search state for To location
+  const [toLocationSuggestions, setToLocationSuggestions] = useState<any[]>([]);
+  const [showToSuggestions, setShowToSuggestions] = useState(false);
+  const [searchingToLocation, setSearchingToLocation] = useState(false);
   
   // Polling interval reference
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -140,52 +143,99 @@ const IncidentPredictionDashboard = () => {
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
-    // Trigger location search for location field
-    if (field === 'location' && value.length > 2) {
-      searchLocations(value);
-    } else if (field === 'location' && value.length <= 2) {
-      setLocationSuggestions([]);
-      setShowSuggestions(false);
+    // Trigger location search for fromLocation field
+    if (field === 'fromLocation' && value.length > 2) {
+      searchFromLocations(value);
+    } else if (field === 'fromLocation' && value.length <= 2) {
+      setFromLocationSuggestions([]);
+      setShowFromSuggestions(false);
+    }
+    
+    // Trigger location search for toLocation field
+    if (field === 'toLocation' && value.length > 2) {
+      searchToLocations(value);
+    } else if (field === 'toLocation' && value.length <= 2) {
+      setToLocationSuggestions([]);
+      setShowToSuggestions(false);
     }
   };
   
-  // Search locations using TomTom API
-  const searchLocations = async (query: string) => {
+  // Search From locations using TomTom API
+  const searchFromLocations = async (query: string) => {
     if (!query || query.length < 3) return;
     
-    setSearchingLocation(true);
+    setSearchingFromLocation(true);
     try {
       const response = await fetch(
-        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&limit=5&typeahead=true`
+        `https://api.tomtom.com/search/2/search.json?key=${TOMTOM_API_KEY}&query=${encodeURIComponent(query)}&limit=5&typeahead=true`
       );
       
       if (response.ok) {
         const data = await response.json();
         if (data.results && data.results.length > 0) {
-          setLocationSuggestions(data.results);
-          setShowSuggestions(true);
+          setFromLocationSuggestions(data.results);
+          setShowFromSuggestions(true);
         } else {
-          setLocationSuggestions([]);
-          setShowSuggestions(false);
+          setFromLocationSuggestions([]);
+          setShowFromSuggestions(false);
         }
       }
     } catch (error) {
-      console.error('Location search failed:', error);
-      setLocationSuggestions([]);
-      setShowSuggestions(false);
+      console.error('From location search failed:', error);
+      setFromLocationSuggestions([]);
+      setShowFromSuggestions(false);
     } finally {
-      setSearchingLocation(false);
+      setSearchingFromLocation(false);
     }
   };
   
-  // Select location from suggestions
-  const selectLocation = (location: any) => {
+  // Search To locations using TomTom API
+  const searchToLocations = async (query: string) => {
+    if (!query || query.length < 3) return;
+    
+    setSearchingToLocation(true);
+    try {
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search.json?key=${TOMTOM_API_KEY}&query=${encodeURIComponent(query)}&limit=5&typeahead=true`
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.results && data.results.length > 0) {
+          setToLocationSuggestions(data.results);
+          setShowToSuggestions(true);
+        } else {
+          setToLocationSuggestions([]);
+          setShowToSuggestions(false);
+        }
+      }
+    } catch (error) {
+      console.error('To location search failed:', error);
+      setToLocationSuggestions([]);
+      setShowToSuggestions(false);
+    } finally {
+      setSearchingToLocation(false);
+    }
+  };
+  
+  // Select From location from suggestions
+  const selectFromLocation = (location: any) => {
     const locationName = location.address?.freeformAddress || 
                         `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
                         location.poi?.name || 'Unknown Location';
-    setFormData(prev => ({ ...prev, location: locationName }));
-    setLocationSuggestions([]);
-    setShowSuggestions(false);
+    setFormData(prev => ({ ...prev, fromLocation: locationName }));
+    setFromLocationSuggestions([]);
+    setShowFromSuggestions(false);
+  };
+  
+  // Select To location from suggestions
+  const selectToLocation = (location: any) => {
+    const locationName = location.address?.freeformAddress || 
+                        `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
+                        location.poi?.name || 'Unknown Location';
+    setFormData(prev => ({ ...prev, toLocation: locationName }));
+    setToLocationSuggestions([]);
+    setShowToSuggestions(false);
   };
   
   // Get current location using geolocation API
@@ -215,18 +265,18 @@ const IncidentPredictionDashboard = () => {
               const locationName = address.freeformAddress || 
                                 `${address.municipality || ''} ${address.country || ''}`.trim() ||
                                 `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
-              setFormData(prev => ({ ...prev, location: locationName }));
+              setFormData(prev => ({ ...prev, fromLocation: locationName }));
             } else {
-              setFormData(prev => ({ ...prev, location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+              setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
             }
           } else {
             // Fallback to coordinates if geocoding fails
-            setFormData(prev => ({ ...prev, location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+            setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
           }
         } catch (error) {
           console.error('TomTom reverse geocoding failed:', error);
           // Fallback to coordinates if geocoding fails
-          setFormData(prev => ({ ...prev, location: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+          setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
         }
         
         setGettingLocation(false);
@@ -263,17 +313,14 @@ const IncidentPredictionDashboard = () => {
       setError(null);
       
       // Validate required fields
-      if (!formData.location) {
-        setError('Location is required');
+      if (!formData.fromLocation || !formData.toLocation) {
+        setError('Both From and To locations are required');
         return;
       }
       
       const requestData = {
-        location: formData.location,
-        conditions: {
-          weather: formData.weather,
-          traffic: formData.traffic
-        },
+        fromLocation: formData.fromLocation,
+        toLocation: formData.toLocation,
         basic_info: {
           time: formData.time,
           day: formData.day
@@ -285,7 +332,7 @@ const IncidentPredictionDashboard = () => {
       
       const response = await apiClient.post('/incident/predict', requestData);
       console.log('Prediction response received:', response.status);
-      
+
       // Extract and calculate prediction data with enhanced precision
       const rawProbability = response.data.prediction?.probability;
       const rawConfidence = response.data.prediction?.confidence_score;
@@ -416,17 +463,17 @@ const IncidentPredictionDashboard = () => {
       }
       setPollingActive(false);
     } else {
-      if (formData.location) {
+      if (formData.fromLocation && formData.toLocation) {
         pollingIntervalRef.current = setInterval(() => {
           submitPrediction();
           // Also refresh prediction results if available
-          if (prediction && formData.location) {
+          if (prediction && formData.fromLocation && formData.toLocation) {
             console.log('Real-time update: Refreshing prediction data');
           }
         }, POLL_INTERVAL);
         setPollingActive(true);
       } else {
-        setError('Please fill in location before starting polling.');
+        setError('Please fill in both From and To locations before starting polling.');
       }
     }
   };
@@ -476,30 +523,30 @@ const IncidentPredictionDashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Location Input with Autocomplete */}
+                {/* From Location Input with Autocomplete */}
                 <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">From Location</label>
                   <div className="relative">
                     <Input
                       type="text"
-                      placeholder="Enter any location worldwide (e.g., New York, Tokyo, Mumbai)"
-                      value={formData.location}
-                      onChange={(e) => handleInputChange('location', e.target.value)}
-                      onFocus={() => formData.location.length > 2 && setShowSuggestions(true)}
-                      onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                      placeholder="Enter starting location (e.g., New York, Tokyo, Mumbai)"
+                      value={formData.fromLocation}
+                      onChange={(e) => handleInputChange('fromLocation', e.target.value)}
+                      onFocus={() => formData.fromLocation.length > 2 && setShowFromSuggestions(true)}
+                      onBlur={() => setTimeout(() => setShowFromSuggestions(false), 200)}
                       className="w-full pr-8"
                     />
-                    {searchingLocation && (
+                    {searchingFromLocation && (
                       <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
                         <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
                       </div>
                     )}
                   </div>
                   
-                  {/* Location Suggestions Dropdown */}
-                  {showSuggestions && locationSuggestions.length > 0 && (
+                  {/* From Location Suggestions Dropdown */}
+                  {showFromSuggestions && fromLocationSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
-                      {locationSuggestions.map((location, index) => {
+                      {fromLocationSuggestions.map((location, index) => {
                         const displayName = location.address?.freeformAddress || 
                                           `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
                                           location.poi?.name || 'Unknown Location';
@@ -509,7 +556,7 @@ const IncidentPredictionDashboard = () => {
                           <div
                             key={index}
                             className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                            onClick={() => selectLocation(location)}
+                            onClick={() => selectFromLocation(location)}
                           >
                             <div className="font-medium text-gray-900">{displayName}</div>
                             {subText && (
@@ -521,41 +568,54 @@ const IncidentPredictionDashboard = () => {
                     </div>
                   )}
                 </div>
-                
 
-                
-                {/* Conditions */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Weather</label>
-                    <Select value={formData.weather} onValueChange={(value) => handleInputChange('weather', value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select weather" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="clear">Clear</SelectItem>
-                        <SelectItem value="rain">Rain</SelectItem>
-                        <SelectItem value="fog">Fog</SelectItem>
-                        <SelectItem value="cloudy">Cloudy</SelectItem>
-                        <SelectItem value="storm">Storm</SelectItem>
-                      </SelectContent>
-                    </Select>
+                {/* To Location Input with Autocomplete */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">To Location</label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      placeholder="Enter destination location (e.g., Los Angeles, London, Delhi)"
+                      value={formData.toLocation}
+                      onChange={(e) => handleInputChange('toLocation', e.target.value)}
+                      onFocus={() => formData.toLocation.length > 2 && setShowToSuggestions(true)}
+                      onBlur={() => setTimeout(() => setShowToSuggestions(false), 200)}
+                      className="w-full pr-8"
+                    />
+                    {searchingToLocation && (
+                      <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                        <RefreshCw className="h-4 w-4 animate-spin text-gray-400" />
+                      </div>
+                    )}
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Traffic</label>
-                    <Select value={formData.traffic} onValueChange={(value) => handleInputChange('traffic', value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select traffic" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="light">Light</SelectItem>
-                        <SelectItem value="moderate">Moderate</SelectItem>
-                        <SelectItem value="heavy">Heavy</SelectItem>
-                        <SelectItem value="severe">Severe</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                  
+                  {/* To Location Suggestions Dropdown */}
+                  {showToSuggestions && toLocationSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                      {toLocationSuggestions.map((location, index) => {
+                        const displayName = location.address?.freeformAddress || 
+                                          `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
+                                          location.poi?.name || 'Unknown Location';
+                        const subText = location.address?.country || location.address?.countrySubdivision || '';
+                        
+                        return (
+                          <div
+                            key={index}
+                            className="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                            onClick={() => selectToLocation(location)}
+                          >
+                            <div className="font-medium text-gray-900">{displayName}</div>
+                            {subText && (
+                              <div className="text-sm text-gray-500">{subText}</div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
+
+
                 
                 {/* Basic Info */}
                 <div className="grid grid-cols-2 gap-4">
@@ -592,7 +652,7 @@ const IncidentPredictionDashboard = () => {
                   <div className="flex gap-2">
                     <Button
                       onClick={submitPrediction}
-                      disabled={isLoading || !formData.location}
+                      disabled={isLoading || !formData.fromLocation || !formData.toLocation}
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
                     >
                       {isLoading ? (

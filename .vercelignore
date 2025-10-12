@@ -1,0 +1,17 @@
+# Vercel ignore file
+node_modules
+.git
+.env
+.env.local
+logs/
+*.log
+coverage/
+.jest-cache/
+__tests__/
+test-*.js
+debug-*.js
+Backend/datasets/
+netlify/
+.vscode/
+chunk_log.txt
+backend_response.json

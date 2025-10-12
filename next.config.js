@@ -4,8 +4,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
-  output: 'export',
-  distDir: 'out',
+  // Only use export output for production builds, not in development
+  ...(process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'production' ? {
+    output: 'export',
+    distDir: 'out',
+  } : {}),
   trailingSlash: true,
   webpack: (config) => {
     config.resolve.alias = {

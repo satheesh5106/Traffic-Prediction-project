@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import maplibregl from 'maplibre-gl';
+import maplibregl, { Map } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 // Removed Antd and nodejs-polars dependencies for consistency
@@ -45,7 +45,7 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
 // ML Server Configuration
 const ML_SERVER_URL = process.env.NODE_ENV === 'production'
   ? 'https://ml-server.trafficai.netlify.app'
-  : 'http://localhost:5002';
+  : 'http://localhost:5004';
 
 // TomTom API Configuration
 const TOMTOM_API_KEY = 'qdWLPZiDyThFboTlpIkly3dALLUTXIug';
@@ -354,12 +354,36 @@ const extractLocationName = async (incident: any): Promise<string> => {
 };
 
 const transformTomTomData = async (tomtomData: any): Promise<TrafficIncident[]> => {
-  if (!tomtomData?.incidents) return [];
+  console.log('Transforming TomTom data:', tomtomData);
+  
+  // Handle different possible response structures
+  let incidentsArray = [];
+  
+  if (tomtomData?.incidents) {
+    incidentsArray = tomtomData.incidents;
+  } else if (Array.isArray(tomtomData)) {
+    incidentsArray = tomtomData;
+  } else if (tomtomData?.features) {
+    incidentsArray = tomtomData.features;
+  } else {
+    console.log('No incidents found in TomTom response structure');
+    return [];
+  }
+  
+  if (!Array.isArray(incidentsArray) || incidentsArray.length === 0) {
+    console.log('No incidents array found or empty array');
+    return [];
+  }
+  
+  console.log(`Processing ${incidentsArray.length} incidents from TomTom API`);
   
   const incidents = await Promise.all(
-    tomtomData.incidents.map(async (incident: any, index: number) => {
+    incidentsArray.map(async (incident: any, index: number) => {
+      console.log(`Processing incident ${index + 1}:`, incident);
+      
       // Handle TomTom API v5 response format
       const properties = incident.properties || {};
+      const events = properties.events || [];
       const iconCategory = properties.iconCategory || 0;
       
       // Calculate severity score based on icon category
@@ -396,7 +420,7 @@ const transformTomTomData = async (tomtomData: any): Promise<TrafficIncident[]> 
       
       const [longitude, latitude] = coordinates;
       
-      const incidentType = getIncidentTypeFromTomTom(iconCategory, []);
+      const incidentType = getIncidentTypeFromTomTom(iconCategory, events);
       const locationName = await extractLocationName(incident);
       
       // Enhanced description with real-time metrics
@@ -412,14 +436,23 @@ const transformTomTomData = async (tomtomData: any): Promise<TrafficIncident[]> 
         'Source: TomTom Real-time API v5'
       ].filter(Boolean);
       
-      return {
+      // Add event descriptions if available
+      if (events.length > 0) {
+        events.forEach((event: any, eventIndex: number) => {
+          if (event.description) {
+            detailsArray.push(`Event ${eventIndex + 1}: ${event.description}`);
+          }
+        });
+      }
+      
+      const processedIncident = {
         id: `tomtom-v5-${Date.now()}-${index}`,
         type: incidentType,
         subtype: `Category ${iconCategory}`,
         severity,
         level: severity as 'low' | 'medium' | 'high' | 'critical',
         location: locationName,
-        coordinates: [longitude, latitude],
+        coordinates: [longitude || 0, latitude || 0] as [number, number],
         description: enhancedDescription,
         details: detailsArray.join(' • '),
         timestamp: new Date().toISOString(),
@@ -431,15 +464,21 @@ const transformTomTomData = async (tomtomData: any): Promise<TrafficIncident[]> 
         predictedVolume: Math.max(20, Math.min(100, 30 + severityScore * 0.7)),
         // Additional TomTom-specific data
         iconCategory: iconCategory,
-        magnitudeOfDelay: 0,
-        probabilityOfOccurrence: 0.7 + Math.random() * 0.3,
-        numberOfReports: Math.floor(Math.random() * 5) + 1,
-        length: Math.floor(Math.random() * 1000) + 100
+        magnitudeOfDelay: properties.magnitudeOfDelay || 0,
+        probabilityOfOccurrence: properties.probabilityOfOccurrence || (0.7 + Math.random() * 0.3),
+        numberOfReports: properties.numberOfReports || Math.floor(Math.random() * 5) + 1,
+        length: properties.length || Math.floor(Math.random() * 1000) + 100
       };
+      
+      console.log(`Processed incident ${index + 1}:`, processedIncident);
+      return processedIncident;
     })
   );
   
-  return incidents.filter(incident => incident.lat !== 0 && incident.lon !== 0);
+  const validIncidents = incidents.filter(incident => incident.lat !== 0 && incident.lon !== 0);
+  console.log(`Returning ${validIncidents.length} valid incidents out of ${incidents.length} processed`);
+  
+  return validIncidents as TrafficIncident[];
 };
 
 const calculateCongestionLevel = (tomtomData: any): string => {
@@ -454,14 +493,69 @@ const calculateCongestionLevel = (tomtomData: any): string => {
   return 'Low';
 };
 
+// TomTom Routing API function to fetch polyline between two locations
+const fetchTomTomRoute = async (fromCoords: { lat: number; lng: number }, toCoords: { lat: number; lng: number }) => {
+  try {
+    const routingUrl = `https://api.tomtom.com/routing/1/calculateRoute/${fromCoords.lat},${fromCoords.lng}:${toCoords.lat},${toCoords.lng}/json?key=${TOMTOM_API_KEY}&routeType=fastest&traffic=true&departAt=now&travelMode=car&instructionsType=text&language=en-US&computeBestOrder=false&routeRepresentation=polyline&computeTravelTimeFor=all&vehicleHeading=90&sectionType=traffic&report=effectiveSettings`;
+    
+    console.log('Fetching TomTom route:', routingUrl);
+    
+    const response = await fetch(routingUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`TomTom Routing API error: ${response.status} - ${errorText}`);
+    }
+    
+    const data = await response.json();
+    console.log('TomTom route response:', data);
+    
+    if (data.routes && data.routes.length > 0) {
+      const route = data.routes[0];
+      const legs = route.legs || [];
+      
+      // Extract coordinates from route legs
+      const coordinates: [number, number][] = [];
+      
+      legs.forEach((leg: any) => {
+        if (leg.points && leg.points.length > 0) {
+          leg.points.forEach((point: any) => {
+            coordinates.push([point.longitude, point.latitude]);
+          });
+        }
+      });
+      
+      return {
+        coordinates,
+        summary: route.summary,
+        legs: route.legs,
+        sections: route.sections || []
+      };
+    }
+    
+    return null;
+  } catch (error) {
+    console.error('Failed to fetch TomTom route:', error);
+    throw error;
+  }
+};
+
 // Enhanced MapLibre GL JS Traffic Map Component with TomTom Integration
-const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewStateChange, onIncidentSelect, className }: {
+const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewStateChange, onIncidentSelect, className, fromLocation, toLocation }: {
   trafficData: TrafficIncident[];
   selectedIncident: TrafficIncident | null;
   viewState: { longitude: number; latitude: number; zoom: number };
   onViewStateChange: (newViewState: any) => void;
   onIncidentSelect: (incident: TrafficIncident) => void;
   className?: string;
+  fromLocation?: { lat: number; lng: number; name: string } | null;
+  toLocation?: { lat: number; lng: number; name: string } | null;
 }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<maplibregl.Map | null>(null);
@@ -471,6 +565,8 @@ const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewState
   const [currentStyle, setCurrentStyle] = useState<'standard' | 'terrain' | 'satellite'>('standard');
   const [retryAttempts, setRetryAttempts] = useState(0);
   const [isRetrying, setIsRetrying] = useState(false);
+  const [routeData, setRouteData] = useState<any>(null);
+  const [isLoadingRoute, setIsLoadingRoute] = useState(false);
 
   // MapTiler map style configurations with API key for accurate visuals
   const mapStyles = {
@@ -570,6 +666,46 @@ const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewState
             data: {
               type: 'FeatureCollection',
               features: []
+            }
+          });
+          
+          // ✅ Route Polyline: Add GeoJSON source for route polyline
+          map.current.addSource('route-line', {
+            type: 'geojson',
+            data: {
+              type: 'FeatureCollection',
+              features: []
+            }
+          });
+          
+          // ✅ Route Polyline: Add route polyline layer with enhanced styling
+          map.current.addLayer({
+            id: 'route-line-outline',
+            type: 'line',
+            source: 'route-line',
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#ffffff',
+              'line-width': 8,
+              'line-opacity': 0.6
+            }
+          });
+          
+          map.current.addLayer({
+            id: 'route-line-layer',
+            type: 'line',
+            source: 'route-line',
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#2563eb',
+              'line-width': 6,
+              'line-opacity': 0.8
             }
           });
           
@@ -716,13 +852,251 @@ const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewState
     }
   }, [viewState, mapLoaded]);
 
+  // Add From/To location markers with enhanced validation and error handling
+  useEffect(() => {
+    console.log('[TrafficMapLibre] 🎯 From/To marker useEffect triggered:', {
+      mapExists: !!map.current,
+      mapLoaded,
+      fromLocation,
+      toLocation
+    });
+    
+    if (!map.current || !mapLoaded) {
+      console.log('[TrafficMapLibre] ⏸️ Skipping marker update - map not ready');
+      return;
+    }
+
+    try {
+      // Clean up existing location markers
+      const existingLocationMarkers = markersRef.current.filter(marker => 
+        marker.getElement().classList.contains('location-marker')
+      );
+      existingLocationMarkers.forEach(marker => marker.remove());
+      markersRef.current = markersRef.current.filter(marker => 
+        !marker.getElement().classList.contains('location-marker')
+      );
+
+      const locationMarkers: maplibregl.Marker[] = [];
+
+    // Add From location marker
+    if (fromLocation && fromLocation.lat && fromLocation.lng && !isNaN(fromLocation.lat) && !isNaN(fromLocation.lng)) {
+      const fromMarker = new maplibregl.Marker({ 
+        color: '#22c55e',
+        scale: 1.4
+      })
+        .setLngLat([fromLocation.lng, fromLocation.lat])
+        .setPopup(new maplibregl.Popup({ offset: 25 }).setHTML(
+          `<div class="p-3 bg-white rounded-lg shadow-lg border border-green-200">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              <strong class="text-green-700 font-semibold">🚀 From Location</strong>
+            </div>
+            <div class="space-y-1">
+              <div class="font-medium text-gray-800">${fromLocation.name}</div>
+              <div class="text-sm text-gray-600">
+                <div>Lat: ${fromLocation.lat.toFixed(6)}</div>
+                <div>Lng: ${fromLocation.lng.toFixed(6)}</div>
+              </div>
+              <div class="text-xs text-green-600 font-medium mt-2">Starting Point</div>
+            </div>
+          </div>`
+        ))
+        .addTo(map.current!);
+      
+      fromMarker.getElement().classList.add('location-marker', 'from-marker');
+      fromMarker.getElement().style.zIndex = '1000';
+      locationMarkers.push(fromMarker);
+    }
+
+    // Add To location marker
+    if (toLocation && toLocation.lat && toLocation.lng && !isNaN(toLocation.lat) && !isNaN(toLocation.lng)) {
+      const toMarker = new maplibregl.Marker({ 
+        color: '#ef4444',
+        scale: 1.4
+      })
+        .setLngLat([toLocation.lng, toLocation.lat])
+        .setPopup(new maplibregl.Popup({ offset: 25 }).setHTML(
+          `<div class="p-3 bg-white rounded-lg shadow-lg border border-red-200">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <strong class="text-red-700 font-semibold">🏁 To Location</strong>
+            </div>
+            <div class="space-y-1">
+              <div class="font-medium text-gray-800">${toLocation.name}</div>
+              <div class="text-sm text-gray-600">
+                <div>Lat: ${toLocation.lat.toFixed(6)}</div>
+                <div>Lng: ${toLocation.lng.toFixed(6)}</div>
+              </div>
+              <div class="text-xs text-red-600 font-medium mt-2">Destination</div>
+            </div>
+          </div>`
+        ))
+        .addTo(map.current!);
+      
+      toMarker.getElement().classList.add('location-marker', 'to-marker');
+      toMarker.getElement().style.zIndex = '1000';
+      locationMarkers.push(toMarker);
+    }
+
+    // Auto-zoom to fit both From/To locations if available
+    if (fromLocation && toLocation && 
+        fromLocation.lat && fromLocation.lng && toLocation.lat && toLocation.lng &&
+        !isNaN(fromLocation.lat) && !isNaN(fromLocation.lng) && 
+        !isNaN(toLocation.lat) && !isNaN(toLocation.lng)) {
+      const bounds = new maplibregl.LngLatBounds();
+      bounds.extend([fromLocation.lng, fromLocation.lat]);
+      bounds.extend([toLocation.lng, toLocation.lat]);
+      
+      // Calculate distance to determine appropriate zoom
+      const calculateDistance = (point1: { lat: number, lng: number }, point2: { lat: number, lng: number }): number => {
+        const R = 6371; // Earth's radius in km
+        const dLat = (point2.lat - point1.lat) * Math.PI / 180;
+        const dLon = (point2.lng - point1.lng) * Math.PI / 180;
+        const a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(point1.lat * Math.PI / 180) * Math.cos(point2.lat * Math.PI / 180) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+      };
+
+      const distance = calculateDistance(fromLocation, toLocation);
+      const maxZoom = distance > 1000 ? 8 : 
+                    distance > 500 ? 9 : 
+                    distance > 100 ? 11 : 
+                    distance > 50 ? 12 : 
+                    distance > 10 ? 13 : 14;
+      
+      map.current.fitBounds(bounds, {
+        padding: 80,
+        maxZoom: maxZoom,
+        duration: 1500
+      });
+      
+      console.log(`[TrafficMapLibre] 📍 Auto-zoomed to From/To locations (distance: ${distance.toFixed(2)}km)`);
+    } else if (fromLocation && fromLocation.lat && fromLocation.lng && !isNaN(fromLocation.lat) && !isNaN(fromLocation.lng)) {
+      // Center on From location only
+      map.current.flyTo({
+        center: [fromLocation.lng, fromLocation.lat],
+        zoom: 12,
+        duration: 1500
+      });
+      console.log(`[TrafficMapLibre] 📍 Centered map on From location: ${fromLocation.name}`);
+    } else if (toLocation && toLocation.lat && toLocation.lng && !isNaN(toLocation.lat) && !isNaN(toLocation.lng)) {
+      // Center on To location only
+      map.current.flyTo({
+        center: [toLocation.lng, toLocation.lat],
+        zoom: 12,
+        duration: 1500
+      });
+      console.log(`[TrafficMapLibre] 📍 Centered map on To location: ${toLocation.name}`);
+    }
+
+    // Add location markers to the ref
+      markersRef.current = [...markersRef.current, ...locationMarkers];
+      
+      console.log('[TrafficMapLibre] ✅ Location markers updated successfully:', {
+        fromMarker: !!fromLocation,
+        toMarker: !!toLocation,
+        totalMarkers: markersRef.current.length
+      });
+
+    } catch (error) {
+      console.error('[TrafficMapLibre] ❌ Error adding location markers:', error);
+    }
+  }, [fromLocation, toLocation, mapLoaded]);
+
+  // ✅ Route Polyline: Fetch and display route when From/To locations change
+  useEffect(() => {
+    const fetchAndDisplayRoute = async () => {
+      if (!map.current || !mapLoaded || !fromLocation || !toLocation) {
+        // Clear route if locations are missing
+        if (map.current && mapLoaded) {
+          const source = map.current.getSource('route-line') as maplibregl.GeoJSONSource;
+          if (source) {
+            source.setData({
+              type: 'FeatureCollection',
+              features: []
+            });
+          }
+        }
+        return;
+      }
+
+      console.log('[TrafficMapLibre] 🛣️ Fetching route between locations:', {
+        from: fromLocation,
+        to: toLocation
+      });
+
+      setIsLoadingRoute(true);
+      
+      try {
+        const route = await fetchTomTomRoute(
+          { lat: fromLocation.lat, lng: fromLocation.lng },
+          { lat: toLocation.lat, lng: toLocation.lng }
+        );
+
+        if (route && route.coordinates && route.coordinates.length > 0) {
+          setRouteData(route);
+          
+          // Update route source with polyline data
+          const source = map.current.getSource('route-line') as maplibregl.GeoJSONSource;
+          if (source) {
+            source.setData({
+              type: 'FeatureCollection',
+              features: [{
+                type: 'Feature',
+                properties: {
+                  distance: route.summary?.lengthInMeters || 0,
+                  duration: route.summary?.travelTimeInSeconds || 0,
+                  trafficDelay: route.summary?.trafficDelayInSeconds || 0
+                },
+                geometry: {
+                  type: 'LineString',
+                  coordinates: route.coordinates
+                }
+              }]
+            });
+          }
+
+          // Fit map to show the entire route with padding
+          const bounds = new maplibregl.LngLatBounds();
+          route.coordinates.forEach((coord: [number, number]) => {
+            bounds.extend(coord);
+          });
+          
+          map.current.fitBounds(bounds, {
+            padding: 100,
+            duration: 1500
+          });
+
+          console.log('[TrafficMapLibre] ✅ Route displayed successfully');
+        } else {
+          console.warn('[TrafficMapLibre] ⚠️ No route data received');
+        }
+      } catch (error) {
+        console.error('[TrafficMapLibre] ❌ Failed to fetch route:', error);
+        setMapError('Failed to load route. Please try again.');
+      } finally {
+        setIsLoadingRoute(false);
+      }
+    };
+
+    fetchAndDisplayRoute();
+  }, [fromLocation, toLocation, mapLoaded]);
+
   // ✅ Enhanced Traffic Incident Rendering with Real TomTom Names
   useEffect(() => {
     if (!map.current || !mapLoaded) return;
 
-    // Clear existing markers (keeping for fallback)
-    markersRef.current.forEach(marker => marker.remove());
-    markersRef.current = [];
+    // Clear existing incident markers (keeping location markers)
+    const existingIncidentMarkers = markersRef.current.filter(marker => 
+      !marker.getElement().classList.contains('location-marker')
+    );
+    existingIncidentMarkers.forEach(marker => marker.remove());
+    markersRef.current = markersRef.current.filter(marker => 
+      marker.getElement().classList.contains('location-marker')
+    );
 
     // ✅ Real TomTom Names: Parse properties.name from TomTom data instead of generic names
     const parseRealTomTomName = (incident: TrafficIncident): string => {
@@ -758,7 +1132,7 @@ const TrafficMapLibre = ({ trafficData, selectedIncident, viewState, onViewState
             location: incident.location,
             details: incident.details || 'No details available',
             eta: incident.eta || 'N/A',
-estimatedEta: incident.eta || 'Unknown',
+            estimatedEta: incident.eta || 'Unknown',
             timestamp: incident.timestamp,
             type: incident.type || 'traffic'
           },
@@ -784,47 +1158,73 @@ estimatedEta: incident.eta || 'Unknown',
         const feature = e.features[0];
         const props = feature.properties;
         
-        // ✅ Enhanced popup with real TomTom data
-        const popup = new maplibregl.Popup({ offset: 25 })
+        // ✅ Enhanced popup with real TomTom data and improved styling
+        const popup = new maplibregl.Popup({ 
+          offset: 25,
+          className: 'custom-popup',
+          maxWidth: '320px'
+        })
           .setLngLat(e.lngLat)
           .setHTML(`
-            <div class="p-3 min-w-[200px]">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="w-3 h-3 rounded-full" style="background-color: ${
-                  props?.severity === 'critical' ? '#dc2626' :
-                  props?.severity === 'high' ? '#ea580c' :
-                  props?.severity === 'medium' ? '#d97706' : '#16a34a'
-                }"></div>
-                <h4 class="font-semibold text-sm text-gray-900">${props?.name || 'Traffic Incident'}</h4>
-              </div>
-              <p class="text-xs text-gray-600 mb-2">${props?.details}</p>
-              <div class="grid grid-cols-2 gap-2 text-xs">
-                <div>
-                  <span class="font-medium text-gray-700">Severity:</span>
-                  <span class="ml-1 px-1.5 py-0.5 rounded text-white" style="background-color: ${
+            <div class="bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden">
+              <!-- Header with gradient background -->
+              <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-4 h-4 rounded-full border-2 border-white" style="background-color: ${
                     props?.severity === 'critical' ? '#dc2626' :
                     props?.severity === 'high' ? '#ea580c' :
                     props?.severity === 'medium' ? '#d97706' : '#16a34a'
-                  }">${(props?.severity || 'low').toUpperCase()}</span>
-                </div>
-                <div>
-                  <span class="font-medium text-gray-700">Status:</span>
-                  <span class="ml-1 text-gray-600">Active</span>
-                </div>
-                <div class="col-span-2">
-                  <span class="font-medium text-gray-700">ETA:</span>
-                  <span class="ml-1 text-gray-600">${props?.eta}</span>
+                  }"></div>
+                  <h4 class="font-bold text-white text-sm">${props?.name || 'Traffic Incident'}</h4>
                 </div>
               </div>
-              <div class="mt-2 pt-2 border-t border-gray-200 text-xs text-gray-500">
-                📍 Real TomTom Location Data
+              
+              <!-- Content -->
+              <div class="p-4">
+                <p class="text-sm text-gray-700 mb-3 leading-relaxed">${props?.details || 'Real-time traffic incident detected'}</p>
+                
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-2 gap-3 mb-3">
+                  <div class="bg-gray-50 rounded-lg p-2">
+                    <div class="text-xs text-gray-500 font-medium">Severity Level</div>
+                    <div class="flex items-center gap-1 mt-1">
+                      <span class="inline-block px-2 py-1 rounded-full text-xs font-bold text-white" style="background-color: ${
+                        props?.severity === 'critical' ? '#dc2626' :
+                        props?.severity === 'high' ? '#ea580c' :
+                        props?.severity === 'medium' ? '#d97706' : '#16a34a'
+                      }">${(props?.severity || 'low').toUpperCase()}</span>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 rounded-lg p-2">
+                    <div class="text-xs text-gray-500 font-medium">ETA to Clear</div>
+                    <div class="text-sm font-bold text-gray-900 mt-1">${props?.eta || 'Unknown'}</div>
+                  </div>
+                </div>
+                
+                <!-- Location Info -->
+                <div class="bg-blue-50 rounded-lg p-3 border-l-4 border-blue-400">
+                  <div class="text-xs text-blue-600 font-medium mb-1">📍 Location</div>
+                  <div class="text-sm text-blue-900 font-medium">${props?.location || 'Unknown Location'}</div>
+                </div>
+                
+                <!-- Timestamp -->
+                <div class="mt-3 pt-3 border-t border-gray-100">
+                  <div class="flex items-center justify-between text-xs text-gray-500">
+                    <span>🕒 Last Updated</span>
+                    <span class="font-medium">${props?.timestamp ? new Date(props.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Just now'}</span>
+                  </div>
+                </div>
               </div>
             </div>
           `)
           .addTo(map.current!);
+
+        // Auto-close popup after 8 seconds
+        setTimeout(() => {
+          popup.remove();
+        }, 8000);
       }
     });
-
   }, [trafficData, mapLoaded, onIncidentSelect]);
 
   // ✅ Route Selection & Incident Selection: Enhanced navigation with flyTo
@@ -1026,6 +1426,11 @@ interface TrafficIncident {
   lat?: number; // latitude for spatial queries
   lon?: number; // longitude for spatial queries
   modelAccuracy?: number; // ML model accuracy percentage
+  // TomTom API specific properties
+  iconCategory?: number;
+  magnitudeOfDelay?: number;
+  probabilityOfOccurrence?: number;
+  numberOfReports?: number;
 }
 
 interface TrafficData {
@@ -1109,6 +1514,17 @@ const TrafficPredictionDashboard = () => {
   const [isLoadingCustomLocation, setIsLoadingCustomLocation] = useState<boolean>(false);
   const [searchRadius, setSearchRadius] = useState<number>(10); // Default 10km radius
   
+  // Live Traffic From/To location state
+  const [liveFromLocation, setLiveFromLocation] = useState<string>('');
+  const [liveToLocation, setLiveToLocation] = useState<string>('');
+  const [selectedLiveFromLocation, setSelectedLiveFromLocation] = useState<any>(null);
+  const [selectedLiveToLocation, setSelectedLiveToLocation] = useState<any>(null);
+  const [showLiveFromLocationDropdown, setShowLiveFromLocationDropdown] = useState<boolean>(false);
+  const [showLiveToLocationDropdown, setShowLiveToLocationDropdown] = useState<boolean>(false);
+  const [liveFromLocationResults, setLiveFromLocationResults] = useState<any[]>([]);
+  const [liveToLocationResults, setLiveToLocationResults] = useState<any[]>([]);
+  const [isLiveLocationSearching, setIsLiveLocationSearching] = useState<boolean>(false);
+  
   // Enhanced error handling state
   const [locationSearchError, setLocationSearchError] = useState<string | null>(null);
   const [customLocationError, setCustomLocationError] = useState<string | null>(null);
@@ -1116,6 +1532,10 @@ const TrafficPredictionDashboard = () => {
   const [retryCount, setRetryCount] = useState<number>(0);
   const [isRetrying, setIsRetrying] = useState<boolean>(false);
   const [lastErrorTime, setLastErrorTime] = useState<number>(0);
+  
+  // Generate button state for From/To analysis
+  const [isGeneratingTraffic, setIsGeneratingTraffic] = useState<boolean>(false);
+  const [routeAnalysisResults, setRouteAnalysisResults] = useState<TrafficIncident[]>([]);
 
   const [viewState, setViewState] = useState<ViewState>({
     longitude: 77.2090,
@@ -1129,9 +1549,10 @@ const TrafficPredictionDashboard = () => {
   
   // Map references
   const mapRef = useRef<any>(null);
+  const markersRef = useRef<maplibregl.Marker[]>([]);
   
   // Cache for memoized data
-  const dataCache = useRef<Map<string, {data: any, timestamp: number}>>(new (globalThis.Map)());
+  const dataCache = useRef<globalThis.Map<string, any>>(new globalThis.Map());
   
   // Removed polling interval reference
   
@@ -1258,6 +1679,96 @@ const TrafficPredictionDashboard = () => {
     }
   }, []);
   
+  // New function to fetch Live Traffic data using From/To locations
+  const fetchLiveTrafficData = useCallback(async () => {
+    if (!selectedLiveFromLocation || !selectedLiveToLocation) {
+      return null;
+    }
+
+    const startTime = performance.now();
+    try {
+      const fromCoords = selectedLiveFromLocation.position;
+      const toCoords = selectedLiveToLocation.position;
+      
+      console.log(`Fetching Live Traffic data from ${fromCoords.lat},${fromCoords.lon} to ${toCoords.lat},${toCoords.lon}`);
+      
+      // Create a bounding box that includes both locations
+      const minLat = Math.min(fromCoords.lat, toCoords.lat) - 0.05;
+      const maxLat = Math.max(fromCoords.lat, toCoords.lat) + 0.05;
+      const minLon = Math.min(fromCoords.lon, toCoords.lon) - 0.05;
+      const maxLon = Math.max(fromCoords.lon, toCoords.lon) + 0.05;
+      
+      let incidents: TrafficIncident[] = [];
+      
+      try {
+        // Try TomTom API first with correct parameters
+        const tomtomUrl = `${TOMTOM_BASE_URL}/incidentDetails?key=${TOMTOM_API_KEY}&bbox=${minLon},${minLat},${maxLon},${maxLat}&language=en-US`;
+        console.log('TomTom URL for route:', tomtomUrl);
+        
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        
+        const tomtomResponse = await fetch(tomtomUrl, {
+          method: 'GET',
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (tomtomResponse.ok) {
+          const tomtomData = await tomtomResponse.json();
+          console.log('TomTom data for route:', tomtomData);
+          console.log(`Found ${tomtomData.incidents?.length || 0} traffic incidents between locations`);
+          incidents = await transformTomTomData(tomtomData);
+        } else {
+          const errorText = await tomtomResponse.text();
+          console.error('TomTom API error response:', errorText);
+          throw new Error(`TomTom API error: ${tomtomResponse.status} - ${errorText}`);
+        }
+      } catch (tomtomError) {
+        console.warn('TomTom API failed for route, trying backend:', tomtomError);
+        
+        // Fallback to backend API using midpoint coordinates
+        const midLat = (fromCoords.lat + toCoords.lat) / 2;
+        const midLon = (fromCoords.lon + toCoords.lon) / 2;
+        
+        try {
+          const headers = await AuthManager.getAuthHeaders();
+          const backendResponse = await apiClient.get(
+            `${API_BASE_URL}/traffic/incidents/location?lat=${midLat}&lon=${midLon}&limit=20`,
+            { headers }
+          );
+          
+          if (backendResponse.data.success && backendResponse.data.incidents) {
+            incidents = backendResponse.data.incidents.map((incident: any) => ({
+              ...incident,
+              coordinates: [
+                typeof incident.coordinates[0] === 'number' ? incident.coordinates[0] : parseFloat(incident.coordinates[0]) || 0,
+                typeof incident.coordinates[1] === 'number' ? incident.coordinates[1] : parseFloat(incident.coordinates[1]) || 0
+              ],
+              location: incident.location || 'Traffic Incident'
+            }));
+          }
+        } catch (backendError) {
+          console.error('Backend API also failed:', backendError);
+          incidents = [];
+        }
+      }
+      
+      const responseTime = performance.now() - startTime;
+      console.log(`Live Traffic data fetched in ${responseTime.toFixed(2)}ms`);
+      
+      return { live: incidents };
+    } catch (error) {
+      console.error('Error fetching Live Traffic data:', error);
+      return null;
+    }
+  }, [selectedLiveFromLocation, selectedLiveToLocation]);
+
   // Enhanced real-time data fetching with JWT authentication and TomTom integration
   const fetchTrafficData = useCallback(async (city: string) => {
     const startTime = performance.now();
@@ -1633,11 +2144,11 @@ const TrafficPredictionDashboard = () => {
     throw lastError;
   }, []);
 
-  // Enhanced location search functions using new backend endpoints
-  const searchLocations = useCallback(async (query: string) => {
+  // Enhanced location search functions for From/To locations using TomTom API
+  const searchFromLocations = useCallback(async (query: string) => {
     if (!query || query.trim().length < 2) {
-      setLocationSearchResults([]);
-      setShowLocationDropdown(false);
+      setFromLocationResults([]);
+      setShowFromLocationDropdown(false);
       setLocationSearchError(null);
       return;
     }
@@ -1647,48 +2158,323 @@ const TrafficPredictionDashboard = () => {
     
     try {
       await retryWithBackoff(async () => {
-        const headers = await AuthManager.getAuthHeaders();
-        const response = await apiClient.get(
-          `${API_BASE_URL}/traffic/search/locations?query=${encodeURIComponent(query)}&limit=10`,
-          { headers, timeout: 10000 }
+        const response = await fetch(
+          `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&typeahead=true&limit=10&countrySet=IN`
         );
         
-        if (response.data.success && response.data.locations) {
-          setLocationSearchResults(response.data.locations);
-          setShowLocationDropdown(true);
+        if (!response.ok) {
+          throw new Error(`TomTom API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.results) {
+          // Transform TomTom results to match expected format
+          const locations = data.results.map((result: any) => ({
+            id: result.id,
+            name: result.address?.municipality || result.address?.localName || result.address?.freeformAddress?.split(',')[0] || query,
+            displayName: result.address?.freeformAddress || result.address?.municipality || result.address?.localName || query,
+            address: {
+              freeformAddress: result.address?.freeformAddress,
+              country: result.address?.country,
+              municipality: result.address?.municipality
+            },
+            position: {
+              lat: result.position?.lat,
+              lng: result.position?.lon
+            },
+            coordinates: [result.position?.lon, result.position?.lat]
+          }));
+          
+          setFromLocationResults(locations);
+          setShowFromLocationDropdown(true);
           setLocationSearchError(null);
         } else {
-          setLocationSearchResults([]);
-          setShowLocationDropdown(false);
-          if (response.data.message) {
-            setLocationSearchError(response.data.message);
-          }
+          setFromLocationResults([]);
+          setShowFromLocationDropdown(false);
         }
       });
     } catch (error) {
-      const errorMessage = handleApiError(error, 'Location search');
+      const errorMessage = handleApiError(error, 'From location search');
       setLocationSearchError(errorMessage);
-      setLocationSearchResults([]);
-      setShowLocationDropdown(false);
+      setFromLocationResults([]);
+      setShowFromLocationDropdown(false);
       setTomtomApiError(errorMessage);
     } finally {
       setIsLocationSearching(false);
     }
   }, [handleApiError, retryWithBackoff]);
-  
-  // Debounced location search
-  const debouncedLocationSearch = useCallback(
-    debounce((query: string) => searchLocations(query), 300),
-    [searchLocations]
+
+  const searchToLocations = useCallback(async (query: string) => {
+    if (!query || query.trim().length < 2) {
+      setToLocationResults([]);
+      setShowToLocationDropdown(false);
+      setLocationSearchError(null);
+      return;
+    }
+    
+    setIsLocationSearching(true);
+    setLocationSearchError(null);
+    
+    try {
+      await retryWithBackoff(async () => {
+        const response = await fetch(
+          `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&typeahead=true&limit=10&countrySet=IN`
+        );
+        
+        if (!response.ok) {
+          throw new Error(`TomTom API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.results) {
+          // Transform TomTom results to match expected format
+          const locations = data.results.map((result: any) => ({
+            id: result.id,
+            name: result.address?.municipality || result.address?.localName || result.address?.freeformAddress?.split(',')[0] || query,
+            displayName: result.address?.freeformAddress || result.address?.municipality || result.address?.localName || query,
+            address: {
+              freeformAddress: result.address?.freeformAddress,
+              country: result.address?.country,
+              municipality: result.address?.municipality
+            },
+            position: {
+              lat: result.position?.lat,
+              lng: result.position?.lon
+            },
+            coordinates: [result.position?.lon, result.position?.lat]
+          }));
+          
+          setToLocationResults(locations);
+          setShowToLocationDropdown(true);
+          setLocationSearchError(null);
+        } else {
+          setToLocationResults([]);
+          setShowToLocationDropdown(false);
+        }
+      });
+    } catch (error) {
+      const errorMessage = handleApiError(error, 'To location search');
+      setLocationSearchError(errorMessage);
+      setToLocationResults([]);
+      setShowToLocationDropdown(false);
+      setTomtomApiError(errorMessage);
+    } finally {
+      setIsLocationSearching(false);
+    }
+  }, [handleApiError, retryWithBackoff]);
+
+  // Debounced location searches
+  const debouncedFromLocationSearch = useMemo(
+    () => debounce((query: string) => searchFromLocations(query), 300),
+    [searchFromLocations]
   );
+
+  const debouncedToLocationSearch = useMemo(
+    () => debounce((query: string) => searchToLocations(query), 300),
+    [searchToLocations]
+  );
+
+  // Handle location search input changes
+  const handleFromLocationChange = useCallback((value: string) => {
+    setFromLocation(value);
+    debouncedFromLocationSearch(value);
+  }, [debouncedFromLocationSearch]);
+
+  const handleToLocationChange = useCallback((value: string) => {
+    setToLocation(value);
+    debouncedToLocationSearch(value);
+  }, [debouncedToLocationSearch]);
   
-  // Handle location search input change
-  const handleLocationSearchChange = useCallback((value: string) => {
-    setLocationSearchQuery(value);
-    debouncedLocationSearch(value);
-  }, [debouncedLocationSearch]);
-  
-  // Enhanced select location function with better error handling
+  // Enhanced select location functions with better error handling
+  const selectFromLocation = useCallback((location: any) => {
+    try {
+      setSelectedFromLocation(location);
+      setFromLocation(location.address?.freeformAddress || location.poi?.name || 'Selected Location');
+      setFromLocationResults([]);
+      setShowFromLocationDropdown(false);
+      setLocationSearchError(null);
+      
+      // Clear any previous errors
+      setTomtomApiError(null);
+      
+      // Log successful selection
+      console.log('From location selected:', location);
+    } catch (error) {
+      console.error('Error selecting from location:', error);
+      setLocationSearchError('Failed to select from location');
+    }
+  }, []);
+
+  const selectToLocation = useCallback((location: any) => {
+    try {
+      setSelectedToLocation(location);
+      setToLocation(location.address?.freeformAddress || location.poi?.name || 'Selected Location');
+      setToLocationResults([]);
+      setShowToLocationDropdown(false);
+      setLocationSearchError(null);
+      
+      // Clear any previous errors
+      setTomtomApiError(null);
+      
+      // Log successful selection
+      console.log('To location selected:', location);
+    } catch (error) {
+      console.error('Error selecting to location:', error);
+      setLocationSearchError('Failed to select to location');
+    }
+  }, []);
+
+  // Live Traffic From/To location search functions
+  const searchLiveFromLocations = useCallback(async (query: string) => {
+    if (!query || query.length < 3) {
+      setLiveFromLocationResults([]);
+      setShowLiveFromLocationDropdown(false);
+      return;
+    }
+
+    setIsLiveLocationSearching(true);
+    setLocationSearchError(null);
+
+    try {
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&limit=5&countrySet=IN&typeahead=true`,
+        {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`TomTom API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      if (data.results && Array.isArray(data.results)) {
+        setLiveFromLocationResults(data.results);
+        setShowLiveFromLocationDropdown(data.results.length > 0);
+      } else {
+        setLiveFromLocationResults([]);
+        setShowLiveFromLocationDropdown(false);
+      }
+    } catch (error) {
+      console.error('Error searching live from locations:', error);
+      setLocationSearchError('Failed to search locations. Please try again.');
+      setLiveFromLocationResults([]);
+      setShowLiveFromLocationDropdown(false);
+    } finally {
+      setIsLiveLocationSearching(false);
+    }
+  }, []);
+
+  const searchLiveToLocations = useCallback(async (query: string) => {
+    if (!query || query.length < 3) {
+      setLiveToLocationResults([]);
+      setShowLiveToLocationDropdown(false);
+      return;
+    }
+
+    setIsLiveLocationSearching(true);
+    setLocationSearchError(null);
+
+    try {
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&limit=5&countrySet=IN&typeahead=true`,
+        {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`TomTom API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      if (data.results && Array.isArray(data.results)) {
+        setLiveToLocationResults(data.results);
+        setShowLiveToLocationDropdown(data.results.length > 0);
+      } else {
+        setLiveToLocationResults([]);
+        setShowLiveToLocationDropdown(false);
+      }
+    } catch (error) {
+      console.error('Error searching live to locations:', error);
+      setLocationSearchError('Failed to search locations. Please try again.');
+      setLiveToLocationResults([]);
+      setShowLiveToLocationDropdown(false);
+    } finally {
+      setIsLiveLocationSearching(false);
+    }
+  }, []);
+
+  // Debounced search functions for Live Traffic
+  const debouncedLiveFromLocationSearch = useMemo(
+    () => debounce((query: string) => searchLiveFromLocations(query), 300),
+    [searchLiveFromLocations]
+  );
+
+  const debouncedLiveToLocationSearch = useMemo(
+    () => debounce((query: string) => searchLiveToLocations(query), 300),
+    [searchLiveToLocations]
+  );
+
+  // Handle Live Traffic location search input changes
+  const handleLiveFromLocationChange = useCallback((value: string) => {
+    setLiveFromLocation(value);
+    debouncedLiveFromLocationSearch(value);
+  }, [debouncedLiveFromLocationSearch]);
+
+  const handleLiveToLocationChange = useCallback((value: string) => {
+    setLiveToLocation(value);
+    debouncedLiveToLocationSearch(value);
+  }, [debouncedLiveToLocationSearch]);
+
+  // Select Live Traffic location functions
+  const selectLiveFromLocation = useCallback((location: any) => {
+    try {
+      setSelectedLiveFromLocation(location);
+      setLiveFromLocation(location.address?.freeformAddress || location.poi?.name || 'Selected Location');
+      setLiveFromLocationResults([]);
+      setShowLiveFromLocationDropdown(false);
+      setLocationSearchError(null);
+      
+      // Clear any previous errors
+      setTomtomApiError(null);
+      
+      console.log('Live from location selected:', location);
+    } catch (error) {
+      console.error('Error selecting live from location:', error);
+      setLocationSearchError('Failed to select from location');
+    }
+  }, []);
+
+  const selectLiveToLocation = useCallback((location: any) => {
+    try {
+      setSelectedLiveToLocation(location);
+      setLiveToLocation(location.address?.freeformAddress || location.poi?.name || 'Selected Location');
+      setLiveToLocationResults([]);
+      setShowLiveToLocationDropdown(false);
+      setLocationSearchError(null);
+      
+      // Clear any previous errors
+      setTomtomApiError(null);
+      
+      console.log('Live to location selected:', location);
+    } catch (error) {
+      console.error('Error selecting live to location:', error);
+      setLocationSearchError('Failed to select to location');
+    }
+  }, []);
+
+  // Legacy select location function (keeping for compatibility)
   const selectLocation = useCallback(async (location: any) => {
     setSelectedCustomLocation(location);
     setLocationSearchQuery(location.displayName || location.name);
@@ -1812,6 +2598,57 @@ const TrafficPredictionDashboard = () => {
     }
   }, [currentCity]);
   
+  // Handle location search input change
+  const handleLocationSearchChange = useCallback((value: string) => {
+    setLocationSearchQuery(value);
+    if (value.length >= 3) {
+      debouncedLocationSearch(value);
+    } else {
+      setFromLocationResults([]);
+      setShowLocationDropdown(false);
+    }
+  }, []);
+
+  // Search locations using TomTom API
+  const searchLocations = useCallback(async (query: string) => {
+    if (!query || query.length < 3) return;
+    
+    setIsLocationSearching(true);
+    setLocationSearchError(null);
+    
+    try {
+      const response = await fetch(
+        `https://api.tomtom.com/search/2/search/${encodeURIComponent(query)}.json?key=${TOMTOM_API_KEY}&limit=5&typeahead=true`
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.results && data.results.length > 0) {
+          setFromLocationResults(data.results);
+          setShowLocationDropdown(true);
+        } else {
+          setFromLocationResults([]);
+          setShowLocationDropdown(false);
+        }
+      } else {
+        throw new Error('Location search failed');
+      }
+    } catch (error) {
+      console.error('Location search failed:', error);
+      setLocationSearchError('Failed to search locations. Please try again.');
+      setFromLocationResults([]);
+      setShowLocationDropdown(false);
+    } finally {
+      setIsLocationSearching(false);
+    }
+  }, []);
+
+  // Debounced location search
+  const debouncedLocationSearch = useMemo(
+    () => debounce(searchLocations, 300),
+    [searchLocations]
+  );
+
   // Simple debounce function
   function debounce(func: Function, wait: number) {
     let timeout: NodeJS.Timeout;
@@ -1825,6 +2662,144 @@ const TrafficPredictionDashboard = () => {
     };
   }
   
+  // Generate traffic analysis for From/To locations using TomTom API
+  const handleGenerateTrafficAnalysis = useCallback(async () => {
+    if (!selectedLiveFromLocation || !selectedLiveToLocation) {
+      console.log('Missing From/To locations for analysis');
+      setTomtomApiError('Please select both From and To locations before generating traffic analysis');
+      return;
+    }
+    
+    setIsGeneratingTraffic(true);
+    setRouteAnalysisResults([]);
+    setTomtomApiError(null);
+    
+    try {
+      console.log('Generating traffic analysis for route:', {
+        from: selectedLiveFromLocation,
+        to: selectedLiveToLocation
+      });
+      
+      // Get coordinates from selected locations
+      const fromCoords = {
+        lat: selectedLiveFromLocation.position?.lat,
+        lng: selectedLiveFromLocation.position?.lng
+      };
+      
+      const toCoords = {
+        lat: selectedLiveToLocation.position?.lat,
+        lng: selectedLiveToLocation.position?.lng
+      };
+      
+      if (!fromCoords.lat || !fromCoords.lng || !toCoords.lat || !toCoords.lng) {
+        throw new Error('Invalid coordinates for From/To locations');
+      }
+      
+      // Calculate bounding box for the route with appropriate padding
+      const padding = 0.05; // Increased padding for better coverage
+      const minLat = Math.min(fromCoords.lat, toCoords.lat) - padding;
+      const maxLat = Math.max(fromCoords.lat, toCoords.lat) + padding;
+      const minLng = Math.min(fromCoords.lng, toCoords.lng) - padding;
+      const maxLng = Math.max(fromCoords.lng, toCoords.lng) + padding;
+      
+      // ✅ Updated TomTom API endpoint with correct format
+      const incidentUrl = `https://api.tomtom.com/traffic/services/5/incidentDetails?key=${TOMTOM_API_KEY}&bbox=${minLng},${minLat},${maxLng},${maxLat}&language=en-US&categoryFilter=0,1,2,3,4,5,6,7,8,9,10,11,14&timeValidityFilter=present&originalPosition=true`;
+      
+      console.log('Fetching traffic incidents from TomTom API:', incidentUrl);
+      
+      const response = await fetch(incidentUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('TomTom API error response:', errorText);
+        throw new Error(`TomTom API error: ${response.status} ${response.statusText} - ${errorText}`);
+      }
+      
+      const data = await response.json();
+      console.log('TomTom traffic incidents response:', data);
+      
+      if (data.incidents && data.incidents.length > 0) {
+        // Transform TomTom incidents with enhanced processing
+        const routeIncidents = await transformTomTomData(data);
+        
+        // Sort incidents by severity and proximity to route
+        const sortedIncidents = routeIncidents.sort((a, b) => {
+          const severityOrder = { 'critical': 4, 'high': 3, 'medium': 2, 'low': 1 };
+          const aSeverity = severityOrder[a.level as keyof typeof severityOrder] || 1;
+          const bSeverity = severityOrder[b.level as keyof typeof severityOrder] || 1;
+          return bSeverity - aSeverity;
+        });
+        
+        setRouteAnalysisResults(sortedIncidents);
+        
+        // Update the main traffic data to show route-specific incidents
+        setTrafficData(prev => ({
+          ...prev,
+          live: sortedIncidents
+        }));
+        
+        // Update metrics with successful analysis
+        setMetrics(prev => ({
+          ...prev,
+          lastUpdated: new Date().toLocaleTimeString(),
+          systemStatus: 'Active',
+          activePredictions: sortedIncidents.length.toString(),
+          accuracyRate: '95%',
+          criticalAlerts: sortedIncidents.filter(i => i.level === 'critical').length.toString()
+        }));
+        
+        // Show success message with incident count
+        console.log(`✅ Successfully found ${sortedIncidents.length} traffic incidents along the route`);
+        
+      } else {
+        setRouteAnalysisResults([]);
+        setTrafficData(prev => ({
+          ...prev,
+          live: []
+        }));
+        
+        // Update metrics for no incidents found
+        setMetrics(prev => ({
+          ...prev,
+          lastUpdated: new Date().toLocaleTimeString(),
+          systemStatus: 'Active',
+          activePredictions: '0',
+          criticalAlerts: '0'
+        }));
+        
+        console.log('ℹ️ No traffic incidents found along the selected route');
+      }
+      
+    } catch (error) {
+      console.error('❌ Failed to generate traffic analysis:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setTomtomApiError(`Traffic analysis failed: ${errorMessage}`);
+      
+      // Clear any existing results on error
+      setRouteAnalysisResults([]);
+      setTrafficData(prev => ({
+        ...prev,
+        live: []
+      }));
+      
+      // Update metrics for error state
+      setMetrics(prev => ({
+        ...prev,
+        lastUpdated: new Date().toLocaleTimeString(),
+        systemStatus: 'Error',
+        activePredictions: '0'
+      }));
+    } finally {
+      setIsGeneratingTraffic(false);
+    }
+  }, [selectedLiveFromLocation, selectedLiveToLocation]);
+  
   // Load initial data on component mount
   useEffect(() => {
     console.log('useEffect triggered - component mounted');
@@ -1833,9 +2808,17 @@ const TrafficPredictionDashboard = () => {
         setIsLoading(true);
         console.log(`Loading traffic data for ${currentCity}, activeTab: ${activeTab}`);
         
-        // Remove test data - fetch real data only
+        let data = null;
         
-        const data = await fetchTrafficData(currentCity);
+        // For Live Traffic, check if we have From/To locations
+        if (activeTab === 'live' && selectedLiveFromLocation && selectedLiveToLocation) {
+          console.log('Using From/To locations for Live Traffic');
+          data = await fetchLiveTrafficData();
+        } else {
+          console.log('Using city-based search');
+          data = await fetchTrafficData(currentCity);
+        }
+        
         console.log('Fetched data:', data);
         if (data) {
            setTrafficData(prev => {
@@ -1844,9 +2827,10 @@ const TrafficPredictionDashboard = () => {
              return newData;
            });
            setError(null);
-           console.log(`Initial traffic data loaded for ${currentCity}: ${data[activeTab]?.length || 0} incidents`);
+           const incidents = (data as any)[activeTab]?.length || 0;
+           console.log(`Initial traffic data loaded for ${currentCity}: ${incidents} incidents`);
          } else {
-           console.log('No data returned from fetchTrafficData');
+           console.log('No data returned from fetch functions');
          }
        } catch (error) {
          console.error('Failed to load initial traffic data:', error);
@@ -1857,7 +2841,7 @@ const TrafficPredictionDashboard = () => {
     };
     
     loadInitialData();
-  }, [currentCity, fetchTrafficData, activeTab]);
+  }, [currentCity, fetchTrafficData, fetchLiveTrafficData, activeTab, selectedLiveFromLocation, selectedLiveToLocation]);
   
   // Removed polling status indicators
   
@@ -1867,8 +2851,14 @@ const TrafficPredictionDashboard = () => {
   const [historicalCity, setHistoricalCity] = useState<string>('mumbai');
   
   // Prediction form state
-  const [predictionCity, setPredictionCity] = useState<string>('mumbai');
-  const [predictionArea, setPredictionArea] = useState<string>('');
+  const [fromLocation, setFromLocation] = useState<string>('');
+  const [toLocation, setToLocation] = useState<string>('');
+  const [selectedFromLocation, setSelectedFromLocation] = useState<any>(null);
+  const [selectedToLocation, setSelectedToLocation] = useState<any>(null);
+  const [showFromLocationDropdown, setShowFromLocationDropdown] = useState(false);
+  const [showToLocationDropdown, setShowToLocationDropdown] = useState(false);
+  const [fromLocationResults, setFromLocationResults] = useState<any[]>([]);
+  const [toLocationResults, setToLocationResults] = useState<any[]>([]);
   const [predictionDate, setPredictionDate] = useState<string>('');
   const [predictionTime, setPredictionTime] = useState<string>('');
   const [predictionDuration, setPredictionDuration] = useState<string>('1hour');
@@ -1879,8 +2869,8 @@ const TrafficPredictionDashboard = () => {
   
   // ML Traffic Prediction Function
   const handleMLPrediction = async () => {
-    if (!predictionCity || !predictionArea || !predictionDate || !predictionTime) {
-      setError('Please fill in all required fields for prediction');
+    if (!selectedFromLocation || !selectedToLocation || !predictionDate || !predictionTime) {
+      setError('Please select both From and To locations, and fill in all required fields for prediction');
       return;
     }
     
@@ -1900,40 +2890,84 @@ const TrafficPredictionDashboard = () => {
       
       const durationHours = durationMap[predictionDuration] || 1;
       
-      // Combine date and time
-      const predictionDateTime = new Date(`${predictionDate}T${predictionTime}`);
+      // Convert date format from MM/DD/YYYY to YYYY-MM-DD
+      let formattedDate = predictionDate;
+      if (predictionDate.includes('/')) {
+        const [month, day, year] = predictionDate.split('/');
+        formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+      }
       
-      // Prepare request data
+      // Convert time format from 12-hour to 24-hour
+      let formattedTime = predictionTime;
+      if (predictionTime.includes('AM') || predictionTime.includes('PM')) {
+        const [time, period] = predictionTime.split(' ');
+        const [hours, minutes] = time.split(':');
+        let hour24 = parseInt(hours);
+        
+        if (period === 'PM' && hour24 !== 12) {
+          hour24 += 12;
+        } else if (period === 'AM' && hour24 === 12) {
+          hour24 = 0;
+        }
+        
+        formattedTime = `${hour24.toString().padStart(2, '0')}:${minutes}`;
+      }
+      
+      // Prepare request data for direct ML server call
       const requestData = {
-        city: predictionCity,
-        area: predictionArea,
-        date: predictionDate,
-        time: predictionTime,
-        duration: durationHours,
-        weather: 'clear', // Default weather, can be enhanced later
-        current_volume: 50 // Default current volume, can be enhanced later
+        from_location: selectedFromLocation.displayName || selectedFromLocation.name,
+        to_location: selectedToLocation.displayName || selectedToLocation.name,
+        date: formattedDate,
+        time: formattedTime,
+        duration: `${durationHours} hour${durationHours !== 1 ? 's' : ''}`,
+        weather: 'Clear',
+        traffic_level: 'Medium'
       };
       
-      console.log('Making ML prediction request:', requestData);
+      console.log('Making direct ML prediction request:', requestData);
       
-      const response = await apiClient.post(`${API_BASE_URL}/traffic/ml-predict`, requestData);
+      // Call ML server directly
+      const response = await fetch(`${ML_SERVER_URL}/predict`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData),
+        mode: 'cors',
+        credentials: 'include'
+      });
       
-      if (response.data.success) {
-        setPredictionResults(response.data.predictions || []);
-        console.log('ML prediction successful:', response.data.predictions?.length || 0, 'predictions');
+      if (response.ok) {
+        const mlData = await response.json();
+        
+        // Transform ML response to match expected format
+        const predictions = [{
+          id: `ml-${Date.now()}`,
+          time: new Date(`${formattedDate}T${formattedTime}`).toISOString(),
+          predicted_volume: mlData.predicted_volume,
+          confidence: mlData.confidence,
+          location: `${requestData.from_location} → ${requestData.to_location}`,
+          model_info: mlData.model_info,
+          prediction_factors: mlData.prediction_factors,
+          real_time_traffic: mlData.real_time_traffic
+        }];
+        
+        setPredictionResults(predictions);
+        console.log('ML prediction successful:', predictions);
         
         // Update metrics with ML prediction data
         setMetrics(prev => ({
           ...prev,
-          mlAccuracy: response.data.model_info?.accuracy || prev.mlAccuracy,
-          activePredictions: (parseInt(prev.activePredictions.replace(/,/g, '')) + (response.data.predictions?.length || 0)).toLocaleString()
+          mlAccuracy: mlData.model_info?.accuracy || prev.mlAccuracy,
+          activePredictions: (parseInt(prev.activePredictions.replace(/,/g, '')) + 1).toLocaleString()
         }));
       } else {
-        throw new Error(response.data.error || 'Prediction failed');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Prediction failed');
       }
     } catch (error: any) {
       console.error('ML prediction failed:', error);
-      setError(`Prediction failed: ${error.response?.data?.error || error.message}`);
+      setError(`Prediction failed: ${error.message}`);
       setPredictionResults([]);
     } finally {
       setIsPredicting(false);
@@ -1986,7 +3020,7 @@ const TrafficPredictionDashboard = () => {
   useEffect(() => {
     const triggerAutoPrediction = async () => {
       // Only trigger if all required fields are filled
-      if (predictionCity && predictionArea && predictionDate && predictionTime && !isPredicting) {
+      if (selectedFromLocation && selectedToLocation && predictionDate && predictionTime && !isPredicting) {
         // Add a small delay to avoid too frequent API calls
         const timeoutId = setTimeout(() => {
           handleMLPrediction();
@@ -1997,7 +3031,7 @@ const TrafficPredictionDashboard = () => {
     };
     
     triggerAutoPrediction();
-  }, [predictionCity, predictionArea, predictionDate, predictionTime, predictionDuration]);
+  }, [selectedFromLocation, selectedToLocation, predictionDate, predictionTime, predictionDuration, handleMLPrediction, isPredicting]);
 
   // Set default date and time on component mount
   useEffect(() => {
@@ -2007,7 +3041,7 @@ const TrafficPredictionDashboard = () => {
     
     if (!predictionDate) setPredictionDate(today);
     if (!predictionTime) setPredictionTime(currentTime);
-  }, []);
+  }, [predictionDate, predictionTime]);
   
   // Map rendering - will be replaced with MapLibre GL JS
   const renderMap = useMemo(() => {
@@ -2249,9 +3283,6 @@ const TrafficPredictionDashboard = () => {
               <TabsTrigger value="predicted" className="data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none">
                 Predicted Traffic
               </TabsTrigger>
-              <TabsTrigger value="historical" className="data-[state=active]:border-b-2 data-[state=active]:border-blue-600 rounded-none">
-                Historical Data
-              </TabsTrigger>
             </TabsList>
           </div>
           
@@ -2259,83 +3290,45 @@ const TrafficPredictionDashboard = () => {
           <TabsContent value="live" className="mt-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Controls */}
-              <div className="lg:col-span-3 flex flex-col sm:flex-row gap-4 justify-between">
-                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                  <Select value={currentCity} onValueChange={setCurrentCity}>
-                    <SelectTrigger className="w-full sm:w-[180px]">
-                      <SelectValue placeholder="Select City" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {cities.map(city => (
-                        <SelectItem key={city.value} value={city.value}>{city.label}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  
-                  <Button variant="outline" size="icon">
-                    <MapPin className="h-4 w-4" />
-                  </Button>
-                </div>
-                
-                <div className="flex gap-2 w-full sm:w-auto">
-                  {/* Enhanced Location Search with TomTom Integration */}
-                  <div className="relative w-full sm:w-auto">
-                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-                    <Input 
-                      type="text" 
-                      placeholder="Search any location worldwide..." 
-                      className="pl-9 w-full" 
-                      value={locationSearchQuery}
-                      onChange={(e) => handleLocationSearchChange(e.target.value)}
-                    />
-                    {(isLocationSearching || isRetrying) && (
-                      <div className="absolute right-2.5 top-2.5">
-                        <RefreshCw className="h-4 w-4 text-gray-500 animate-spin" />
-                      </div>
-                    )}
-                    
-                    {/* Error Display for Location Search */}
-                    {locationSearchError && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-red-50 border border-red-200 rounded-md p-2 z-50">
-                        <div className="flex items-start">
-                          <AlertTriangle className="h-4 w-4 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <div className="flex-1">
-                            <div className="text-sm text-red-700">{locationSearchError}</div>
-                            {isRetrying && (
-                              <div className="text-xs text-red-600 mt-1">
-                                Retrying... (Attempt {retryCount + 1}/3)
-                              </div>
-                            )}
-                            {tomtomApiError && !isRetrying && (
-                              <button
-                                onClick={() => searchLocations(locationSearchQuery)}
-                                className="text-xs text-red-600 underline mt-1 hover:text-red-800"
-                              >
-                                Try again
-                              </button>
-                            )}
-                          </div>
+              <div className="lg:col-span-3 flex flex-col gap-4">
+                {/* From and To Location Fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* From Location */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">From Location</label>
+                    <div className="relative">
+                      <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                      <Input 
+                        type="text" 
+                        placeholder="Enter starting location..." 
+                        className="pl-9 w-full" 
+                        value={liveFromLocation}
+                        onChange={(e) => handleLiveFromLocationChange(e.target.value)}
+                      />
+                      {isLiveLocationSearching && (
+                        <div className="absolute right-2.5 top-2.5">
+                          <RefreshCw className="h-4 w-4 text-gray-500 animate-spin" />
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                     
-                    {/* Location Search Results Dropdown */}
-                    {showLocationDropdown && locationSearchResults.length > 0 && (
+                    {/* From Location Search Results Dropdown */}
+                    {showLiveFromLocationDropdown && liveFromLocationResults.length > 0 && (
                       <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
-                        {locationSearchResults.map((location, index) => (
+                        {liveFromLocationResults.map((location, index) => (
                           <div
                             key={index}
                             className="px-3 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
-                            onClick={() => selectLocation(location)}
+                            onClick={() => selectLiveFromLocation(location)}
                           >
                             <div className="flex items-center">
                               <MapPin className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
                               <div className="flex-1 min-w-0">
                                 <div className="text-sm font-medium text-gray-900 truncate">
-                                  {location.displayName || location.name}
+                                  {location.address?.freeformAddress || location.poi?.name || 'Unknown Location'}
                                 </div>
                                 <div className="text-xs text-gray-500 truncate">
-                                  {location.address?.freeformAddress || location.address?.country}
+                                  {location.address?.country || 'Unknown Country'}
                                 </div>
                               </div>
                             </div>
@@ -2343,29 +3336,104 @@ const TrafficPredictionDashboard = () => {
                         ))}
                       </div>
                     )}
-                    
-                    {/* Selected Custom Location Display */}
-                    {selectedCustomLocation && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-blue-50 border border-blue-200 rounded-md p-2 z-40">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <MapPin className="h-4 w-4 text-blue-600 mr-2" />
-                            <span className="text-sm text-blue-800 font-medium">
-                              Custom Location: {selectedCustomLocation.displayName || selectedCustomLocation.name}
-                            </span>
-                          </div>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={clearCustomLocation}
-                            className="h-6 w-6 p-0 text-blue-600 hover:text-blue-800"
-                          >
-                            ×
-                          </Button>
+                  </div>
+
+                  {/* To Location */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">To Location</label>
+                    <div className="relative">
+                      <Target className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                      <Input 
+                        type="text" 
+                        placeholder="Enter destination..." 
+                        className="pl-9 w-full" 
+                        value={liveToLocation}
+                        onChange={(e) => handleLiveToLocationChange(e.target.value)}
+                      />
+                      {isLiveLocationSearching && (
+                        <div className="absolute right-2.5 top-2.5">
+                          <RefreshCw className="h-4 w-4 text-gray-500 animate-spin" />
                         </div>
+                      )}
+                    </div>
+                    
+                    {/* To Location Search Results Dropdown */}
+                    {showLiveToLocationDropdown && liveToLocationResults.length > 0 && (
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+                        {liveToLocationResults.map((location, index) => (
+                          <div
+                            key={index}
+                            className="px-3 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                            onClick={() => selectLiveToLocation(location)}
+                          >
+                            <div className="flex items-center">
+                              <Target className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <div className="text-sm font-medium text-gray-900 truncate">
+                                  {location.address?.freeformAddress || location.poi?.name || 'Unknown Location'}
+                                </div>
+                                <div className="text-xs text-gray-500 truncate">
+                                  {location.address?.country || 'Unknown Country'}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     )}
                   </div>
+                </div>
+
+                {/* Error Display for Location Search */}
+                {locationSearchError && (
+                  <div className="bg-red-50 border border-red-200 rounded-md p-3">
+                    <div className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <div className="text-sm text-red-700">{locationSearchError}</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 justify-end">
+                  {/* Generate Button for From/To Analysis */}
+                  {selectedLiveFromLocation && selectedLiveToLocation && (
+                    <Button 
+                      onClick={handleGenerateTrafficAnalysis}
+                      disabled={isGeneratingTraffic}
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      {isGeneratingTraffic ? (
+                        <>
+                          <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                          Analyzing Route...
+                        </>
+                      ) : (
+                        <>
+                          <Route className="h-4 w-4 mr-2" />
+                          Generate Traffic Analysis
+                        </>
+                      )}
+                    </Button>
+                  )}
+                  
+                  <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setLiveFromLocation('');
+                      setLiveToLocation('');
+                      setSelectedLiveFromLocation(null);
+                      setSelectedLiveToLocation(null);
+                      setLiveFromLocationResults([]);
+                      setLiveToLocationResults([]);
+                      setShowLiveFromLocationDropdown(false);
+                      setShowLiveToLocationDropdown(false);
+                    }}
+                  >
+                    Clear
+                  </Button>
                   
                   {/* Search Radius Control for Custom Locations */}
                   {selectedCustomLocation && (
@@ -2428,6 +3496,8 @@ const TrafficPredictionDashboard = () => {
                   onViewStateChange={setViewState}
                   onIncidentSelect={handleLocationSelect}
                   className="w-full h-full"
+                  fromLocation={selectedLiveFromLocation}
+                  toLocation={selectedLiveToLocation}
                 />
                 
                 {/* Custom Location Marker Overlay */}
@@ -2455,16 +3525,54 @@ const TrafficPredictionDashboard = () => {
                     <h3 className="font-medium">
                       {selectedCustomLocation ? 'Custom Location Incidents' : 'Traffic Incidents'}
                     </h3>
-                    {selectedCustomLocation && (
-                      <Badge variant="outline" className="text-xs">
-                        {searchRadius / 1000}km radius
-                      </Badge>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {selectedCustomLocation && (
+                        <Badge variant="outline" className="text-xs">
+                          {searchRadius / 1000}km radius
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                   {selectedCustomLocation && (
                     <p className="text-sm text-gray-600 mt-1">
                       Showing incidents near: {selectedCustomLocation.displayName || selectedCustomLocation.name}
                     </p>
+                  )}
+                  {selectedLiveFromLocation && selectedLiveToLocation && (
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-3 rounded-lg border border-blue-200 mt-2">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Route className="h-4 w-4 text-blue-600" />
+                        <span className="text-sm font-semibold text-blue-800">Route Analysis Results</span>
+                      </div>
+                      <p className="text-sm text-blue-700">
+                        <span className="font-medium">From:</span> {selectedLiveFromLocation.address?.freeformAddress || selectedLiveFromLocation.poi?.name || 'Selected Location'}
+                      </p>
+                      <p className="text-sm text-blue-700">
+                        <span className="font-medium">To:</span> {selectedLiveToLocation.address?.freeformAddress || selectedLiveToLocation.poi?.name || 'Selected Location'}
+                      </p>
+                      {routeAnalysisResults.length > 0 && (
+                        <div className="mt-2 flex items-center gap-4 text-xs">
+                          <span className="bg-white px-2 py-1 rounded border">
+                            <span className="text-gray-600">Total Incidents:</span> 
+                            <span className="font-bold text-blue-800 ml-1">{routeAnalysisResults.length}</span>
+                          </span>
+                          <span className="bg-white px-2 py-1 rounded border">
+                            <span className="text-gray-600">Critical:</span> 
+                            <span className="font-bold text-red-600 ml-1">{routeAnalysisResults.filter(i => i.level === 'critical').length}</span>
+                          </span>
+                          <span className="bg-white px-2 py-1 rounded border">
+                            <span className="text-gray-600">High:</span> 
+                            <span className="font-bold text-orange-600 ml-1">{routeAnalysisResults.filter(i => i.level === 'high').length}</span>
+                          </span>
+                        </div>
+                      )}
+                      {tomtomApiError && (
+                        <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded text-xs text-red-700">
+                          <AlertTriangle className="h-3 w-3 inline mr-1" />
+                          {tomtomApiError}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
                 <ul className="divide-y divide-gray-200">
@@ -2658,10 +3766,52 @@ const TrafficPredictionDashboard = () => {
                                 <Activity className="h-4 w-4 text-purple-600" />
                                 <div>
                                   <div className="text-xs text-gray-500">Data Source</div>
-                                  <div className="font-medium text-purple-700 text-sm">TomTom Live</div>
+                                  <div className="font-medium text-purple-700 text-sm">TomTom Live API</div>
                                 </div>
                               </div>
+                              {incident.modelAccuracy && (
+                                <div className="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-yellow-50 p-3 rounded-lg">
+                                  <Target className="h-4 w-4 text-amber-600" />
+                                  <div>
+                                    <div className="text-xs text-gray-500">ML Accuracy</div>
+                                    <div className="font-medium text-amber-700 text-sm">{incident.modelAccuracy}%</div>
+                                  </div>
+                                </div>
+                              )}
                             </div>
+
+                            {/* TomTom-specific metadata */}
+                            {(incident.iconCategory || incident.magnitudeOfDelay || incident.probabilityOfOccurrence) && (
+                              <div className="mt-3 p-3 bg-gray-50 rounded-lg border-l-4 border-gray-400">
+                                <div className="text-xs text-gray-600 font-medium mb-2">TomTom API Details</div>
+                                <div className="grid grid-cols-2 gap-2 text-xs">
+                                  {incident.iconCategory && (
+                                    <div>
+                                      <span className="text-gray-500">Category:</span> 
+                                      <span className="font-medium ml-1">{incident.iconCategory}</span>
+                                    </div>
+                                  )}
+                                  {incident.magnitudeOfDelay && (
+                                    <div>
+                                      <span className="text-gray-500">Delay:</span> 
+                                      <span className="font-medium ml-1">{incident.magnitudeOfDelay}</span>
+                                    </div>
+                                  )}
+                                  {incident.probabilityOfOccurrence && (
+                                    <div>
+                                      <span className="text-gray-500">Probability:</span> 
+                                      <span className="font-medium ml-1">{(incident.probabilityOfOccurrence * 100).toFixed(1)}%</span>
+                                    </div>
+                                  )}
+                                  {incident.numberOfReports && (
+                                    <div>
+                                      <span className="text-gray-500">Reports:</span> 
+                                      <span className="font-medium ml-1">{incident.numberOfReports}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            )}
                           </li>
                         );
                       })
@@ -2776,32 +3926,136 @@ const TrafficPredictionDashboard = () => {
               <div className="bg-white p-6 rounded-lg border border-gray-200 mb-6">
                 <h3 className="text-lg font-medium mb-4">Traffic Prediction Parameters</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-6">
+                  {/* From Location Field */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
-                    <Select value={predictionCity} onValueChange={setPredictionCity}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select City" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {cities.map(city => (
-                          <SelectItem key={city.value} value={city.value}>{city.label}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">From Location</label>
+                    <div className="relative">
+                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                      <Input 
+                        type="text" 
+                        placeholder="Search starting location..." 
+                        className="pl-9 w-full" 
+                        value={fromLocation}
+                        onChange={(e) => handleFromLocationChange(e.target.value)}
+                      />
+                      {(isLocationSearching || isRetrying) && (
+                        <div className="absolute right-2.5 top-2.5">
+                          <RefreshCw className="h-4 w-4 text-gray-500 animate-spin" />
+                        </div>
+                      )}
+                      
+                      {/* From Location Search Results Dropdown */}
+                      {showFromLocationDropdown && fromLocationResults.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+                          {fromLocationResults.map((location, index) => (
+                            <div
+                              key={index}
+                              className="px-3 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                              onClick={() => selectFromLocation(location)}
+                            >
+                              <div className="flex items-center">
+                                <MapPin className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-sm font-medium text-gray-900 truncate">
+                                    {location.displayName || location.name}
+                                  </div>
+                                  <div className="text-xs text-gray-500 truncate">
+                                    {location.address?.freeformAddress || location.address?.country}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {/* Selected From Location Display */}
+                      {selectedFromLocation && (
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-green-50 border border-green-200 rounded-md p-2 z-40">
+                          <div className="flex items-center text-sm text-green-700">
+                            <MapPin className="h-4 w-4 mr-2" />
+                            <span className="truncate">{selectedFromLocation.displayName || selectedFromLocation.name}</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  
+
+                  {/* To Location Field */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Area/Location</label>
-                    <Input 
-                      type="text" 
-                      value={predictionArea}
-                      onChange={(e) => setPredictionArea(e.target.value)}
-                      placeholder="e.g., Bandra-Kurla Complex, Connaught Place"
-                      className="w-full"
-                    />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">To Location</label>
+                    <div className="relative">
+                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+                      <Input 
+                        type="text" 
+                        placeholder="Search destination location..." 
+                        className="pl-9 w-full" 
+                        value={toLocation}
+                        onChange={(e) => handleToLocationChange(e.target.value)}
+                      />
+                      {(isLocationSearching || isRetrying) && (
+                        <div className="absolute right-2.5 top-2.5">
+                          <RefreshCw className="h-4 w-4 text-gray-500 animate-spin" />
+                        </div>
+                      )}
+                      
+                      {/* To Location Search Results Dropdown */}
+                      {showToLocationDropdown && toLocationResults.length > 0 && (
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-60 overflow-y-auto">
+                          {toLocationResults.map((location, index) => (
+                            <div
+                              key={index}
+                              className="px-3 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+                              onClick={() => selectToLocation(location)}
+                            >
+                              <div className="flex items-center">
+                                <MapPin className="h-4 w-4 text-gray-400 mr-2 flex-shrink-0" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="text-sm font-medium text-gray-900 truncate">
+                                    {location.displayName || location.name}
+                                  </div>
+                                  <div className="text-xs text-gray-500 truncate">
+                                    {location.address?.freeformAddress || location.address?.country}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {/* Selected To Location Display */}
+                      {selectedToLocation && (
+                        <div className="absolute top-full left-0 right-0 mt-1 bg-blue-50 border border-blue-200 rounded-md p-2 z-40">
+                          <div className="flex items-center text-sm text-blue-700">
+                            <MapPin className="h-4 w-4 mr-2" />
+                            <span className="truncate">{selectedToLocation.displayName || selectedToLocation.name}</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  
+                </div>
+
+                {/* Error Display for Location Search */}
+                {locationSearchError && (
+                  <div className="mb-4 bg-red-50 border border-red-200 rounded-md p-3">
+                    <div className="flex items-start">
+                      <AlertTriangle className="h-4 w-4 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <div className="text-sm text-red-700">{locationSearchError}</div>
+                        {isRetrying && (
+                          <div className="text-xs text-red-600 mt-1">
+                            Retrying... (Attempt {retryCount + 1}/3)
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
                     <Input 
@@ -2903,7 +4157,9 @@ const TrafficPredictionDashboard = () => {
                             Updated: {new Date(prediction.timestamp).toLocaleTimeString()}
                           </div>
                           <div className="text-xs text-blue-600">
-                            {predictionArea || `${predictionCity.charAt(0).toUpperCase() + predictionCity.slice(1)} Area`}
+                            {selectedFromLocation && selectedToLocation 
+                              ? `${selectedFromLocation.name} → ${selectedToLocation.name}` 
+                              : 'Select Route'}
                           </div>
                         </div>
                       </div>
@@ -2946,166 +4202,6 @@ const TrafficPredictionDashboard = () => {
                   <MapPin className="h-8 w-8 mx-auto mb-2 text-gray-400" />
                   <p>Enter location details above to generate AI-powered traffic predictions</p>
                   <p className="text-sm mt-1">Predictions use real-time data and machine learning models</p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-          
-          {/* Historical Data Tab */}
-          <TabsContent value="historical" className="mt-4">
-            <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-lg font-medium mb-4">Historical Traffic Data</h3>
-              <p className="text-gray-600 mb-6">
-                Analyze past traffic patterns to identify trends and improve future predictions.
-              </p>
-              
-              {/* Historical Data Form */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-                  <Input 
-                    type="date" 
-                    value={historicalDate}
-                    onChange={(e) => setHistoricalDate(e.target.value)}
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
-                  <Input 
-                    type="number" 
-                    value={historicalYear}
-                    onChange={(e) => setHistoricalYear(e.target.value)}
-                    placeholder="2025"
-                    min="2020"
-                    max="2030"
-                    className="w-full"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
-                  <Select value={historicalCity} onValueChange={setHistoricalCity}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select City" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {cities.map(city => (
-                        <SelectItem key={city.value} value={city.value}>{city.label}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="flex items-end">
-                  <Button 
-                    onClick={async () => {
-                      try {
-                        setIsLoading(true);
-                        const params = new URLSearchParams();
-                        if (historicalDate) params.append('startDate', historicalDate);
-                        if (historicalYear) params.append('year', historicalYear.toString());
-                        params.append('limit', '50');
-                        
-                        const response = await apiClient.get(`${API_BASE_URL}/traffic/historical/enhanced?city=${historicalCity || currentCity}&${params.toString()}`);
-                        const historicalData = response.data.data || [];
-                        
-                        setTrafficData(prev => ({ ...prev, historical: historicalData }));
-                        console.log('Enhanced historical data loaded:', historicalData.length);
-                        
-                        // Update metrics with enhanced historical data analytics
-                        if (response.data.analytics) {
-                          setMetrics(prev => ({
-                            ...prev,
-                            activePredictions: response.data.analytics.totalRecords?.toString() || prev.activePredictions,
-                            accuracyRate: response.data.analytics.averageCongestionLevel ? 
-                              `${Math.round(response.data.analytics.averageCongestionLevel * 20)}%` : prev.accuracyRate
-                          }));
-                        }
-                      } catch (error) {
-                        console.error('Failed to load enhanced historical data:', error);
-                        setError('Failed to load enhanced historical traffic data');
-                      } finally {
-                        setIsLoading(false);
-                      }
-                    }}
-                    disabled={isLoading}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  >
-                    {isLoading ? (
-                      <>
-                        <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                        Loading...
-                      </>
-                    ) : (
-                      <>
-                        <Database className="mr-2 h-4 w-4" />
-                        Load Data
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </div>
-              
-              {/* Enhanced Historical Data Table */}
-              {trafficData.historical && trafficData.historical.length > 0 ? (
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Location</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Date & Time</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Congestion Level</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Traffic Volume</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Avg Speed</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Coordinates</th>
-                        <th className="border border-gray-300 px-4 py-2 text-left font-medium text-gray-900">Type</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {trafficData.historical.map(row => (
-                        <tr key={row.id} className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-2 font-medium">{row.location}</td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <div className="text-sm">
-                              <div>{new Date(row.timestamp).toLocaleDateString()}</div>
-                              <div className="text-gray-500">{new Date(row.timestamp).toLocaleTimeString()}</div>
-                            </div>
-                          </td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <Badge className={getTrafficLevelColor(row.level || row.severity) + ' text-white'}>
-                              {(row.level || row.severity || 'medium').toUpperCase()}
-                            </Badge>
-                          </td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <div className="text-sm font-medium">
-                              {row.predictedVolume ? `${Math.round(row.predictedVolume)} vehicles/hr` : 'N/A'}
-                            </div>
-                          </td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <div className="text-sm">
-                              {row.details && row.details.includes('speed') ? 
-                                row.details.match(/\d+/)?.[0] + ' km/h' : 
-                                `${Math.floor(Math.random() * 40) + 20} km/h`}
-                            </div>
-                          </td>
-                          <td className="border border-gray-300 px-4 py-2 text-xs text-gray-600">
-                            {row.coordinates ? 
-                              `${row.coordinates[0].toFixed(4)}, ${row.coordinates[1].toFixed(4)}` : 
-                              `${row.lat?.toFixed(4) || 'N/A'}, ${row.lon?.toFixed(4) || 'N/A'}`}
-                          </td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <span className="text-sm capitalize">{row.type || 'Traffic Data'}</span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : (
-                <div className="text-center text-gray-500 py-12">
-                  {isLoading ? 'Loading historical data...' : 'No historical data available. Use the form above to load data.'}
                 </div>
               )}
             </div>
