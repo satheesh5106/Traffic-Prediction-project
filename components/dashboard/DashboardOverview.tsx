@@ -246,7 +246,7 @@ const DashboardOverview = () => {
           {/* Weather Widget */}
           <div className="lg:col-span-1">
             <Weather 
-              city="Mumbai"
+              city="krishnankoil"
               className="h-full"
             />
           </div>

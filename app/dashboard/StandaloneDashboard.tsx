@@ -35,10 +35,10 @@ const StandaloneDashboard = () => {
 
   const sidebarItems = [
     { icon: BarChart3, label: 'Dashboard', id: 'overview' },
-    { icon: Cloud, label: 'Weather and IMD ⚠️', id: 'weather' },
-    { icon: Route, label: 'Route Optimization', id: 'routes' },
-    { icon: Activity, label: 'Traffic Prediction', id: 'prediction' },
-    { icon: Shield, label: 'Incident Prediction', id: 'incidents' },
+    { icon: Cloud, label: 'IMD Warnings ⚠️', id: 'weather' },
+    { icon: Route, label: 'Route Optimization 🛣️', id: 'routes' },
+    { icon: Activity, label: 'Traffic Prediction ', id: 'prediction' },
+    { icon: Shield, label: 'Incident Prediction ', id: 'incidents' },
 
     { icon: Settings, label: 'Settings', id: 'settings' }
   ];

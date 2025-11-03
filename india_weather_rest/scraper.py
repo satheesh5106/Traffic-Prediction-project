@@ -183,93 +183,321 @@ def get_station_data(id):
 
 def get_imd_alerts():
     """Scrape IMD weather alerts and warnings from official IMD website"""
-    try:
-        # IMD warnings page
-        warnings_url = "https://mausam.imd.gov.in/imd_latest/contents/warnings.php"
-        
-        response = requests.get(warnings_url, verify=False, timeout=15)
-        response.raise_for_status()
-        
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        alerts = []
-        
-        # Look for warning tables or divs
-        warning_sections = soup.find_all(['table', 'div'], class_=re.compile(r'warning|alert', re.I))
-        
-        if not warning_sections:
-            # Fallback: look for any tables that might contain warnings
-            warning_sections = soup.find_all('table')
-        
-        for section in warning_sections[:5]:  # Limit to first 5 sections
-            rows = section.find_all('tr')
+    alerts = []
+    
+    # Multiple IMD official sources for better coverage
+    imd_sources = [
+        {
+            'url': 'https://mausam.imd.gov.in/imd_latest/contents/warnings.php',
+            'name': 'IMD Warnings'
+        },
+        {
+            'url': 'https://mausam.imd.gov.in/imd_latest/contents/cyclone.php',
+            'name': 'IMD Cyclone'
+        },
+        {
+            'url': 'https://mausam.imd.gov.in/imd_latest/contents/rainfall_dep.php',
+            'name': 'IMD Rainfall'
+        }
+    ]
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1'
+    }
+    
+    for source in imd_sources:
+        try:
+            print(f"Fetching from {source['name']}: {source['url']}")
             
-            for row in rows[1:]:  # Skip header row
+            response = requests.get(source['url'], headers=headers, verify=False, timeout=20)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Enhanced parsing for different IMD page structures
+            source_alerts = parse_imd_content(soup, source['name'])
+            alerts.extend(source_alerts)
+            
+            if len(alerts) >= 10:  # Stop if we have enough alerts
+                break
+                
+        except Exception as e:
+            print(f"Error fetching from {source['name']}: {str(e)}")
+            continue
+    
+    # If no alerts found from official sources, try RSS feeds
+    if not alerts:
+        alerts = get_imd_rss_alerts()
+    
+    # Remove duplicates and sort by timestamp
+    unique_alerts = []
+    seen_descriptions = set()
+    
+    for alert in alerts:
+        alert_key = f"{alert['region']}_{alert['type']}_{alert['description'][:50]}"
+        if alert_key not in seen_descriptions:
+            seen_descriptions.add(alert_key)
+            unique_alerts.append(alert)
+    
+    # Sort by severity and timestamp
+    severity_order = {'High': 3, 'Medium': 2, 'Low': 1}
+    unique_alerts.sort(key=lambda x: (severity_order.get(x['severity'], 0), x['timestamp']), reverse=True)
+    
+    return {
+        'code': 200,
+        'alerts': unique_alerts[:15],  # Return top 15 alerts
+        'total_count': len(unique_alerts),
+        'last_updated': datetime.now().isoformat(),
+        'source': 'IMD Official' if unique_alerts else 'No Data Available'
+    }
+
+
+def parse_imd_content(soup, source_name):
+    """Enhanced parsing for IMD content"""
+    alerts = []
+    
+    try:
+        # Method 1: Look for structured tables
+        tables = soup.find_all('table')
+        for table in tables:
+            rows = table.find_all('tr')
+            
+            for i, row in enumerate(rows[1:], 1):  # Skip header
                 cells = row.find_all(['td', 'th'])
                 
-                if len(cells) >= 3:
-                    # Extract alert information
-                    region = cells[0].get_text(strip=True)
-                    alert_type = cells[1].get_text(strip=True) if len(cells) > 1 else "Weather Alert"
-                    description = cells[2].get_text(strip=True) if len(cells) > 2 else "No description"
+                if len(cells) >= 2:
+                    cell_texts = [cell.get_text(strip=True) for cell in cells]
                     
-                    # Filter out empty or header rows
-                    if region and len(region) > 2 and not region.lower() in ['region', 'state', 'area', 'district']:
-                        severity = "Medium"
-                        if any(word in alert_type.lower() for word in ['red', 'extreme', 'severe']):
-                            severity = "High"
-                        elif any(word in alert_type.lower() for word in ['yellow', 'watch', 'advisory']):
-                            severity = "Low"
-                        
+                    # Skip empty or header rows
+                    if not any(cell_texts) or any(header in cell_texts[0].lower() 
+                              for header in ['state', 'region', 'district', 'area', 'date']):
+                        continue
+                    
+                    region = cell_texts[0] if cell_texts[0] else 'India'
+                    alert_type = cell_texts[1] if len(cell_texts) > 1 else 'Weather Alert'
+                    description = cell_texts[2] if len(cell_texts) > 2 else alert_type
+                    
+                    # Enhanced severity detection
+                    severity = determine_severity(alert_type, description)
+                    
+                    # Enhanced type classification
+                    classified_type = classify_alert_type(alert_type, description)
+                    
+                    if len(region) > 2 and len(alert_type) > 2:
                         alerts.append({
                             'id': len(alerts) + 1,
                             'region': region,
-                            'type': alert_type,
+                            'type': classified_type,
                             'description': description,
                             'severity': severity,
                             'timestamp': datetime.now().isoformat(),
-                            'source': 'IMD Official'
+                            'source': f'IMD Official - {source_name}'
                         })
         
-        # If no alerts found, try alternative scraping method
+        # Method 2: Look for div-based content
         if not alerts:
-            # Look for any text containing weather-related keywords
-            text_content = soup.get_text()
-            weather_keywords = ['thunderstorm', 'cyclone', 'heavy rain', 'heat wave', 'cold wave', 'fog', 'dust storm']
+            warning_divs = soup.find_all('div', class_=re.compile(r'warning|alert|bulletin', re.I))
             
-            for keyword in weather_keywords:
-                if keyword in text_content.lower():
+            for div in warning_divs:
+                text_content = div.get_text(strip=True)
+                if len(text_content) > 50:  # Meaningful content
+                    # Extract location and alert type from text
+                    region, alert_type, description = extract_alert_from_text(text_content)
+                    
+                    if region and alert_type:
+                        alerts.append({
+                            'id': len(alerts) + 1,
+                            'region': region,
+                            'type': classify_alert_type(alert_type, description),
+                            'description': description,
+                            'severity': determine_severity(alert_type, description),
+                            'timestamp': datetime.now().isoformat(),
+                            'source': f'IMD Official - {source_name}'
+                        })
+        
+        # Method 3: Text-based extraction for unstructured content
+        if not alerts:
+            full_text = soup.get_text()
+            alerts = extract_alerts_from_full_text(full_text, source_name)
+            
+    except Exception as e:
+        print(f"Error parsing {source_name}: {str(e)}")
+    
+    return alerts
+
+
+def get_imd_rss_alerts():
+    """Fetch alerts from IMD RSS feeds"""
+    alerts = []
+    rss_urls = [
+        'https://mausam.imd.gov.in/imd_latest/contents/rss/weather_warning.xml',
+        'https://mausam.imd.gov.in/imd_latest/contents/rss/cyclone_warning.xml'
+    ]
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    }
+    
+    for rss_url in rss_urls:
+        try:
+            response = requests.get(rss_url, headers=headers, timeout=15)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, 'xml')
+            items = soup.find_all('item')
+            
+            for item in items[:5]:  # Limit per RSS feed
+                title = item.find('title')
+                description = item.find('description')
+                pub_date = item.find('pubDate')
+                
+                if title and description:
+                    title_text = title.get_text(strip=True)
+                    desc_text = description.get_text(strip=True)
+                    
+                    region, alert_type, full_desc = extract_alert_from_text(f"{title_text} {desc_text}")
+                    
                     alerts.append({
                         'id': len(alerts) + 1,
-                        'region': 'Multiple States',
-                        'type': keyword.title() + ' Alert',
-                        'description': f'Weather conditions related to {keyword} detected',
-                        'severity': 'Medium',
+                        'region': region or 'India',
+                        'type': classify_alert_type(alert_type or title_text, full_desc),
+                        'description': full_desc or desc_text,
+                        'severity': determine_severity(title_text, desc_text),
                         'timestamp': datetime.now().isoformat(),
-                        'source': 'IMD Official'
+                        'source': 'IMD Official - RSS'
                     })
-        
-        # If still no alerts, provide fallback alerts
-        if not alerts:
-            alerts = get_fallback_alerts()
-        
-        return {
-            'code': 200,
-            'alerts': alerts[:10],  # Limit to 10 most recent alerts
-            'total_count': len(alerts),
-            'last_updated': datetime.now().isoformat(),
-            'source': 'IMD'
-        }
-        
-    except Exception as e:
-        print(f"Error fetching IMD alerts: {str(e)}")
-        return {
-            'code': 200,
-            'alerts': get_fallback_alerts(),
-            'total_count': 3,
-            'last_updated': datetime.now().isoformat(),
-            'source': 'Fallback'
-        }
+                    
+        except Exception as e:
+            print(f"Error fetching RSS from {rss_url}: {str(e)}")
+            continue
+    
+    return alerts
+
+
+def determine_severity(alert_type, description):
+    """Determine alert severity based on keywords"""
+    combined_text = f"{alert_type} {description}".lower()
+    
+    # High severity keywords
+    high_keywords = ['red', 'extreme', 'severe', 'very heavy', 'extremely heavy', 
+                    'cyclone', 'very severe', 'super cyclone', 'depression']
+    
+    # Medium severity keywords  
+    medium_keywords = ['orange', 'heavy', 'moderate', 'thunderstorm', 'warning',
+                      'heat wave', 'cold wave', 'dense fog']
+    
+    # Low severity keywords
+    low_keywords = ['yellow', 'light', 'advisory', 'watch', 'isolated', 'scattered']
+    
+    if any(keyword in combined_text for keyword in high_keywords):
+        return 'High'
+    elif any(keyword in combined_text for keyword in medium_keywords):
+        return 'Medium'
+    elif any(keyword in combined_text for keyword in low_keywords):
+        return 'Low'
+    else:
+        return 'Medium'  # Default
+
+
+def classify_alert_type(alert_type, description):
+    """Classify alert type for better icon mapping"""
+    combined_text = f"{alert_type} {description}".lower()
+    
+    # Comprehensive type mapping
+    type_mapping = {
+        'thunderstorm': ['thunderstorm', 'lightning', 'thunder', 'squall'],
+        'heavy_rain': ['heavy rain', 'very heavy rain', 'extremely heavy rain', 'rainfall'],
+        'rain': ['rain', 'shower', 'drizzle', 'precipitation'],
+        'cyclone': ['cyclone', 'depression', 'low pressure', 'tropical storm'],
+        'heat_wave': ['heat wave', 'hot weather', 'maximum temperature'],
+        'cold_wave': ['cold wave', 'cold weather', 'minimum temperature', 'severe cold'],
+        'fog': ['fog', 'dense fog', 'very dense fog', 'mist'],
+        'dust_storm': ['dust storm', 'dust', 'sand storm'],
+        'wind': ['strong wind', 'gusty wind', 'gale', 'high wind'],
+        'hail': ['hail', 'hailstorm'],
+        'flood': ['flood', 'inundation', 'water logging'],
+        'drought': ['drought', 'dry weather', 'deficient rainfall']
+    }
+    
+    for weather_type, keywords in type_mapping.items():
+        if any(keyword in combined_text for keyword in keywords):
+            return weather_type
+    
+    return 'general'  # Default type
+
+
+def extract_alert_from_text(text):
+    """Extract region, alert type, and description from unstructured text"""
+    # Common Indian states and regions for extraction
+    indian_regions = [
+        'andhra pradesh', 'arunachal pradesh', 'assam', 'bihar', 'chhattisgarh',
+        'goa', 'gujarat', 'haryana', 'himachal pradesh', 'jharkhand', 'karnataka',
+        'kerala', 'madhya pradesh', 'maharashtra', 'manipur', 'meghalaya', 'mizoram',
+        'nagaland', 'odisha', 'punjab', 'rajasthan', 'sikkim', 'tamil nadu',
+        'telangana', 'tripura', 'uttar pradesh', 'uttarakhand', 'west bengal',
+        'delhi', 'mumbai', 'chennai', 'kolkata', 'bangalore', 'hyderabad',
+        'pune', 'ahmedabad', 'jaipur', 'lucknow', 'kanpur', 'nagpur', 'indore',
+        'thane', 'bhopal', 'visakhapatnam', 'pimpri', 'patna', 'vadodara',
+        'ghaziabad', 'ludhiana', 'agra', 'nashik', 'faridabad', 'meerut'
+    ]
+    
+    text_lower = text.lower()
+    
+    # Find region
+    region = 'India'  # Default
+    for reg in indian_regions:
+        if reg in text_lower:
+            region = reg.title()
+            break
+    
+    # Find alert type
+    alert_keywords = ['thunderstorm', 'rain', 'cyclone', 'heat wave', 'cold wave', 
+                     'fog', 'dust storm', 'wind', 'hail', 'flood', 'drought', 'warning', 'alert']
+    
+    alert_type = 'Weather Alert'  # Default
+    for keyword in alert_keywords:
+        if keyword in text_lower:
+            alert_type = keyword.title()
+            break
+    
+    # Description is the full text, cleaned up
+    description = ' '.join(text.split()[:20])  # First 20 words
+    
+    return region, alert_type, description
+
+
+def extract_alerts_from_full_text(full_text, source_name):
+    """Extract alerts from full page text as last resort"""
+    alerts = []
+    
+    # Look for weather-related sentences
+    sentences = full_text.split('.')
+    weather_keywords = ['rain', 'thunderstorm', 'cyclone', 'heat', 'cold', 'fog', 'wind', 'storm']
+    
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if len(sentence) > 30 and any(keyword in sentence.lower() for keyword in weather_keywords):
+            region, alert_type, description = extract_alert_from_text(sentence)
+            
+            alerts.append({
+                'id': len(alerts) + 1,
+                'region': region,
+                'type': classify_alert_type(alert_type, description),
+                'description': description,
+                'severity': determine_severity(alert_type, description),
+                'timestamp': datetime.now().isoformat(),
+                'source': f'IMD Official - {source_name}'
+            })
+            
+            if len(alerts) >= 5:  # Limit from text extraction
+                break
+    
+    return alerts
 
 
 def get_fallback_alerts():
