@@ -188,7 +188,7 @@ router.post('/predict', authenticateToken, async (req, res) => {
   const startTime = Date.now();
   
   try {
-    const { location, conditions, basic_info, use_current_location = false } = req.body;
+    const { location, conditions, basic_info, use_current_location = false, lat: bodyLat, lon: bodyLon } = req.body;
     
     let lat, lon, locationName;
     
@@ -217,28 +217,37 @@ router.post('/predict', authenticateToken, async (req, res) => {
       
       locationName = location;
       
-      // Use TomTom geocoding service for location coordinates
-      try {
-        const geocodeUrl = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(location)}.json?key=${TOMTOM_API_KEY}&countrySet=IN&limit=1`;
-        const geocodeResponse = await axios.get(geocodeUrl, { timeout: 5000 });
-        
-        if (geocodeResponse.data.results && geocodeResponse.data.results.length > 0) {
-          const result = geocodeResponse.data.results[0];
-          lat = result.position.lat;
-          lon = result.position.lon;
-          logger.info(`Geocoded ${location} to coordinates: [${lat}, ${lon}]`);
-        } else {
+      // If lat/lon are provided by the frontend, use them directly and skip TomTom geocoding
+      const providedLat = bodyLat !== undefined ? parseFloat(bodyLat) : undefined;
+      const providedLon = bodyLon !== undefined ? parseFloat(bodyLon) : undefined;
+      if (providedLat !== undefined && providedLon !== undefined && validateCoordinates(providedLat, providedLon)) {
+        lat = providedLat;
+        lon = providedLon;
+        logger.info(`Using provided coordinates for ${location}: [${lat}, ${lon}]`);
+      } else {
+        // Use TomTom geocoding service for location coordinates
+        try {
+          const geocodeUrl = `https://api.tomtom.com/search/2/geocode/${encodeURIComponent(location)}.json?key=${TOMTOM_API_KEY}&countrySet=IN&limit=1`;
+          const geocodeResponse = await axios.get(geocodeUrl, { timeout: 5000 });
+          
+          if (geocodeResponse.data.results && geocodeResponse.data.results.length > 0) {
+            const result = geocodeResponse.data.results[0];
+            lat = result.position.lat;
+            lon = result.position.lon;
+            logger.info(`Geocoded ${location} to coordinates: [${lat}, ${lon}]`);
+          } else {
+            return res.status(400).json({
+              error: 'Location not found',
+              message: `Could not find coordinates for location: ${location}`
+            });
+          }
+        } catch (geocodeError) {
+          logger.error('Geocoding failed:', geocodeError.message);
           return res.status(400).json({
-            error: 'Location not found',
-            message: `Could not find coordinates for location: ${location}`
+            error: 'Geocoding failed',
+            message: 'Unable to find coordinates for the specified location. Please try a different location or use current location.'
           });
         }
-      } catch (geocodeError) {
-        logger.error('Geocoding failed:', geocodeError.message);
-        return res.status(400).json({
-          error: 'Geocoding failed',
-          message: 'Unable to find coordinates for the specified location. Please try a different location or use current location.'
-        });
       }
     }
     

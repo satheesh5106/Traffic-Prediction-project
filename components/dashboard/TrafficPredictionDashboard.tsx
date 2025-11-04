@@ -3285,172 +3285,22 @@ const TrafficPredictionDashboard = () => {
 
         {/* ✅ Real-time System Metrics Display */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-          <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-green-600">CPU Usage</p>
-                  <p className="text-2xl font-bold text-green-800">{realTimeMetrics.cpu_usage.toFixed(1)}%</p>
-                </div>
-                <Cpu className="h-8 w-8 text-green-600" />
-              </div>
-            </CardContent>
-          </Card>
           
-          <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-purple-600">Memory Usage</p>
-                  <p className="text-2xl font-bold text-purple-800">{realTimeMetrics.memory_usage.toFixed(1)}%</p>
-                </div>
-                <Database className="h-8 w-8 text-purple-600" />
-              </div>
-            </CardContent>
-          </Card>
           
-          <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-orange-600">Requests/Min</p>
-                  <p className="text-2xl font-bold text-orange-800">{realTimeMetrics.requests_per_minute}</p>
-                </div>
-                <TrendingUp className="h-8 w-8 text-orange-600" />
-              </div>
-            </CardContent>
-          </Card>
           
-          <Card className="bg-gradient-to-br from-red-50 to-red-100 border-red-200">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-red-600">Error Rate</p>
-                  <p className="text-2xl font-bold text-red-800">{realTimeMetrics.error_rate.toFixed(2)}%</p>
-                </div>
-                <AlertTriangle className="h-8 w-8 text-red-600" />
-              </div>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Enhanced Statistics Grid with Ant Design */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-6">
-          <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-blue-700">Last Updated</CardTitle>
-              <Clock className="h-4 w-4 text-blue-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-blue-700">{metrics.lastUpdated}</div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-green-700">Active Predictions</CardTitle>
-              <Activity className="h-4 w-4 text-green-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center">
-                <div className="text-2xl font-bold text-green-700">{metrics.activePredictions}</div>
-                <TrendingUp className="h-3 w-3 inline ml-1 text-green-600" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-purple-700">ML Accuracy</CardTitle>
-              <Target className="h-4 w-4 text-purple-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-purple-700">{metrics.mlAccuracy}</div>
-              <div className="w-full bg-purple-200 rounded-full h-2 mt-1">
-                <div 
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-300" 
-                  style={{ width: `${parseFloat(metrics.mlAccuracy.replace('%', ''))}%` }}
-                ></div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-orange-700">API Latency</CardTitle>
-              <Zap className="h-4 w-4 text-orange-600" />
-            </CardHeader>
-            <CardContent>
-              <div className={`text-2xl font-bold ${
-                parseFloat(metrics.apiLatency.replace('ms', '')) < PERFORMANCE_TARGET ? 'text-orange-600' : 'text-red-600'
-              }`}>
-                {metrics.apiLatency}
-              </div>
-              <div className="text-xs text-orange-600 mt-1">
-                Target: &lt;{PERFORMANCE_TARGET}ms
-              </div>
-            </CardContent>
-          </Card>
 
 
 
-          <Card className="bg-gradient-to-br from-red-50 to-red-100 border-red-200">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-red-700">Critical Alerts</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-red-600" />
-            </CardHeader>
-            <CardContent>
-              <div className={`text-2xl font-bold ${
-                parseInt(metrics.criticalAlerts) > 5 ? 'text-red-600' : 'text-orange-600'
-              }`}>
-                {metrics.criticalAlerts}
-              </div>
-              {parseInt(metrics.criticalAlerts) > 0 && (
-                <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded-md flex items-center">
-                  <AlertTriangle className="h-4 w-4 text-yellow-600 mr-2" />
-                  <span className="text-sm text-yellow-800">Active alerts require attention</span>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+
+
+
         </div>
 
-        {/* Advanced Performance Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-
-
-
-
-
-
-          <Card className="bg-gradient-to-br from-amber-50 to-amber-100 border-amber-200">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-amber-700 flex items-center">
-                <Activity className="h-4 w-4 mr-2" />
-                Live Updates
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2 w-full">
-                <div className="flex justify-between">
-                  <span className="text-xs text-amber-600">Real-time:</span>
-                  <span className="text-xs font-semibold">{metrics.realTimeUpdates}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-xs text-amber-600">Mode:</span>
-                  <span className="text-xs font-semibold">On-Demand</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-amber-600">Status:</span>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse mr-1"></div>
-                    <span className="text-xs font-semibold">Live</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Advanced Performance Metrics removed */}
       </section>
 
       {/* Navigation Tabs */}

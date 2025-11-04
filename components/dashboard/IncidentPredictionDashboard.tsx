@@ -12,9 +12,14 @@ import axios from 'axios';
 // API Configuration
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
   ? 'https://trafficai.netlify.app/api'
-  : 'http://localhost:3001/api';
+  : 'http://localhost:3003/api';
 const POLL_INTERVAL = 3000; // 3 seconds for enhanced real-time updates
 const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
+// Support both env var names and provide a demo fallback key if unset
+const OPENWEATHERMAP_API_KEY =
+  process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY ||
+  process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY ||
+  'b9189ea6045dd1fc3f6eb05259b188f1';
 
 // JWT Authentication Manager
 class AuthManager {
@@ -130,11 +135,13 @@ const IncidentPredictionDashboard = () => {
   const [fromLocationSuggestions, setFromLocationSuggestions] = useState<any[]>([]);
   const [showFromSuggestions, setShowFromSuggestions] = useState(false);
   const [searchingFromLocation, setSearchingFromLocation] = useState(false);
+  const [fromCoords, setFromCoords] = useState<{ lat: number; lon: number } | null>(null);
   
   // Location search state for To location
   const [toLocationSuggestions, setToLocationSuggestions] = useState<any[]>([]);
   const [showToSuggestions, setShowToSuggestions] = useState(false);
   const [searchingToLocation, setSearchingToLocation] = useState(false);
+  const [toCoords, setToCoords] = useState<{ lat: number; lon: number } | null>(null);
   
   // Polling interval reference
   const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -160,25 +167,33 @@ const IncidentPredictionDashboard = () => {
     }
   };
   
-  // Search From locations using TomTom API
+  // Search From locations using OpenWeatherMap Geocoding API
   const searchFromLocations = async (query: string) => {
     if (!query || query.length < 3) return;
     
     setSearchingFromLocation(true);
     try {
-      const response = await fetch(
-        `https://api.tomtom.com/search/2/search.json?key=${TOMTOM_API_KEY}&query=${encodeURIComponent(query)}&limit=5&typeahead=true`
-      );
-      
+      const url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${OPENWEATHERMAP_API_KEY}`;
+      const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        if (data.results && data.results.length > 0) {
-          setFromLocationSuggestions(data.results);
+        if (Array.isArray(data) && data.length > 0) {
+          const results = data.map((item: any) => ({
+            name: item.name,
+            state: item.state,
+            country: item.country,
+            lat: item.lat,
+            lon: item.lon
+          }));
+          setFromLocationSuggestions(results);
           setShowFromSuggestions(true);
         } else {
           setFromLocationSuggestions([]);
           setShowFromSuggestions(false);
         }
+      } else {
+        setFromLocationSuggestions([]);
+        setShowFromSuggestions(false);
       }
     } catch (error) {
       console.error('From location search failed:', error);
@@ -189,25 +204,33 @@ const IncidentPredictionDashboard = () => {
     }
   };
   
-  // Search To locations using TomTom API
+  // Search To locations using OpenWeatherMap Geocoding API
   const searchToLocations = async (query: string) => {
     if (!query || query.length < 3) return;
     
     setSearchingToLocation(true);
     try {
-      const response = await fetch(
-        `https://api.tomtom.com/search/2/search.json?key=${TOMTOM_API_KEY}&query=${encodeURIComponent(query)}&limit=5&typeahead=true`
-      );
-      
+      const url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${OPENWEATHERMAP_API_KEY}`;
+      const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
-        if (data.results && data.results.length > 0) {
-          setToLocationSuggestions(data.results);
+        if (Array.isArray(data) && data.length > 0) {
+          const results = data.map((item: any) => ({
+            name: item.name,
+            state: item.state,
+            country: item.country,
+            lat: item.lat,
+            lon: item.lon
+          }));
+          setToLocationSuggestions(results);
           setShowToSuggestions(true);
         } else {
           setToLocationSuggestions([]);
           setShowToSuggestions(false);
         }
+      } else {
+        setToLocationSuggestions([]);
+        setShowToSuggestions(false);
       }
     } catch (error) {
       console.error('To location search failed:', error);
@@ -218,22 +241,30 @@ const IncidentPredictionDashboard = () => {
     }
   };
   
-  // Select From location from suggestions
+  // Select From location from OWM suggestions
   const selectFromLocation = (location: any) => {
-    const locationName = location.address?.freeformAddress || 
-                        `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
-                        location.poi?.name || 'Unknown Location';
+    const parts = [location.name, location.state, location.country].filter(Boolean);
+    const locationName = parts.join(', ');
     setFormData(prev => ({ ...prev, fromLocation: locationName }));
+    if (typeof location.lat === 'number' && typeof location.lon === 'number') {
+      setFromCoords({ lat: location.lat, lon: location.lon });
+    } else {
+      setFromCoords(null);
+    }
     setFromLocationSuggestions([]);
     setShowFromSuggestions(false);
   };
   
-  // Select To location from suggestions
+  // Select To location from OWM suggestions
   const selectToLocation = (location: any) => {
-    const locationName = location.address?.freeformAddress || 
-                        `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
-                        location.poi?.name || 'Unknown Location';
+    const parts = [location.name, location.state, location.country].filter(Boolean);
+    const locationName = parts.join(', ');
     setFormData(prev => ({ ...prev, toLocation: locationName }));
+    if (typeof location.lat === 'number' && typeof location.lon === 'number') {
+      setToCoords({ lat: location.lat, lon: location.lon });
+    } else {
+      setToCoords(null);
+    }
     setToLocationSuggestions([]);
     setShowToSuggestions(false);
   };
@@ -253,35 +284,34 @@ const IncidentPredictionDashboard = () => {
         const { latitude, longitude } = position.coords;
         
         try {
-          // Use TomTom reverse geocoding to get location name
-          const response = await fetch(
-            `https://api.tomtom.com/search/2/reverseGeocode/${latitude},${longitude}.json?key=${TOMTOM_API_KEY}`
-          );
-          
+          // Use OpenWeatherMap reverse geocoding to get location name
+          const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${OPENWEATHERMAP_API_KEY}`;
+          const response = await fetch(url);
           if (response.ok) {
             const data = await response.json();
-            if (data.addresses && data.addresses.length > 0) {
-              const address = data.addresses[0].address;
-              const locationName = address.freeformAddress || 
-                                `${address.municipality || ''} ${address.country || ''}`.trim() ||
-                                `${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
+            if (Array.isArray(data) && data.length > 0) {
+              const item = data[0];
+              const parts = [item.name, item.state, item.country].filter(Boolean);
+              const locationName = parts.join(', ');
               setFormData(prev => ({ ...prev, fromLocation: locationName }));
+              setFromCoords({ lat: latitude, lon: longitude });
             } else {
               setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+              setFromCoords({ lat: latitude, lon: longitude });
             }
           } else {
-            // Fallback to coordinates if geocoding fails
             setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+            setFromCoords({ lat: latitude, lon: longitude });
           }
-        } catch (error) {
-          console.error('TomTom reverse geocoding failed:', error);
-          // Fallback to coordinates if geocoding fails
+        } catch (err) {
+          console.error('OWM reverse geocoding failed:', err);
           setFormData(prev => ({ ...prev, fromLocation: `${latitude.toFixed(4)}, ${longitude.toFixed(4)}` }));
+          setFromCoords({ lat: latitude, lon: longitude });
+        } finally {
+          setGettingLocation(false);
         }
-        
-        setGettingLocation(false);
       },
-      (error) => {
+      (error: GeolocationPositionError) => {
         setGettingLocation(false);
         switch (error.code) {
           case error.PERMISSION_DENIED:
@@ -313,19 +343,54 @@ const IncidentPredictionDashboard = () => {
       setError(null);
       
       // Validate required fields
-      if (!formData.fromLocation || !formData.toLocation) {
-        setError('Both From and To locations are required');
+      if (!formData.fromLocation) {
+        setError('From location is required');
         return;
       }
       
-      const requestData = {
-        fromLocation: formData.fromLocation,
-        toLocation: formData.toLocation,
-        basic_info: {
+      // Helper: parse coordinates from a "lat, lon" string
+      const parseCoordinates = (input: string): { lat: number; lon: number } | null => {
+        if (!input) return null;
+        const match = input.trim().match(/^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/);
+        if (!match) return null;
+        const lat = parseFloat(match[1]);
+        const lon = parseFloat(match[2]);
+        if (isNaN(lat) || isNaN(lon)) return null;
+        if (lat < -90 || lat > 90 || lon < -180 || lon > 180) return null;
+        return { lat, lon };
+      };
+
+      // Prefer selected geocoded coords; fall back to parsing if user entered raw coordinates
+      const resolvedFromCoords = fromCoords || parseCoordinates(formData.fromLocation);
+      const requestData: any = {
+        location: formData.fromLocation,
+        conditions: {
           time: formData.time,
           day: formData.day
         }
       };
+
+      if (resolvedFromCoords) {
+        requestData.lat = resolvedFromCoords.lat;
+        requestData.lon = resolvedFromCoords.lon;
+      } else {
+        // If user typed a name and didn't click a suggestion, auto-geocode it
+        try {
+          const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(formData.fromLocation)}&limit=1&appid=${OPENWEATHERMAP_API_KEY}`;
+          const geoResp = await fetch(geoUrl);
+          if (geoResp.ok) {
+            const geoData = await geoResp.json();
+            if (Array.isArray(geoData) && geoData.length > 0 && typeof geoData[0].lat === 'number' && typeof geoData[0].lon === 'number') {
+              requestData.lat = geoData[0].lat;
+              requestData.lon = geoData[0].lon;
+              setFromCoords({ lat: geoData[0].lat, lon: geoData[0].lon });
+              console.log('Auto-geocoded fromLocation:', { lat: geoData[0].lat, lon: geoData[0].lon });
+            }
+          }
+        } catch (geoErr) {
+          console.warn('Auto-geocoding failed, proceeding without coordinates:', geoErr);
+        }
+      }
       
       console.log('Submitting incident prediction:', requestData);
       console.log('API_BASE_URL:', API_BASE_URL);
@@ -547,10 +612,8 @@ const IncidentPredictionDashboard = () => {
                   {showFromSuggestions && fromLocationSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
                       {fromLocationSuggestions.map((location, index) => {
-                        const displayName = location.address?.freeformAddress || 
-                                          `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
-                                          location.poi?.name || 'Unknown Location';
-                        const subText = location.address?.country || location.address?.countrySubdivision || '';
+                        const displayName = `${location.name}${location.state ? ', ' + location.state : ''}`;
+                        const subText = location.country || '';
                         
                         return (
                           <div
@@ -593,10 +656,8 @@ const IncidentPredictionDashboard = () => {
                   {showToSuggestions && toLocationSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
                       {toLocationSuggestions.map((location, index) => {
-                        const displayName = location.address?.freeformAddress || 
-                                          `${location.address?.municipality || ''} ${location.address?.country || ''}`.trim() ||
-                                          location.poi?.name || 'Unknown Location';
-                        const subText = location.address?.country || location.address?.countrySubdivision || '';
+                        const displayName = `${location.name}${location.state ? ', ' + location.state : ''}`;
+                        const subText = location.country || '';
                         
                         return (
                           <div
