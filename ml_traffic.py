@@ -19,19 +19,49 @@ import logging
 import os
 import requests
 import json
+from dotenv import load_dotenv, find_dotenv
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# TomTom API Configuration
-TOMTOM_API_KEY = "qdWLPZiDyThFboTlpIkly3dALLUTXIug"
+# Load environment variables (strictly from Backend/.env)
+# Attempt to load Backend/.env explicitly first, then fail hard if key missing
+backend_env_path = os.path.join(os.path.dirname(__file__), 'Backend', '.env')
+if os.path.exists(backend_env_path):
+    load_dotenv(backend_env_path)
+else:
+    # Also try a relative path from project root if the script is run elsewhere
+    project_root_backend_env = os.path.join(os.getcwd(), 'Backend', '.env')
+    if os.path.exists(project_root_backend_env):
+        load_dotenv(project_root_backend_env)
+    else:
+        # Try default .env discovery as a last attempt
+        env_path = find_dotenv()
+        if env_path:
+            load_dotenv(env_path)
+
+# TomTom API Configuration (MUST come from Backend/.env)
+TOMTOM_API_KEY = os.getenv('TOMTOM_API_KEY')
 TOMTOM_GEOCODING_URL = "https://api.tomtom.com/search/2/geocode"
 TOMTOM_TRAFFIC_URL = "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/json"
 TOMTOM_ROUTE_URL = "https://api.tomtom.com/routing/1/calculateRoute"
 
+if not TOMTOM_API_KEY:
+    logger.error("TOMTOM_API_KEY not found in Backend/.env. Aborting startup.")
+    raise RuntimeError("Missing TOMTOM_API_KEY in Backend/.env")
+
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:3000"], supports_credentials=True)  # Enable CORS for cross-origin requests
+# Enable CORS for cross-origin requests from local dev ports
+DEV_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "http://localhost:3002",
+    "http://127.0.0.1:3002",
+]
+CORS(app, origins=DEV_ORIGINS, supports_credentials=True)
 
 # Global model and scaler
 model = None
@@ -41,37 +71,113 @@ model_accuracy = 0.0
 def get_location_coordinates(location_query):
     """
     Get coordinates for a location using TomTom Geocoding API
+    Prefer query param style and constrain to India for reliability.
+    Fallback to structured geocode if free-form returns no results.
     """
     try:
-        url = f"{TOMTOM_GEOCODING_URL}/{location_query}.json"
+        # Primary: free-form geocode with query params
+        url = f"{TOMTOM_GEOCODING_URL}.json"
         params = {
             'key': TOMTOM_API_KEY,
-            'limit': 1
+            'query': location_query,
+            'limit': 1,
+            'countrySet': 'IN',
+            'language': 'en-US'
         }
-        
+
         response = requests.get(url, params=params, timeout=10)
         response.raise_for_status()
-        
         data = response.json()
-        
-        if data.get('results') and len(data['results']) > 0:
+
+        if data.get('results'):
             result = data['results'][0]
             position = result.get('position', {})
             address = result.get('address', {})
-            
-            return {
-                'lat': position.get('lat'),
-                'lon': position.get('lon'),
-                'formatted_address': address.get('freeformAddress', location_query),
-                'municipality': address.get('municipality', ''),
-                'country': address.get('country', '')
+
+            if position.get('lat') is not None and position.get('lon') is not None:
+                return {
+                    'lat': position.get('lat'),
+                    'lon': position.get('lon'),
+                    'formatted_address': address.get('freeformAddress', location_query),
+                    'municipality': address.get('municipality', ''),
+                    'country': address.get('country', '')
+                }
+
+        # Fallback: structured geocode with municipality + country
+        logger.warning(f"No free-form geocode for: {location_query}, trying structuredGeocode")
+
+        try:
+            structured_url = "https://api.tomtom.com/search/2/structuredGeocode.json"
+            municipality = location_query.split(',')[0].strip()
+            structured_params = {
+                'key': TOMTOM_API_KEY,
+                'municipality': municipality,
+                'countryCode': 'IN',
+                'limit': 1,
+                'language': 'en-US'
             }
-        else:
-            logger.warning(f"No geocoding results found for: {location_query}")
-            return None
-            
+
+            s_resp = requests.get(structured_url, params=structured_params, timeout=10)
+            s_resp.raise_for_status()
+            s_data = s_resp.json()
+
+            if s_data.get('results'):
+                s_result = s_data['results'][0]
+                s_pos = s_result.get('position', {})
+                s_addr = s_result.get('address', {})
+                if s_pos.get('lat') is not None and s_pos.get('lon') is not None:
+                    return {
+                        'lat': s_pos.get('lat'),
+                        'lon': s_pos.get('lon'),
+                        'formatted_address': s_addr.get('freeformAddress', municipality),
+                        'municipality': s_addr.get('municipality', municipality),
+                        'country': s_addr.get('country', 'India')
+                    }
+        except Exception as se:
+            logger.error(f"Structured geocode error for {location_query}: {str(se)}")
+
+        # Final fallback: static coordinates for major Indian cities
+        fallback_map = {
+            'mumbai': {'lat': 19.0760, 'lon': 72.8777, 'formatted_address': 'Mumbai, India', 'municipality': 'Mumbai', 'country': 'India'},
+            'thane': {'lat': 19.2183, 'lon': 72.9781, 'formatted_address': 'Thane, India', 'municipality': 'Thane', 'country': 'India'},
+            'navi mumbai': {'lat': 19.0330, 'lon': 73.0297, 'formatted_address': 'Navi Mumbai, India', 'municipality': 'Navi Mumbai', 'country': 'India'},
+            'delhi': {'lat': 28.6139, 'lon': 77.2090, 'formatted_address': 'Delhi, India', 'municipality': 'Delhi', 'country': 'India'},
+            'bangalore': {'lat': 12.9716, 'lon': 77.5946, 'formatted_address': 'Bangalore, India', 'municipality': 'Bengaluru', 'country': 'India'},
+            'chennai': {'lat': 13.0827, 'lon': 80.2707, 'formatted_address': 'Chennai, India', 'municipality': 'Chennai', 'country': 'India'},
+            'hyderabad': {'lat': 17.3850, 'lon': 78.4867, 'formatted_address': 'Hyderabad, India', 'municipality': 'Hyderabad', 'country': 'India'},
+            'kolkata': {'lat': 22.5726, 'lon': 88.3639, 'formatted_address': 'Kolkata, India', 'municipality': 'Kolkata', 'country': 'India'},
+            'pune': {'lat': 18.5204, 'lon': 73.8567, 'formatted_address': 'Pune, India', 'municipality': 'Pune', 'country': 'India'},
+            'ahmedabad': {'lat': 23.0225, 'lon': 72.5714, 'formatted_address': 'Ahmedabad, India', 'municipality': 'Ahmedabad', 'country': 'India'}
+        }
+
+        key = location_query.lower().strip()
+        if key in fallback_map:
+            logger.warning(f"Using static fallback coordinates for: {location_query}")
+            return fallback_map[key]
+
+        logger.error(f"Geocoding failed for: {location_query}")
+        return None
     except Exception as e:
         logger.error(f"Geocoding error for {location_query}: {str(e)}")
+        # Attempt static fallback even on errors
+        fallback_map = {
+            'mumbai': {'lat': 19.0760, 'lon': 72.8777, 'formatted_address': 'Mumbai, India', 'municipality': 'Mumbai', 'country': 'India'},
+            'thane': {'lat': 19.2183, 'lon': 72.9781, 'formatted_address': 'Thane, India', 'municipality': 'Thane', 'country': 'India'},
+            'navi mumbai': {'lat': 19.0330, 'lon': 73.0297, 'formatted_address': 'Navi Mumbai, India', 'municipality': 'Navi Mumbai', 'country': 'India'},
+            'delhi': {'lat': 28.6139, 'lon': 77.2090, 'formatted_address': 'Delhi, India', 'municipality': 'Delhi', 'country': 'India'},
+            'bangalore': {'lat': 12.9716, 'lon': 77.5946, 'formatted_address': 'Bangalore, India', 'municipality': 'Bengaluru', 'country': 'India'},
+            'chennai': {'lat': 13.0827, 'lon': 80.2707, 'formatted_address': 'Chennai, India', 'municipality': 'Chennai', 'country': 'India'},
+            'hyderabad': {'lat': 17.3850, 'lon': 78.4867, 'formatted_address': 'Hyderabad, India', 'municipality': 'Hyderabad', 'country': 'India'},
+            'kolkata': {'lat': 22.5726, 'lon': 88.3639, 'formatted_address': 'Kolkata, India', 'municipality': 'Kolkata', 'country': 'India'},
+            'pune': {'lat': 18.5204, 'lon': 73.8567, 'formatted_address': 'Pune, India', 'municipality': 'Pune', 'country': 'India'},
+            'ahmedabad': {'lat': 23.0225, 'lon': 72.5714, 'formatted_address': 'Ahmedabad, India', 'municipality': 'Ahmedabad', 'country': 'India'}
+        }
+
+        key = location_query.lower().strip()
+        if key in fallback_map:
+            logger.warning(f"Using static fallback coordinates after error for: {location_query}")
+            return fallback_map[key]
+
         return None
 
 def get_route_traffic_data(from_lat, from_lon, to_lat, to_lon):
@@ -91,23 +197,23 @@ def get_route_traffic_data(from_lat, from_lon, to_lat, to_lon):
         }
         
         response = requests.get(route_url, params=params, timeout=10)
-        
+
         if response.status_code == 200:
             route_data = response.json()
-            
+
             if 'routes' in route_data and len(route_data['routes']) > 0:
                 route = route_data['routes'][0]
                 summary = route['summary']
-                
+
                 # Extract traffic information
                 travel_time_traffic = summary.get('travelTimeInSeconds', 0)
                 travel_time_no_traffic = summary.get('noTrafficTravelTimeInSeconds', travel_time_traffic)
                 distance = summary.get('lengthInMeters', 0)
-                
+
                 # Calculate traffic metrics
                 delay_factor = travel_time_traffic / max(travel_time_no_traffic, 1)
                 congestion_ratio = max(0, (delay_factor - 1))
-                
+
                 # Calculate average speed
                 if travel_time_traffic > 0 and distance > 0:
                     current_speed = (distance / 1000) / (travel_time_traffic / 3600)  # km/h
@@ -115,7 +221,7 @@ def get_route_traffic_data(from_lat, from_lon, to_lat, to_lon):
                 else:
                     current_speed = 50  # Default speed
                     free_flow_speed = 60  # Default free flow speed
-                
+
                 return {
                     'congestion_ratio': min(congestion_ratio, 1.0),
                     'delay_factor': delay_factor,
@@ -130,7 +236,42 @@ def get_route_traffic_data(from_lat, from_lon, to_lat, to_lon):
                         'delay': f"{(travel_time_traffic - travel_time_no_traffic)/60:.0f} minutes"
                     }
                 }
-        
+
+        # Fallback: use Traffic Flow API at origin point
+        try:
+            flow_params = {
+                'key': TOMTOM_API_KEY,
+                'point': f"{from_lat},{from_lon}",
+            }
+            flow_resp = requests.get(TOMTOM_TRAFFIC_URL, params=flow_params, timeout=10)
+            flow_resp.raise_for_status()
+            flow_data = flow_resp.json()
+            flow = flow_data.get('flowSegmentData', {})
+            if flow:
+                current_speed = flow.get('currentSpeed', 50)
+                free_flow_speed = flow.get('freeFlowSpeed', max(current_speed, 60))
+                # Derive delay factor from speed ratio
+                speed_ratio = max(0.1, current_speed / max(free_flow_speed, 1))
+                delay_factor = 1.0 / speed_ratio
+                congestion_ratio = max(0.0, min(1.0, (delay_factor - 1.0)))
+
+                return {
+                    'congestion_ratio': congestion_ratio,
+                    'delay_factor': delay_factor,
+                    'current_speed': current_speed,
+                    'free_flow_speed': free_flow_speed,
+                    'travel_time_minutes': None,
+                    'distance_km': None,
+                    'confidence': flow.get('confidence', 0.7),
+                    'route_summary': {
+                        'distance': None,
+                        'travel_time': None,
+                        'delay': None
+                    }
+                }
+        except Exception as fe:
+            logger.error(f"Traffic flow fallback failed: {str(fe)}")
+
         logger.warning(f"Failed to get route traffic data: {response.status_code}")
         return None
         
@@ -325,13 +466,32 @@ def predict():
         except ValueError as e:
             return jsonify({'error': f'Invalid date/time format: {str(e)}'}), 400
         
-        # Get coordinates for locations
+        # Get coordinates for locations (allow direct lat/lon overrides)
         from_coords = None
         to_coords = None
-        
-        if from_location:
+
+        from_lat = data.get('from_lat')
+        from_lon = data.get('from_lon')
+        to_lat = data.get('to_lat')
+        to_lon = data.get('to_lon')
+
+        if isinstance(from_lat, (int, float)) and isinstance(from_lon, (int, float)):
+            from_coords = {
+                'lat': float(from_lat),
+                'lon': float(from_lon),
+                'formatted_address': from_location or 'From'
+            }
+        if isinstance(to_lat, (int, float)) and isinstance(to_lon, (int, float)):
+            to_coords = {
+                'lat': float(to_lat),
+                'lon': float(to_lon),
+                'formatted_address': to_location or 'To'
+            }
+
+        # If no direct coordinates, geocode by name
+        if not from_coords and from_location:
             from_coords = get_location_coordinates(from_location)
-        if to_location:
+        if not to_coords and to_location:
             to_coords = get_location_coordinates(to_location)
         
         # Return error if geocoding fails for required locations
@@ -352,12 +512,49 @@ def predict():
             to_coords['lat'], to_coords['lon']
         )
         
-        # Return error if traffic data cannot be retrieved
+        # Fallback if TomTom fails: derive congestion heuristics from time-of-day
         if not traffic_data:
-            return jsonify({
-                'error': 'Failed to retrieve real-time traffic data',
-                'message': 'TomTom API did not return valid traffic information'
-            }), 500
+            logger.warning("Using heuristic traffic fallback due to TomTom failure")
+            peak_hours = {7,8,9,10,17,18,19,20}
+            if hour in peak_hours:
+                traffic_data = {
+                    'congestion_ratio': 0.5,
+                    'delay_factor': 1.4,
+                    'current_speed': 20.0,
+                    'free_flow_speed': 60.0,
+                    'confidence': 0.4,
+                    'route_summary': {
+                        'distance': None,
+                        'travel_time': None,
+                        'delay': None
+                    }
+                }
+            elif 11 <= hour <= 16:
+                traffic_data = {
+                    'congestion_ratio': 0.25,
+                    'delay_factor': 1.2,
+                    'current_speed': 35.0,
+                    'free_flow_speed': 60.0,
+                    'confidence': 0.35,
+                    'route_summary': {
+                        'distance': None,
+                        'travel_time': None,
+                        'delay': None
+                    }
+                }
+            else:
+                traffic_data = {
+                    'congestion_ratio': 0.08,
+                    'delay_factor': 1.08,
+                    'current_speed': 55.0,
+                    'free_flow_speed': 65.0,
+                    'confidence': 0.3,
+                    'route_summary': {
+                        'distance': None,
+                        'travel_time': None,
+                        'delay': None
+                    }
+                }
         
         # Use real-time traffic data for prediction instead of hardcoded factors
         congestion_ratio = traffic_data.get('congestion_ratio', 0.0)

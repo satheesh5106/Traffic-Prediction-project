@@ -5669,3 +5669,266 @@
 2025-11-03 19:05:26,697 - __main__ - INFO - Using cached weather data for visakhapatnam
 2025-11-03 19:05:26,803 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
 2025-11-03 19:05:26,804 - werkzeug - INFO - 127.0.0.1 - - [03/Nov/2025 19:05:26] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-04 19:25:14,708 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-04 19:25:14,708 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-04 19:25:14,708 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-04 19:25:14,709 - __main__ - INFO - Server starting on port 5004
+2025-11-04 19:25:14,713 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-04 19:25:14,733 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.1.6:5004
+2025-11-04 19:25:14,733 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-04 19:25:14,741 - werkzeug - INFO -  * Restarting with stat
+2025-11-04 19:25:14,989 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-04 19:25:14,989 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-04 19:25:14,990 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-04 19:25:14,990 - __main__ - INFO - Server starting on port 5004
+2025-11-04 19:25:14,993 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-04 19:25:15,000 - werkzeug - WARNING -  * Debugger is active!
+2025-11-04 19:25:15,015 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-04 19:26:23,175 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:23,178 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:23] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-04 19:26:23,184 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:23,184 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:23] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-04 19:26:24,896 - __main__ - INFO - Successfully retrieved weather data for mumbai from Visual Crossing
+2025-11-04 19:26:24,901 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,902 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-04 19:26:24,904 - __main__ - INFO - Successfully retrieved weather data for chennai from Visual Crossing
+2025-11-04 19:26:24,905 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,906 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-04 19:26:24,912 - __main__ - INFO - Successfully retrieved weather data for bangalore from Visual Crossing
+2025-11-04 19:26:24,914 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,914 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-04 19:26:24,917 - __main__ - INFO - Successfully retrieved weather data for delhi from Visual Crossing
+2025-11-04 19:26:24,918 - __main__ - INFO - Successfully retrieved weather data for kolkata from Visual Crossing
+2025-11-04 19:26:24,919 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,920 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,921 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-04 19:26:24,922 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-04 19:26:24,922 - __main__ - INFO - Successfully retrieved weather data for hyderabad from Visual Crossing
+2025-11-04 19:26:24,925 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,925 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-04 19:26:24,927 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-04 19:26:24,927 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,928 - __main__ - INFO - Using cached weather data for chennai
+2025-11-04 19:26:24,928 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-04 19:26:24,928 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,929 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-04 19:26:24,933 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-04 19:26:24,933 - __main__ - INFO - Using cached weather data for delhi
+2025-11-04 19:26:24,933 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,934 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,934 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-04 19:26:24,934 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-04 19:26:24,937 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-04 19:26:24,937 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-04 19:26:24,937 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,938 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:24,938 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-04 19:26:24,938 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:24] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-04 19:26:26,197 - __main__ - INFO - Successfully retrieved weather data for pune from Visual Crossing
+2025-11-04 19:26:26,198 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,198 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-04 19:26:26,200 - __main__ - INFO - Using cached weather data for pune
+2025-11-04 19:26:26,200 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,200 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-04 19:26:26,214 - __main__ - INFO - Successfully retrieved weather data for ahmedabad from Visual Crossing
+2025-11-04 19:26:26,214 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,215 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-04 19:26:26,217 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-04 19:26:26,217 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,217 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-04 19:26:26,219 - __main__ - INFO - Successfully retrieved weather data for jaipur from Visual Crossing
+2025-11-04 19:26:26,220 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,220 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-04 19:26:26,222 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-04 19:26:26,222 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,222 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-04 19:26:26,276 - __main__ - INFO - Successfully retrieved weather data for lucknow from Visual Crossing
+2025-11-04 19:26:26,277 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,277 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-04 19:26:26,279 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-04 19:26:26,279 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-04 19:26:26,279 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:26:26] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-04 19:26:26,284 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-04 19:26:26,389 - __main__ - INFO - Using cached weather data for delhi
+2025-11-04 19:26:26,494 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-04 19:26:26,599 - __main__ - INFO - Using cached weather data for chennai
+2025-11-04 19:26:26,701 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-04 19:26:26,805 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-04 19:26:26,908 - __main__ - INFO - Using cached weather data for pune
+2025-11-04 19:26:27,010 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-04 19:26:27,113 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-04 19:26:27,215 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-04 19:26:28,737 - __main__ - INFO - Successfully retrieved weather data for bhopal from Visual Crossing
+2025-11-04 19:26:30,174 - __main__ - INFO - Successfully retrieved weather data for patna from Visual Crossing
+2025-11-04 19:26:31,581 - __main__ - INFO - Successfully retrieved weather data for gandhinagar from Visual Crossing
+2025-11-04 19:26:33,033 - __main__ - INFO - Successfully retrieved weather data for chandigarh from Visual Crossing
+2025-11-04 19:26:34,471 - __main__ - INFO - Successfully retrieved weather data for thiruvananthapuram from Visual Crossing
+2025-11-04 19:26:35,937 - __main__ - INFO - Successfully retrieved weather data for panaji from Visual Crossing
+2025-11-04 19:26:37,312 - __main__ - INFO - Successfully retrieved weather data for shimla from Visual Crossing
+2025-11-04 19:26:38,738 - __main__ - INFO - Successfully retrieved weather data for srinagar from Visual Crossing
+2025-11-04 19:26:40,142 - __main__ - INFO - Successfully retrieved weather data for jammu from Visual Crossing
+2025-11-04 19:26:41,585 - __main__ - INFO - Successfully retrieved weather data for dehradun from Visual Crossing
+2025-11-04 19:26:43,060 - __main__ - INFO - Successfully retrieved weather data for ranchi from Visual Crossing
+2025-11-04 19:26:44,577 - __main__ - INFO - Successfully retrieved weather data for raipur from Visual Crossing
+2025-11-04 19:26:46,047 - __main__ - INFO - Successfully retrieved weather data for bhubaneswar from Visual Crossing
+2025-11-04 19:26:46,300 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-04 19:26:46,401 - __main__ - INFO - Using cached weather data for delhi
+2025-11-04 19:26:46,506 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-04 19:26:46,611 - __main__ - INFO - Using cached weather data for chennai
+2025-11-04 19:26:46,716 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-04 19:26:46,821 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-04 19:26:46,927 - __main__ - INFO - Using cached weather data for pune
+2025-11-04 19:26:47,032 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-04 19:26:47,138 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-04 19:26:47,243 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-04 19:26:47,348 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-04 19:26:47,454 - __main__ - INFO - Using cached weather data for patna
+2025-11-04 19:26:47,527 - __main__ - INFO - Successfully retrieved weather data for guwahati from Visual Crossing
+2025-11-04 19:26:47,559 - __main__ - INFO - Using cached weather data for gandhinagar
+2025-11-04 19:26:47,665 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-04 19:26:47,770 - __main__ - INFO - Using cached weather data for thiruvananthapuram
+2025-11-04 19:26:47,875 - __main__ - INFO - Using cached weather data for panaji
+2025-11-04 19:26:47,981 - __main__ - INFO - Using cached weather data for shimla
+2025-11-04 19:26:48,083 - __main__ - INFO - Using cached weather data for srinagar
+2025-11-04 19:26:48,188 - __main__ - INFO - Using cached weather data for jammu
+2025-11-04 19:26:48,294 - __main__ - INFO - Using cached weather data for dehradun
+2025-11-04 19:26:48,399 - __main__ - INFO - Using cached weather data for ranchi
+2025-11-04 19:26:48,500 - __main__ - INFO - Using cached weather data for raipur
+2025-11-04 19:26:48,605 - __main__ - INFO - Using cached weather data for bhubaneswar
+2025-11-04 19:26:48,710 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-04 19:26:48,929 - __main__ - INFO - Successfully retrieved weather data for imphal from Visual Crossing
+2025-11-04 19:26:50,124 - __main__ - INFO - Successfully retrieved weather data for imphal from Visual Crossing
+2025-11-04 19:26:50,426 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-04 19:26:51,581 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-04 19:26:51,861 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-04 19:26:53,004 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-04 19:26:53,288 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-04 19:26:54,484 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-04 19:26:54,673 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-04 19:26:55,901 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-04 19:26:56,087 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-04 19:26:57,339 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-04 19:26:57,509 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-04 19:26:58,753 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-04 19:26:58,978 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-04 19:27:00,203 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-04 19:27:00,395 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-04 19:27:01,684 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-04 19:27:01,837 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-04 19:27:03,128 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-04 19:27:03,245 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-04 19:27:04,524 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-04 19:27:04,688 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-04 19:27:05,924 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-04 19:27:06,156 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-04 19:27:07,308 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-04 19:27:07,629 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-04 19:27:08,711 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-04 19:27:09,086 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-04 19:27:10,102 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-04 19:27:10,560 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-04 19:27:11,546 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-04 19:27:12,035 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-04 19:27:12,981 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-04 19:27:13,516 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-04 19:27:14,437 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-04 19:27:14,892 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-04 19:27:15,000 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-04 19:27:15,933 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-04 19:27:16,036 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-04 19:27:16,470 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-04 19:27:17,843 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-04 19:27:17,953 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-04 19:27:19,302 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-04 19:27:19,376 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-04 19:27:19,408 - __main__ - INFO - Using cached weather data for rohtak
+2025-11-04 19:27:20,840 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-04 19:27:20,854 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-04 19:27:22,268 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-04 19:27:22,281 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-04 19:27:23,667 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-04 19:27:23,743 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-04 19:27:23,772 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-04 19:27:23,774 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:27:23] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-04 19:27:23,847 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-04 19:27:23,848 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:27:23] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-04 19:30:59,511 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:30:59] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:00,530 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:00] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:01,556 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:01] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:02,575 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:02] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:03,597 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:03] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:04,619 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:04] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:05,638 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:05] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:05,757 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:05] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:06,652 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:06] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:06,781 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:06] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:07,668 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:07] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:07,805 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:07] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:08,683 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:08] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:08,819 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:08] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:09,699 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:09] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:09,833 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:09] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:10,716 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:10] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:10,850 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:10] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:11,733 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:11] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:11,868 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:11] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:12,750 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:12] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:12,888 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:12] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:13,766 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:13] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:13,904 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:13] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:14,781 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:14] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:14,921 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:14] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:15,800 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:15] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:15,937 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:15] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:16,819 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:16] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:16,952 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:16] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:17,837 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:17] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:17,967 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:17] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:18,855 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:18] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:18,985 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:18] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:19,873 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:19] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:20,003 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:20] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:20,888 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:20] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:21,017 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:21] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:21,907 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:21] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:22,031 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:22] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:22,919 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:22] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:23,044 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:23] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:23,938 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:23] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:24,066 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:24] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:24,954 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:24] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:25,075 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:25] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:25,970 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:25] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 19:31:26,096 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 19:31:26] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:52,660 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:52] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:53,721 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:53] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:54,795 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:54] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:55,877 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:55] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:56,982 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:56] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:58,037 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:58] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:04:59,170 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:04:59] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:00,233 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:00] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:01,273 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:01] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:02,572 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:02] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:03,829 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:03] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:05,166 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:05] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:07,155 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:07] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:09,164 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:09] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:11,133 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:11] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:13,141 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:13] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:15,139 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:15] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:17,139 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:17] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:19,139 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:19] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:21,131 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:21] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:23,138 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:23] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:25,196 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:25] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:27,129 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:27] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:29,150 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:29] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:31,152 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:31] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:33,109 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:33] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:35,141 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:35] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:37,140 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:37] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-04 20:05:39,113 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:39] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -

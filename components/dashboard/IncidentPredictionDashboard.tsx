@@ -14,7 +14,7 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
   ? 'https://trafficai.netlify.app/api'
   : 'http://localhost:3001/api';
 const POLL_INTERVAL = 3000; // 3 seconds for enhanced real-time updates
-const TOMTOM_API_KEY = 'UpQ977QmbzyJFExFzww4aJ8jJVvmjwrU';
+const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
 
 // JWT Authentication Manager
 class AuthManager {

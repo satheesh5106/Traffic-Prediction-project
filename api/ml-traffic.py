@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # TomTom API Configuration
-TOMTOM_API_KEY = "qdWLPZiDyThFboTlpIkly3dALLUTXIug"
+TOMTOM_API_KEY = "LPnygt3dMhUJGpHMLIMDJM92a25JMALE"
 TOMTOM_GEOCODING_URL = "https://api.tomtom.com/search/2/geocode"
 TOMTOM_TRAFFIC_URL = "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/json"
 TOMTOM_ROUTE_URL = "https://api.tomtom.com/routing/1/calculateRoute"

@@ -84,7 +84,7 @@ import dynamic from 'next/dynamic';
 import axios from 'axios';
 
 // TomTom API Key for location search
-const TOMTOM_API_KEY = 'UpQ977QmbzyJFExFzww4aJ8jJVvmjwrU';
+const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
 
 // Removed useAuth import - authentication no longer required
 
