@@ -167,6 +167,129 @@ const WeatherDashboard: React.FC = () => {
   const [totalCitiesMonitored, setTotalCitiesMonitored] = useState<number>(0);
   const [citiesWithWarnings, setCitiesWithWarnings] = useState<number>(0);
 
+  // Show IMD mock data in this dashboard without affecting other modules
+  const USE_IMD_MOCK = true;
+  const IMD_CYCLONE_URL = 'https://mausam.imd.gov.in/responsive/cycloneinformation.php';
+
+  // Exact IMD mock JSON provided by the user
+  const IMD_MOCK_JSON = `[
+   { 
+     "region": "Andaman & Nicobar Islands", 
+     "status": "RED", 
+     "severity": "Take Action", 
+     "phenomena": "Heavy to Very Heavy Rainfall, Thunderstorm with Lightning, Gusty Winds 40-50 kmph", 
+     "day1": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm" }, 
+     "day2": { "alert": "Red", "description": "Very Heavy Rainfall expected, Strong Winds" }, 
+     "day3": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm continues" }, 
+     "precautions": [ 
+       "Stay indoors; avoid low-lying, flood-prone areas.", 
+       "Secure outdoor structures; do not venture during squalls.", 
+       "Keep emergency supplies ready; charge devices in advance." 
+     ] 
+   }, 
+   { 
+     "region": "Tamil Nadu, Puducherry & Karaikal", 
+     "status": "RED", 
+     "severity": "Take Action", 
+     "phenomena": "Heavy to Very Heavy Rainfall (isolated), Thunderstorm, Gusty Winds 30-40 kmph", 
+     "day1": { "alert": "Red", "description": "Very Heavy Rainfall at isolated places" }, 
+     "day2": { "alert": "Orange", "description": "Heavy to Very Heavy Rainfall likely" }, 
+     "day3": { "alert": "Yellow", "description": "Isolated Heavy Rainfall" }, 
+     "precautions": [ 
+       "Drain excess water from fields; support horticultural crops against wind damage.", 
+       "Avoid waterlogged areas; follow traffic advisories.", 
+       "Stay alert for localized flooding and mudslides in low-lying zones." 
+     ] 
+   }, 
+   { 
+     "region": "Kerala & Mahe", 
+     "status": "RED", 
+     "severity": "Take Action", 
+     "phenomena": "Heavy to Very Heavy Rainfall (isolated), Thunderstorm, Expected rainfall 7-11 cm", 
+     "day1": { "alert": "Red", "description": "Very Heavy Rainfall at isolated places, Lightning" }, 
+     "day2": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm with Lightning" }, 
+     "day3": { "alert": "Orange", "description": "Heavy Rainfall, Thunderstorm continues" }, 
+     "precautions": [ 
+       "Ensure drainage in fields and plantations; stake vegetables to prevent lodging.", 
+       "Avoid swollen water bodies; stay indoors during thunderstorms.", 
+       "Keep livestock sheltered; store feed safely to prevent spoilage." 
+     ] 
+   }, 
+   { 
+     "region": "Lakshadweep", 
+     "status": "ORANGE", 
+     "severity": "Be Prepared", 
+     "phenomena": "Heavy Rainfall (23 Nov), Thunderstorm with Lightning", 
+     "day1": { "alert": "Orange", "description": "Heavy Rainfall at isolated places" }, 
+     "day2": { "alert": "Orange", "description": "Thunderstorm with Lightning" }, 
+     "day3": { "alert": "Yellow", "description": "Scattered Thunderstorm" }, 
+     "precautions": [ 
+       "Avoid sea travel and outdoor activities during thunderstorms.", 
+       "Secure loose structures; monitor daily weather updates.", 
+       "Expect ferry disruptions; plan alternative transport routes." 
+     ] 
+   }, 
+   { 
+     "region": "Coastal Andhra Pradesh & Yanam", 
+     "status": "YELLOW", 
+     "severity": "Be Aware", 
+     "phenomena": "Heavy Rainfall (isolated), Thunderstorm with Lightning (23-24 Nov)", 
+     "day1": { "alert": "Yellow", "description": "Heavy Rainfall at isolated places, Lightning" }, 
+     "day2": { "alert": "Yellow", "description": "Heavy Rainfall, Thunderstorm" }, 
+     "day3": { "alert": "Green", "description": "No significant weather" }, 
+     "precautions": [ 
+       "Remain alert for minor urban flooding in low-lying areas.", 
+       "Avoid standing under trees; stay away from electrical equipment during storms.", 
+       "Monitor IMD alerts for any warning escalation." 
+     ] 
+   }, 
+   { 
+     "region": "Bay of Bengal & Andaman Sea (Marine)", 
+     "status": "RED", 
+     "severity": "Take Action - Marine", 
+     "phenomena": "Squally weather, Wind 40-65 kmph gusting, Rough to Very Rough Seas, Developing Cyclonic System", 
+     "day1": { "alert": "Red", "description": "Squally weather; Fishermen warned" }, 
+     "day2": { "alert": "Red", "description": "Strong winds 40-55 kmph; Very Rough Seas" }, 
+     "day3": { "alert": "Red", "description": "Continuing squally conditions" }, 
+     "precautions": [ 
+       "Fishermen MUST NOT venture into Bay of Bengal & Andaman Sea.", 
+       "All vessels: operate only from protected harbors; avoid open waters.", 
+       "Maintain continuous radio contact with coast guard; monitor marine forecasts hourly." 
+     ] 
+   } 
+ ]`;
+
+  // Map phenomena text to alert type
+  const mapPhenomenaToType = (p: string): string => {
+    const s = (p || '').toLowerCase();
+    if (s.includes('cyclone') || s.includes('cyclonic') || s.includes('squally')) return 'cyclone';
+    if (s.includes('thunderstorm')) return 'thunderstorm';
+    if (s.includes('rain')) return 'heavy_rain';
+    if (s.includes('wind')) return 'wind';
+    if (s.includes('fog')) return 'fog';
+    return 'weather alert';
+  };
+
+  // Transform IMD mock JSON into WeatherAlert[]
+  const transformMockIMDToAlerts = (jsonText: string): WeatherAlert[] => {
+    const arr = JSON.parse(jsonText);
+    const now = new Date().toISOString();
+    return arr.map((item: any, idx: number) => ({
+      id: `imd_mock_${idx}`,
+      text: item.phenomena,
+      type: mapPhenomenaToType(item.phenomena),
+      severity: item.status || item.severity || 'ALERT',
+      city: item.region,
+      location: item.region,
+      timestamp: now,
+      validUntil: '',
+      confidence: 0,
+      probability: 0,
+      recommendations: Array.isArray(item.precautions) ? item.precautions : [],
+      source: 'IMD Cyclone warnings'
+    }));
+  };
+
   // Indian cities to monitor for warnings
   const indianCities = [
     'mumbai', 'delhi', 'bangalore', 'chennai', 'hyderabad', 
@@ -285,16 +408,64 @@ const WeatherDashboard: React.FC = () => {
   // Manual refresh function
   const handleRefresh = async () => {
     setRefreshing(true);
+    setLoading(true);
+    if (USE_IMD_MOCK) {
+      try {
+        // 5-second buffer before re-displaying the same warnings
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        const alerts = transformMockIMDToAlerts(IMD_MOCK_JSON);
+        setWeatherAlerts(alerts);
+        setTotalCitiesMonitored(alerts.length);
+        setCitiesWithWarnings(alerts.length);
+        setLastUpdated(new Date().toISOString());
+        setWeatherConditions(null);
+        setError(null);
+        setLoading(false);
+      } catch (e) {
+        console.error('Failed to refresh IMD mock data:', e);
+      } finally {
+        setRefreshing(false);
+      }
+      return;
+    }
+    // For live data, also wait 5 seconds to keep UX consistent
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     await fetchWeatherAlerts();
+    setLoading(false);
     setRefreshing(false);
   };
 
   useEffect(() => {
+    if (USE_IMD_MOCK) {
+      try {
+        const alerts = transformMockIMDToAlerts(IMD_MOCK_JSON);
+        setWeatherAlerts(alerts);
+        setTotalCitiesMonitored(alerts.length);
+        setCitiesWithWarnings(alerts.length);
+        setLastUpdated(new Date().toISOString());
+        setWeatherConditions(null);
+        setError(null);
+        setLoading(false);
+        return;
+      } catch (e) {
+        console.error('Failed to load IMD mock data:', e);
+      }
+    }
     fetchWeatherAlerts();
   }, []);
 
   const getSeverityColor = (severity: string) => {
     switch (severity?.toLowerCase()) {
+      case 'red':
+      case 'take action':
+      case 'take action - marine':
+        return 'bg-red-100 text-red-800 border-red-200';
+      case 'orange':
+      case 'be prepared':
+        return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'yellow':
+      case 'be aware':
+        return 'bg-yellow-100 text-yellow-800 border-yellow-200';
       case 'high':
       case 'severe':
         return 'bg-red-100 text-red-800 border-red-200';
@@ -377,6 +548,29 @@ const WeatherDashboard: React.FC = () => {
     }
   };
 
+  const getRowShade = (severity: string) => {
+    switch (severity?.toLowerCase()) {
+      case 'red':
+      case 'take action':
+      case 'take action - marine':
+      case 'high':
+      case 'severe':
+        return 'bg-red-100 border-red-300';
+      case 'orange':
+      case 'be prepared':
+      case 'medium':
+      case 'moderate':
+        return 'bg-orange-100 border-orange-300';
+      case 'yellow':
+      case 'be aware':
+      case 'low':
+      case 'minor':
+        return 'bg-yellow-100 border-yellow-300';
+      default:
+        return 'bg-blue-100 border-blue-300';
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
@@ -404,6 +598,9 @@ const WeatherDashboard: React.FC = () => {
                   >
                     <RefreshCw className={`h-4 w-4 mr-1 ${refreshing ? 'animate-spin' : ''}`} />
                     {refreshing ? 'Refreshing...' : 'Refresh'}
+                  </Button>
+                  <Button asChild variant="outline" size="sm" className="bg-blue-50 text-blue-700 border-blue-300 hover:bg-blue-100">
+                    <a href={IMD_CYCLONE_URL} target="_blank" rel="noopener noreferrer">IMD Cyclone warnings</a>
                   </Button>
                 </div>
               </div>
@@ -585,7 +782,7 @@ const WeatherDashboard: React.FC = () => {
             ) : (
               <div className="max-h-96 overflow-y-auto space-y-4 pr-2">
                 {weatherAlerts.map((alert, index) => (
-                  <div key={alert.id || index} className="bg-white rounded-lg p-4 border border-orange-200 shadow-sm">
+                  <div key={alert.id || index} className={`rounded-lg p-4 shadow-sm border ${getRowShade(alert.severity)}`}>
                     {/* Alert Header */}
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-2">
@@ -619,21 +816,7 @@ const WeatherDashboard: React.FC = () => {
                       </Badge>
                     </div>
 
-                    {/* Confidence and Probability */}
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="flex items-center gap-1">
-                        <Target className="h-3 w-3 text-green-500" />
-                        <span className="text-xs text-gray-600">
-                          Confidence: {(alert.confidence * 100).toFixed(1)}%
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Shield className="h-3 w-3 text-blue-500" />
-                        <span className="text-xs text-gray-600">
-                          Probability: {(alert.probability * 100).toFixed(1)}%
-                        </span>
-                      </div>
-                    </div>
+                    {/* Confidence and Probability removed per requirement */}
 
                     {/* Recommendations */}
                     {alert.recommendations && alert.recommendations.length > 0 && (
@@ -661,7 +844,7 @@ const WeatherDashboard: React.FC = () => {
                           Valid until: {alert.validUntil ? new Date(alert.validUntil).toLocaleString() : 'N/A'}
                         </span>
                         <span className="text-blue-600">
-                          Source: {alert.source || 'IMD'}
+                          Source: <a href={IMD_CYCLONE_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">IMD Cyclone warnings</a>
                         </span>
                       </div>
                     </div>
