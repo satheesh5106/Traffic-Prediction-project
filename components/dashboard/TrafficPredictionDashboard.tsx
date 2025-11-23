@@ -2957,7 +2957,94 @@ const TrafficPredictionDashboard = () => {
   const [isPredicting, setIsPredicting] = useState<boolean>(false);
   
   // Removed polling status update logic
-  
+
+  // --- Schedule & Display Helpers (severity, percentage, delay) ---
+  const parseTimeToMinutes = (date: Date) => date.getHours() * 60 + date.getMinutes();
+  const isWeekend = (date: Date) => {
+    const d = date.getDay();
+    return d === 0 || d === 6; // Sunday(0) or Saturday(6)
+  };
+  const inWindow = (mins: number, start: number, end: number) => {
+    if (start <= end) return mins >= start && mins < end;
+    // window crosses midnight
+    return mins >= start || mins < end;
+  };
+  type SeverityLevel = 'heavy' | 'moderate' | 'light' | 'free_flow';
+  interface WindowDef { start: string; end: string; severity: SeverityLevel }
+  const toMinutes = (hhmm: string) => {
+    const [h, m] = hhmm.split(':').map(Number);
+    return h * 60 + m;
+  };
+  const WEEKDAY_WINDOWS: WindowDef[] = [
+    { start: '06:30', end: '10:00', severity: 'heavy' },
+    { start: '10:00', end: '16:00', severity: 'moderate' },
+    { start: '16:00', end: '20:30', severity: 'heavy' },
+    { start: '20:30', end: '22:30', severity: 'moderate' },
+    { start: '22:30', end: '06:30', severity: 'light' }
+  ];
+  const WEEKEND_WINDOWS: WindowDef[] = [
+    { start: '09:00', end: '12:00', severity: 'moderate' },
+    { start: '12:00', end: '15:00', severity: 'heavy' },
+    { start: '15:00', end: '18:00', severity: 'moderate' },
+    { start: '18:00', end: '22:00', severity: 'heavy' },
+    { start: '22:00', end: '09:00', severity: 'light' }
+  ];
+  const severityBySchedule = (date: Date): SeverityLevel => {
+    const mins = parseTimeToMinutes(date);
+    const windows = isWeekend(date) ? WEEKEND_WINDOWS : WEEKDAY_WINDOWS;
+    for (let i = 0; i < windows.length; i++) {
+      const w = windows[i];
+      const s = toMinutes(w.start);
+      const e = toMinutes(w.end);
+      if (inWindow(mins, s, e)) return w.severity;
+    }
+    return 'light';
+  };
+  const normalizePercentage = (value: number | null | undefined): number => {
+    if (value == null || isNaN(Number(value))) return 0;
+    let v = Number(value);
+    if (v <= 1) v = v * 100; // convert probability to percent
+    v = Math.round(v);
+    if (v < 0) v = 0;
+    if (v > 100) v = 100;
+    return v;
+  };
+  const formatDelay = (seconds: number): string => {
+    const s = Math.max(0, Math.round(seconds));
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    if (h > 0) return `${h}h ${m}m`;
+    if (m > 0) return `${m}m ${sec}s`;
+    return `${sec}s`;
+  };
+  const severityToBadgeLabel = (sev: SeverityLevel): string => {
+    switch (sev) {
+      case 'heavy': return 'Heavy';
+      case 'moderate': return 'Moderate';
+      case 'light': return 'Light';
+      default: return 'Free Flow';
+    }
+  };
+  const severityToBadgeColor = (sev: SeverityLevel): string => {
+    switch (sev) {
+      case 'heavy': return 'bg-red-500';
+      case 'moderate': return 'bg-amber-500';
+      case 'light': return 'bg-yellow-500';
+      default: return 'bg-green-500';
+    }
+  };
+  const applyScheduleClamp = (sev: SeverityLevel, pct: number): number => {
+    // Gentle clamping to align volume with schedule without disrupting logic
+    const p = Math.round(pct);
+    switch (sev) {
+      case 'heavy': return Math.max(p, 60);
+      case 'moderate': return Math.max(35, Math.min(Math.max(p, 40), 75));
+      case 'light': return Math.min(p, 40);
+      default: return Math.min(p, 25);
+    }
+  };
+
   // ML Traffic Prediction Function
   const handleMLPrediction = async () => {
     try {
@@ -3127,15 +3214,21 @@ const TrafficPredictionDashboard = () => {
                     ? Math.max(0, travelSec - Math.min(historicSec, travelSec))
                     : 0));
 
+          const scheduledSeverity = severityBySchedule(dt);
+          const normalizedPct = normalizePercentage(volumePct);
+          const scheduledPct = applyScheduleClamp(scheduledSeverity, normalizedPct);
+          const formattedDelay = formatDelay(computedDelaySec);
+
           predictions.push({
             id: `tt-${Date.now()}-${dt.getTime()}`,
             time: dt.toISOString(),
-            predicted_volume: typeof volumePct === 'number' ? volumePct : 0,
+            predicted_volume: scheduledPct,
             confidence: null,
             location: `${fromName} → ${toName}`,
+            predicted_severity: scheduledSeverity,
             real_time_traffic: {
               route_summary: {
-                delay: `${computedDelaySec} sec`,
+                delay: formattedDelay,
                 distance: `${(lengthM / 1000).toFixed(1)} km`,
                 travel_time: `${Math.round(travelSec / 60)} min`
               }
@@ -4095,20 +4188,13 @@ const TrafficPredictionDashboard = () => {
                           <h5 className="font-medium text-blue-900">
                             {new Date(prediction.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </h5>
-                          <Badge className={`${
-                            prediction.predicted_volume > 80 ? 'bg-red-500' :
-                            prediction.predicted_volume > 60 ? 'bg-amber-500' :
-                            prediction.predicted_volume > 40 ? 'bg-yellow-500' :
-                            'bg-green-500'
-                          } text-white`}>
-                            {prediction.predicted_volume > 80 ? 'Heavy' :
-                             prediction.predicted_volume > 60 ? 'Moderate' :
-                             prediction.predicted_volume > 40 ? 'Light' : 'Free Flow'}
+                          <Badge className={`${severityToBadgeColor(prediction.predicted_severity || 'light')} text-white`}>
+                            {severityToBadgeLabel(prediction.predicted_severity || 'light')}
                           </Badge>
                         </div>
                         <div className="space-y-1">
                           <div className="text-2xl font-bold text-blue-700">
-                            {Math.round(prediction.predicted_volume)}%
+                            {normalizePercentage(prediction.predicted_volume)}%
                           </div>
                           <div className="text-sm text-gray-600">
                             Traffic Volume
@@ -4140,7 +4226,9 @@ const TrafficPredictionDashboard = () => {
                       <div>
                         <div className="text-gray-500">Average Volume</div>
                         <div className="font-medium">
-                          {Math.round(predictionResults.reduce((sum, p) => sum + p.predicted_volume, 0) / predictionResults.length)}%
+                          {Math.round(
+                            predictionResults.reduce((sum, p) => sum + normalizePercentage(p.predicted_volume), 0) / Math.max(predictionResults.length, 1)
+                          )}%
                         </div>
                       </div>
                       <div>

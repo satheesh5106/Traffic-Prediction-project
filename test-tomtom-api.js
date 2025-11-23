@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 async function testTomTomAPI() {
-  const TOMTOM_API_KEY = 'qdWLPZiDyThFboTlpIkly3dALLUTXIug';
+const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
   const TOMTOM_BASE_URL = 'https://api.tomtom.com/traffic/services/4';
   
   // Test Delhi coordinates

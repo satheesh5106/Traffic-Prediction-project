@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Test the final fixed TomTom API call for Chennai route (Egmore to Koyambedu)
-const TOMTOM_API_KEY = 'qdWLPZiDyThFboTlpIkly3dALLUTXIug';
+const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
 
 // Chennai coordinates for Egmore to Koyambedu route
 const fromLocation = { lat: 13.0732, lng: 80.2609 }; // Egmore

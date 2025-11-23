@@ -1,0 +1,153 @@
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, IN: [9.9252, 78.1198]","timestamp":"2025-11-04T19:33:58.247Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, IN at [9.9252, 78.1198]","timestamp":"2025-11-04T19:33:58.247Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, IN at [9.9252, 78.1198]","timestamp":"2025-11-04T19:33:58.248Z"}
+{"accuracy":95,"confidence":0.9014,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:33:59.025Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, IN: [9.9261153, 78.1140983]","timestamp":"2025-11-04T19:35:44.386Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T19:35:44.386Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T19:35:44.386Z"}
+{"accuracy":95,"confidence":0.9014,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:35:45.145Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, IN: [9.9252, 78.1198]","timestamp":"2025-11-04T19:36:43.734Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, IN at [9.9252, 78.1198]","timestamp":"2025-11-04T19:36:43.734Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, IN at [9.9252, 78.1198]","timestamp":"2025-11-04T19:36:43.734Z"}
+{"accuracy":95,"confidence":0.9014,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:36:44.463Z"}
+{"level":"info","message":"Using provided coordinates for Krishnankoil, Tamil Nadu, IN: [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:03.848Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Krishnankoil, Tamil Nadu, IN at [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:03.848Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Krishnankoil, Tamil Nadu, IN at [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:03.848Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:37:04.523Z"}
+{"level":"info","message":"Using provided coordinates for Krishnankoil, Tamil Nadu, IN: [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:17.772Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Krishnankoil, Tamil Nadu, IN at [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:17.772Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Krishnankoil, Tamil Nadu, IN at [9.5668016, 77.6896369]","timestamp":"2025-11-04T19:37:17.772Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:37:18.376Z"}
+{"level":"info","message":"Using provided coordinates for Guntur, Andhra Pradesh, IN: [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:37:52.403Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Guntur, Andhra Pradesh, IN at [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:37:52.403Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Guntur, Andhra Pradesh, IN at [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:37:52.403Z"}
+{"accuracy":95,"confidence":0.8856,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:37:53.085Z"}
+{"level":"info","message":"Using provided coordinates for Guntur, Andhra Pradesh, IN: [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:38:41.049Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Guntur, Andhra Pradesh, IN at [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:38:41.049Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Guntur, Andhra Pradesh, IN at [16.2915189, 80.4541588]","timestamp":"2025-11-04T19:38:41.049Z"}
+{"accuracy":95,"confidence":0.8856,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:38:41.745Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-04T19:39:42.084Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-04T19:39:42.084Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-04T19:39:42.084Z"}
+{"accuracy":95,"confidence":0.8817,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:39:42.926Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:40:56.260Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:40:56.260Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:40:56.260Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:40:57.214Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:04.792Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:04.792Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:04.792Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:41:05.568Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:14.198Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:14.198Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:14.198Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:41:15.031Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:38.765Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:38.765Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:41:38.765Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:41:39.576Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:00.381Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:00.382Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:00.382Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:42:01.231Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Tamil Nadu, IN: [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:14.758Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:14.758Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Tamil Nadu, IN at [13.0728321, 80.2576906]","timestamp":"2025-11-04T19:42:14.759Z"}
+{"accuracy":95,"confidence":0.8988,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:42:15.653Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:35.250Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:35.251Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:35.251Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:42:35.895Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:42.781Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:42.781Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:42.781Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:42:43.366Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:53.516Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:53.516Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:42:53.516Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:42:54.165Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:44:58.094Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:44:58.094Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:44:58.094Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:44:58.795Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Chennai: [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:05.215Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Chennai at [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:05.215Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Chennai at [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:05.215Z"}
+{"accuracy":95,"confidence":0.8982,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:48:06.142Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Chennai: [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:23.525Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Chennai at [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:23.525Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Chennai at [13.0827, 80.2707]","timestamp":"2025-11-04T19:48:23.525Z"}
+{"accuracy":95,"confidence":0.8989,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:48:24.377Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:50:36.657Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:50:36.657Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:50:36.657Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:50:37.419Z"}
+{"level":"info","message":"Using provided coordinates for Egmore, Chennai: [13.073, 80.261]","timestamp":"2025-11-04T19:50:42.279Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Egmore, Chennai at [13.073, 80.261]","timestamp":"2025-11-04T19:50:42.281Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Egmore, Chennai at [13.073, 80.261]","timestamp":"2025-11-04T19:50:42.281Z"}
+{"accuracy":95,"confidence":0.8975,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:50:43.103Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, India: [17.385, 78.4867]","timestamp":"2025-11-04T19:54:12.608Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, India at [17.385, 78.4867]","timestamp":"2025-11-04T19:54:12.608Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, India at [17.385, 78.4867]","timestamp":"2025-11-04T19:54:12.608Z"}
+{"accuracy":95,"confidence":0.8907,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:54:13.553Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:55:57.147Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:55:57.147Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T19:55:57.147Z"}
+{"accuracy":95,"confidence":0.84,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":93,"timestamp":"2025-11-04T19:55:57.818Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-04T19:55:57.820Z"}
+{"level":"info","message":"Using provided coordinates for Daggupadu, Andhra Pradesh, IN: [15.8745175, 80.2112736]","timestamp":"2025-11-04T19:59:16.542Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggupadu, Andhra Pradesh, IN at [15.8745175, 80.2112736]","timestamp":"2025-11-04T19:59:16.543Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggupadu, Andhra Pradesh, IN at [15.8745175, 80.2112736]","timestamp":"2025-11-04T19:59:16.543Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:59:17.344Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:36.138Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:36.138Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:36.138Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:59:36.782Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:46.487Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:46.487Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:46.487Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:59:47.092Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:52.923Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:52.923Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T19:59:52.923Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T19:59:53.555Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:03.748Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:03.748Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:03.748Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:00:04.362Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:12.411Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:12.411Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:12.412Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:00:13.020Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:18.985Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:18.986Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-04T20:00:18.986Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:00:19.602Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, IN: [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:43.213Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:43.213Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:43.213Z"}
+{"accuracy":95,"confidence":0.9096,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:00:43.928Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, IN: [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:54.553Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:54.553Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, IN at [9.9261153, 78.1140983]","timestamp":"2025-11-04T20:00:54.553Z"}
+{"accuracy":95,"confidence":0.9096,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:00:55.172Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:40.075Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:40.076Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:40.076Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:06:40.903Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:47.736Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:47.736Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:47.736Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:06:48.333Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:55.195Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:55.195Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:06:55.195Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:06:55.794Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:11.037Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:11.037Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:11.037Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:07:11.665Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:24.067Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:24.067Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-04T20:07:24.067Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-04T20:07:24.719Z"}

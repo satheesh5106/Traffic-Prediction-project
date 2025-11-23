@@ -7,10 +7,10 @@ flask-cors==4.0.0
 werkzeug==2.3.7
 gunicorn==21.2.0
 
-# Data Processing - Stable versions for Python 3.11
-numpy==1.24.3
-pandas==2.0.3
-scikit-learn==1.3.0
+# Data Processing - Updated for Python 3.13 compatibility
+numpy>=2.0.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
 joblib==1.3.2
 
 # HTTP Requests
@@ -28,4 +28,4 @@ seaborn==0.12.2
 geopy==2.3.0
 
 # Additional dependencies for ML functionality
-scipy==1.11.1
+scipy>=1.11.4

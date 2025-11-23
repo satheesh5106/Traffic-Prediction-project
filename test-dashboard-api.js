@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Same configuration as in TrafficPredictionDashboard.tsx
-const TOMTOM_API_KEY = 'qdWLPZiDyThFboTlpIkly3dALLUTXIug';
+const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
 
 // Egmore and Koyambedu coordinates (approximate)
 const egmoreCoords = { lat: 13.0827, lng: 80.2707 };

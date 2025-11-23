@@ -5932,3 +5932,700 @@
 2025-11-04 20:05:35,141 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:35] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
 2025-11-04 20:05:37,140 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:37] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
 2025-11-04 20:05:39,113 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2025 20:05:39] "[33mOPTIONS /predict HTTP/1.1[0m" 404 -
+2025-11-05 11:44:06,940 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:44:06,940 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:44:06,941 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:44:06,941 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:44:06,946 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:44:06,964 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://172.20.127.180:5004
+2025-11-05 11:44:06,964 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-05 11:44:06,971 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 11:44:07,214 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:44:07,215 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:44:07,215 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:44:07,215 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:44:07,219 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:44:07,227 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 11:44:07,241 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 11:44:11,652 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 11:44:11] "GET /health HTTP/1.1" 200 -
+2025-11-05 11:52:11,002 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 11:52:11,051 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 11:52:11,437 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:52:11,437 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:52:11,437 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:52:11,437 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:52:11,443 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:52:11,452 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 11:52:11,466 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 11:52:19,056 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 11:52:19,087 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 11:52:19,359 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:52:19,359 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:52:19,359 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:52:19,359 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:52:19,363 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:52:19,370 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 11:52:19,381 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 11:54:47,145 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 11:54:47,191 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 11:54:47,504 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:54:47,504 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:54:47,504 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:54:47,504 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:54:47,509 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:54:47,518 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 11:54:47,531 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 11:55:31,633 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 11:55:31,721 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 11:55:32,195 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 11:55:32,195 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 11:55:32,195 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 11:55:32,195 - __main__ - INFO - Server starting on port 5004
+2025-11-05 11:55:32,201 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 11:55:32,211 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 11:55:32,225 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 12:05:50,312 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 12:05:50,410 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 12:05:50,897 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 12:05:50,898 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 12:05:50,898 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 12:05:50,898 - __main__ - INFO - Server starting on port 5004
+2025-11-05 12:05:50,903 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 12:05:50,913 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 12:05:50,929 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 12:05:58,520 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_incident.py', reloading
+2025-11-05 12:05:58,555 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 12:05:58,868 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 12:05:58,868 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 12:05:58,868 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 12:05:58,868 - __main__ - INFO - Server starting on port 5004
+2025-11-05 12:05:58,873 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 12:05:58,882 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 12:05:58,897 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 14:04:23,767 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 14:04:23,767 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 14:04:23,767 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 14:04:23,767 - __main__ - INFO - Server starting on port 5004
+2025-11-05 14:04:23,772 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 14:04:23,914 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://172.20.127.180:5004
+2025-11-05 14:04:23,914 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-05 14:04:23,921 - werkzeug - INFO -  * Restarting with stat
+2025-11-05 14:04:24,165 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-05 14:04:24,166 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-05 14:04:24,166 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-05 14:04:24,166 - __main__ - INFO - Server starting on port 5004
+2025-11-05 14:04:24,170 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-05 14:04:24,177 - werkzeug - WARNING -  * Debugger is active!
+2025-11-05 14:04:24,192 - werkzeug - INFO -  * Debugger PIN: 866-082-434
+2025-11-05 14:05:47,809 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:47,811 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:47] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-05 14:05:47,815 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:47,816 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:47] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-05 14:05:49,248 - __main__ - INFO - Successfully retrieved weather data for hyderabad from Visual Crossing
+2025-11-05 14:05:49,249 - __main__ - INFO - Successfully retrieved weather data for chennai from Visual Crossing
+2025-11-05 14:05:49,250 - __main__ - INFO - Successfully retrieved weather data for delhi from Visual Crossing
+2025-11-05 14:05:49,251 - __main__ - INFO - Successfully retrieved weather data for kolkata from Visual Crossing
+2025-11-05 14:05:49,251 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,251 - __main__ - INFO - Successfully retrieved weather data for mumbai from Visual Crossing
+2025-11-05 14:05:49,252 - __main__ - INFO - Successfully retrieved weather data for bangalore from Visual Crossing
+2025-11-05 14:05:49,253 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,254 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,255 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-05 14:05:49,255 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,256 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,257 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-05 14:05:49,258 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,258 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-05 14:05:49,258 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-05 14:05:49,259 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-05 14:05:49,262 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-05 14:05:49,270 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:05:49,271 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:05:49,271 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,272 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-05 14:05:49,272 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,272 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-05 14:05:49,275 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:05:49,275 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,276 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-05 14:05:49,276 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:05:49,277 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,277 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-05 14:05:49,278 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:05:49,278 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,279 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-05 14:05:49,280 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:05:49,280 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:49,280 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:49] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-05 14:05:50,450 - __main__ - INFO - Successfully retrieved weather data for pune from Visual Crossing
+2025-11-05 14:05:50,451 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,452 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-05 14:05:50,454 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:05:50,454 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,454 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-05 14:05:50,495 - __main__ - INFO - Successfully retrieved weather data for ahmedabad from Visual Crossing
+2025-11-05 14:05:50,495 - __main__ - INFO - Successfully retrieved weather data for jaipur from Visual Crossing
+2025-11-05 14:05:50,496 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,496 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,497 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-05 14:05:50,497 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-05 14:05:50,499 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:05:50,499 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:05:50,499 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,499 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,500 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-05 14:05:50,500 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-05 14:05:50,532 - __main__ - INFO - Successfully retrieved weather data for lucknow from Visual Crossing
+2025-11-05 14:05:50,533 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,533 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-05 14:05:50,535 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:05:50,535 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:05:50,535 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:05:50] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-05 14:05:50,537 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:05:50,643 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:05:50,747 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:05:50,849 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:05:50,949 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:05:51,052 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:05:51,153 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:05:51,258 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:05:51,361 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:05:51,466 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:05:53,069 - __main__ - INFO - Successfully retrieved weather data for bhopal from Visual Crossing
+2025-11-05 14:05:54,373 - __main__ - INFO - Successfully retrieved weather data for patna from Visual Crossing
+2025-11-05 14:05:55,776 - __main__ - INFO - Successfully retrieved weather data for gandhinagar from Visual Crossing
+2025-11-05 14:05:57,063 - __main__ - INFO - Successfully retrieved weather data for chandigarh from Visual Crossing
+2025-11-05 14:05:58,297 - __main__ - INFO - Successfully retrieved weather data for thiruvananthapuram from Visual Crossing
+2025-11-05 14:05:59,606 - __main__ - INFO - Successfully retrieved weather data for panaji from Visual Crossing
+2025-11-05 14:06:00,956 - __main__ - INFO - Successfully retrieved weather data for shimla from Visual Crossing
+2025-11-05 14:06:02,299 - __main__ - INFO - Successfully retrieved weather data for srinagar from Visual Crossing
+2025-11-05 14:06:03,935 - __main__ - INFO - Successfully retrieved weather data for jammu from Visual Crossing
+2025-11-05 14:06:05,260 - __main__ - INFO - Successfully retrieved weather data for dehradun from Visual Crossing
+2025-11-05 14:06:06,762 - __main__ - INFO - Successfully retrieved weather data for ranchi from Visual Crossing
+2025-11-05 14:06:07,017 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,018 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-05 14:06:07,035 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:06:07,035 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:06:07,036 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:06:07,036 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:06:07,036 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,036 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,037 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,037 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:06:07,037 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:06:07,037 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,038 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-05 14:06:07,038 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-05 14:06:07,039 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-05 14:06:07,039 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,039 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,039 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-05 14:06:07,040 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-05 14:06:07,042 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-05 14:06:07,042 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:06:07,042 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:06:07,043 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:06:07,044 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,044 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:06:07,044 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,044 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,045 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-05 14:06:07,045 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:06:07,045 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-05 14:06:07,045 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-05 14:06:07,045 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:07] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-05 14:06:07,055 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:06:07,156 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:06:07,256 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:06:07,356 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:06:07,459 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:06:07,559 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:06:07,664 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:06:07,764 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:06:07,864 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:06:07,965 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:06:08,065 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-05 14:06:08,105 - __main__ - INFO - Successfully retrieved weather data for raipur from Visual Crossing
+2025-11-05 14:06:08,167 - __main__ - INFO - Using cached weather data for patna
+2025-11-05 14:06:08,268 - __main__ - INFO - Using cached weather data for gandhinagar
+2025-11-05 14:06:08,369 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:06:08,469 - __main__ - INFO - Using cached weather data for thiruvananthapuram
+2025-11-05 14:06:08,569 - __main__ - INFO - Using cached weather data for panaji
+2025-11-05 14:06:08,670 - __main__ - INFO - Using cached weather data for shimla
+2025-11-05 14:06:08,771 - __main__ - INFO - Using cached weather data for srinagar
+2025-11-05 14:06:08,871 - __main__ - INFO - Using cached weather data for jammu
+2025-11-05 14:06:08,971 - __main__ - INFO - Using cached weather data for dehradun
+2025-11-05 14:06:09,071 - __main__ - INFO - Using cached weather data for ranchi
+2025-11-05 14:06:09,175 - __main__ - INFO - Using cached weather data for raipur
+2025-11-05 14:06:09,406 - __main__ - INFO - Successfully retrieved weather data for bhubaneswar from Visual Crossing
+2025-11-05 14:06:10,539 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:06:10,645 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:06:10,746 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:06:10,751 - __main__ - INFO - Successfully retrieved weather data for bhubaneswar from Visual Crossing
+2025-11-05 14:06:10,798 - __main__ - INFO - Successfully retrieved weather data for guwahati from Visual Crossing
+2025-11-05 14:06:10,846 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:06:10,851 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-05 14:06:10,946 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:06:11,046 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:06:11,147 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:06:11,247 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:06:11,347 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:06:11,452 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:06:11,552 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-05 14:06:11,655 - __main__ - INFO - Using cached weather data for patna
+2025-11-05 14:06:11,755 - __main__ - INFO - Using cached weather data for gandhinagar
+2025-11-05 14:06:11,855 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:06:11,956 - __main__ - INFO - Using cached weather data for thiruvananthapuram
+2025-11-05 14:06:12,056 - __main__ - INFO - Using cached weather data for panaji
+2025-11-05 14:06:12,095 - __main__ - INFO - Successfully retrieved weather data for imphal from Visual Crossing
+2025-11-05 14:06:12,110 - __main__ - INFO - Successfully retrieved weather data for imphal from Visual Crossing
+2025-11-05 14:06:12,156 - __main__ - INFO - Using cached weather data for shimla
+2025-11-05 14:06:12,256 - __main__ - INFO - Using cached weather data for srinagar
+2025-11-05 14:06:12,356 - __main__ - INFO - Using cached weather data for jammu
+2025-11-05 14:06:12,458 - __main__ - INFO - Using cached weather data for dehradun
+2025-11-05 14:06:12,559 - __main__ - INFO - Using cached weather data for ranchi
+2025-11-05 14:06:12,659 - __main__ - INFO - Using cached weather data for raipur
+2025-11-05 14:06:12,760 - __main__ - INFO - Using cached weather data for bhubaneswar
+2025-11-05 14:06:12,865 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-05 14:06:12,965 - __main__ - INFO - Using cached weather data for imphal
+2025-11-05 14:06:13,430 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-05 14:06:13,452 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-05 14:06:14,406 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-05 14:06:14,703 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-05 14:06:14,732 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-05 14:06:15,695 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-05 14:06:16,035 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-05 14:06:16,036 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-05 14:06:17,237 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-05 14:06:17,535 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-05 14:06:17,547 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-05 14:06:18,657 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-05 14:06:18,763 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-05 14:06:18,957 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-05 14:06:19,917 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-05 14:06:20,040 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-05 14:06:20,225 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-05 14:06:21,328 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-05 14:06:21,441 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-05 14:06:21,785 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-05 14:06:22,779 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-05 14:06:22,845 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-05 14:06:22,882 - __main__ - INFO - Using cached weather data for nagpur
+2025-11-05 14:06:23,180 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-05 14:06:24,419 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-05 14:06:24,419 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-05 14:06:24,729 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-05 14:06:25,714 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-05 14:06:25,748 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-05 14:06:26,885 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-05 14:06:28,135 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-05 14:06:28,400 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-05 14:06:28,400 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-05 14:06:29,416 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-05 14:06:29,684 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-05 14:06:29,685 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-05 14:06:30,808 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-05 14:06:31,030 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-05 14:06:31,183 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-05 14:06:32,315 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-05 14:06:32,601 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-05 14:06:32,602 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-05 14:06:33,880 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-05 14:06:33,881 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-05 14:06:33,881 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-05 14:06:35,352 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-05 14:06:35,352 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-05 14:06:35,353 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-05 14:06:36,720 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-05 14:06:36,725 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-05 14:06:36,725 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-05 14:06:37,954 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-05 14:06:37,991 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-05 14:06:37,992 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-05 14:06:38,055 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:06:38,093 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:06:38,094 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:06:39,446 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-05 14:06:39,499 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-05 14:06:39,499 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-05 14:06:40,725 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-05 14:06:40,783 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-05 14:06:40,784 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-05 14:06:42,340 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-05 14:06:42,502 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-05 14:06:42,503 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-05 14:06:43,567 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-05 14:06:43,728 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-05 14:06:44,559 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-05 14:06:44,869 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-05 14:06:44,980 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-05 14:06:45,775 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-05 14:06:46,104 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-05 14:06:46,205 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-05 14:06:46,206 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:46] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-05 14:06:46,256 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-05 14:06:46,357 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-05 14:06:46,358 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:46] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-05 14:06:47,077 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-05 14:06:47,178 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-05 14:06:47,178 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:06:47] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-05 14:07:50,377 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,380 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-05 14:07:50,381 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,382 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-05 14:07:50,390 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:07:50,390 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,392 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-05 14:07:50,392 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:07:50,394 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,395 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:07:50,396 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-05 14:07:50,396 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,397 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:07:50,398 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:07:50,398 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:07:50,399 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-05 14:07:50,399 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,399 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:07:50,399 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,400 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,400 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:07:50,400 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-05 14:07:50,401 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,401 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-05 14:07:50,402 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:07:50,402 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-05 14:07:50,403 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,403 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-05 14:07:50,404 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,405 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-05 14:07:50,406 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:07:50,406 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-05 14:07:50,407 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:07:50,408 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:07:50,408 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,408 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,409 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:07:50,409 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:07:50,409 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,410 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-05 14:07:50,410 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:07:50,410 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-05 14:07:50,410 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,411 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,411 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-05 14:07:50,411 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,412 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-05 14:07:50,413 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:07:50,414 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-05 14:07:50,414 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:07:50,415 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-05 14:07:50,416 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:07:50,416 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,417 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:07:50,417 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,418 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:07:50,418 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,419 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-05 14:07:50,420 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,420 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-05 14:07:50,421 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:07:50,421 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-05 14:07:50,421 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-05 14:07:50,421 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-05 14:07:50,423 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:50] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-05 14:07:50,523 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:07:50,626 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:07:50,727 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:07:50,830 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:07:50,934 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:07:51,034 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:07:51,135 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:07:51,235 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:07:51,335 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:07:51,436 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-05 14:07:51,538 - __main__ - INFO - Using cached weather data for patna
+2025-11-05 14:07:51,638 - __main__ - INFO - Using cached weather data for gandhinagar
+2025-11-05 14:07:51,738 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:07:51,838 - __main__ - INFO - Using cached weather data for thiruvananthapuram
+2025-11-05 14:07:51,939 - __main__ - INFO - Using cached weather data for panaji
+2025-11-05 14:07:52,039 - __main__ - INFO - Using cached weather data for shimla
+2025-11-05 14:07:52,139 - __main__ - INFO - Using cached weather data for srinagar
+2025-11-05 14:07:52,239 - __main__ - INFO - Using cached weather data for jammu
+2025-11-05 14:07:52,340 - __main__ - INFO - Using cached weather data for dehradun
+2025-11-05 14:07:52,442 - __main__ - INFO - Using cached weather data for ranchi
+2025-11-05 14:07:52,547 - __main__ - INFO - Using cached weather data for raipur
+2025-11-05 14:07:52,647 - __main__ - INFO - Using cached weather data for bhubaneswar
+2025-11-05 14:07:52,747 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-05 14:07:52,849 - __main__ - INFO - Using cached weather data for imphal
+2025-11-05 14:07:52,949 - __main__ - INFO - Using cached weather data for agartala
+2025-11-05 14:07:53,054 - __main__ - INFO - Using cached weather data for aizawl
+2025-11-05 14:07:53,155 - __main__ - INFO - Using cached weather data for kohima
+2025-11-05 14:07:53,255 - __main__ - INFO - Using cached weather data for itanagar
+2025-11-05 14:07:53,356 - __main__ - INFO - Using cached weather data for gangtok
+2025-11-05 14:07:53,461 - __main__ - INFO - Using cached weather data for shillong
+2025-11-05 14:07:53,566 - __main__ - INFO - Using cached weather data for kanpur
+2025-11-05 14:07:53,671 - __main__ - INFO - Using cached weather data for nagpur
+2025-11-05 14:07:53,771 - __main__ - INFO - Using cached weather data for indore
+2025-11-05 14:07:53,871 - __main__ - INFO - Using cached weather data for vadodara
+2025-11-05 14:07:53,971 - __main__ - INFO - Using cached weather data for surat
+2025-11-05 14:07:54,072 - __main__ - INFO - Using cached weather data for rajkot
+2025-11-05 14:07:54,172 - __main__ - INFO - Using cached weather data for nashik
+2025-11-05 14:07:54,274 - __main__ - INFO - Using cached weather data for aurangabad
+2025-11-05 14:07:54,380 - __main__ - INFO - Using cached weather data for solapur
+2025-11-05 14:07:54,482 - __main__ - INFO - Using cached weather data for amritsar
+2025-11-05 14:07:54,582 - __main__ - INFO - Using cached weather data for ludhiana
+2025-11-05 14:07:54,682 - __main__ - INFO - Using cached weather data for jalandhar
+2025-11-05 14:07:54,782 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:07:54,883 - __main__ - INFO - Using cached weather data for faridabad
+2025-11-05 14:07:54,984 - __main__ - INFO - Using cached weather data for gurgaon
+2025-11-05 14:07:55,084 - __main__ - INFO - Using cached weather data for rohtak
+2025-11-05 14:07:55,184 - __main__ - INFO - Using cached weather data for panipat
+2025-11-05 14:07:55,284 - __main__ - INFO - Using cached weather data for ambala
+2025-11-05 14:07:55,384 - __main__ - INFO - Using cached weather data for visakhapatnam
+2025-11-05 14:07:55,489 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-05 14:07:55,490 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:07:55] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-05 14:07:55,492 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-05 14:07:55,593 - __main__ - INFO - Using cached weather data for delhi
+2025-11-05 14:07:55,693 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-05 14:07:55,798 - __main__ - INFO - Using cached weather data for chennai
+2025-11-05 14:07:55,899 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-05 14:07:55,999 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-05 14:07:56,099 - __main__ - INFO - Using cached weather data for pune
+2025-11-05 14:07:56,199 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-05 14:07:56,300 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-05 14:07:56,400 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-05 14:07:56,502 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-05 14:07:56,604 - __main__ - INFO - Using cached weather data for patna
+2025-11-05 14:07:56,704 - __main__ - INFO - Using cached weather data for gandhinagar
+2025-11-05 14:07:56,805 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:07:56,907 - __main__ - INFO - Using cached weather data for thiruvananthapuram
+2025-11-05 14:07:57,007 - __main__ - INFO - Using cached weather data for panaji
+2025-11-05 14:07:57,108 - __main__ - INFO - Using cached weather data for shimla
+2025-11-05 14:07:57,208 - __main__ - INFO - Using cached weather data for srinagar
+2025-11-05 14:07:57,308 - __main__ - INFO - Using cached weather data for jammu
+2025-11-05 14:07:57,409 - __main__ - INFO - Using cached weather data for dehradun
+2025-11-05 14:07:57,509 - __main__ - INFO - Using cached weather data for ranchi
+2025-11-05 14:07:57,609 - __main__ - INFO - Using cached weather data for raipur
+2025-11-05 14:07:57,710 - __main__ - INFO - Using cached weather data for bhubaneswar
+2025-11-05 14:07:57,810 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-05 14:07:57,910 - __main__ - INFO - Using cached weather data for imphal
+2025-11-05 14:07:58,013 - __main__ - INFO - Using cached weather data for agartala
+2025-11-05 14:07:58,113 - __main__ - INFO - Using cached weather data for aizawl
+2025-11-05 14:07:58,213 - __main__ - INFO - Using cached weather data for kohima
+2025-11-05 14:07:58,317 - __main__ - INFO - Using cached weather data for itanagar
+2025-11-05 14:07:58,421 - __main__ - INFO - Using cached weather data for gangtok
+2025-11-05 14:07:58,521 - __main__ - INFO - Using cached weather data for shillong
+2025-11-05 14:07:58,624 - __main__ - INFO - Using cached weather data for kanpur
+2025-11-05 14:07:58,727 - __main__ - INFO - Using cached weather data for nagpur
+2025-11-05 14:07:58,830 - __main__ - INFO - Using cached weather data for indore
+2025-11-05 14:07:58,931 - __main__ - INFO - Using cached weather data for vadodara
+2025-11-05 14:07:59,031 - __main__ - INFO - Using cached weather data for surat
+2025-11-05 14:07:59,131 - __main__ - INFO - Using cached weather data for rajkot
+2025-11-05 14:07:59,234 - __main__ - INFO - Using cached weather data for nashik
+2025-11-05 14:07:59,338 - __main__ - INFO - Using cached weather data for aurangabad
+2025-11-05 14:07:59,439 - __main__ - INFO - Using cached weather data for solapur
+2025-11-05 14:07:59,539 - __main__ - INFO - Using cached weather data for amritsar
+2025-11-05 14:07:59,639 - __main__ - INFO - Using cached weather data for ludhiana
+2025-11-05 14:07:59,739 - __main__ - INFO - Using cached weather data for jalandhar
+2025-11-05 14:07:59,839 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-05 14:07:59,942 - __main__ - INFO - Using cached weather data for faridabad
+2025-11-05 14:08:00,043 - __main__ - INFO - Using cached weather data for gurgaon
+2025-11-05 14:08:00,144 - __main__ - INFO - Using cached weather data for rohtak
+2025-11-05 14:08:00,250 - __main__ - INFO - Using cached weather data for panipat
+2025-11-05 14:08:00,355 - __main__ - INFO - Using cached weather data for ambala
+2025-11-05 14:08:00,459 - __main__ - INFO - Using cached weather data for visakhapatnam
+2025-11-05 14:08:00,562 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-05 14:08:00,563 - werkzeug - INFO - 127.0.0.1 - - [05/Nov/2025 14:08:00] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-19 09:12:15,005 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-19 09:12:15,005 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-19 09:12:15,005 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-19 09:12:15,005 - __main__ - INFO - Server starting on port 5004
+2025-11-19 09:12:15,010 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-19 09:12:17,588 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://127.0.0.1:5004
+2025-11-19 09:12:17,588 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-19 09:12:17,600 - werkzeug - INFO -  * Restarting with stat
+2025-11-19 09:12:17,875 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-11-19 09:12:17,875 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-11-19 09:12:17,875 - __main__ - INFO - Monitoring 121 Indian cities
+2025-11-19 09:12:17,875 - __main__ - INFO - Server starting on port 5004
+2025-11-19 09:12:17,879 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-11-19 09:12:17,887 - werkzeug - WARNING -  * Debugger is active!
+2025-11-19 09:12:17,901 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-11-19 09:38:40,612 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:40,621 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:40] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-19 09:38:40,629 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:40,635 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:40] "GET /warnings/active HTTP/1.1" 200 -
+2025-11-19 09:38:49,241 - __main__ - INFO - Successfully retrieved weather data for kolkata from Visual Crossing
+2025-11-19 09:38:49,242 - __main__ - INFO - Successfully retrieved weather data for bangalore from Visual Crossing
+2025-11-19 09:38:49,244 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:49,245 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:49,245 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:49] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-19 09:38:49,246 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:49] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-19 09:38:52,576 - __main__ - INFO - Successfully retrieved weather data for chennai from Visual Crossing
+2025-11-19 09:38:52,577 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,577 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-19 09:38:52,578 - __main__ - INFO - Successfully retrieved weather data for delhi from Visual Crossing
+2025-11-19 09:38:52,578 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,579 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-19 09:38:52,613 - __main__ - INFO - Successfully retrieved weather data for mumbai from Visual Crossing
+2025-11-19 09:38:52,614 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,615 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-19 09:38:52,617 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-19 09:38:52,617 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,617 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=bangalore HTTP/1.1" 200 -
+2025-11-19 09:38:52,620 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-19 09:38:52,620 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,620 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=kolkata HTTP/1.1" 200 -
+2025-11-19 09:38:52,622 - __main__ - INFO - Using cached weather data for chennai
+2025-11-19 09:38:52,622 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,622 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=chennai HTTP/1.1" 200 -
+2025-11-19 09:38:52,623 - __main__ - INFO - Using cached weather data for delhi
+2025-11-19 09:38:52,623 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,624 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=delhi HTTP/1.1" 200 -
+2025-11-19 09:38:52,625 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-19 09:38:52,625 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:52,625 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:52] "GET /weather/current?city=mumbai HTTP/1.1" 200 -
+2025-11-19 09:38:56,886 - __main__ - INFO - Successfully retrieved weather data for hyderabad from Visual Crossing
+2025-11-19 09:38:56,887 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:56,888 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:56] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-19 09:38:56,889 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-19 09:38:56,889 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:38:56,890 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:38:56] "GET /weather/current?city=hyderabad HTTP/1.1" 200 -
+2025-11-19 09:39:02,528 - __main__ - INFO - Successfully retrieved weather data for jaipur from Visual Crossing
+2025-11-19 09:39:02,529 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:02,529 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:02] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-19 09:39:02,532 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-19 09:39:02,532 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:02,532 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:02] "GET /weather/current?city=jaipur HTTP/1.1" 200 -
+2025-11-19 09:39:03,210 - __main__ - INFO - Successfully retrieved weather data for ahmedabad from Visual Crossing
+2025-11-19 09:39:03,211 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:03,212 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:03] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-19 09:39:03,832 - __main__ - INFO - Successfully retrieved weather data for lucknow from Visual Crossing
+2025-11-19 09:39:03,835 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:03,836 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:03] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-19 09:39:04,154 - __main__ - INFO - Successfully retrieved weather data for pune from Visual Crossing
+2025-11-19 09:39:04,156 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:04,157 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:04] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-19 09:39:04,161 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-19 09:39:04,261 - __main__ - INFO - Using cached weather data for delhi
+2025-11-19 09:39:04,355 - __main__ - INFO - Successfully retrieved weather data for ahmedabad from Visual Crossing
+2025-11-19 09:39:04,356 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:04,357 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:04] "GET /weather/current?city=ahmedabad HTTP/1.1" 200 -
+2025-11-19 09:39:04,366 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-19 09:39:04,373 - __main__ - INFO - Successfully retrieved weather data for lucknow from Visual Crossing
+2025-11-19 09:39:04,374 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:04,374 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:04] "GET /weather/current?city=lucknow HTTP/1.1" 200 -
+2025-11-19 09:39:04,472 - __main__ - INFO - Using cached weather data for chennai
+2025-11-19 09:39:04,575 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-19 09:39:04,677 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-19 09:39:04,711 - __main__ - INFO - Successfully retrieved weather data for pune from Visual Crossing
+2025-11-19 09:39:04,712 - __main__ - ERROR - Error scraping IMD warnings: name 'INDIAN_API_KEY' is not defined
+2025-11-19 09:39:04,712 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:39:04] "GET /weather/current?city=pune HTTP/1.1" 200 -
+2025-11-19 09:39:04,781 - __main__ - INFO - Using cached weather data for pune
+2025-11-19 09:39:04,885 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-19 09:39:04,991 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-19 09:39:05,094 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-19 09:39:09,857 - __main__ - INFO - Successfully retrieved weather data for bhopal from Visual Crossing
+2025-11-19 09:39:24,723 - __main__ - INFO - Using cached weather data for mumbai
+2025-11-19 09:39:24,825 - __main__ - INFO - Using cached weather data for delhi
+2025-11-19 09:39:24,930 - __main__ - INFO - Using cached weather data for bangalore
+2025-11-19 09:39:25,036 - __main__ - INFO - Using cached weather data for chennai
+2025-11-19 09:39:25,139 - __main__ - INFO - Using cached weather data for hyderabad
+2025-11-19 09:39:25,244 - __main__ - INFO - Using cached weather data for kolkata
+2025-11-19 09:39:25,348 - __main__ - INFO - Using cached weather data for pune
+2025-11-19 09:39:25,454 - __main__ - INFO - Using cached weather data for ahmedabad
+2025-11-19 09:39:25,559 - __main__ - INFO - Using cached weather data for jaipur
+2025-11-19 09:39:25,664 - __main__ - INFO - Using cached weather data for lucknow
+2025-11-19 09:39:25,769 - __main__ - INFO - Using cached weather data for bhopal
+2025-11-19 09:39:26,517 - __main__ - INFO - Successfully retrieved weather data for patna from Visual Crossing
+2025-11-19 09:39:31,798 - __main__ - INFO - Successfully retrieved weather data for patna from Visual Crossing
+2025-11-19 09:39:34,500 - __main__ - INFO - Successfully retrieved weather data for gandhinagar from Visual Crossing
+2025-11-19 09:39:37,620 - __main__ - INFO - Successfully retrieved weather data for gandhinagar from Visual Crossing
+2025-11-19 09:39:38,138 - __main__ - INFO - Successfully retrieved weather data for chandigarh from Visual Crossing
+2025-11-19 09:39:40,811 - __main__ - INFO - Successfully retrieved weather data for chandigarh from Visual Crossing
+2025-11-19 09:39:42,854 - __main__ - INFO - Successfully retrieved weather data for thiruvananthapuram from Visual Crossing
+2025-11-19 09:39:44,475 - __main__ - INFO - Successfully retrieved weather data for panaji from Visual Crossing
+2025-11-19 09:39:44,493 - __main__ - INFO - Successfully retrieved weather data for thiruvananthapuram from Visual Crossing
+2025-11-19 09:39:44,598 - __main__ - INFO - Using cached weather data for panaji
+2025-11-19 09:39:46,360 - __main__ - INFO - Successfully retrieved weather data for shimla from Visual Crossing
+2025-11-19 09:39:46,526 - __main__ - INFO - Successfully retrieved weather data for shimla from Visual Crossing
+2025-11-19 09:39:47,626 - __main__ - INFO - Successfully retrieved weather data for srinagar from Visual Crossing
+2025-11-19 09:39:47,981 - __main__ - INFO - Successfully retrieved weather data for srinagar from Visual Crossing
+2025-11-19 09:39:49,086 - __main__ - INFO - Successfully retrieved weather data for jammu from Visual Crossing
+2025-11-19 09:39:49,372 - __main__ - INFO - Successfully retrieved weather data for jammu from Visual Crossing
+2025-11-19 09:39:50,518 - __main__ - INFO - Successfully retrieved weather data for dehradun from Visual Crossing
+2025-11-19 09:39:51,510 - __main__ - INFO - Successfully retrieved weather data for dehradun from Visual Crossing
+2025-11-19 09:39:52,891 - __main__ - INFO - Successfully retrieved weather data for ranchi from Visual Crossing
+2025-11-19 09:39:55,239 - __main__ - INFO - Successfully retrieved weather data for ranchi from Visual Crossing
+2025-11-19 09:39:56,730 - __main__ - INFO - Successfully retrieved weather data for raipur from Visual Crossing
+2025-11-19 09:39:57,148 - __main__ - INFO - Successfully retrieved weather data for raipur from Visual Crossing
+2025-11-19 09:40:01,520 - __main__ - INFO - Successfully retrieved weather data for bhubaneswar from Visual Crossing
+2025-11-19 09:40:02,861 - __main__ - INFO - Successfully retrieved weather data for guwahati from Visual Crossing
+2025-11-19 09:40:04,474 - __main__ - INFO - Successfully retrieved weather data for imphal from Visual Crossing
+2025-11-19 09:40:06,340 - __main__ - INFO - Successfully retrieved weather data for agartala from Visual Crossing
+2025-11-19 09:40:11,987 - __main__ - INFO - Successfully retrieved weather data for bhubaneswar from Visual Crossing
+2025-11-19 09:40:12,093 - __main__ - INFO - Using cached weather data for guwahati
+2025-11-19 09:40:12,199 - __main__ - INFO - Using cached weather data for imphal
+2025-11-19 09:40:12,304 - __main__ - INFO - Using cached weather data for agartala
+2025-11-19 09:40:13,904 - __main__ - INFO - Successfully retrieved weather data for aizawl from Visual Crossing
+2025-11-19 09:40:15,802 - __main__ - INFO - Successfully retrieved weather data for kohima from Visual Crossing
+2025-11-19 09:40:18,326 - __main__ - INFO - Successfully retrieved weather data for itanagar from Visual Crossing
+2025-11-19 09:40:20,292 - __main__ - INFO - Successfully retrieved weather data for gangtok from Visual Crossing
+2025-11-19 09:40:28,105 - __main__ - ERROR - Network error getting weather data for aizawl: HTTPSConnectionPool(host='weather.visualcrossing.com', port=443): Read timed out. (read timeout=15)
+2025-11-19 09:40:28,106 - __main__ - INFO - Using cached weather data for kohima
+2025-11-19 09:40:28,211 - __main__ - INFO - Using cached weather data for itanagar
+2025-11-19 09:40:28,316 - __main__ - INFO - Using cached weather data for gangtok
+2025-11-19 09:40:28,688 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-19 09:40:31,693 - __main__ - INFO - Successfully retrieved weather data for shillong from Visual Crossing
+2025-11-19 09:40:31,954 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-19 09:40:36,537 - __main__ - INFO - Successfully retrieved weather data for kanpur from Visual Crossing
+2025-11-19 09:40:37,676 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-19 09:40:38,565 - __main__ - INFO - Successfully retrieved weather data for nagpur from Visual Crossing
+2025-11-19 09:40:39,879 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-19 09:40:40,328 - __main__ - INFO - Successfully retrieved weather data for indore from Visual Crossing
+2025-11-19 09:40:42,411 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-19 09:40:43,130 - __main__ - INFO - Successfully retrieved weather data for vadodara from Visual Crossing
+2025-11-19 09:40:44,303 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-19 09:40:44,792 - __main__ - INFO - Successfully retrieved weather data for surat from Visual Crossing
+2025-11-19 09:40:45,971 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-19 09:40:46,588 - __main__ - INFO - Successfully retrieved weather data for rajkot from Visual Crossing
+2025-11-19 09:40:48,726 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-19 09:40:49,235 - __main__ - INFO - Successfully retrieved weather data for nashik from Visual Crossing
+2025-11-19 09:40:51,975 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-19 09:40:52,340 - __main__ - INFO - Successfully retrieved weather data for aurangabad from Visual Crossing
+2025-11-19 09:40:53,546 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-19 09:40:53,951 - __main__ - INFO - Successfully retrieved weather data for solapur from Visual Crossing
+2025-11-19 09:40:55,004 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-19 09:40:55,485 - __main__ - INFO - Successfully retrieved weather data for amritsar from Visual Crossing
+2025-11-19 09:40:56,603 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-19 09:40:56,929 - __main__ - INFO - Successfully retrieved weather data for ludhiana from Visual Crossing
+2025-11-19 09:40:58,595 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-19 09:40:58,696 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-19 09:40:58,965 - __main__ - INFO - Successfully retrieved weather data for jalandhar from Visual Crossing
+2025-11-19 09:40:59,073 - __main__ - INFO - Using cached weather data for chandigarh
+2025-11-19 09:41:00,286 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-19 09:41:00,885 - __main__ - INFO - Successfully retrieved weather data for faridabad from Visual Crossing
+2025-11-19 09:41:01,839 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-19 09:41:02,227 - __main__ - INFO - Successfully retrieved weather data for gurgaon from Visual Crossing
+2025-11-19 09:41:03,302 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-19 09:41:03,715 - __main__ - INFO - Successfully retrieved weather data for rohtak from Visual Crossing
+2025-11-19 09:41:04,526 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-19 09:41:05,119 - __main__ - INFO - Successfully retrieved weather data for panipat from Visual Crossing
+2025-11-19 09:41:06,418 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-19 09:41:07,499 - __main__ - INFO - Successfully retrieved weather data for ambala from Visual Crossing
+2025-11-19 09:41:08,388 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-19 09:41:08,494 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-19 09:41:08,497 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:41:08] "GET /weather/conditions HTTP/1.1" 200 -
+2025-11-19 09:41:09,337 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
+2025-11-19 09:41:09,443 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
+2025-11-19 09:41:09,444 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:41:09] "GET /weather/conditions HTTP/1.1" 200 -

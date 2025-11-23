@@ -6,7 +6,7 @@ async function testDashboardAPI() {
     console.log('Testing TomTom API v5 structure...');
     
     // Test TomTom API v5
-    const tomtomUrl = 'https://api.tomtom.com/traffic/services/5/incidentDetails?key=qdWLPZiDyThFboTlpIkly3dALLUTXIug&bbox=77.0025,28.6041,77.2025,28.8041&categoryFilter=0,1,2,3,4,5,6,7,8,9,10,11,14&timeValidityFilter=present';
+const tomtomUrl = 'https://api.tomtom.com/traffic/services/5/incidentDetails?key=LPnygt3dMhUJGpHMLIMDJM92a25JMALE&bbox=77.0025,28.6041,77.2025,28.8041&categoryFilter=0,1,2,3,4,5,6,7,8,9,10,11,14&timeValidityFilter=present';
     
     console.log('\n1. Testing TomTom API v5:');
     const tomtomResponse = await fetch(tomtomUrl);
