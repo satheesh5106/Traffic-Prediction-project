@@ -19,6 +19,7 @@ import logging
 import os
 import requests
 import json
+import socket
 from dotenv import load_dotenv, find_dotenv
 
 # Configure logging
@@ -43,6 +44,9 @@ else:
 
 # TomTom API Configuration (MUST come from Backend/.env)
 TOMTOM_API_KEY = os.getenv('TOMTOM_API_KEY')
+if not TOMTOM_API_KEY:
+    logger.warning("TOMTOM_API_KEY not found in environment variables. Defaulting to empty string.")
+    TOMTOM_API_KEY = ""
 TOMTOM_GEOCODING_URL = "https://api.tomtom.com/search/2/geocode"
 TOMTOM_TRAFFIC_URL = "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/json"
 TOMTOM_ROUTE_URL = "https://api.tomtom.com/routing/1/calculateRoute"
@@ -830,6 +834,18 @@ def not_found(error):
 def internal_error(error):
     return jsonify({'error': 'Internal server error'}), 500
 
+def find_free_port():
+    """Find a free port on localhost"""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('', 0))
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        return s.getsockname()[1]
+
+def is_port_in_use(port):
+    """Check if a port is in use"""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex(('localhost', port)) == 0
+
 if __name__ == '__main__':
     # Train model on startup
     try:
@@ -840,7 +856,21 @@ if __name__ == '__main__':
         exit(1)
     
     # Start Flask server
-    port = int(os.environ.get('PORT', 5002))
+    # Use PORT from env if available, otherwise default to 5006
+    # Note: Backend/.env sets PORT=3001, so we check ML_PORT or fallback to 5006
+    env_port = os.environ.get('ML_PORT', os.environ.get('PORT', '5006'))
+    
+    # If the retrieved port is 3001 (default Node backend port), force 5006 unless explicitly set
+    # This prevents accidental port conflict with the main backend
+    if env_port == '3001' and not os.environ.get('ML_PORT'):
+        env_port = '5006'
+        
+    port = int(env_port)
+    
+    if is_port_in_use(port):
+        logger.warning(f"⚠️ Port {port} is in use. Allocating a free port instead.")
+        port = find_free_port()
+
     debug = os.environ.get('DEBUG', 'False').lower() == 'true'
     
     logger.info(f"🚀 Traffic Volume Prediction ML Server starting on port {port}")

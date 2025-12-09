@@ -16,7 +16,7 @@ const API_BASE_URL =
     ? 'https://trafficai.netlify.app/api'
     : 'http://localhost:3001/api');
 const POLL_INTERVAL = 3000; // 3 seconds for enhanced real-time updates
-const TOMTOM_API_KEY = 'LPnygt3dMhUJGpHMLIMDJM92a25JMALE';
+const TOMTOM_API_KEY = process.env.NEXT_PUBLIC_TOMTOM_API_KEY || '';
 // Remove OpenWeatherMap usage; TomTom-only geocoding is enforced throughout
 
 // Time parsing and schedule helpers (client-side enforcement)
@@ -240,6 +240,7 @@ const IncidentPredictionDashboard = () => {
   // Prediction state
   const [prediction, setPrediction] = useState<IncidentPrediction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [pollingActive, setPollingActive] = useState(false);
   const [gettingLocation, setGettingLocation] = useState(false);
@@ -450,7 +451,6 @@ const IncidentPredictionDashboard = () => {
   // Submit prediction request
   const submitPrediction = async () => {
     try {
-      setIsLoading(true);
       setError(null);
       
       // Validate required fields
@@ -458,6 +458,18 @@ const IncidentPredictionDashboard = () => {
         setError('From location is required');
         return;
       }
+      
+      setIsLoading(true);
+      
+      // Artificial delay sequence for better UX
+      setLoadingMessage('Gathering data...');
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      setLoadingMessage('Checking records...');
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      setLoadingMessage('Making a valid prediction...');
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Helper: parse coordinates from a "lat, lon" string
       const parseCoordinates = (input: string): { lat: number; lon: number } | null => {
@@ -608,6 +620,7 @@ const IncidentPredictionDashboard = () => {
       }
     } finally {
       setIsLoading(false);
+      setLoadingMessage('');
     }
   };
   
@@ -811,7 +824,7 @@ const IncidentPredictionDashboard = () => {
                       {isLoading ? (
                         <>
                           <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                          Predicting...
+                          {loadingMessage || 'Predicting...'}
                         </>
                       ) : (
                         <>

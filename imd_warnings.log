@@ -6629,3 +6629,93 @@
 2025-11-19 09:41:09,337 - __main__ - INFO - Successfully retrieved weather data for visakhapatnam from Visual Crossing
 2025-11-19 09:41:09,443 - __main__ - INFO - Retrieved real-time conditions for 50 cities using Visual Crossing API
 2025-11-19 09:41:09,444 - werkzeug - INFO - 127.0.0.1 - - [19/Nov/2025 09:41:09] "GET /weather/conditions HTTP/1.1" 200 -
+2025-12-10 04:06:33,161 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:06:33,161 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:06:33,161 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:06:33,161 - __main__ - INFO - Server starting on port 5004
+2025-12-10 04:06:33,166 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:06:33,186 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5004
+ * Running on http://192.168.1.4:5004
+2025-12-10 04:06:33,187 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-10 04:06:33,193 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:06:33,455 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:06:33,455 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:06:33,455 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:06:33,455 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:06:33,459 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:06:33,469 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:06:33,522 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:08:22,309 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:08:22,465 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:08:23,290 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:08:23,290 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:08:23,290 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:08:23,290 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:08:23,305 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:08:23,327 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:08:23,355 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:08:38,696 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:08:38,773 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:08:39,181 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:08:39,181 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:08:39,181 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:08:39,181 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:08:39,187 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:08:39,198 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:08:39,214 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:09:40,611 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:09:40,719 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:09:41,349 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:09:41,349 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:09:41,349 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:09:41,349 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:09:41,358 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:09:41,374 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:09:41,397 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:10:06,467 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:10:06,604 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:10:07,284 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:10:07,284 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:10:07,284 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:10:07,284 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:10:07,290 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:10:07,301 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:10:07,319 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:12:35,639 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:12:35,830 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:12:36,878 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:12:36,878 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:12:36,878 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:12:36,878 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:12:36,917 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:12:36,955 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:12:37,012 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:12:53,595 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:12:53,674 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:12:54,109 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:12:54,109 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:12:54,109 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:12:54,109 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:12:54,117 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:12:54,129 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:12:54,148 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 04:20:24,786 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 04:20:24,905 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 04:20:25,669 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 04:20:25,669 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 04:20:25,669 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 04:20:25,669 - __main__ - INFO - Server starting on port 3001
+2025-12-10 04:20:25,685 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 04:20:25,708 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 04:20:25,737 - werkzeug - INFO -  * Debugger PIN: 124-125-178
+2025-12-10 05:22:56,469 - werkzeug - INFO -  * Detected change in '/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/ml_traffic.py', reloading
+2025-12-10 05:22:56,783 - werkzeug - INFO -  * Restarting with stat
+2025-12-10 05:22:57,593 - __main__ - INFO - Starting IMD Weather Warnings Scraper...
+2025-12-10 05:22:57,594 - __main__ - INFO - This server scrapes REAL warnings from IMD - no ML predictions!
+2025-12-10 05:22:57,594 - __main__ - INFO - Monitoring 121 Indian cities
+2025-12-10 05:22:57,594 - __main__ - INFO - Server starting on port 3001
+2025-12-10 05:22:57,600 - dotenv.main - WARNING - Python-dotenv could not parse statement starting at line 18
+2025-12-10 05:22:57,613 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 05:22:57,635 - werkzeug - INFO -  * Debugger PIN: 124-125-178

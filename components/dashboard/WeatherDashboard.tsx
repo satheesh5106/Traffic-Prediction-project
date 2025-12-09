@@ -158,6 +158,10 @@ const getSeverityColor = (severity: string) => {
 };
 
 const WeatherDashboard: React.FC = () => {
+  // API Keys from environment
+  const TOMTOM_API_KEY = process.env.NEXT_PUBLIC_TOMTOM_API_KEY || '';
+
+  // States
   const [weatherAlerts, setWeatherAlerts] = useState<WeatherAlert[]>([]);
   const [weatherConditions, setWeatherConditions] = useState<WeatherConditionsResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -169,92 +173,92 @@ const WeatherDashboard: React.FC = () => {
 
   // Show IMD mock data in this dashboard without affecting other modules
   const USE_IMD_MOCK = true;
-  const IMD_CYCLONE_URL = 'https://mausam.imd.gov.in/responsive/cycloneinformation.php';
+  const IMD_CYCLONE_URL = 'https://internal.imd.gov.in/section/nhac/dynamic/allindianew.pdf';
 
   // Exact IMD mock JSON provided by the user
-  const IMD_MOCK_JSON = `[
+const IMD_MOCK_JSON = `[
    { 
      "region": "Andaman & Nicobar Islands", 
-     "status": "RED", 
-     "severity": "Take Action", 
-     "phenomena": "Heavy to Very Heavy Rainfall, Thunderstorm with Lightning, Gusty Winds 40-50 kmph", 
-     "day1": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm" }, 
-     "day2": { "alert": "Red", "description": "Very Heavy Rainfall expected, Strong Winds" }, 
-     "day3": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm continues" }, 
+     "status": "YELLOW", 
+     "severity": "Be Aware", 
+     "phenomena": "Light to moderate rainfall at many places; thunderstorm with lightning and gusty winds 30-40 kmph on 11th, 12th, 13th & 14th December", 
+     "day1": { "alert": "Yellow", "description": "Light to moderate rainfall at many places" }, 
+     "day2": { "alert": "Yellow", "description": "Light to moderate rainfall; thunderstorm with lightning and gusty winds 30-40 kmph" }, 
+     "day3": { "alert": "Yellow", "description": "Thunderstorm with lightning and gusty winds 30-40 kmph likely" }, 
      "precautions": [ 
-       "Stay indoors; avoid low-lying, flood-prone areas.", 
-       "Secure outdoor structures; do not venture during squalls.", 
-       "Keep emergency supplies ready; charge devices in advance." 
+       "Take safe shelters; do not take shelter under trees during thunderstorms.", 
+       "Secure outdoor structures and boats; avoid sea travel during gusty conditions.", 
+       "Keep emergency supplies ready and monitor IMD updates regularly." 
      ] 
    }, 
    { 
      "region": "Tamil Nadu, Puducherry & Karaikal", 
      "status": "RED", 
      "severity": "Take Action", 
-     "phenomena": "Heavy to Very Heavy Rainfall (isolated), Thunderstorm, Gusty Winds 30-40 kmph", 
-     "day1": { "alert": "Red", "description": "Very Heavy Rainfall at isolated places" }, 
-     "day2": { "alert": "Orange", "description": "Heavy to Very Heavy Rainfall likely" }, 
-     "day3": { "alert": "Yellow", "description": "Isolated Heavy Rainfall" }, 
+     "phenomena": "Heavy to very heavy rainfall at isolated places; thunderstorm with lightning very likely on 09th December; squally weather 35-45 kmph gusting to 55 kmph", 
+     "day1": { "alert": "Red", "description": "Heavy rainfall very likely at isolated places; thunderstorm with lightning" }, 
+     "day2": { "alert": "Orange", "description": "Heavy to very heavy rainfall likely at isolated places; squally winds 35-45 kmph" }, 
+     "day3": { "alert": "Yellow", "description": "Light to moderate rain possible; squally weather over Gulf of Mannar" }, 
      "precautions": [ 
+       "Avoid low-lying and flood-prone areas; stay indoors during heavy spells.", 
        "Drain excess water from fields; support horticultural crops against wind damage.", 
-       "Avoid waterlogged areas; follow traffic advisories.", 
-       "Stay alert for localized flooding and mudslides in low-lying zones." 
+       "Fishermen must not venture into Gulf of Mannar, southwest Bay of Bengal and along/off Tamil Nadu coasts until 13th December." 
      ] 
    }, 
    { 
      "region": "Kerala & Mahe", 
-     "status": "RED", 
-     "severity": "Take Action", 
-     "phenomena": "Heavy to Very Heavy Rainfall (isolated), Thunderstorm, Expected rainfall 7-11 cm", 
-     "day1": { "alert": "Red", "description": "Very Heavy Rainfall at isolated places, Lightning" }, 
-     "day2": { "alert": "Red", "description": "Heavy Rainfall, Thunderstorm with Lightning" }, 
-     "day3": { "alert": "Orange", "description": "Heavy Rainfall, Thunderstorm continues" }, 
+     "status": "GREEN", 
+     "severity": "No Warning", 
+     "phenomena": "Mainly dry conditions with isolated light rainfall; no severe weather expected", 
+     "day1": { "alert": "Green", "description": "No significant weather; isolated light rain possible" }, 
+     "day2": { "alert": "Green", "description": "Mainly dry with no adverse conditions" }, 
+     "day3": { "alert": "Green", "description": "Mainly dry; normal conditions expected" }, 
      "precautions": [ 
-       "Ensure drainage in fields and plantations; stake vegetables to prevent lodging.", 
-       "Avoid swollen water bodies; stay indoors during thunderstorms.", 
-       "Keep livestock sheltered; store feed safely to prevent spoilage." 
+       "Normal agricultural and outdoor activities can continue.", 
+       "Follow routine weather updates; monitor for any alert escalation.", 
+       "Maintain basic preparedness for sudden weather changes." 
      ] 
    }, 
    { 
      "region": "Lakshadweep", 
-     "status": "ORANGE", 
-     "severity": "Be Prepared", 
-     "phenomena": "Heavy Rainfall (23 Nov), Thunderstorm with Lightning", 
-     "day1": { "alert": "Orange", "description": "Heavy Rainfall at isolated places" }, 
-     "day2": { "alert": "Orange", "description": "Thunderstorm with Lightning" }, 
-     "day3": { "alert": "Yellow", "description": "Scattered Thunderstorm" }, 
+     "status": "YELLOW", 
+     "severity": "Be Aware", 
+     "phenomena": "Squally weather with 35-45 kmph winds gusting to 55 kmph expected; moderate to rough sea conditions", 
+     "day1": { "alert": "Yellow", "description": "Squally weather 35-45 kmph gusting 55 kmph over Comorin area and adjoining Lakshadweep" }, 
+     "day2": { "alert": "Yellow", "description": "Squally weather conditions persist over surrounding Maldives area" }, 
+     "day3": { "alert": "Green", "description": "Gradual improvement; moderate sea conditions" }, 
      "precautions": [ 
-       "Avoid sea travel and outdoor activities during thunderstorms.", 
-       "Secure loose structures; monitor daily weather updates.", 
-       "Expect ferry disruptions; plan alternative transport routes." 
+       "Fishermen advised not to venture into Comorin area and Lakshadweep region until 13th December.", 
+       "All boats and vessels to remain in protected harbours; avoid open sea.", 
+       "Keep continuous radio contact with coast guard and port authorities." 
      ] 
    }, 
    { 
      "region": "Coastal Andhra Pradesh & Yanam", 
      "status": "YELLOW", 
      "severity": "Be Aware", 
-     "phenomena": "Heavy Rainfall (isolated), Thunderstorm with Lightning (23-24 Nov)", 
-     "day1": { "alert": "Yellow", "description": "Heavy Rainfall at isolated places, Lightning" }, 
-     "day2": { "alert": "Yellow", "description": "Heavy Rainfall, Thunderstorm" }, 
-     "day3": { "alert": "Green", "description": "No significant weather" }, 
+     "phenomena": "Light to moderate rain/thundershowers at a few places; isolated heavy rainfall possible; squally winds along coast", 
+     "day1": { "alert": "Yellow", "description": "Light to moderate rain with isolated thunderstorms; squally winds possible" }, 
+     "day2": { "alert": "Yellow", "description": "Scattered rain; one or two heavy spells possible at coastal locations" }, 
+     "day3": { "alert": "Green", "description": "Partly cloudy with isolated light rain; winds decrease" }, 
      "precautions": [ 
-       "Remain alert for minor urban flooding in low-lying areas.", 
-       "Avoid standing under trees; stay away from electrical equipment during storms.", 
-       "Monitor IMD alerts for any warning escalation." 
+       "Remain alert for minor urban flooding in low-lying coastal areas.", 
+       "Avoid sheltering under trees and stay away from electrical poles during thunderstorms.", 
+       "Monitor IMD alerts continuously for any warning upgrades." 
      ] 
    }, 
    { 
      "region": "Bay of Bengal & Andaman Sea (Marine)", 
-     "status": "RED", 
-     "severity": "Take Action - Marine", 
-     "phenomena": "Squally weather, Wind 40-65 kmph gusting, Rough to Very Rough Seas, Developing Cyclonic System", 
-     "day1": { "alert": "Red", "description": "Squally weather; Fishermen warned" }, 
-     "day2": { "alert": "Red", "description": "Strong winds 40-55 kmph; Very Rough Seas" }, 
-     "day3": { "alert": "Red", "description": "Continuing squally conditions" }, 
+     "status": "ORANGE", 
+     "severity": "Be Prepared - Marine", 
+     "phenomena": "Squally weather with 35-45 kmph winds gusting to 55 kmph over southwest Bay of Bengal, Gulf of Mannar, along and off Tamil Nadu & Sri Lanka coasts, Comorin area and adjoining Maldives area", 
+     "day1": { "alert": "Orange", "description": "Squally weather 35-45 kmph gusting 55 kmph over southwest Bay of Bengal, along & off Tamil Nadu and Sri Lanka coasts, Gulf of Mannar, Comorin area during 09th-13th December" }, 
+     "day2": { "alert": "Orange", "description": "Squally conditions continue over many parts; winds 35-45 kmph gusting 55 kmph" }, 
+     "day3": { "alert": "Yellow", "description": "Squally weather persists over Gulf of Mannar, Comorin area and adjoining Maldives area until 13th December" }, 
      "precautions": [ 
-       "Fishermen MUST NOT venture into Bay of Bengal & Andaman Sea.", 
-       "All vessels: operate only from protected harbors; avoid open waters.", 
-       "Maintain continuous radio contact with coast guard; monitor marine forecasts hourly." 
+       "Fishermen strictly advised NOT to venture into Arabian Sea Comorin area, Bay of Bengal Gulf of Mannar, southwest Bay of Bengal, and along/off Tamil Nadu and Sri Lanka coasts from 9th-13th December.", 
+       "All small vessels and fishing boats must operate only from safe harbours; avoid all deep-sea trips in affected areas.", 
+       "Maintain continuous radio/Coast Guard contact; monitor updated marine forecasts hourly." 
      ] 
    } 
  ]`;
