@@ -1,0 +1,903 @@
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 28.5355,77.391","timestamp":"2025-09-04T07:22:00.270Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T07:22:00.962Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 28.5355,77.391","timestamp":"2025-09-04T07:24:42.105Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T07:24:42.783Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:34:29.732Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:34:30.606Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:34:41.034Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:34:44.560Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:35:05.868Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:35:08.427Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:35:59.970Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:35:59.970Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:35:59.971Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:35:59.971Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:35:59.971Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:35:59.971Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:36:02.731Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:36:12.034Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:36:12.034Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:36:12.034Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:36:12.034Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:36:12.035Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:36:12.035Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:36:12.882Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:36:31.049Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:36:31.049Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:36:31.049Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:36:31.049Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:36:31.050Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:36:31.051Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:36:31.985Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:37:04.510Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:37:04.510Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:37:04.510Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:37:04.510Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:37:04.511Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:37:04.511Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:37:05.669Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:37:11.585Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:37:11.585Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:37:11.585Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:37:11.585Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:37:11.585Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:37:11.586Z"}
+{"level":"error","message":"Error optimizing route:","timestamp":"2025-09-04T12:37:12.372Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:37:38.583Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:37:38.584Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:37:38.585Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:37:38.585Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:37:38.585Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:37:38.585Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:39:05.282Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:39:05.283Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:39:05.284Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:39:05.284Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:39:05.284Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:39:05.284Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"Chennai","priority":"fastest","start":"Delhi"},"response":{"data":{"detailedError":{"code":"BAD_INPUT","message":"Invalid request: parameter [vehicleType] not supported"},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:299:22","timestamp":"2025-09-04T12:39:06.359Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:39:11.930Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:39:11.930Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:39:11.930Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:39:11.930Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:39:11.930Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:39:11.930Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"Chennai","priority":"fastest","start":"Delhi"},"response":{"data":{"detailedError":{"code":"BAD_INPUT","message":"Invalid request: parameter [vehicleType] not supported"},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:299:22","timestamp":"2025-09-04T12:39:15.509Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:40:50.292Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:40:50.292Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:40:50.293Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:40:50.293Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:40:50.293Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:40:50.294Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-04T12:41:03.222Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:41:40.683Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:41:40.683Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:41:40.684Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:41:40.684Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:41:40.684Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:41:40.684Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:45:19.331Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:45:19.331Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:45:19.332Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:45:19.332Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:45:19.332Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:45:19.332Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:45:33.736Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:45:33.736Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:45:33.736Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:45:33.736Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:45:33.736Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:45:33.737Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:45:53.169Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:45:53.170Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:45:53.170Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:45:53.170Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:45:53.171Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:45:53.171Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-04T12:58:02.214Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-04T12:58:02.214Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-04T12:58:02.215Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-04T12:58:02.215Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-04T12:58:02.215Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-04T12:58:02.215Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-04T12:58:14.456Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"daggubadu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T10:37:48.053Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T10:37:48.054Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T10:37:51.136Z"}
+{"level":"info","message":"Geocoding destination location: \"daggubadu\"","timestamp":"2025-09-05T10:37:51.136Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Destination coordinates result:","timestamp":"2025-09-05T10:37:51.825Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.8740277,80.2119096","timestamp":"2025-09-05T10:37:51.825Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T10:37:52.390Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"inkollu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T10:43:09.781Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T10:43:09.781Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T10:43:10.503Z"}
+{"level":"info","message":"Geocoding destination location: \"inkollu\"","timestamp":"2025-09-05T10:43:10.503Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Destination coordinates result:","timestamp":"2025-09-05T10:43:10.751Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.828781,80.196056","timestamp":"2025-09-05T10:43:10.752Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T10:43:10.975Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T10:54:37.200Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T10:54:37.200Z"}
+{"lat":15.8740277,"level":"info","lng":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T10:54:37.982Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T10:54:37.982Z"}
+{"lat":15.830201,"level":"info","lng":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T10:54:38.221Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-05T10:54:38.221Z"}
+{"level":"info","message":"Extracted 340 polyline points for route 0","timestamp":"2025-09-05T10:54:39.087Z"}
+{"level":"info","message":"Extracted 323 polyline points for route 1","timestamp":"2025-09-05T10:54:39.088Z"}
+{"level":"info","message":"Extracted 362 polyline points for route 2","timestamp":"2025-09-05T10:54:39.088Z"}
+{"level":"info","message":"Extracted 604 polyline points for route 3","timestamp":"2025-09-05T10:54:39.088Z"}
+{"level":"info","message":"Extracted 562 polyline points for route 4","timestamp":"2025-09-05T10:54:39.088Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T10:54:39.090Z"}
+{"level":"info","message":"Route optimization request: start=\"vijayawada\", destination=\"guntur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T10:56:09.138Z"}
+{"level":"info","message":"Geocoding start location: \"vijayawada\"","timestamp":"2025-09-05T10:56:09.138Z"}
+{"lat":16.5094033,"level":"info","lng":80.625039,"message":"Start coordinates result:","timestamp":"2025-09-05T10:56:09.896Z"}
+{"level":"info","message":"Geocoding destination location: \"guntur\"","timestamp":"2025-09-05T10:56:09.897Z"}
+{"lat":16.2938076,"level":"info","lng":80.4546722,"message":"Destination coordinates result:","timestamp":"2025-09-05T10:56:10.157Z"}
+{"level":"info","message":"Optimizing route from 16.5094033,80.625039 to 16.2938076,80.4546722","timestamp":"2025-09-05T10:56:10.158Z"}
+{"level":"info","message":"Extracted 604 polyline points for route 0","timestamp":"2025-09-05T10:56:13.277Z"}
+{"level":"info","message":"Extracted 557 polyline points for route 1","timestamp":"2025-09-05T10:56:13.277Z"}
+{"level":"info","message":"Extracted 827 polyline points for route 2","timestamp":"2025-09-05T10:56:13.277Z"}
+{"level":"info","message":"Extracted 951 polyline points for route 3","timestamp":"2025-09-05T10:56:13.277Z"}
+{"level":"info","message":"Extracted 644 polyline points for route 4","timestamp":"2025-09-05T10:56:13.278Z"}
+{"level":"info","message":"Extracted 854 polyline points for route 5","timestamp":"2025-09-05T10:56:13.278Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T10:56:13.279Z"}
+{"level":"info","message":"Route optimization request: start=\"vijayawada\", destination=\"guntur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:02:20.813Z"}
+{"level":"info","message":"Geocoding start location: \"vijayawada\"","timestamp":"2025-09-05T11:02:20.816Z"}
+{"lat":16.5094033,"level":"info","lng":80.625039,"message":"Start coordinates result:","timestamp":"2025-09-05T11:02:21.612Z"}
+{"level":"info","message":"Geocoding destination location: \"guntur\"","timestamp":"2025-09-05T11:02:21.612Z"}
+{"lat":16.2938076,"level":"info","lng":80.4546722,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:02:21.868Z"}
+{"level":"info","message":"Returning cached route data for 16.5094033,80.625039 to 16.2938076,80.4546722","timestamp":"2025-09-05T11:02:21.869Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"inkollu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:11:17.952Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T11:11:17.952Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T11:11:18.582Z"}
+{"level":"info","message":"Geocoding destination location: \"inkollu\"","timestamp":"2025-09-05T11:11:18.582Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:11:18.809Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.828781,80.196056","timestamp":"2025-09-05T11:11:18.810Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:11:19.016Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:15:16.920Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:15:16.921Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:15:16.922Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:15:16.922Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:15:16.922Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:15:16.922Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:15:31.565Z"}
+{"level":"info","message":"Route optimization request: start=\"Mumbai\", destination=\"Delhi\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:15:44.559Z"}
+{"level":"info","message":"Geocoding start location: \"Mumbai\"","timestamp":"2025-09-05T11:15:44.560Z"}
+{"lat":19.076,"level":"info","lon":72.8777,"message":"Start coordinates result:","timestamp":"2025-09-05T11:15:44.560Z"}
+{"level":"info","message":"Geocoding destination location: \"Delhi\"","timestamp":"2025-09-05T11:15:44.561Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:15:44.561Z"}
+{"level":"info","message":"Optimizing route from 19.076,72.8777 to 28.6139,77.209","timestamp":"2025-09-05T11:15:44.562Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:15:50.537Z"}
+{"level":"info","message":"Route optimization request: start=\"guntur\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:17:06.736Z"}
+{"level":"info","message":"Geocoding start location: \"guntur\"","timestamp":"2025-09-05T11:17:06.736Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Start coordinates result:","timestamp":"2025-09-05T11:17:07.389Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:17:07.390Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:17:07.390Z"}
+{"level":"info","message":"Optimizing route from 16.2938076,80.4546722 to 13.0827,80.2707","timestamp":"2025-09-05T11:17:07.390Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:17:10.762Z"}
+{"level":"info","message":"Route optimization request: start=\"Mumbai\", destination=\"Delhi\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:22:04.296Z"}
+{"level":"info","message":"Geocoding start location: \"Mumbai\"","timestamp":"2025-09-05T11:22:04.296Z"}
+{"lat":19.076,"level":"info","lon":72.8777,"message":"Start coordinates result:","timestamp":"2025-09-05T11:22:04.297Z"}
+{"level":"info","message":"Geocoding destination location: \"Delhi\"","timestamp":"2025-09-05T11:22:04.297Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:22:04.297Z"}
+{"level":"info","message":"Returning cached route data for 19.076,72.8777 to 28.6139,77.209","timestamp":"2025-09-05T11:22:04.298Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:25:38.986Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T11:25:38.986Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T11:25:39.593Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:25:39.593Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:25:39.593Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 13.0827,80.2707","timestamp":"2025-09-05T11:25:39.593Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:25:43.624Z"}
+{"level":"info","message":"Route optimization request: start=\"Mumbai\", destination=\"Delhi\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:29:57.101Z"}
+{"level":"info","message":"Geocoding start location: \"Mumbai\"","timestamp":"2025-09-05T11:29:57.101Z"}
+{"lat":19.076,"level":"info","lon":72.8777,"message":"Start coordinates result:","timestamp":"2025-09-05T11:29:57.101Z"}
+{"level":"info","message":"Geocoding destination location: \"Delhi\"","timestamp":"2025-09-05T11:29:57.101Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:29:57.101Z"}
+{"level":"info","message":"Optimizing route from 19.076,72.8777 to 28.6139,77.209","timestamp":"2025-09-05T11:29:57.101Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:30:03.031Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:30:49.010Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:30:49.010Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:30:49.011Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:30:49.011Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:30:49.011Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:30:49.011Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:31:03.529Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:37:27.937Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:37:27.937Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:37:27.937Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:37:27.937Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:37:27.938Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:37:27.938Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:37:40.660Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"chennai\", vehicleType=\"car\", priority=\"shortest\"","timestamp":"2025-09-05T11:38:26.522Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:38:26.522Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:38:26.523Z"}
+{"level":"info","message":"Geocoding destination location: \"chennai\"","timestamp":"2025-09-05T11:38:26.523Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:38:26.523Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:38:26.523Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:38:41.448Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:45:33.200Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:45:33.201Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:45:33.201Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:45:33.201Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:45:33.201Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:45:33.201Z"}
+{"level":"info","message":"Route optimization request: start=\"London\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:46:05.936Z"}
+{"level":"info","message":"Geocoding start location: \"London\"","timestamp":"2025-09-05T11:46:05.936Z"}
+{"lat":51.5074,"level":"info","lon":-0.1278,"message":"Start coordinates result:","timestamp":"2025-09-05T11:46:05.936Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:46:05.937Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:46:05.937Z"}
+{"level":"info","message":"Optimizing route from 51.5074,-0.1278 to 13.0827,80.2707","timestamp":"2025-09-05T11:46:05.937Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"Chennai","priority":"fastest","start":"London","vehicle_type":"car"},"response":{"data":{"detailedError":{"code":"NO_ROUTE_FOUND","message":"Engine error while executing route request: NO_ROUTE_FOUND"},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:303:22","timestamp":"2025-09-05T11:46:06.640Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:46:38.694Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:46:38.694Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:46:38.695Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:46:38.696Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:46:38.696Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:46:38.696Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:46:52.602Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:47:12.433Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:47:12.433Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:47:12.433Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:47:12.433Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:47:12.433Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:47:12.433Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"vijayawada\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:50:09.168Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:50:09.169Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:50:09.169Z"}
+{"level":"info","message":"Geocoding destination location: \"vijayawada\"","timestamp":"2025-09-05T11:50:09.169Z"}
+{"lat":16.5094033,"level":"info","lon":80.625039,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:50:09.904Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 16.5094033,80.625039","timestamp":"2025-09-05T11:50:09.904Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:50:20.309Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"vijayawada\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:50:35.150Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:50:35.150Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:50:35.151Z"}
+{"level":"info","message":"Geocoding destination location: \"vijayawada\"","timestamp":"2025-09-05T11:50:35.151Z"}
+{"lat":16.5094033,"level":"info","lon":80.625039,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:50:35.825Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 16.5094033,80.625039","timestamp":"2025-09-05T11:50:35.825Z"}
+{"level":"info","message":"Route optimization request: start=\"vijayawada\", destination=\"delhi\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:51:23.388Z"}
+{"level":"info","message":"Geocoding start location: \"vijayawada\"","timestamp":"2025-09-05T11:51:23.388Z"}
+{"lat":16.5094033,"level":"info","lon":80.625039,"message":"Start coordinates result:","timestamp":"2025-09-05T11:51:24.098Z"}
+{"level":"info","message":"Geocoding destination location: \"delhi\"","timestamp":"2025-09-05T11:51:24.098Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:51:24.098Z"}
+{"level":"info","message":"Optimizing route from 16.5094033,80.625039 to 28.6139,77.209","timestamp":"2025-09-05T11:51:24.098Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T11:51:32.959Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:52:13.168Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:52:13.168Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:52:13.169Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T11:52:13.169Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:52:13.169Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T11:52:13.169Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T11:59:51.946Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T11:59:51.946Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T11:59:51.946Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T11:59:51.946Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T11:59:54.231Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 15.830201,80.3538044","timestamp":"2025-09-05T11:59:54.231Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:00:14.156Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:02:50.253Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T12:02:50.253Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T12:02:50.253Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T12:02:50.253Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:02:51.096Z"}
+{"level":"info","message":"Returning cached route data for 28.6139,77.209 to 15.830201,80.3538044","timestamp":"2025-09-05T12:02:51.096Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:08:57.509Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T12:08:57.510Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T12:08:57.511Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T12:08:57.511Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:08:57.511Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T12:08:57.511Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:09:15.363Z"}
+{"level":"info","message":"Route optimization request: start=\"guntur\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:10:27.184Z"}
+{"level":"info","message":"Geocoding start location: \"guntur\"","timestamp":"2025-09-05T12:10:27.184Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Start coordinates result:","timestamp":"2025-09-05T12:10:27.906Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T12:10:27.906Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:10:27.907Z"}
+{"level":"info","message":"Optimizing route from 16.2938076,80.4546722 to 13.0827,80.2707","timestamp":"2025-09-05T12:10:27.907Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:10:31.459Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:11:33.277Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:11:33.278Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:11:34.002Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T12:11:34.002Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:11:34.256Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.4975236,80.0531792","timestamp":"2025-09-05T12:11:34.256Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:11:35.253Z"}
+{"level":"info","message":"Route optimization request: start=\"San Francisco\", destination=\"Los Angeles\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:19:37.415Z"}
+{"level":"info","message":"Geocoding start location: \"San Francisco\"","timestamp":"2025-09-05T12:19:37.415Z"}
+{"lat":37.7800771,"level":"info","lon":-122.4201615,"message":"Start coordinates result:","timestamp":"2025-09-05T12:19:39.033Z"}
+{"level":"info","message":"Geocoding destination location: \"Los Angeles\"","timestamp":"2025-09-05T12:19:39.033Z"}
+{"lat":34.0522,"level":"info","lon":-118.2437,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:19:39.033Z"}
+{"level":"info","message":"Optimizing route from 37.7800771,-122.4201615 to 34.0522,-118.2437","timestamp":"2025-09-05T12:19:39.033Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:19:47.046Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:20:22.034Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:20:22.034Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:20:23.764Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T12:20:23.764Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:20:24.032Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.4975236,80.0531792","timestamp":"2025-09-05T12:20:24.032Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:20:25.031Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:23:14.277Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:23:14.278Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:23:14.906Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T12:23:14.906Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:23:15.114Z"}
+{"level":"info","message":"Returning cached route data for 15.830201,80.3538044 to 15.4975236,80.0531792","timestamp":"2025-09-05T12:23:15.115Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:23:19.280Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:23:19.280Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:23:19.521Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T12:23:19.521Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:23:19.787Z"}
+{"level":"info","message":"Returning cached route data for 15.830201,80.3538044 to 15.4975236,80.0531792","timestamp":"2025-09-05T12:23:19.787Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"guntur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:24:07.550Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:24:07.550Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:24:08.391Z"}
+{"level":"info","message":"Geocoding destination location: \"guntur\"","timestamp":"2025-09-05T12:24:08.392Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:24:08.776Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 16.2938076,80.4546722","timestamp":"2025-09-05T12:24:08.777Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T12:24:11.041Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"guntur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T12:24:27.379Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T12:24:27.379Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T12:24:28.043Z"}
+{"level":"info","message":"Geocoding destination location: \"guntur\"","timestamp":"2025-09-05T12:24:28.043Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Destination coordinates result:","timestamp":"2025-09-05T12:24:28.280Z"}
+{"level":"info","message":"Returning cached route data for 15.830201,80.3538044 to 16.2938076,80.4546722","timestamp":"2025-09-05T12:24:28.283Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T16:40:11.517Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-05T16:40:11.518Z"}
+{"lat":28.6139,"level":"info","lon":77.209,"message":"Start coordinates result:","timestamp":"2025-09-05T16:40:11.518Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-05T16:40:11.518Z"}
+{"lat":13.0827,"level":"info","lon":80.2707,"message":"Destination coordinates result:","timestamp":"2025-09-05T16:40:11.518Z"}
+{"level":"info","message":"Optimizing route from 28.6139,77.209 to 13.0827,80.2707","timestamp":"2025-09-05T16:40:11.519Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T16:40:21.807Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T16:51:21.128Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T16:51:21.128Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T16:51:21.829Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T16:51:21.829Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T16:51:22.082Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-05T16:51:22.082Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T16:51:22.755Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"shortest\"","timestamp":"2025-09-05T16:52:12.660Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T16:52:12.660Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T16:52:13.363Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T16:52:13.363Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T16:52:13.601Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-05T16:52:13.601Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T16:52:14.109Z"}
+{"level":"info","message":"Route optimization request: start=\"inkollu\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:11:03.031Z"}
+{"level":"info","message":"Geocoding start location: \"inkollu\"","timestamp":"2025-09-05T17:11:03.031Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Start coordinates result:","timestamp":"2025-09-05T17:11:03.698Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T17:11:03.699Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:11:03.928Z"}
+{"level":"info","message":"Optimizing route from 15.828781,80.196056 to 15.4975236,80.0531792","timestamp":"2025-09-05T17:11:03.928Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T17:11:04.837Z"}
+{"level":"info","message":"Route optimization request: start=\"inkollu\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:23:31.833Z"}
+{"level":"info","message":"Geocoding start location: \"inkollu\"","timestamp":"2025-09-05T17:23:31.834Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Start coordinates result:","timestamp":"2025-09-05T17:23:32.486Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T17:23:32.487Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:23:32.721Z"}
+{"level":"info","message":"Optimizing route from 15.828781,80.196056 to 15.4975236,80.0531792","timestamp":"2025-09-05T17:23:32.721Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T17:23:33.464Z"}
+{"level":"info","message":"Route optimization request: start=\"inkollu \", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:23:55.259Z"}
+{"level":"info","message":"Geocoding start location: \"inkollu \"","timestamp":"2025-09-05T17:23:55.259Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Start coordinates result:","timestamp":"2025-09-05T17:23:55.977Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T17:23:55.978Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:23:56.244Z"}
+{"level":"info","message":"Returning cached route data for 15.828781,80.196056 to 15.4975236,80.0531792","timestamp":"2025-09-05T17:23:56.244Z"}
+{"level":"info","message":"Route optimization request: start=\"inkollu\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:25:29.426Z"}
+{"level":"info","message":"Geocoding start location: \"inkollu\"","timestamp":"2025-09-05T17:25:29.427Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Start coordinates result:","timestamp":"2025-09-05T17:25:30.005Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T17:25:30.005Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:25:30.248Z"}
+{"level":"info","message":"Returning cached route data for 15.828781,80.196056 to 15.4975236,80.0531792","timestamp":"2025-09-05T17:25:30.249Z"}
+{"level":"info","message":"Route optimization request: start=\"inkollu\", destination=\"ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:26:39.737Z"}
+{"level":"info","message":"Geocoding start location: \"inkollu\"","timestamp":"2025-09-05T17:26:39.737Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Start coordinates result:","timestamp":"2025-09-05T17:26:39.956Z"}
+{"level":"info","message":"Geocoding destination location: \"ongole\"","timestamp":"2025-09-05T17:26:39.956Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:26:40.175Z"}
+{"level":"info","message":"Returning cached route data for 15.828781,80.196056 to 15.4975236,80.0531792","timestamp":"2025-09-05T17:26:40.175Z"}
+{"level":"info","message":"Route optimization request: start=\"ongole\", destination=\"inkollu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:34:29.057Z"}
+{"level":"info","message":"Geocoding start location: \"ongole\"","timestamp":"2025-09-05T17:34:29.058Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Start coordinates result:","timestamp":"2025-09-05T17:34:29.951Z"}
+{"level":"info","message":"Geocoding destination location: \"inkollu\"","timestamp":"2025-09-05T17:34:29.952Z"}
+{"lat":15.828781,"level":"info","lon":80.196056,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:34:30.202Z"}
+{"level":"info","message":"Optimizing route from 15.4975236,80.0531792 to 15.828781,80.196056","timestamp":"2025-09-05T17:34:30.203Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T17:34:31.334Z"}
+{"level":"info","message":"Route optimization request: start=\"ongole \", destination=\"nellore\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:43:32.430Z"}
+{"level":"info","message":"Geocoding start location: \"ongole \"","timestamp":"2025-09-05T17:43:32.431Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Start coordinates result:","timestamp":"2025-09-05T17:43:33.373Z"}
+{"level":"info","message":"Geocoding destination location: \"nellore\"","timestamp":"2025-09-05T17:43:33.373Z"}
+{"lat":14.413352,"level":"info","lon":79.962271,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:43:33.602Z"}
+{"level":"info","message":"Optimizing route from 15.4975236,80.0531792 to 14.413352,79.962271","timestamp":"2025-09-05T17:43:33.602Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T17:43:38.150Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:56:52.726Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T17:56:52.726Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T17:56:54.916Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T17:56:54.917Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:56:55.170Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-05T17:56:55.171Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T17:56:55.824Z"}
+{"level":"info","message":"Route optimization request: start=\"daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T17:57:45.816Z"}
+{"level":"info","message":"Geocoding start location: \"daggubadu\"","timestamp":"2025-09-05T17:57:45.817Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-05T17:57:46.510Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-05T17:57:46.511Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-05T17:57:46.722Z"}
+{"level":"info","message":"Returning cached route data for 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-05T17:57:46.722Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"vetapalem\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T18:00:51.961Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T18:00:51.963Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T18:00:52.993Z"}
+{"level":"info","message":"Geocoding destination location: \"vetapalem\"","timestamp":"2025-09-05T18:00:52.994Z"}
+{"lat":15.789094,"level":"info","lon":80.344996,"message":"Destination coordinates result:","timestamp":"2025-09-05T18:00:53.247Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.789094,80.344996","timestamp":"2025-09-05T18:00:53.248Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T18:00:53.830Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"daggubadu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-05T18:02:41.878Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-05T18:02:41.879Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-05T18:02:42.623Z"}
+{"level":"info","message":"Geocoding destination location: \"daggubadu\"","timestamp":"2025-09-05T18:02:42.623Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Destination coordinates result:","timestamp":"2025-09-05T18:02:42.942Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.8740277,80.2119096","timestamp":"2025-09-05T18:02:42.942Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-05T18:02:43.709Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"parchuru\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-08T16:39:19.724Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-08T16:39:19.724Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-08T16:39:20.935Z"}
+{"level":"info","message":"Geocoding destination location: \"parchuru\"","timestamp":"2025-09-08T16:39:20.935Z"}
+{"lat":15.9037525,"level":"info","lon":80.4462983,"message":"Destination coordinates result:","timestamp":"2025-09-08T16:39:21.213Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.9037525,80.4462983","timestamp":"2025-09-08T16:39:21.214Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-08T16:39:21.551Z"}
+{"level":"info","message":"Route optimization request: start=\"chirala\", destination=\"parchur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-08T16:39:48.589Z"}
+{"level":"info","message":"Geocoding start location: \"chirala\"","timestamp":"2025-09-08T16:39:48.589Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-09-08T16:39:49.663Z"}
+{"level":"info","message":"Geocoding destination location: \"parchur\"","timestamp":"2025-09-08T16:39:49.664Z"}
+{"lat":15.985561,"level":"info","lon":80.264267,"message":"Destination coordinates result:","timestamp":"2025-09-08T16:39:50.288Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 15.985561,80.264267","timestamp":"2025-09-08T16:39:50.289Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-08T16:39:51.111Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-08T17:51:06.433Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-08T17:51:06.433Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-08T17:51:07.330Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-08T17:51:07.331Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-08T17:51:07.624Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-08T17:51:07.624Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-08T17:51:11.270Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"shortest\"","timestamp":"2025-09-08T17:51:57.595Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-08T17:51:57.595Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-08T17:51:58.883Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-08T17:51:58.883Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-08T17:51:59.245Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-08T17:51:59.245Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-08T17:52:02.781Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-09T04:18:54.315Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-09T04:18:54.315Z"}
+{"level":"warn","message":"Geocoding failed for krishnankoil: timeout of 5000ms exceeded","timestamp":"2025-09-09T04:18:59.331Z"}
+{"level":"info","message":"Start coordinates result:","timestamp":"2025-09-09T04:18:59.331Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-09T04:18:59.331Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-09T04:19:00.138Z"}
+{"level":"warn","message":"Geocoding failed - startCoords: null, destCoords: {\"lat\":9.920129,\"lon\":78.110878}","timestamp":"2025-09-09T04:19:00.139Z"}
+{"level":"info","message":"Route optimization request: start=\"srivilliputtur\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-09T04:19:16.848Z"}
+{"level":"info","message":"Geocoding start location: \"srivilliputtur\"","timestamp":"2025-09-09T04:19:16.848Z"}
+{"lat":9.4954486,"level":"info","lon":77.6167567,"message":"Start coordinates result:","timestamp":"2025-09-09T04:19:18.251Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-09T04:19:18.251Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-09T04:19:18.662Z"}
+{"level":"info","message":"Optimizing route from 9.4954486,77.6167567 to 9.920129,78.110878","timestamp":"2025-09-09T04:19:18.663Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-09T04:19:20.620Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-09T04:24:46.933Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-09T04:24:46.933Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-09T04:24:48.497Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-09T04:24:48.497Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-09T04:24:48.906Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-09T04:24:48.906Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-09T04:25:01.312Z"}
+{"level":"info","message":"Route optimization request: start=\"srivilliputtur\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-09T04:32:34.453Z"}
+{"level":"info","message":"Geocoding start location: \"srivilliputtur\"","timestamp":"2025-09-09T04:32:34.453Z"}
+{"level":"warn","message":"Geocoding failed for srivilliputtur: timeout of 5000ms exceeded","timestamp":"2025-09-09T04:32:39.457Z"}
+{"level":"info","message":"Start coordinates result:","timestamp":"2025-09-09T04:32:39.458Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-09T04:32:39.458Z"}
+{"level":"warn","message":"Geocoding failed for madurai: timeout of 5000ms exceeded","timestamp":"2025-09-09T04:32:44.461Z"}
+{"level":"info","message":"Destination coordinates result:","timestamp":"2025-09-09T04:32:44.461Z"}
+{"level":"warn","message":"Geocoding failed - startCoords: null, destCoords: null","timestamp":"2025-09-09T04:32:44.461Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-15T14:12:49.327Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-15T14:12:49.327Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-15T14:12:50.440Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-15T14:12:50.440Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-15T14:12:50.744Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-15T14:12:50.744Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-15T14:13:03.689Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-18T20:00:53.570Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-18T20:00:53.570Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-18T20:00:54.542Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-18T20:00:54.542Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-18T20:00:54.851Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-18T20:00:54.852Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-18T20:01:08.001Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-19T05:16:48.421Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-19T05:16:48.421Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-19T05:16:50.357Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-19T05:16:50.357Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-19T05:16:50.951Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-19T05:16:50.952Z"}
+{"code":"ECONNRESET","level":"error","message":"Error optimizing route: aborted","name":"Error","request":{"destination":"Chennai","priority":"fastest","start":"Delhi","vehicle_type":"car"},"response":null,"stack":"Error: aborted\n    at AxiosError.from (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:899:14)\n    at Unzip.handleStreamError (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3191:29)\n    at Unzip.emit (node:events:520:35)\n    at emitErrorNT (node:internal/streams/destroy:170:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:247:22","timestamp":"2025-09-19T05:17:39.247Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-19T05:49:23.593Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-19T05:49:23.593Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-19T05:49:24.757Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-19T05:49:24.757Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-19T05:49:25.133Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-19T05:49:25.134Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-19T05:49:37.331Z"}
+{"level":"info","message":"Route optimization request: start=\"Delhi\", destination=\"Chennai\", vehicleType=\"car\", priority=\"shortest\"","timestamp":"2025-09-19T05:51:45.372Z"}
+{"level":"info","message":"Geocoding start location: \"Delhi\"","timestamp":"2025-09-19T05:51:45.372Z"}
+{"lat":28.6324252,"level":"info","lon":77.218791,"message":"Start coordinates result:","timestamp":"2025-09-19T05:51:46.533Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-19T05:51:46.534Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-19T05:51:46.855Z"}
+{"level":"info","message":"Optimizing route from 28.6324252,77.218791 to 13.0720922,80.2018554","timestamp":"2025-09-19T05:51:46.855Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-19T05:52:01.101Z"}
+{"level":"info","message":"Route optimization request: start=\"Nellore\", destination=\"muthukur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-19T05:54:55.082Z"}
+{"level":"info","message":"Geocoding start location: \"Nellore\"","timestamp":"2025-09-19T05:54:55.082Z"}
+{"lat":14.413352,"level":"info","lon":79.962271,"message":"Start coordinates result:","timestamp":"2025-09-19T05:54:56.289Z"}
+{"level":"info","message":"Geocoding destination location: \"muthukur\"","timestamp":"2025-09-19T05:54:56.289Z"}
+{"lat":14.289364,"level":"info","lon":80.095491,"message":"Destination coordinates result:","timestamp":"2025-09-19T05:54:56.665Z"}
+{"level":"info","message":"Optimizing route from 14.413352,79.962271 to 14.289364,80.095491","timestamp":"2025-09-19T05:54:56.666Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-19T05:54:57.917Z"}
+{"level":"info","message":"Route optimization request: start=\"madurai\", destination=\"krishnankoil\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T11:48:41.910Z"}
+{"level":"info","message":"Geocoding start location: \"madurai\"","timestamp":"2025-09-21T11:48:41.911Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-21T11:48:43.064Z"}
+{"level":"info","message":"Geocoding destination location: \"krishnankoil\"","timestamp":"2025-09-21T11:48:43.064Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Destination coordinates result:","timestamp":"2025-09-21T11:48:43.411Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 13.0986856,80.2914767","timestamp":"2025-09-21T11:48:43.412Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T11:48:49.047Z"}
+{"level":"info","message":"Route optimization request: start=\"madhurai\", destination=\"krishnankoil\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T11:49:46.819Z"}
+{"level":"info","message":"Geocoding start location: \"madhurai\"","timestamp":"2025-09-21T11:49:46.820Z"}
+{"lat":10.5321469,"level":"info","lon":78.3558792,"message":"Start coordinates result:","timestamp":"2025-09-21T11:49:48.244Z"}
+{"level":"info","message":"Geocoding destination location: \"krishnankoil\"","timestamp":"2025-09-21T11:49:48.245Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Destination coordinates result:","timestamp":"2025-09-21T11:49:48.641Z"}
+{"level":"info","message":"Optimizing route from 10.5321469,78.3558792 to 13.0986856,80.2914767","timestamp":"2025-09-21T11:49:48.641Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T11:49:55.589Z"}
+{"level":"info","message":"Route optimization request: start=\"madurai\", destination=\"kerala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T11:50:32.003Z"}
+{"level":"info","message":"Geocoding start location: \"madurai\"","timestamp":"2025-09-21T11:50:32.003Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-21T11:50:33.492Z"}
+{"level":"info","message":"Geocoding destination location: \"kerala\"","timestamp":"2025-09-21T11:50:33.492Z"}
+{"lat":10.449878,"level":"info","lon":76.408265,"message":"Destination coordinates result:","timestamp":"2025-09-21T11:50:33.914Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 10.449878,76.408265","timestamp":"2025-09-21T11:50:33.914Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T11:50:40.490Z"}
+{"level":"info","message":"Route optimization request: start=\"madurai\", destination=\"Thiruvananthapuram\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T11:51:40.833Z"}
+{"level":"info","message":"Geocoding start location: \"madurai\"","timestamp":"2025-09-21T11:51:40.833Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-21T11:51:42.150Z"}
+{"level":"info","message":"Geocoding destination location: \"Thiruvananthapuram\"","timestamp":"2025-09-21T11:51:42.151Z"}
+{"lat":8.5303733,"level":"info","lon":76.9295569,"message":"Destination coordinates result:","timestamp":"2025-09-21T11:51:42.509Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 8.5303733,76.9295569","timestamp":"2025-09-21T11:51:42.509Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T11:51:47.500Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T11:52:34.903Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T11:52:34.904Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T11:52:36.080Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T11:52:36.080Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T11:52:36.423Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T11:52:36.423Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T11:52:40.669Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"Srivilliputhur, Tamil Nadu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:02:35.923Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:02:35.924Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:02:38.089Z"}
+{"level":"info","message":"Geocoding destination location: \"Srivilliputhur, Tamil Nadu\"","timestamp":"2025-09-21T12:02:38.089Z"}
+{"lat":9.511993,"level":"info","lon":77.634285,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:02:38.484Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.511993,77.634285","timestamp":"2025-09-21T12:02:38.485Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:02:44.511Z"}
+{"level":"info","message":"Route optimization request: start=\"Kunnur, Srivilliputhur 626126, Tamil Nadu\", destination=\"Srivilliputhur, Tamil Nadu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:03:20.239Z"}
+{"level":"info","message":"Geocoding start location: \"Kunnur, Srivilliputhur 626126, Tamil Nadu\"","timestamp":"2025-09-21T12:03:20.239Z"}
+{"lat":9.60919,"level":"info","lon":77.668915,"message":"Start coordinates result:","timestamp":"2025-09-21T12:03:21.441Z"}
+{"level":"info","message":"Geocoding destination location: \"Srivilliputhur, Tamil Nadu\"","timestamp":"2025-09-21T12:03:21.441Z"}
+{"lat":9.511993,"level":"info","lon":77.634285,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:03:21.796Z"}
+{"level":"info","message":"Optimizing route from 9.60919,77.668915 to 9.511993,77.634285","timestamp":"2025-09-21T12:03:21.796Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:03:22.261Z"}
+{"level":"info","message":"Route optimization request: start=\"Ward 6, Mela Theru Karai, Nagercoil 629001, Tamil Nadu\", destination=\"Madurai, Tamil Nadu\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:05:27.478Z"}
+{"level":"info","message":"Geocoding start location: \"Ward 6, Mela Theru Karai, Nagercoil 629001, Tamil Nadu\"","timestamp":"2025-09-21T12:05:27.478Z"}
+{"lat":8.1864769,"level":"info","lon":77.4309145,"message":"Start coordinates result:","timestamp":"2025-09-21T12:05:28.773Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai, Tamil Nadu\"","timestamp":"2025-09-21T12:05:28.773Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:05:29.194Z"}
+{"level":"info","message":"Optimizing route from 8.1864769,77.4309145 to 9.920129,78.110878","timestamp":"2025-09-21T12:05:29.194Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:05:33.100Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:13:59.979Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:13:59.979Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:14:01.148Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:14:01.148Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:14:01.554Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:14:01.555Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:14:05.889Z"}
+{"level":"info","message":"Route optimization request: start=\"8.196327,77.423668\", destination=\"9.920129,78.110878\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:17:37.354Z"}
+{"level":"info","message":"Geocoding start location: \"8.196327,77.423668\"","timestamp":"2025-09-21T12:17:37.355Z"}
+{"lat":29.7939553,"level":"info","lon":-95.9564518,"message":"Start coordinates result:","timestamp":"2025-09-21T12:17:38.820Z"}
+{"level":"info","message":"Geocoding destination location: \"9.920129,78.110878\"","timestamp":"2025-09-21T12:17:38.825Z"}
+{"lat":-15.6548656,"level":"info","lon":-56.1324985,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:17:39.744Z"}
+{"level":"info","message":"Optimizing route from 29.7939553,-95.9564518 to -15.6548656,-56.1324985","timestamp":"2025-09-21T12:17:39.744Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"9.920129,78.110878","priority":"fastest","start":"8.196327,77.423668","vehicle_type":"car"},"response":{"data":{"detailedError":{"code":"NO_ROUTE_FOUND","message":"Engine error while executing route request: NO_ROUTE_FOUND: No valid route found"},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:247:22","timestamp":"2025-09-21T12:17:43.191Z"}
+{"level":"info","message":"Route optimization request: start=\"8.196327,77.423668\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:18:08.668Z"}
+{"level":"info","message":"Geocoding start location: \"8.196327,77.423668\"","timestamp":"2025-09-21T12:18:08.669Z"}
+{"lat":29.7939553,"level":"info","lon":-95.9564518,"message":"Start coordinates result:","timestamp":"2025-09-21T12:18:10.131Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:18:10.132Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:18:10.490Z"}
+{"level":"info","message":"Optimizing route from 29.7939553,-95.9564518 to 9.920129,78.110878","timestamp":"2025-09-21T12:18:10.490Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"madurai","priority":"fastest","start":"8.196327,77.423668","vehicle_type":"car"},"response":{"data":{"detailedError":{"code":"NO_ROUTE_FOUND","message":"Engine error while executing route request: NO_ROUTE_FOUND: Origin and destination have different ProductId's."},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:247:22","timestamp":"2025-09-21T12:18:10.848Z"}
+{"level":"info","message":"Route optimization request: start=\"8.196327,77.423668\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:18:43.798Z"}
+{"level":"info","message":"Geocoding start location: \"8.196327,77.423668\"","timestamp":"2025-09-21T12:18:43.798Z"}
+{"lat":29.7939553,"level":"info","lon":-95.9564518,"message":"Start coordinates result:","timestamp":"2025-09-21T12:18:45.065Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:18:45.065Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:18:45.564Z"}
+{"level":"info","message":"Optimizing route from 29.7939553,-95.9564518 to 9.920129,78.110878","timestamp":"2025-09-21T12:18:45.564Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"madurai","priority":"fastest","start":"8.196327,77.423668","vehicle_type":"car"},"response":{"data":{"detailedError":{"code":"NO_ROUTE_FOUND","message":"Engine error while executing route request: NO_ROUTE_FOUND: Origin and destination have different ProductId's."},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:247:22","timestamp":"2025-09-21T12:18:45.923Z"}
+{"level":"info","message":"Route optimization request: start=\"28.632425,77.218791\", destination=\"19.04878,72.90587\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:19:10.695Z"}
+{"level":"info","message":"Geocoding start location: \"28.632425,77.218791\"","timestamp":"2025-09-21T12:19:10.695Z"}
+{"lat":29.785623,"level":"info","lon":-95.67587,"message":"Start coordinates result:","timestamp":"2025-09-21T12:19:11.981Z"}
+{"level":"info","message":"Geocoding destination location: \"19.04878,72.90587\"","timestamp":"2025-09-21T12:19:11.982Z"}
+{"lat":35.301418,"level":"info","lon":-94.29162,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:19:12.491Z"}
+{"level":"info","message":"Optimizing route from 29.785623,-95.67587 to 35.301418,-94.29162","timestamp":"2025-09-21T12:19:12.492Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:19:21.977Z"}
+{"level":"info","message":"Route optimization request: start=\"9.60919,77.668915\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:19:52.960Z"}
+{"level":"info","message":"Geocoding start location: \"9.60919,77.668915\"","timestamp":"2025-09-21T12:19:52.960Z"}
+{"lat":40.98126,"level":"info","lon":-122.7036281,"message":"Start coordinates result:","timestamp":"2025-09-21T12:19:54.270Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:19:54.271Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:19:54.628Z"}
+{"level":"info","message":"Optimizing route from 40.98126,-122.7036281 to 9.920129,78.110878","timestamp":"2025-09-21T12:19:54.628Z"}
+{"code":"ERR_BAD_REQUEST","level":"error","message":"Error optimizing route: Request failed with status code 400","name":"AxiosError","request":{"destination":"madurai","priority":"fastest","start":"9.60919,77.668915","vehicle_type":"car"},"response":{"data":{"detailedError":{"code":"NO_ROUTE_FOUND","message":"Engine error while executing route request: NO_ROUTE_FOUND: Origin and destination have different ProductId's."},"formatVersion":"0.0.12"},"status":400,"statusText":"Bad Request"},"stack":"AxiosError: Request failed with status code 400\n    at settle (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:2090:12)\n    at Unzip.handleStreamEnd (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:3207:11)\n    at Unzip.emit (node:events:520:35)\n    at endReadableNT (node:internal/streams/readable:1701:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)\n    at Axios.request (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/optimization.js:247:22","timestamp":"2025-09-21T12:19:54.987Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:20:46.473Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:20:46.473Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:20:47.570Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:20:47.570Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:20:47.976Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:20:47.977Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:20:51.911Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:21:28.563Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:21:28.563Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:21:29.763Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:21:29.764Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:21:30.114Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:21:30.114Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:26:56.838Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:26:56.840Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:26:58.106Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:26:58.106Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:26:58.512Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:26:58.512Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:27:18.692Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:27:18.693Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:27:19.865Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:27:19.865Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:27:20.221Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:27:20.221Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:28:51.170Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:28:51.170Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:28:52.368Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:28:52.368Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:28:52.368Z"}
+{"level":"info","message":"TomTom geocoding successful for madurai","timestamp":"2025-09-21T12:28:52.721Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:28:52.721Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:28:52.722Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:28:57.184Z"}
+{"level":"info","message":"Route optimization request: start=\"Daggubadu\", destination=\"chirala\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:33:01.466Z"}
+{"level":"info","message":"Geocoding start location: \"Daggubadu\"","timestamp":"2025-09-21T12:33:01.466Z"}
+{"level":"info","message":"TomTom geocoding successful for Daggubadu","timestamp":"2025-09-21T12:33:02.630Z"}
+{"lat":15.8740277,"level":"info","lon":80.2119096,"message":"Start coordinates result:","timestamp":"2025-09-21T12:33:02.630Z"}
+{"level":"info","message":"Geocoding destination location: \"chirala\"","timestamp":"2025-09-21T12:33:02.631Z"}
+{"level":"info","message":"TomTom geocoding successful for chirala","timestamp":"2025-09-21T12:33:02.985Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:33:02.986Z"}
+{"level":"info","message":"Optimizing route from 15.8740277,80.2119096 to 15.830201,80.3538044","timestamp":"2025-09-21T12:33:02.986Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:33:03.860Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:43:38.377Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:43:38.377Z"}
+{"level":"info","message":"TomTom geocoding successful for krishnankoil","timestamp":"2025-09-21T12:43:40.302Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:43:40.302Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:43:40.303Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:43:41.890Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:43:41.891Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:43:41.891Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:44:15.195Z"}
+{"level":"info","message":"Route optimization request: start=\"krishnankoil\", destination=\"madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:44:19.564Z"}
+{"level":"info","message":"Geocoding start location: \"krishnankoil\"","timestamp":"2025-09-21T12:44:19.564Z"}
+{"level":"info","message":"TomTom geocoding successful for krishnankoil","timestamp":"2025-09-21T12:44:20.085Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:44:20.086Z"}
+{"level":"info","message":"Geocoding destination location: \"madurai\"","timestamp":"2025-09-21T12:44:20.086Z"}
+{"level":"info","message":"TomTom geocoding successful for madurai","timestamp":"2025-09-21T12:44:20.682Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:44:20.682Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:44:20.682Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:47:24.114Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:47:24.119Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:47:25.162Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:47:25.163Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:47:25.164Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:47:25.476Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:47:25.478Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:47:25.481Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:47:46.815Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:47:46.815Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:47:47.752Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:47:47.752Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:47:47.752Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:47:48.147Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:47:48.148Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:47:48.148Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Krishnankoil\", vehicleType=\"car\", priority=\"shortest\"","timestamp":"2025-09-21T12:48:22.454Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-09-21T12:48:22.454Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:48:23.620Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-21T12:48:23.620Z"}
+{"level":"info","message":"Geocoding destination location: \"Krishnankoil\"","timestamp":"2025-09-21T12:48:23.620Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:48:23.962Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:48:23.963Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 13.0986856,80.2914767","timestamp":"2025-09-21T12:48:23.963Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:48:30.057Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:52:09.228Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:52:09.228Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:52:10.293Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:52:10.293Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:52:10.293Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:52:10.597Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:52:10.598Z"}
+{"level":"info","message":"Returning cached route data for 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:52:10.598Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:54:22.908Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-09-21T12:54:22.908Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:54:24.137Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-09-21T12:54:24.138Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-09-21T12:54:24.138Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:54:24.636Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:54:24.636Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-09-21T12:54:24.636Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:54:29.212Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Krishnankoil\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-21T12:58:56.024Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-09-21T12:58:56.025Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-21T12:58:57.221Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-21T12:58:57.221Z"}
+{"level":"info","message":"Geocoding destination location: \"Krishnankoil\"","timestamp":"2025-09-21T12:58:57.223Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-09-21T12:58:57.624Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Destination coordinates result:","timestamp":"2025-09-21T12:58:57.624Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 13.0986856,80.2914767","timestamp":"2025-09-21T12:58:57.625Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-21T12:59:03.506Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-22T03:18:04.107Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-09-22T03:18:04.108Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-22T03:18:05.420Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-22T03:18:05.420Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-09-22T03:18:05.421Z"}
+{"level":"info","message":"TomTom geocoding successful for Chennai","timestamp":"2025-09-22T03:18:05.731Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-09-22T03:18:05.731Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 13.0720922,80.2018554","timestamp":"2025-09-22T03:18:05.732Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-22T03:18:11.688Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Bengaluru\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-09-22T03:22:05.274Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-09-22T03:22:05.274Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-09-22T03:22:06.297Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-09-22T03:22:06.297Z"}
+{"level":"info","message":"Geocoding destination location: \"Bengaluru\"","timestamp":"2025-09-22T03:22:06.298Z"}
+{"level":"info","message":"TomTom geocoding successful for Bengaluru","timestamp":"2025-09-22T03:22:06.595Z"}
+{"lat":12.9767463,"level":"info","lon":77.5752782,"message":"Destination coordinates result:","timestamp":"2025-09-22T03:22:06.596Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 12.9767463,77.5752782","timestamp":"2025-09-22T03:22:06.596Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-09-22T03:22:11.173Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"srivalliputtur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-10-08T05:15:08.019Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-10-08T05:15:08.019Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-10-08T05:15:09.953Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-10-08T05:15:09.953Z"}
+{"level":"info","message":"Geocoding destination location: \"srivalliputtur\"","timestamp":"2025-10-08T05:15:09.953Z"}
+{"level":"info","message":"TomTom geocoding successful for srivalliputtur","timestamp":"2025-10-08T05:15:10.332Z"}
+{"lat":9.4954486,"level":"info","lon":77.6167567,"message":"Destination coordinates result:","timestamp":"2025-10-08T05:15:10.332Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 9.4954486,77.6167567","timestamp":"2025-10-08T05:15:10.333Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-10-08T05:15:14.796Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-10-08T05:24:24.481Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-10-08T05:24:24.481Z"}
+{"level":"warn","message":"TomTom geocoding failed for Krishnankoil: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:24:29.486Z"}
+{"level":"warn","message":"OpenStreetMap geocoding failed for Krishnankoil: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:24:34.488Z"}
+{"level":"error","message":"All geocoding attempts failed for location: Krishnankoil","timestamp":"2025-10-08T05:24:34.488Z"}
+{"level":"info","message":"Start coordinates result:","timestamp":"2025-10-08T05:24:34.489Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-10-08T05:24:34.489Z"}
+{"level":"warn","message":"TomTom geocoding failed for Madurai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:24:39.492Z"}
+{"level":"warn","message":"OpenStreetMap geocoding failed for Madurai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:24:44.493Z"}
+{"level":"error","message":"All geocoding attempts failed for location: Madurai","timestamp":"2025-10-08T05:24:44.494Z"}
+{"level":"info","message":"Destination coordinates result:","timestamp":"2025-10-08T05:24:44.494Z"}
+{"level":"warn","message":"Geocoding failed - startCoords: null, destCoords: null","timestamp":"2025-10-08T05:24:44.494Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-10-08T05:25:10.737Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-10-08T05:25:10.737Z"}
+{"level":"warn","message":"TomTom geocoding failed for Madurai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:25:15.741Z"}
+{"level":"warn","message":"OpenStreetMap geocoding failed for Madurai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:25:20.742Z"}
+{"level":"error","message":"All geocoding attempts failed for location: Madurai","timestamp":"2025-10-08T05:25:20.742Z"}
+{"level":"info","message":"Start coordinates result:","timestamp":"2025-10-08T05:25:20.742Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-10-08T05:25:20.743Z"}
+{"level":"warn","message":"TomTom geocoding failed for Chennai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:25:25.746Z"}
+{"level":"warn","message":"OpenStreetMap geocoding failed for Chennai: timeout of 5000ms exceeded","timestamp":"2025-10-08T05:25:30.749Z"}
+{"level":"error","message":"All geocoding attempts failed for location: Chennai","timestamp":"2025-10-08T05:25:30.750Z"}
+{"level":"info","message":"Destination coordinates result:","timestamp":"2025-10-08T05:25:30.750Z"}
+{"level":"warn","message":"Geocoding failed - startCoords: null, destCoords: null","timestamp":"2025-10-08T05:25:30.750Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-03T10:35:01.553Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-11-03T10:35:01.554Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-11-03T10:35:02.538Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-11-03T10:35:02.538Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-11-03T10:35:02.539Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-11-03T10:35:02.847Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-11-03T10:35:02.848Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-11-03T10:35:02.848Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-03T10:35:06.740Z"}
+{"level":"info","message":"Route optimization request: start=\"Guntur\", destination=\"Vijayawada Rural\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-03T10:36:05.399Z"}
+{"level":"info","message":"Geocoding start location: \"Guntur\"","timestamp":"2025-11-03T10:36:05.399Z"}
+{"level":"info","message":"TomTom geocoding successful for Guntur","timestamp":"2025-11-03T10:36:06.332Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Start coordinates result:","timestamp":"2025-11-03T10:36:06.332Z"}
+{"level":"info","message":"Geocoding destination location: \"Vijayawada Rural\"","timestamp":"2025-11-03T10:36:06.332Z"}
+{"level":"info","message":"TomTom geocoding successful for Vijayawada Rural","timestamp":"2025-11-03T10:36:06.686Z"}
+{"lat":16.5837751,"level":"info","lon":80.6120037,"message":"Destination coordinates result:","timestamp":"2025-11-03T10:36:06.686Z"}
+{"level":"info","message":"Optimizing route from 16.2938076,80.4546722 to 16.5837751,80.6120037","timestamp":"2025-11-03T10:36:06.686Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-03T10:36:10.634Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-03T10:58:49.164Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-11-03T10:58:49.166Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-11-03T10:58:50.330Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-11-03T10:58:50.332Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-11-03T10:58:50.336Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-11-03T10:58:50.630Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-11-03T10:58:50.630Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.920129,78.110878","timestamp":"2025-11-03T10:58:50.631Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-03T10:58:54.301Z"}
+{"level":"info","message":"Route optimization request: start=\"Krishnankoil\", destination=\"srivalliputtur\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-03T10:59:14.549Z"}
+{"level":"info","message":"Geocoding start location: \"Krishnankoil\"","timestamp":"2025-11-03T10:59:14.550Z"}
+{"level":"info","message":"TomTom geocoding successful for Krishnankoil","timestamp":"2025-11-03T10:59:15.333Z"}
+{"lat":13.0986856,"level":"info","lon":80.2914767,"message":"Start coordinates result:","timestamp":"2025-11-03T10:59:15.333Z"}
+{"level":"info","message":"Geocoding destination location: \"srivalliputtur\"","timestamp":"2025-11-03T10:59:15.333Z"}
+{"level":"info","message":"TomTom geocoding successful for srivalliputtur","timestamp":"2025-11-03T10:59:15.620Z"}
+{"lat":9.4954486,"level":"info","lon":77.6167567,"message":"Destination coordinates result:","timestamp":"2025-11-03T10:59:15.620Z"}
+{"level":"info","message":"Optimizing route from 13.0986856,80.2914767 to 9.4954486,77.6167567","timestamp":"2025-11-03T10:59:15.620Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-03T10:59:22.464Z"}
+{"level":"info","message":"Route optimization request: start=\"Kunnur, Srivilliputhur 626126, Tamil Nadu\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-03T11:19:32.522Z"}
+{"level":"info","message":"Geocoding start location: \"Kunnur, Srivilliputhur 626126, Tamil Nadu\"","timestamp":"2025-11-03T11:19:32.522Z"}
+{"level":"info","message":"TomTom geocoding successful for Kunnur, Srivilliputhur 626126, Tamil Nadu","timestamp":"2025-11-03T11:19:34.405Z"}
+{"lat":9.60919,"level":"info","lon":77.668915,"message":"Start coordinates result:","timestamp":"2025-11-03T11:19:34.406Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-11-03T11:19:34.406Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-11-03T11:19:34.910Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-11-03T11:19:34.910Z"}
+{"level":"info","message":"Optimizing route from 9.60919,77.668915 to 9.920129,78.110878","timestamp":"2025-11-03T11:19:34.911Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-03T11:19:37.408Z"}
+{"level":"info","message":"Route optimization request: start=\"Kunnur, Srivilliputhur 626126, Tamil Nadu\", destination=\"Madurai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-04T13:59:19.898Z"}
+{"level":"info","message":"Geocoding start location: \"Kunnur, Srivilliputhur 626126, Tamil Nadu\"","timestamp":"2025-11-04T13:59:19.898Z"}
+{"level":"info","message":"TomTom geocoding successful for Kunnur, Srivilliputhur 626126, Tamil Nadu","timestamp":"2025-11-04T13:59:20.812Z"}
+{"lat":9.60919,"level":"info","lon":77.668915,"message":"Start coordinates result:","timestamp":"2025-11-04T13:59:20.812Z"}
+{"level":"info","message":"Geocoding destination location: \"Madurai\"","timestamp":"2025-11-04T13:59:20.812Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-11-04T13:59:21.065Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Destination coordinates result:","timestamp":"2025-11-04T13:59:21.065Z"}
+{"level":"info","message":"Optimizing route from 9.60919,77.668915 to 9.920129,78.110878","timestamp":"2025-11-04T13:59:21.066Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-04T13:59:22.577Z"}
+{"level":"info","message":"Route optimization request: start=\"Nellore\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-05T03:11:53.412Z"}
+{"level":"info","message":"Geocoding start location: \"Nellore\"","timestamp":"2025-11-05T03:11:53.412Z"}
+{"level":"info","message":"TomTom geocoding successful for Nellore","timestamp":"2025-11-05T03:11:54.140Z"}
+{"lat":14.413352,"level":"info","lon":79.962271,"message":"Start coordinates result:","timestamp":"2025-11-05T03:11:54.140Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-11-05T03:11:54.140Z"}
+{"level":"info","message":"TomTom geocoding successful for Chennai","timestamp":"2025-11-05T03:11:54.392Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-11-05T03:11:54.392Z"}
+{"level":"info","message":"Optimizing route from 14.413352,79.962271 to 13.0720922,80.2018554","timestamp":"2025-11-05T03:11:54.393Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-05T03:11:56.089Z"}
+{"level":"info","message":"Route optimization request: start=\"Guntur\", destination=\"Vijayawada\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-05T08:38:27.682Z"}
+{"level":"info","message":"Geocoding start location: \"Guntur\"","timestamp":"2025-11-05T08:38:27.682Z"}
+{"level":"info","message":"TomTom geocoding successful for Guntur","timestamp":"2025-11-05T08:38:28.430Z"}
+{"lat":16.2938076,"level":"info","lon":80.4546722,"message":"Start coordinates result:","timestamp":"2025-11-05T08:38:28.431Z"}
+{"level":"info","message":"Geocoding destination location: \"Vijayawada\"","timestamp":"2025-11-05T08:38:28.432Z"}
+{"level":"info","message":"TomTom geocoding successful for Vijayawada","timestamp":"2025-11-05T08:38:28.646Z"}
+{"lat":16.5094033,"level":"info","lon":80.625039,"message":"Destination coordinates result:","timestamp":"2025-11-05T08:38:28.646Z"}
+{"level":"info","message":"Optimizing route from 16.2938076,80.4546722 to 16.5094033,80.625039","timestamp":"2025-11-05T08:38:28.648Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-05T08:38:31.683Z"}
+{"level":"info","message":"Route optimization request: start=\"Chennai\", destination=\"Ongole\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-24T09:56:10.220Z"}
+{"level":"info","message":"Geocoding start location: \"Chennai\"","timestamp":"2025-11-24T09:56:10.221Z"}
+{"level":"info","message":"TomTom geocoding successful for Chennai","timestamp":"2025-11-24T09:56:11.085Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Start coordinates result:","timestamp":"2025-11-24T09:56:11.085Z"}
+{"level":"info","message":"Geocoding destination location: \"Ongole\"","timestamp":"2025-11-24T09:56:11.085Z"}
+{"level":"info","message":"TomTom geocoding successful for Ongole","timestamp":"2025-11-24T09:56:11.327Z"}
+{"lat":15.4975236,"level":"info","lon":80.0531792,"message":"Destination coordinates result:","timestamp":"2025-11-24T09:56:11.327Z"}
+{"level":"info","message":"Optimizing route from 13.0720922,80.2018554 to 15.4975236,80.0531792","timestamp":"2025-11-24T09:56:11.328Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-24T09:56:14.866Z"}
+{"level":"info","message":"Route optimization request: start=\"Nellore\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-11-25T05:44:26.473Z"}
+{"level":"info","message":"Geocoding start location: \"Nellore\"","timestamp":"2025-11-25T05:44:26.476Z"}
+{"level":"info","message":"TomTom geocoding successful for Nellore","timestamp":"2025-11-25T05:44:27.526Z"}
+{"lat":14.413352,"level":"info","lon":79.962271,"message":"Start coordinates result:","timestamp":"2025-11-25T05:44:27.526Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-11-25T05:44:27.527Z"}
+{"level":"info","message":"TomTom geocoding successful for Chennai","timestamp":"2025-11-25T05:44:27.822Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-11-25T05:44:27.822Z"}
+{"level":"info","message":"Optimizing route from 14.413352,79.962271 to 13.0720922,80.2018554","timestamp":"2025-11-25T05:44:27.823Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-25T05:44:29.924Z"}
+{"level":"info","message":"Route optimization request: start=\"Madurai\", destination=\"Srivilliputhur\", vehicleType=\"bike\", priority=\"fastest\"","timestamp":"2025-11-25T05:49:34.912Z"}
+{"level":"info","message":"Geocoding start location: \"Madurai\"","timestamp":"2025-11-25T05:49:34.912Z"}
+{"level":"info","message":"TomTom geocoding successful for Madurai","timestamp":"2025-11-25T05:49:39.487Z"}
+{"lat":9.920129,"level":"info","lon":78.110878,"message":"Start coordinates result:","timestamp":"2025-11-25T05:49:39.488Z"}
+{"level":"info","message":"Geocoding destination location: \"Srivilliputhur\"","timestamp":"2025-11-25T05:49:39.488Z"}
+{"level":"info","message":"TomTom geocoding successful for Srivilliputhur","timestamp":"2025-11-25T05:49:39.739Z"}
+{"lat":9.511993,"level":"info","lon":77.634285,"message":"Destination coordinates result:","timestamp":"2025-11-25T05:49:39.739Z"}
+{"level":"info","message":"Optimizing route from 9.920129,78.110878 to 9.511993,77.634285","timestamp":"2025-11-25T05:49:39.741Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-11-25T05:49:43.154Z"}
+{"level":"info","message":"Route optimization request: start=\"Chirala\", destination=\"Chennai\", vehicleType=\"car\", priority=\"fastest\"","timestamp":"2025-12-10T00:49:20.953Z"}
+{"level":"info","message":"Geocoding start location: \"Chirala\"","timestamp":"2025-12-10T00:49:20.953Z"}
+{"level":"info","message":"TomTom geocoding successful for Chirala","timestamp":"2025-12-10T00:49:21.836Z"}
+{"lat":15.830201,"level":"info","lon":80.3538044,"message":"Start coordinates result:","timestamp":"2025-12-10T00:49:21.837Z"}
+{"level":"info","message":"Geocoding destination location: \"Chennai\"","timestamp":"2025-12-10T00:49:21.837Z"}
+{"level":"info","message":"TomTom geocoding successful for Chennai","timestamp":"2025-12-10T00:49:22.128Z"}
+{"lat":13.0720922,"level":"info","lon":80.2018554,"message":"Destination coordinates result:","timestamp":"2025-12-10T00:49:22.128Z"}
+{"level":"info","message":"Optimizing route from 15.830201,80.3538044 to 13.0720922,80.2018554","timestamp":"2025-12-10T00:49:22.128Z"}
+{"level":"error","message":"Error storing route optimization in database:","timestamp":"2025-12-10T00:49:25.209Z"}

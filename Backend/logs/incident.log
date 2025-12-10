@@ -1,0 +1,848 @@
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:12:52.194Z"}
+{"level":"warn","message":"Retry attempt 1 after 1870.8160818245492ms delay","timestamp":"2025-09-05T06:12:54.070Z"}
+{"level":"warn","message":"Retry attempt 2 after 2928.665445733017ms delay","timestamp":"2025-09-05T06:12:57.007Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:12:57.016Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:15:26.023Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T06:15:26.023Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:16:00.207Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T06:16:00.207Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:16:34.483Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T06:16:34.483Z"}
+{"level":"error","message":"TomTom incidents API failed:","timestamp":"2025-09-05T06:16:39.488Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:17:11.332Z"}
+{"level":"warn","message":"Retry attempt 1 after 1303.8128705437923ms delay","timestamp":"2025-09-05T06:17:12.640Z"}
+{"level":"warn","message":"Retry attempt 2 after 2569.5022003642057ms delay","timestamp":"2025-09-05T06:17:15.218Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:17:15.226Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:27:00.147Z"}
+{"level":"warn","message":"Retry attempt 1 after 1926.8991640299432ms delay","timestamp":"2025-09-05T06:27:02.111Z"}
+{"level":"warn","message":"Retry attempt 2 after 2740.304120846508ms delay","timestamp":"2025-09-05T06:27:04.878Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:27:04.908Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:30:58.191Z"}
+{"level":"warn","message":"Retry attempt 1 after 1279.1949755472956ms delay","timestamp":"2025-09-05T06:30:59.475Z"}
+{"level":"warn","message":"Retry attempt 2 after 2026.4073873578996ms delay","timestamp":"2025-09-05T06:31:01.511Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:31:01.517Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:32:09.511Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:32:09.517Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:32:09.517Z"}
+{"level":"info","message":"High-accuracy incident prediction request for mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T06:40:14.445Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:40:14.469Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:40:14.469Z"}
+{"level":"info","message":"Geocoded Gurgaon to coordinates: [25.1303603, 82.2736885]","timestamp":"2025-09-05T06:45:51.132Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Gurgaon at [25.1303603, 82.2736885]","timestamp":"2025-09-05T06:45:51.132Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:45:51.170Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:45:51.170Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T06:47:59.306Z"}
+{"level":"info","message":"High-accuracy incident prediction request for mumbai central at [19.076, 72.8777]","timestamp":"2025-09-05T06:47:59.306Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:47:59.339Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:47:59.339Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T06:48:15.309Z"}
+{"level":"info","message":"High-accuracy incident prediction request for mumbai central at [19.076, 72.8777]","timestamp":"2025-09-05T06:48:15.309Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T06:48:15.309Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T06:57:54.095Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T06:57:54.095Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:57:54.247Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:57:54.247Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T06:58:08.504Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T06:58:08.504Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T06:58:08.504Z"}
+{"level":"info","message":"Geocoded Tokyo, Japan to coordinates: [31.6276888, 74.7965501]","timestamp":"2025-09-05T06:58:47.784Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Japan at [31.6276888, 74.7965501]","timestamp":"2025-09-05T06:58:47.785Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T06:58:47.817Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T06:58:47.817Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:01:09.978Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:01:09.978Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:01:09.991Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:01:09.991Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:01:28.407Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:01:28.408Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:01:28.408Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:02:02.710Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:02:02.710Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:02:02.710Z"}
+{"level":"info","message":"Geocoded Tokyo to coordinates: [21.01835, 81.758954]","timestamp":"2025-09-05T07:02:44.130Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo at [21.01835, 81.758954]","timestamp":"2025-09-05T07:02:44.130Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:02:44.143Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:02:44.143Z"}
+{"level":"info","message":"Geocoded tokyo,japan to coordinates: [31.6276888, 74.7965501]","timestamp":"2025-09-05T07:08:45.275Z"}
+{"level":"info","message":"High-accuracy incident prediction request for tokyo,japan at [31.6276888, 74.7965501]","timestamp":"2025-09-05T07:08:45.280Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:08:45.602Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:08:45.602Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:09:30.822Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:09:30.822Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:09:30.908Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:09:30.909Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:09:44.695Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:09:44.696Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:09:44.698Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:09:44.698Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:09:44.737Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:09:44.737Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:09:44.738Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:09:44.738Z"}
+{"level":"info","message":"Geocoded Tokyo Road, Jefferson, IN to coordinates: [25.7607005, 82.6846201]","timestamp":"2025-09-05T07:09:53.618Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo Road, Jefferson, IN at [25.7607005, 82.6846201]","timestamp":"2025-09-05T07:09:53.618Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:09:53.623Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:09:53.624Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:05.208Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:05.209Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:05.209Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:05.210Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:05.210Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:05.210Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:18.409Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:18.409Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:18.409Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:18.413Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:18.413Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:18.413Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:19.281Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:19.281Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:19.281Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:11:28.690Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:11:28.690Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:11:28.712Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:11:28.713Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:31.472Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:11:31.472Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:11:31.472Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:12:20.547Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:12:20.547Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:12:20.548Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:12:20.785Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:12:20.785Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:12:20.785Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:12:24.598Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:12:24.598Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:12:24.614Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:12:24.614Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:14:54.455Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:14:54.455Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:14:54.457Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:14:54.458Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:14:54.484Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:14:54.485Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:14:54.486Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:14:54.486Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:14:59.344Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:14:59.344Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:14:59.348Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:14:59.348Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:17.475Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:17.475Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:17.475Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:17.508Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:17.508Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:17.508Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:20.396Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:20.396Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:20.396Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:31.947Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:31.947Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:31.947Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:15:33.894Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:15:33.899Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:15:33.942Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:15:33.942Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:46.932Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:46.932Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:46.932Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:47.016Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:15:47.016Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:15:47.016Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:16:08.618Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:16:08.618Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:16:08.618Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:16:56.591Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:16:56.592Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:16:56.592Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:16:56.617Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:16:56.617Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:16:56.617Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:21.896Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:21.896Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:17:21.897Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:21.898Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:21.898Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:17:21.898Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:33.168Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:33.168Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:17:33.169Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:33.246Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:17:33.247Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:17:33.247Z"}
+{"level":"info","message":"Geocoded Tokat Centre to coordinates: [26.143743, 93.104454]","timestamp":"2025-09-05T07:17:50.926Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokat Centre at [26.143743, 93.104454]","timestamp":"2025-09-05T07:17:50.926Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:17:51.065Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:17:51.065Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:02.202Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:02.202Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:18:02.202Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:02.227Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:02.227Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:18:02.227Z"}
+{"level":"info","message":"Geocoded Tokyo, Kanto to coordinates: [24.95664, 93.8700014]","timestamp":"2025-09-05T07:18:09.880Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Tokyo, Kanto at [24.95664, 93.8700014]","timestamp":"2025-09-05T07:18:09.880Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:18:09.894Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:18:09.895Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-09-05T07:18:25.543Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-09-05T07:18:47.370Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-09-05T07:18:48.385Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-09-05T07:18:48.910Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-09-05T07:18:49.269Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:58.147Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:58.147Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:18:58.147Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:58.150Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:18:58.150Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:18:58.150Z"}
+{"level":"info","message":"Geocoded Chirala, Andhra Pradesh to coordinates: [15.830201, 80.3538044]","timestamp":"2025-09-05T07:19:06.417Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh at [15.830201, 80.3538044]","timestamp":"2025-09-05T07:19:06.417Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:19:06.437Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:19:06.438Z"}
+{"level":"info","message":"Geocoded Chirala, Andhra Pradesh to coordinates: [15.830201, 80.3538044]","timestamp":"2025-09-05T07:19:11.857Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh at [15.830201, 80.3538044]","timestamp":"2025-09-05T07:19:11.857Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:19:11.857Z"}
+{"level":"info","message":"Geocoded New York, NY to coordinates: [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:20:48.052Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York, NY at [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:20:48.052Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:20:48.067Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:20:48.068Z"}
+{"level":"info","message":"Geocoded Chirala, Andhra Pradesh to coordinates: [15.830201, 80.3538044]","timestamp":"2025-09-05T07:22:43.069Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh at [15.830201, 80.3538044]","timestamp":"2025-09-05T07:22:43.069Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:22:43.105Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:22:43.107Z"}
+{"level":"info","message":"Geocoded New York, NY to coordinates: [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:22:43.408Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York, NY at [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:22:43.408Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:22:43.408Z"}
+{"level":"info","message":"Geocoded Chirala Mandal, Andhra Pradesh to coordinates: [15.8665077, 80.3807302]","timestamp":"2025-09-05T07:22:56.634Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala Mandal, Andhra Pradesh at [15.8665077, 80.3807302]","timestamp":"2025-09-05T07:22:56.634Z"}
+{"confidence":0.99,"level":"warn","message":"ML prediction below accuracy threshold","required_accuracy":0.93,"timestamp":"2025-09-05T07:22:56.651Z"}
+{"level":"warn","message":"Python ML server unavailable, using fallback algorithm:","timestamp":"2025-09-05T07:22:56.651Z"}
+{"level":"info","message":"Geocoded New York, NY to coordinates: [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:24:22.480Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York, NY at [28.5204734, 77.2868437]","timestamp":"2025-09-05T07:24:22.480Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:24:22.480Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:25:24.467Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, India at [19.076, 72.8777]","timestamp":"2025-09-05T07:25:24.467Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:25:24.612Z"}
+{"level":"warn","message":"Database save failed:","timestamp":"2025-09-05T07:25:26.429Z"}
+{"level":"error","message":"Incident prediction error: Cannot read properties of undefined (reading 'severity')","stack":"TypeError: Cannot read properties of undefined (reading 'severity')\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:429:41\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T07:25:26.430Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:28:03.792Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T07:28:03.792Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:28:03.806Z"}
+{"level":"warn","message":"Database save failed:","timestamp":"2025-09-05T07:28:04.564Z"}
+{"level":"error","message":"Incident prediction error: Cannot read properties of undefined (reading 'severity')","stack":"TypeError: Cannot read properties of undefined (reading 'severity')\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:429:41\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T07:28:04.565Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:28:17.158Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T07:28:17.158Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:28:17.158Z"}
+{"level":"warn","message":"Database save failed:","timestamp":"2025-09-05T07:28:17.785Z"}
+{"level":"error","message":"Incident prediction error: Cannot read properties of undefined (reading 'severity')","stack":"TypeError: Cannot read properties of undefined (reading 'severity')\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:429:41\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T07:28:17.786Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:29:20.534Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T07:29:20.534Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:29:20.534Z"}
+{"level":"warn","message":"Database save failed:","timestamp":"2025-09-05T07:29:21.379Z"}
+{"level":"error","message":"Incident prediction error: Cannot read properties of undefined (reading 'severity')","stack":"TypeError: Cannot read properties of undefined (reading 'severity')\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:429:41\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-09-05T07:29:21.380Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:29:58.064Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T07:29:58.064Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:29:58.119Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:31:07.585Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:31:07.585Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:31:07.605Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:31:07.605Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:31:07.666Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:31:07.671Z"}
+{"level":"info","message":"Geocoded Chirala, Andhra Pradesh to coordinates: [15.830201, 80.3538044]","timestamp":"2025-09-05T07:31:20.860Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh at [15.830201, 80.3538044]","timestamp":"2025-09-05T07:31:20.860Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:31:20.899Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:32:03.408Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:32:03.408Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:32:03.408Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:32:03.409Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:32:03.409Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:32:03.409Z"}
+{"level":"info","message":"Using predefined coordinates for mumbai: [19.076, 72.8777]","timestamp":"2025-09-05T07:33:44.179Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [19.076, 72.8777]","timestamp":"2025-09-05T07:33:44.179Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:33:44.271Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:34:03.399Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:34:03.399Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:34:03.399Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:34:03.402Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:34:03.402Z"}
+{"level":"info","message":"Returning cached high-accuracy incident prediction","timestamp":"2025-09-05T07:34:03.402Z"}
+{"level":"info","message":"Geocoded Chirala, Andhra Pradesh to coordinates: [15.830201, 80.3538044]","timestamp":"2025-09-05T07:34:50.809Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh at [15.830201, 80.3538044]","timestamp":"2025-09-05T07:34:50.809Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:34:50.829Z"}
+{"level":"info","message":"Using predefined coordinates for hyderabad: [17.385, 78.4867]","timestamp":"2025-09-05T07:35:52.373Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Banglore Highway, Ramnas Pura, Hyderabad, Telangana at [17.385, 78.4867]","timestamp":"2025-09-05T07:35:52.373Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:35:52.400Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:36:54.898Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:36:54.898Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:36:54.903Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-05T07:36:54.903Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:36:54.919Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:36:54.920Z"}
+{"level":"info","message":"Geocoded Anand Nagar Road, Kunnur, Srivilliputhur 626101, Tamil Nadu to coordinates: [12.94584, 80.2342363]","timestamp":"2025-09-05T07:37:24.771Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Anand Nagar Road, Kunnur, Srivilliputhur 626101, Tamil Nadu at [12.94584, 80.2342363]","timestamp":"2025-09-05T07:37:24.771Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-05T07:37:24.793Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:52:58.344Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:52:58.346Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:53:12.223Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:53:12.223Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:54:47.653Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:54:47.654Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:54:54.215Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:55:23.655Z"}
+{"level":"error","message":"Incident prediction error: INDIAN_CITIES is not defined","stack":"ReferenceError: INDIAN_CITIES is not defined\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/routes/incident.js:321:35\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at authenticateToken (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/middleware/auth.js:37:14)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:284:15\n    at router.process_params (/Users/mullamabusubhani/Downloads/Sateesh proj/Traffic-Prediction-project/Backend/node_modules/express/lib/router/index.js:346:12)","timestamp":"2025-09-08T17:55:24.403Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.355Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.355Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.356Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.433Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.433Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T19:55:21.433Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T19:55:21.626Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T19:55:21.631Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.849Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.849Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.849Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.902Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.902Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:22:54.902Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:22:54.988Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:22:54.989Z"}
+{"level":"info","message":"Geocoded New Delhi, Delhi to coordinates: [28.6324252, 77.218791]","timestamp":"2025-09-08T20:23:25.435Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New Delhi, Delhi at [28.6324252, 77.218791]","timestamp":"2025-09-08T20:23:25.436Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New Delhi, Delhi at [28.6324252, 77.218791]","timestamp":"2025-09-08T20:23:25.436Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:23:25.459Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.884Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.886Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.886Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.924Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.924Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:28.925Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:26:29.224Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:26:29.229Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:35.001Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:35.001Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:26:35.001Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:26:35.145Z"}
+{"level":"info","message":"Geocoded Mumbai, Maharashtra to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:27:48.042Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:27:48.042Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:27:48.044Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:27:48.081Z"}
+{"level":"info","message":"Geocoded Mumbai, Maharashtra to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:03.203Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:03.203Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:03.203Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:29:03.277Z"}
+{"level":"info","message":"Geocoded Mumbai, Maharashtra to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:15.187Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:15.187Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.9690472, 72.8211807]","timestamp":"2025-09-08T20:29:15.187Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:29:15.221Z"}
+{"level":"info","message":"Geocoded New Delhi, Delhi to coordinates: [28.6324252, 77.218791]","timestamp":"2025-09-08T20:29:53.289Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New Delhi, Delhi at [28.6324252, 77.218791]","timestamp":"2025-09-08T20:29:53.289Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New Delhi, Delhi at [28.6324252, 77.218791]","timestamp":"2025-09-08T20:29:53.289Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:29:53.317Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.770Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.770Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.770Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.775Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.775Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:30:19.776Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:30:19.807Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:30:19.808Z"}
+{"level":"info","message":"Geocoded Banglore Main Road, Sriperumbudur, Tamil Nadu to coordinates: [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:30:45.577Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:30:45.577Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:30:45.577Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:30:45.602Z"}
+{"level":"info","message":"Geocoded Banglore Main Road, Sriperumbudur, Tamil Nadu to coordinates: [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:07.586Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:07.587Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:07.587Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:31:07.592Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:31:17.699Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:31:17.699Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:31:17.699Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:31:17.727Z"}
+{"level":"info","message":"Geocoded Banglore Main Road, Sriperumbudur, Tamil Nadu to coordinates: [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:28.935Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:28.935Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Banglore Main Road, Sriperumbudur, Tamil Nadu at [12.9276401, 79.8837136]","timestamp":"2025-09-08T20:31:28.935Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:31:28.944Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:31:51.747Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:31:51.747Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:31:51.747Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:31:51.760Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:32:28.371Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:32:28.371Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:32:28.371Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:32:28.381Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:21.880Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:21.880Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:21.880Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:33:21.898Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:34.705Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:34.705Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:34.705Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:33:34.712Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:45.218Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:45.219Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:45.219Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:33:45.229Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:53.857Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:53.857Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:33:53.858Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:33:53.868Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:34:07.333Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:34:07.333Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:34:07.333Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:34:07.338Z"}
+{"level":"info","message":"Geocoded New York City to coordinates: [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:34:27.733Z"}
+{"level":"info","message":"High-accuracy incident prediction request for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:34:27.733Z"}
+{"level":"info","message":"Requesting real-time ML prediction for New York City at [22.6791482, 88.4575443]","timestamp":"2025-09-08T20:34:27.733Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:34:27.743Z"}
+{"level":"info","message":"Geocoded Daggubadu, Karamchedu, Andhra Pradesh to coordinates: [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:41:54.266Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:41:54.266Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Daggubadu, Karamchedu, Andhra Pradesh at [15.8740277, 80.2119096]","timestamp":"2025-09-08T20:41:54.266Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-08T20:41:54.355Z"}
+{"level":"info","message":"Geocoded Ward 6, Mela Theru Karai, Nagercoil 629001, Tamil Nadu to coordinates: [8.1864769, 77.4309145]","timestamp":"2025-09-09T04:23:39.364Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Ward 6, Mela Theru Karai, Nagercoil 629001, Tamil Nadu at [8.1864769, 77.4309145]","timestamp":"2025-09-09T04:23:39.365Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Ward 6, Mela Theru Karai, Nagercoil 629001, Tamil Nadu at [8.1864769, 77.4309145]","timestamp":"2025-09-09T04:23:39.365Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-09T04:23:39.407Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-09-09T04:33:17.988Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-09-09T04:33:17.988Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-09-09T04:33:17.988Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-09T04:33:18.027Z"}
+{"level":"info","message":"Geocoded Madurai, Tamil Nadu to coordinates: [9.920129, 78.110878]","timestamp":"2025-09-15T14:21:21.937Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-09-15T14:21:21.938Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-09-15T14:21:21.938Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-15T14:21:22.013Z"}
+{"level":"info","message":"Geocoded Madurai, Tamil Nadu to coordinates: [9.920129, 78.110878]","timestamp":"2025-09-15T14:29:03.446Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-09-15T14:29:03.446Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-09-15T14:29:03.447Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-15T14:29:03.605Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-09-19T05:57:14.043Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-09-19T05:57:14.043Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-09-19T05:57:14.044Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-09-19T05:57:14.082Z"}
+{"level":"info","message":"Geocoded Madurai, Tamil Nadu to coordinates: [9.920129, 78.110878]","timestamp":"2025-10-08T05:16:45.535Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-10-08T05:16:45.536Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-10-08T05:16:45.536Z"}
+{"level":"warn","message":"Retry attempt 1 after 1024.383449067355ms delay","timestamp":"2025-10-08T05:16:46.574Z"}
+{"level":"warn","message":"Retry attempt 2 after 2296.9241334146145ms delay","timestamp":"2025-10-08T05:16:48.876Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-10-08T05:16:48.880Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:16:58.234Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:16:58.234Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:16:58.234Z"}
+{"level":"warn","message":"Retry attempt 1 after 1302.2950921983152ms delay","timestamp":"2025-10-08T05:16:59.539Z"}
+{"level":"warn","message":"Retry attempt 2 after 2935.4070341630286ms delay","timestamp":"2025-10-08T05:17:02.478Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-10-08T05:17:02.481Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:05.578Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:05.578Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:05.579Z"}
+{"level":"warn","message":"Retry attempt 1 after 1968.3207673777779ms delay","timestamp":"2025-10-08T05:17:07.551Z"}
+{"level":"warn","message":"Retry attempt 2 after 2815.83092003584ms delay","timestamp":"2025-10-08T05:17:10.370Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-10-08T05:17:10.374Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:16.515Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:16.515Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:16.515Z"}
+{"level":"warn","message":"Retry attempt 1 after 1793.6637308813295ms delay","timestamp":"2025-10-08T05:17:18.313Z"}
+{"level":"warn","message":"Retry attempt 2 after 2719.13702969062ms delay","timestamp":"2025-10-08T05:17:21.038Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-10-08T05:17:21.039Z"}
+{"level":"info","message":"Geocoded Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu to coordinates: [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:24.743Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:24.744Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Badrab Road, Kunnur, Srivilliputhur 626126, Tamil Nadu at [9.5913437, 77.6802362]","timestamp":"2025-10-08T05:17:24.744Z"}
+{"level":"warn","message":"Retry attempt 1 after 1519.0517864329875ms delay","timestamp":"2025-10-08T05:17:26.267Z"}
+{"level":"warn","message":"Retry attempt 2 after 2802.0679884021083ms delay","timestamp":"2025-10-08T05:17:29.073Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-10-08T05:17:29.076Z"}
+{"level":"info","message":"Geocoded Madurai, Tamil Nadu to coordinates: [9.920129, 78.110878]","timestamp":"2025-10-08T05:18:48.234Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-10-08T05:18:48.235Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-10-08T05:18:48.235Z"}
+{"accuracy":100,"confidence":0.99,"level":"info","message":"High-accuracy incident prediction received","timestamp":"2025-10-08T05:18:48.250Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-11-04T19:14:42.769Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-11-04T19:16:10.623Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-11-04T19:16:24.038Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-11-04T19:16:25.615Z"}
+{"level":"error","message":"Geocoding failed:","timestamp":"2025-11-04T19:23:55.858Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu, IN: [13.0836939, 80.270186]","timestamp":"2025-11-05T03:23:52.411Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu, IN at [13.0836939, 80.270186]","timestamp":"2025-11-05T03:23:52.412Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu, IN at [13.0836939, 80.270186]","timestamp":"2025-11-05T03:23:52.413Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:23:52.459Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:18.470Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:18.470Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:18.470Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:29:18.501Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:26.732Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:26.732Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:26.732Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:29:26.739Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:51.936Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:51.936Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:29:51.936Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:29:51.942Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:24.445Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:24.446Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:24.446Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:30:24.455Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:35.986Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:35.986Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:30:35.986Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:30:35.993Z"}
+{"level":"info","message":"Geocoded Bengaluru to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:34:10.956Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:34:10.956Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:34:10.956Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:34:10.985Z"}
+{"level":"info","message":"Geocoded Chennai to coordinates: [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:34:11.822Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:34:11.823Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:34:11.823Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:34:11.828Z"}
+{"level":"info","message":"Geocoded Hyderabad to coordinates: [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:34:12.507Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:34:12.507Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:34:12.507Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:34:12.515Z"}
+{"level":"info","message":"Geocoded Mumbai to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:34:13.188Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:34:13.188Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:34:13.189Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:34:13.193Z"}
+{"level":"info","message":"Geocoded Bengaluru to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:42:18.194Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:42:18.195Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:42:18.195Z"}
+{"accuracy":95,"confidence":0.9444,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:42:19.378Z"}
+{"level":"info","message":"Geocoded Chennai to coordinates: [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:42:20.801Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:42:20.802Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:42:20.802Z"}
+{"accuracy":95,"confidence":0.9344,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:42:21.794Z"}
+{"level":"info","message":"Geocoded Hyderabad to coordinates: [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:42:23.344Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:42:23.344Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:42:23.344Z"}
+{"accuracy":95,"confidence":0.9015,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:42:24.131Z"}
+{"level":"info","message":"Geocoded Mumbai to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:42:25.535Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:42:25.535Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:42:25.535Z"}
+{"accuracy":95,"confidence":0.9228,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:42:26.123Z"}
+{"level":"info","message":"Geocoded Bengaluru to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:43:12.133Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:43:12.133Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru at [12.9767463, 77.5752782]","timestamp":"2025-11-05T03:43:12.133Z"}
+{"accuracy":95,"confidence":0.9446,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:43:13.307Z"}
+{"level":"info","message":"Geocoded Chennai to coordinates: [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:43:14.850Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:43:14.852Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai at [13.0720922, 80.2018554]","timestamp":"2025-11-05T03:43:14.852Z"}
+{"accuracy":95,"confidence":0.9342,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:43:15.812Z"}
+{"level":"info","message":"Geocoded Hyderabad to coordinates: [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:43:17.305Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:43:17.305Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T03:43:17.305Z"}
+{"accuracy":95,"confidence":0.9018,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:43:18.039Z"}
+{"level":"info","message":"Geocoded Mumbai to coordinates: [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:43:19.531Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:43:19.532Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai at [18.9690472, 72.8211807]","timestamp":"2025-11-05T03:43:19.532Z"}
+{"accuracy":95,"confidence":0.9249,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:43:20.318Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:00.227Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:00.227Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:00.227Z"}
+{"accuracy":95,"confidence":0.9028,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:46:01.137Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:14.062Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:14.062Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:46:14.062Z"}
+{"accuracy":95,"confidence":0.9034,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:46:14.850Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T03:47:29.356Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:47:29.356Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T03:47:29.356Z"}
+{"accuracy":95,"confidence":0.9034,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:47:30.254Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:48:33.709Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:48:33.709Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T03:48:33.709Z"}
+{"accuracy":95,"confidence":0.8952,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T03:48:34.406Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:46.949Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:46.949Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:46.949Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:17:49.713Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:58.622Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:58.622Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:17:58.622Z"}
+{"accuracy":95,"confidence":0.9,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:18:00.472Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:28:58.672Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:28:58.672Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:28:58.672Z"}
+{"accuracy":95,"confidence":0.9078,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:29:00.453Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:14.690Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:14.690Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:14.690Z"}
+{"accuracy":95,"confidence":0.9073,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:29:15.822Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:25.155Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:25.155Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:25.155Z"}
+{"accuracy":95,"confidence":0.9073,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:29:28.151Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:35.607Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:35.607Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:35.607Z"}
+{"accuracy":95,"confidence":0.9073,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:29:39.455Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:47.613Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:47.613Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:29:47.613Z"}
+{"accuracy":95,"confidence":0.9073,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:29:49.608Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana, IN: [17.360589, 78.4740613]","timestamp":"2025-11-05T06:32:18.726Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:32:18.726Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana, IN at [17.360589, 78.4740613]","timestamp":"2025-11-05T06:32:18.726Z"}
+{"accuracy":95,"confidence":0.9087,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:32:19.661Z"}
+{"level":"info","message":"Using provided coordinates for Chirala, Andhra Pradesh, IN: [15.8361517, 80.3636644]","timestamp":"2025-11-05T06:32:39.562Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-05T06:32:39.562Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chirala, Andhra Pradesh, IN at [15.8361517, 80.3636644]","timestamp":"2025-11-05T06:32:39.562Z"}
+{"level":"info","message":"Geocoded Bangalore to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:39.844Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bangalore at [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:39.845Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bangalore at [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:39.845Z"}
+{"accuracy":95,"confidence":0.9427,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:32:40.790Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:32:40.992Z"}
+{"level":"info","message":"Geocoded Bangalore to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:50.552Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bangalore at [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:50.552Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bangalore at [12.9767463, 77.5752782]","timestamp":"2025-11-05T06:32:50.552Z"}
+{"accuracy":95,"confidence":0.9423,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:32:54.698Z"}
+{"level":"info","message":"Geocoded Hyderabad to coordinates: [17.3617194, 78.4751689]","timestamp":"2025-11-05T06:33:07.746Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T06:33:07.746Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad at [17.3617194, 78.4751689]","timestamp":"2025-11-05T06:33:07.746Z"}
+{"accuracy":95,"confidence":0.9087,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:33:21.071Z"}
+{"level":"info","message":"Using provided coordinates for Ongole, Andhra Pradesh, IN: [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:15.918Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Ongole, Andhra Pradesh, IN at [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:15.919Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Ongole, Andhra Pradesh, IN at [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:15.920Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:34:16.542Z"}
+{"level":"info","message":"Using provided coordinates for Ongole, Andhra Pradesh, IN: [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:32.042Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Ongole, Andhra Pradesh, IN at [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:32.042Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Ongole, Andhra Pradesh, IN at [15.5058714, 80.0499454]","timestamp":"2025-11-05T06:34:32.043Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:34:33.055Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh, IN: [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:47.147Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh, IN at [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:47.147Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh, IN at [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:47.148Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:34:47.796Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh, IN: [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:57.094Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh, IN at [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:57.094Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh, IN at [14.4493717, 79.9873763]","timestamp":"2025-11-05T06:34:57.094Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:34:58.116Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:15.313Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:15.313Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:15.313Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:38:16.783Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:23.718Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:23.718Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:23.718Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:38:24.529Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:32.557Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:32.557Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:32.557Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:38:33.187Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:42.367Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:42.367Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:42.367Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:38:43.905Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:51.998Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:51.998Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:51.998Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:38:53.023Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:59.192Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:59.192Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:38:59.192Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:39:00.299Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:10.219Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:10.219Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:10.219Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:39:11.028Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada, Andhra Pradesh, IN: [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:25.912Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:25.912Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada, Andhra Pradesh, IN at [16.5087586, 80.6185102]","timestamp":"2025-11-05T06:39:25.912Z"}
+{"accuracy":95,"confidence":0.9411,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T06:39:26.701Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada Central, Andhra Pradesh: [16.509403, 80.625039]","timestamp":"2025-11-05T07:08:48.375Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada Central, Andhra Pradesh at [16.509403, 80.625039]","timestamp":"2025-11-05T07:08:48.375Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada Central, Andhra Pradesh at [16.509403, 80.625039]","timestamp":"2025-11-05T07:08:48.376Z"}
+{"accuracy":95,"confidence":0.9267,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:08:48.979Z"}
+{"level":"info","message":"Using provided coordinates for Vijayawada Central, Andhra Pradesh: [16.509403, 80.625039]","timestamp":"2025-11-05T07:09:00.201Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Vijayawada Central, Andhra Pradesh at [16.509403, 80.625039]","timestamp":"2025-11-05T07:09:00.201Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Vijayawada Central, Andhra Pradesh at [16.509403, 80.625039]","timestamp":"2025-11-05T07:09:00.201Z"}
+{"accuracy":95,"confidence":0.9291,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:09:00.921Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana: [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:42.101Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana at [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:42.101Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana at [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:42.101Z"}
+{"accuracy":95,"confidence":0.9068,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:14:43.100Z"}
+{"level":"info","message":"Using provided coordinates for Hyderabad, Telangana: [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:54.795Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Hyderabad, Telangana at [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:54.795Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Hyderabad, Telangana at [17.361719, 78.475169]","timestamp":"2025-11-05T07:14:54.795Z"}
+{"accuracy":95,"confidence":0.9078,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:14:55.777Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:05.111Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:05.111Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:05.112Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:15:06.538Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:29.862Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:29.862Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:29.862Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:15:30.657Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:37.231Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:37.231Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:37.232Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:15:37.820Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:47.497Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:47.497Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:47.497Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:15:48.077Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:53.910Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:53.910Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:15:53.911Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:15:55.733Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:04.542Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:04.542Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:04.542Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:05.154Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:12.593Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:12.593Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:12.593Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:14.478Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:20.957Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:20.957Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:20.957Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:21.631Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:36.093Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:36.093Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:36.093Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:36.699Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:43.842Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:43.842Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:43.842Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:44.373Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:52.126Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:52.126Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:16:52.126Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:16:52.833Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:19:54.246Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:19:54.246Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:19:54.246Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:19:54.883Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:03.319Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:03.319Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:03.319Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:20:03.878Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:19.274Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:19.274Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:19.274Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:20:19.951Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:28.669Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:28.669Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:28.669Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:20:29.370Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:38.635Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:38.636Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:38.636Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:20:39.413Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh: [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:44.197Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:44.197Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh at [14.413352, 79.962271]","timestamp":"2025-11-05T07:20:44.197Z"}
+{"accuracy":95,"confidence":0.86,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:20:44.854Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu: [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:48.697Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:48.697Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:48.697Z"}
+{"level":"warn","message":"Retry attempt 1 after 1005.5463357789957ms delay","timestamp":"2025-11-05T07:23:49.728Z"}
+{"level":"warn","message":"Retry attempt 2 after 2140.2878821026648ms delay","timestamp":"2025-11-05T07:23:51.874Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:23:51.881Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu: [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:58.581Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:58.581Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu at [9.920129, 78.110878]","timestamp":"2025-11-05T07:23:58.582Z"}
+{"level":"warn","message":"Retry attempt 1 after 1493.2760432235737ms delay","timestamp":"2025-11-05T07:24:00.079Z"}
+{"level":"warn","message":"Retry attempt 2 after 2322.9795764206815ms delay","timestamp":"2025-11-05T07:24:02.408Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:24:02.413Z"}
+{"level":"info","message":"Geocoded Bengaluru, Karnataka to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:25:51.644Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:25:51.644Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:25:51.644Z"}
+{"level":"warn","message":"Retry attempt 1 after 1830.4393256514772ms delay","timestamp":"2025-11-05T07:25:53.481Z"}
+{"level":"warn","message":"Retry attempt 2 after 2075.856993590605ms delay","timestamp":"2025-11-05T07:25:55.559Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:25:55.563Z"}
+{"level":"info","message":"Geocoded Bengaluru, Karnataka to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:03.323Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:03.323Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:03.324Z"}
+{"level":"warn","message":"Retry attempt 1 after 1942.7399889900507ms delay","timestamp":"2025-11-05T07:28:05.276Z"}
+{"level":"warn","message":"Retry attempt 2 after 2713.1225265101675ms delay","timestamp":"2025-11-05T07:28:07.993Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:28:07.998Z"}
+{"level":"info","message":"Geocoded Bengaluru, Karnataka to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:39.971Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:39.971Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:28:39.971Z"}
+{"level":"warn","message":"Retry attempt 1 after 1605.1724987135908ms delay","timestamp":"2025-11-05T07:28:41.585Z"}
+{"level":"warn","message":"Retry attempt 2 after 2257.6289687136314ms delay","timestamp":"2025-11-05T07:28:43.848Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:28:43.856Z"}
+{"level":"info","message":"Geocoded Bengaluru, Karnataka to coordinates: [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:29:22.438Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:29:22.438Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Bengaluru, Karnataka at [12.9767463, 77.5752782]","timestamp":"2025-11-05T07:29:22.438Z"}
+{"level":"warn","message":"Retry attempt 1 after 1308.7676260991389ms delay","timestamp":"2025-11-05T07:29:23.754Z"}
+{"level":"warn","message":"Retry attempt 2 after 2524.0591209442837ms delay","timestamp":"2025-11-05T07:29:26.287Z"}
+{"level":"error","message":"High-accuracy ML prediction failed:","timestamp":"2025-11-05T07:29:26.294Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:49.086Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:49.086Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:49.086Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:30:49.101Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:58.620Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:58.620Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:30:58.620Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:30:58.626Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:05.255Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:05.255Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:05.255Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:05.261Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:10.986Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:10.986Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:10.986Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:10.990Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:16.545Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:16.545Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:16.545Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:16.548Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:20.937Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:20.937Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:20.937Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:20.941Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:25.218Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:25.218Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:25.218Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:25.221Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:30.989Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:30.989Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:30.990Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:30.997Z"}
+{"level":"info","message":"Using provided coordinates for Chennai, Tamil Nadu: [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:39.379Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:39.379Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Chennai, Tamil Nadu at [13.072092, 80.201855]","timestamp":"2025-11-05T07:31:39.379Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:31:39.384Z"}
+{"level":"info","message":"Using provided coordinates for Mumbai, Maharashtra: [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:00.150Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:00.150Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:00.150Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:50:00.183Z"}
+{"level":"info","message":"Using provided coordinates for Mumbai, Maharashtra: [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:05.257Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:05.257Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:05.257Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:50:05.264Z"}
+{"level":"info","message":"Using provided coordinates for Mumbai, Maharashtra: [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:09.379Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:09.379Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:09.379Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:50:09.386Z"}
+{"level":"info","message":"Using provided coordinates for Mumbai, Maharashtra: [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:14.964Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:14.964Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:14.964Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:50:14.969Z"}
+{"level":"info","message":"Using provided coordinates for Mumbai, Maharashtra: [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:19.486Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:19.486Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Mumbai, Maharashtra at [18.969047, 72.821181]","timestamp":"2025-11-05T07:50:19.487Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T07:50:19.497Z"}
+{"level":"info","message":"Using provided coordinates for Nellore, Andhra Pradesh, Andhra Pradesh, IN: [14.413352, 79.962271]","timestamp":"2025-11-05T08:03:05.140Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Nellore, Andhra Pradesh, Andhra Pradesh, IN at [14.413352, 79.962271]","timestamp":"2025-11-05T08:03:05.140Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Nellore, Andhra Pradesh, Andhra Pradesh, IN at [14.413352, 79.962271]","timestamp":"2025-11-05T08:03:05.140Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:03:05.237Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:07:59.584Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:07:59.584Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:07:59.584Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:07:59.606Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:10.574Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:10.574Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:10.574Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:08:10.584Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:27.052Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:27.052Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:08:27.052Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:08:27.058Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:20.744Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:20.745Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:20.745Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:10:20.756Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:26.384Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:26.384Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:26.384Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:10:26.386Z"}
+{"level":"info","message":"Using provided coordinates for Madurai, Tamil Nadu, Tamil Nadu, IN: [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:35.156Z"}
+{"level":"info","message":"High-accuracy incident prediction request for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:35.156Z"}
+{"level":"info","message":"Requesting real-time ML prediction for Madurai, Tamil Nadu, Tamil Nadu, IN at [9.920129, 78.110878]","timestamp":"2025-11-05T08:10:35.156Z"}
+{"accuracy":95,"confidence":0.88,"level":"info","message":"High-accuracy incident prediction received","model":"IncidentTomTom-v1","timestamp":"2025-11-05T08:10:35.160Z"}
